@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JBLogger: JBLogger</title>
+<title>JBLogger: JBLogger - A Simple Logger Library for Arduino</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -89,11 +89,62 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title"><a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> </div></div>
+  <div class="headertitle"><div class="title"><a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> - A Simple Logger Library for Arduino </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> is a simple to use logger library for Arduino</p>
-<p>This library provides a simple and versatile logger for Arduino with different log levels and customizable settings. </p>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> <img src="https://img.shields.io/badge/Version-1.0.0-blue" alt="Version" class="inline"/> <img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="GitHub license" style="pointer-events: none;" class="inline"/> <img src="https://img.shields.io/badge/Arduino-Compatible-blue" alt="Arduino Compatible" class="inline"/> <img src="https://img.shields.io/github/v/release/jonnybergdahl/Bergdahl_JBLogger" alt="GitHub release" class="inline"/></p>
+<p><b><a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a></b> is a lightweight and easy-to-use logger library for Arduino. It allows you to add logging capabilities to your Arduino projects with various log levels, message formatting, and customization options.</p>
+<h1><a class="anchor" id="autotoc_md1"></a>
+Features</h1>
+<ul>
+<li>Log messages with different log levels: ERROR, WARNING, INFO, DEBUG, and TRACE.</li>
+<li>Control whether to display the log level, module name, and timestamp in log messages.</li>
+<li>Support for various message formats, including const char*, String, and std::string (if enabled).</li>
+<li>Support for logging hex and ASCII</li>
+<li>Simple and straightforward API for logging messages.</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
+Installation</h1>
+<ol type="1">
+<li>Download the <a href="https://github.com/jonnybergdahl/Bergdahl_JBLogger/releases">latest release</a> from the GitHub repository.</li>
+<li>In the Arduino IDE, navigate to <b>Sketch &gt; Include Library &gt; Add .ZIP Library</b> and select the downloaded ZIP file.</li>
+<li>The <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> library is now installed and ready to use in your Arduino projects.</li>
+</ol>
+<h1><a class="anchor" id="autotoc_md3"></a>
+Usage</h1>
+<p>To get started with <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a>, include the library in your Arduino sketch and create a <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> instance:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jblogger_8h.html">JBLogger.h</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_class" href="class_j_b_logger.html">JBLogger</a> logger(<span class="stringliteral">&quot;MyModule&quot;</span>, <a class="code hl_enumvalue" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9a538b2b6e011479d408ecd2be0f6d6177">LOG_LEVEL_DEBUG</a>);</div>
+<div class="line">``</div>
+<div class="line"> </div>
+<div class="line">Here<span class="stringliteral">&#39;s an example of how to log messages with different log levels:</span></div>
+<div class="ttc" id="aclass_j_b_logger_html"><div class="ttname"><a href="class_j_b_logger.html">JBLogger</a></div><div class="ttdoc">Logging class.</div><div class="ttdef"><b>Definition</b> jblogger.h:46</div></div>
+<div class="ttc" id="ajblogger_8h_html"><div class="ttname"><a href="jblogger_8h.html">jblogger.h</a></div></div>
+<div class="ttc" id="ajblogger_8h_html_aca1fd1d8935433e6ba2e3918214e07f9a538b2b6e011479d408ecd2be0f6d6177"><div class="ttname"><a href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9a538b2b6e011479d408ecd2be0f6d6177">LOG_LEVEL_DEBUG</a></div><div class="ttdeci">@ LOG_LEVEL_DEBUG</div><div class="ttdoc">Debug logging.</div><div class="ttdef"><b>Definition</b> jblogger.h:35</div></div>
+</div><!-- fragment --><p> cpp logger.error("This is an error message"); logger.warning("This is a warning message"); logger.info("This is an info message"); logger.debug("This is a debug message"); logger.trace("This is a trace message"); </p><div class="fragment"><div class="line">This will output the following to the serial monitor:</div>
+</div><!-- fragment --><p> (31038) E LOG: This is an error message (31038) W LOG: This is a warning message (31038) I LOG: This is an info message (31049) D LOG: This is a debug message (31049) T LOG: This is a trace message </p><div class="fragment"><div class="line">You can use the `setLogLevel()` method to change the log level at runtime, </div>
+<div class="line">which is useful if you want to disable logging in your production code:</div>
+</div><!-- fragment --><p> cpp logger.setLogLevel(LOG_LEVEL_NONE); </p><div class="fragment"><div class="line">The logger supports formatting of log messages with the same syntax as the `printf()` function:</div>
+</div><!-- fragment --><p> cpp logger.info("This is a formatted message with a number: %d", 42); </p><div class="fragment"><div class="line">There is also support for logging data in hex and ASCII formats. Depending </div>
+<div class="line">on your needs there are three different methods for logging data:</div>
+</div><!-- fragment --><p> cpp const char* buffer = "Text\r\nMore text\t\x7f 12345\xff";</p>
+<p>logger.traceDump(buffer, strlen(buffer)); logger.traceHexDump(buffer, strlen(buffer)); logger.traceAsciiDump(buffer, strlen(buffer)); </p><div class="fragment"><div class="line">This will output the data in the following format to the serial monitor:</div>
+<div class="line"> </div>
+<div class="line">traceDump():</div>
+</div><!-- fragment --><p> (31059) T LOG: 00000000: 54 65 78 74 0d 0a 4d 6f 72 65 20 74 65 78 74 09 T e x t . . M o r e t e x t . (31071) T LOG: 00000010: 7f 20 31 32 33 34 35 ff . 1 2 3 4 5 . <br  />
+ </p><div class="fragment"><div class="line">traceHexDump():</div>
+</div><!-- fragment --><p> (31082) T LOG: 54 65 78 74 0d 0a 4d 6f 72 65 20 74 65 78 74 09 7f 20 31 32 33 34 35 ff </p><div class="fragment"><div class="line">traceAsciiDump():</div>
+</div><!-- fragment --><p> (31093) T LOG: Text&lt;CR&gt;&lt;LF&gt;More text&lt;TAB&gt;<del> 12345&lt;NBS&gt; ```</del></p>
+<p><del></del></p>
+<h1><a class="anchor" id="autotoc_md4"></a>
+Documentation</h1>
+<p><del></del></p>
+<p><del>For more details on how to use <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> and customize its behavior, refer to the <a href="https://jonnybergdahl.github.io/jblogger/">JBLogger documentation</a>.</del></p>
+<p><del></del></p>
+<h1><a class="anchor" id="autotoc_md5"></a>
+License</h1>
+<p><del> <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> is distributed under the [MIT License](LICENSE). </del></p>
 </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -25,6 +25,7 @@
 var NAVTREE =
 [
   [ "JBLogger", "index.html", [
+    [ "JBLogger - A Simple Logger Library for Arduino", "index.html", "index" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
       [ "Class Index", "classes.html", null ],
