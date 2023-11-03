@@ -1,3 +1,3 @@
 # jonnybergdahl.github.io
 
-(JBLogger documentation)[jblogger/]
+[JBLogger documentation](jblogger/)
