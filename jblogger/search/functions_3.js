@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['jblogger_0',['JBLogger',['../class_j_b_logger.html#aad07be7f99154dcbefb33b3cabd9da4b',1,'JBLogger']]]
+  ['info_0',['info',['../class_j_b_logger.html#a1eac1944cceaf52ee810bed22aca3afa',1,'JBLogger']]]
 ];
