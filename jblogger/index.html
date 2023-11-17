@@ -105,6 +105,9 @@ Features</h1>
 <li>Simple and straightforward API for logging messages.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md2"></a>
+Documentation</h1>
+<p>For more details on how to use <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> and customize its behavior, refer to the <a href="https://jonnybergdahl.github.io/jblogger/">JBLogger documentation</a>.</p>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Installation</h1>
 <p>You can install the <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> library in the Arduino IDE using the Library Manager. Follow these steps:</p>
 <ol type="1">
@@ -114,7 +117,7 @@ Installation</h1>
 <li>When the <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> library appears in the list, click the "Install" button.</li>
 <li>The library will be downloaded and installed in your Arduino IDE.</li>
 </ol>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Usage</h1>
 <p>To get started with <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a>, include the library in your Arduino sketch and create a <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> instance:</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jblogger_8h.html">JBLogger.h</a>&gt;</span></div>
@@ -140,21 +143,31 @@ Usage</h1>
 <div class="ttc" id="ajblogger_8h_html_aca1fd1d8935433e6ba2e3918214e07f9a69dacb1837e1e37c6ed34cc2ee1d8848"><div class="ttname"><a href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9a69dacb1837e1e37c6ed34cc2ee1d8848">LOG_LEVEL_NONE</a></div><div class="ttdeci">@ LOG_LEVEL_NONE</div><div class="ttdoc">No logging.</div><div class="ttdef"><b>Definition</b> jblogger.h:31</div></div>
 </div><!-- fragment --><p>The logger supports formatting of log messages with the same syntax as the <code>printf()</code> function:</p>
 <div class="fragment"><div class="line">logger.info(<span class="stringliteral">&quot;This is a formatted message with a number: %d&quot;</span>, 42);</div>
-</div><!-- fragment --><p>There is also support for logging data in hex and ASCII formats. Depending on your needs there are three different methods for logging data:</p>
-<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* buffer = <span class="stringliteral">&quot;Text\r\nMore text\t\x7f 12345\xff&quot;</span>;</div>
+</div><!-- fragment --><p>There is also support for logging data in hex and ASCII formats. Depending on your needs there are four different output formats for logging data:</p>
+<div class="fragment"><div class="line"><span class="keyword">const</span> <span class="keywordtype">char</span>* buffer = <span class="stringliteral">&quot;Lorem pixel ipsum\r\nquantum code\t\x09 12345\xffgeek syntax\x07warp drive debugging&quot;</span>;</div>
+<div class="line"><span class="keyword">const</span> uint8_t binary[] { 0xF0, 0xE1, 0xD2, 0xC3, 0xB4, 0xA5, 0x96, 0x87, 0x00, 0xFF };</div>
 <div class="line"> </div>
 <div class="line">logger.traceDump(buffer, strlen(buffer));</div>
 <div class="line">logger.traceHexDump(buffer, strlen(buffer));</div>
 <div class="line">logger.traceAsciiDump(buffer, strlen(buffer));</div>
+<div class="line">logger.traceBinaryDump(binary, <span class="keyword">sizeof</span>(binary));</div>
 </div><!-- fragment --><p>This will output the data in the following format to the serial monitor:</p>
-<p>traceDump(): </p><div class="fragment"><div class="line">(31059) T LOG: 00000000: 54 65 78 74 0d 0a 4d 6f 72 65 20 74 65 78 74 09  Text..More text.</div>
-<div class="line">(31071) T LOG: 00000010: 7f 20 31 32 33 34 35 ff                          . 12345.                         </div>
-</div><!-- fragment --><p> traceHexDump(): </p><div class="fragment"><div class="line">(31082) T LOG: 54 65 78 74 0d 0a 4d 6f 72 65 20 74 65 78 74 09 7f 20 31 32 33 34 35 ff</div>
-</div><!-- fragment --><p> traceAsciiDump(): </p><div class="fragment"><div class="line">(31093) T LOG: Text&lt;CR&gt;&lt;LF&gt;More text&lt;TAB&gt;&lt;DEL&gt; 12345&lt;NBS&gt;</div>
-</div><!-- fragment --><h1><a class="anchor" id="autotoc_md4"></a>
-Documentation</h1>
-<p>For more details on how to use <a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> and customize its behavior, refer to the <a href="https://jonnybergdahl.github.io/jblogger/">JBLogger documentation</a>.</p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<p>traceDump(): </p><div class="fragment"><div class="line">(10771) T LOG: 0000:  4c 6f 72 65 6d 20 70 69 78 65 6c 20 69 70 73 75  Lorem pixel ipsu</div>
+<div class="line">(10782) T LOG: 0010:  6d 0d 0a 71 75 61 6e 74 75 6d 20 63 6f 64 65 09  m..quantum code.</div>
+<div class="line">(10793) T LOG: 0020:  7f 20 31 32 33 34 35 ff 67 65 65 6b 20 73 79 6e  . 12345.geek syn</div>
+<div class="line">(10794) T LOG: 0030:  74 61 78 07 77 61 72 70 20 64 72 69 76 65 20 64  tax.warp drive d</div>
+<div class="line">(10805) T LOG: 0040:  65 62 75 67 67 69 6e 67                          ebugging</div>
+</div><!-- fragment --><p>traceHexDump(): </p><div class="fragment"><div class="line">(10816) T LOG: 0000:  4c 6f 72 65 6d 20 70 69 78 65 6c 20 69 70 73 75 </div>
+<div class="line">(10827) T LOG: 0010:  6d 0d 0a 71 75 61 6e 74 75 6d 20 63 6f 64 65 09 </div>
+<div class="line">(10828) T LOG: 0020:  7f 20 31 32 33 34 35 ff 67 65 65 6b 20 73 79 6e </div>
+<div class="line">(10838) T LOG: 0030:  74 61 78 07 77 61 72 70 20 64 72 69 76 65 20 64 </div>
+<div class="line">(10839) T LOG: 0040:  65 62 75 67 67 69 6e 67</div>
+</div><!-- fragment --><p> traceAsciiDump(): </p><div class="fragment"><div class="line">(10850) T LOG: 0000:  Lorem pixel ipsum&lt;CR&gt;&lt;LF&gt;quantum code&lt;TAB&gt;&lt;DEL&gt; 12345&lt;NBS&gt;geek s</div>
+<div class="line">(10851) T LOG: 002e:  yntax&lt;BEL&gt;warp drive debugging</div>
+</div><!-- fragment --><p> traceBinaryDump(): </p><div class="fragment"><div class="line">(113210) T LOG: 0000:  f0:11110000 e1:11100001 d2:11010010 c3:11000011 </div>
+<div class="line">(113222) T LOG: 0004:  b4:10110100 a5:10100101 96:10010110 87:10000111 </div>
+<div class="line">(113222) T LOG: 0008:  00:00000000 ff:11111111 </div>
+</div><!-- fragment --> <h1><a class="anchor" id="autotoc_md5"></a>
 License</h1>
 <p><a class="el" href="class_j_b_logger.html" title="Logging class.">JBLogger</a> is distributed under the [MIT License](LICENSE). </p>
 </div></div><!-- PageDoc -->
