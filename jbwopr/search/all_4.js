@@ -19,7 +19,7 @@ var searchData=
   ['defconledssetbrightness_16',['defconledssetbrightness',['../class_j_b_wopr_device.html#a0861778fb1713d4c79bd9b478b704b08',1,'JBWoprDevice::defconLedsSetBrightness()'],['../class_j_b_wopr_mqtt_device.html#a38718a29df2ca2467394d049554f2c7b',1,'JBWoprMqttDevice::defconLedsSetBrightness(uint8_t brightness) override']]],
   ['defconledssetcolor_17',['defconledssetcolor',['../class_j_b_wopr_mqtt_device.html#a97c86ce99dd6807640513665cad2bc63',1,'JBWoprMqttDevice::defconLedsSetColor()'],['../class_j_b_wopr_device.html#a152b3777197d0b08d1c926186aa64fec',1,'JBWoprDevice::defconLedsSetColor(uint32_t color)']]],
   ['defconledssetdefconlevel_18',['defconledssetdefconlevel',['../class_j_b_wopr_device.html#aa42f548ab9109ff5dbf15ab7cdb0f144',1,'JBWoprDevice::defconLedsSetDefconLevel()'],['../class_j_b_wopr_mqtt_device.html#ad7c735abf758ce79a41fd4560967dd8b',1,'JBWoprMqttDevice::defconLedsSetDefconLevel()']]],
-  ['device_3a_20commands_19',['Settings state from another device: Commands',['../index.html#autotoc_md6',1,'']]],
+  ['device_3a_20commands_19',['Settings state from another device: Commands',['../index.html#autotoc_md7',1,'']]],
   ['display_20related_20methods_20',['Display related methods',['../group___display_group.html',1,'']]],
   ['displaybrightness_21',['displayBrightness',['../struct_j_b_wopr_configuration.html#a807865a78dd31a8095d164f02f4e33b0',1,'JBWoprConfiguration']]],
   ['displayclear_22',['displayclear',['../group___display_group.html#gaa2c727a46d83244fc4e040417d8b6f0f',1,'JBWoprDevice::displayClear()'],['../class_j_b_wopr_mqtt_device.html#ab17fd2cf9482728264e93cb0bb16bc7f',1,'JBWoprMqttDevice::displayClear() override']]],

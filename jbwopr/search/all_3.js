@@ -1,7 +1,7 @@
 var searchData=
 [
   ['command_5fset_0',['COMMAND_SET',['../class_j_b_wopr_mqtt_device.html#a9905997e957841ab0043ca2365b4a001',1,'JBWoprMqttDevice']]],
-  ['commands_1',['Settings state from another device: Commands',['../index.html#autotoc_md6',1,'']]],
+  ['commands_1',['Settings state from another device: Commands',['../index.html#autotoc_md7',1,'']]],
   ['conf_5fdate_5fformat_5fkey_2',['CONF_DATE_FORMAT_KEY',['../class_j_b_wopr_wi_fi_device.html#a2107b931ae081d5c4fad8c4a1a8ad8ae',1,'JBWoprWiFiDevice']]],
   ['conf_5fdefcon_5fbrightness_5fkey_3',['CONF_DEFCON_BRIGHTNESS_KEY',['../class_j_b_wopr_wi_fi_device.html#aaad37495be7fd5dd5bee6aca99b55d6e',1,'JBWoprWiFiDevice']]],
   ['conf_5fdisplay_5fbrightness_5fkey_4',['CONF_DISPLAY_BRIGHTNESS_KEY',['../class_j_b_wopr_wi_fi_device.html#a4eae7367650d61305a011510268c09a0',1,'JBWoprWiFiDevice']]],

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JBWOPR: Arduino_WOPR</title>
+<title>JBWOPR: JBWOPR</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -90,39 +90,51 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Arduino_WOPR </div></div>
+  <div class="headertitle"><div class="title">JBWOPR </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> Arduino_WOPR is a helper library for the Arduino platform that allows you to easily interface with the Unexpected Maker W.O.P.R. board.</p>
+<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a> JBWOPR is a helper library for the Arduino platform that allows you to easily interface with the Unexpected Maker W.O.P.R. board.</p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Installation</h1>
 <p>Install using the library manager in the Arduino IDE.</p>
 <h1><a class="anchor" id="autotoc_md2"></a>
 Usage</h1>
-<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;Arduino_WOPR.h&gt;</span></div>
+<h2><a class="anchor" id="autotoc_md3"></a>
+Basic JBWoprDevice usage</h2>
+<p>The devices on the board are exposed via the <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> class. The class exposes the following:</p>
+<ul>
+<li>The 12 character display are exposed as an array of <code>Adafruit_AlphaNum4</code>devices</li>
+<li>The 5 DEFCON LED's are exposed as a <code>Adafruit_NeoPixel</code> device</li>
+<li>The buttons are exposed as <code>OneButton</code> devices</li>
+</ul>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jbwopr_8h.html">jbwopr.h</a>&gt;</span></div>
 <div class="line"> </div>
-<div class="line">WOPR wopr;</div>
+<div class="line"><a class="code hl_class" href="class_j_b_wopr_device.html">JBWoprDevice</a> wopr;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">    <span class="comment">// Initialize the WOPR class, passing in the board version </span></div>
+<div class="line">    <span class="comment">// Initialize the JBWoprDevice class, passing in the board version </span></div>
 <div class="line">    <span class="comment">// JBWoprBoardVariant::HAXORZ or JBWoprBoardVariant::ORIGINAL</span></div>
-<div class="line">    wopr.begin(<a class="code hl_enumvalue" href="jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894">JBWoprBoardVariant::HAXORZ</a>);</div>
+<div class="line">    wopr.<a class="code hl_function" href="class_j_b_wopr_device.html#ac6b4a89f4fd1946c80b66aa457d610d2">begin</a>(<a class="code hl_enumvalue" href="jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894">JBWoprBoardVariant::HAXORZ</a>);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
-<div class="line">    wopr.loop();</div>
+<div class="line">    wopr.<a class="code hl_function" href="class_j_b_wopr_device.html#a2c6ff33e1c2b648a66306e8fb3da49e5">loop</a>();</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Add your code here</span></div>
 <div class="line">}</div>
+<div class="ttc" id="aclass_j_b_wopr_device_html"><div class="ttname"><a href="class_j_b_wopr_device.html">JBWoprDevice</a></div><div class="ttdoc">W.O.P.R. device base class.</div><div class="ttdef"><b>Definition</b> jbwopr.h:81</div></div>
+<div class="ttc" id="aclass_j_b_wopr_device_html_a2c6ff33e1c2b648a66306e8fb3da49e5"><div class="ttname"><a href="class_j_b_wopr_device.html#a2c6ff33e1c2b648a66306e8fb3da49e5">JBWoprDevice::loop</a></div><div class="ttdeci">virtual void loop()</div><div class="ttdoc">JBWoprDevice loop.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:135</div></div>
+<div class="ttc" id="aclass_j_b_wopr_device_html_ac6b4a89f4fd1946c80b66aa457d610d2"><div class="ttname"><a href="class_j_b_wopr_device.html#ac6b4a89f4fd1946c80b66aa457d610d2">JBWoprDevice::begin</a></div><div class="ttdeci">virtual bool begin(JBWoprBoardVariant variant=JBWoprBoardVariant::ORIGINAL)</div><div class="ttdoc">Initialize JBWoprDevice.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:31</div></div>
+<div class="ttc" id="ajbwopr_8h_html"><div class="ttname"><a href="jbwopr_8h.html">jbwopr.h</a></div><div class="ttdoc">Main header file for the JBWopr library.</div></div>
 <div class="ttc" id="ajbwopr_8h_html_adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894"><div class="ttname"><a href="jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894">HAXORZ</a></div><div class="ttdeci">@ HAXORZ</div><div class="ttdoc">Haxorz W.O.P.R. board.</div><div class="ttdef"><b>Definition</b> jbwopr.h:30</div></div>
-</div><!-- fragment --><p> The library sets the device id to <code>wopr-&lt;mac_address&gt;</code>. You can change this by calling <code>wopr.setDeviceId("my-device-id")</code> before calling <code>wopr.begin()</code>.</p>
+</div><!-- fragment --><p>The library sets the device id to <code>wopr-&lt;mac_address&gt;</code>. You can change this by calling <code>wopr.setDeviceId("my-device-id")</code> before calling <code>wopr.begin()</code>.</p>
 <p>The <code>WOPR</code> class exposes the defcon LED's as a single LED strip via <code>wopr.defconLeds</code>. It uses the Adafruit_NeoPixel library.</p>
-<h1><a class="anchor" id="autotoc_md3"></a>
+<h1><a class="anchor" id="autotoc_md4"></a>
 MQTT</h1>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 MQTT Topics</h2>
 <p>Device configuration is posted to the <code>&lt;mqtt prefix&gt;/&lt;device_id&gt;/config</code> topic. It is posted at startup and when changes are made by a command. Device state is posted to the <code>&lt;mqtt prefix&gt;/&lt;device_id&gt;/state</code> topic. It is posted at startup and when state is changed by a command.</p>
-<h3><a class="anchor" id="autotoc_md5"></a>
+<h3><a class="anchor" id="autotoc_md6"></a>
 Publishing state from the W.O.P.R.</h3>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -142,10 +154,10 @@ Publishing state from the W.O.P.R.</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">wopr/wopr-jonny/display/brightness   </td><td class="markdownTableBodyNone">50   </td><td class="markdownTableBodyNone"></td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md6"></a>
+<h3><a class="anchor" id="autotoc_md7"></a>
 Settings state from another device: Commands</h3>
 <p>wopr/wopr-jonny/display/text/set wopr/wopr-jonny/display/brightness/set</p>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Home Assistant</h2>
 <p>The state payload is a JSON object with the following properties:</p>
 <div class="fragment"><div class="line">{</div>
