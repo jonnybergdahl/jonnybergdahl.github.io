@@ -2,7 +2,7 @@ var searchData=
 [
   ['setloglevel_0',['setloglevel',['../group___logging_group.html#ga46769ee0609026a0f8c65b4397568a1e',1,'JBWoprDevice::setLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a3afd135434027fa8bb88e1e5696c0ff9',1,'JBWoprWiFiDevice::setLogLevel()']]],
   ['settings_20state_20from_20another_20device_3a_20commands_1',['Settings state from another device: Commands',['../index.html#autotoc_md7',1,'']]],
-  ['startwifi_2',['startWiFi',['../class_j_b_wopr_wi_fi_device.html#a7f278aa6fb5bc2cf1b2ab9b3a5a3b4dc',1,'JBWoprWiFiDevice']]],
+  ['startwifi_2',['startWiFi',['../group___wi_fi_group.html#ga7f278aa6fb5bc2cf1b2ab9b3a5a3b4dc',1,'JBWoprWiFiDevice']]],
   ['state_20from_20another_20device_3a_20commands_3',['Settings state from another device: Commands',['../index.html#autotoc_md7',1,'']]],
   ['state_20from_20the_20w_20o_20p_20r_4',['Publishing state from the W.O.P.R.',['../index.html#autotoc_md6',1,'']]],
   ['state_5foff_5',['STATE_OFF',['../class_j_b_wopr_mqtt_device.html#a6d7fec5b4c8f8265c546d7f6f980a03d',1,'JBWoprMqttDevice']]],

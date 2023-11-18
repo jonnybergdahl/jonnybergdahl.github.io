@@ -6,6 +6,8 @@ var topics =
     [ "DEFCON related methods", "group___defcon_group.html", "group___defcon_group" ],
     [ "Audio related methods", "group___audio_group.html", "group___audio_group" ],
     [ "Button related methods", "group___button_group.html", "group___button_group" ],
-    [ "Logger related methods", "group___logger_group.html", null ],
-    [ "Effects related methods", "group___effects_group.html", "group___effects_group" ]
+    [ "Effects related methods", "group___effects_group.html", "group___effects_group" ],
+    [ "WiFi related methods", "group___wi_fi_group.html", "group___wi_fi_group" ],
+    [ "MQTT related methods", "group___mqtt_group.html", null ],
+    [ "Home Assistant related methods", "group___h_a_group.html", null ]
 ];
