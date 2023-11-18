@@ -10,7 +10,7 @@ var searchData=
   ['jbwoprboardvariant_7',['JBWoprBoardVariant',['../jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053',1,'jbwopr.h']]],
   ['jbwoprconfiguration_8',['JBWoprConfiguration',['../struct_j_b_wopr_configuration.html',1,'']]],
   ['jbwoprdevice_9',['jbwoprdevice',['../class_j_b_wopr_device.html#a6c55183650b6919639b65d4b5205ae88',1,'JBWoprDevice::JBWoprDevice()'],['../class_j_b_wopr_device.html',1,'JBWoprDevice']]],
-  ['jbwoprdevice_20usage_10',['Basic JBWoprDevice usage',['../index.html#autotoc_md3',1,'']]],
+  ['jbwoprdevice_20usage_10',['jbwoprdevice usage',['../index.html#autotoc_md4',1,'Advanced JBWoprDevice usage'],['../index.html#autotoc_md3',1,'Basic JBWoprDevice usage']]],
   ['jbwoprha_2eh_11',['jbwoprha.h',['../jbwoprha_8h.html',1,'']]],
   ['jbwoprhaconfig_12',['JBWoprHAConfig',['../struct_j_b_wopr_h_a_config.html',1,'']]],
   ['jbwoprhadevice_13',['jbwoprhadevice',['../class_j_b_wopr_h_a_device.html',1,'JBWoprHADevice'],['../class_j_b_wopr_h_a_device.html#ab9edbc4d8ae0ed98a15cb5e124fcf0b2',1,'JBWoprHADevice::JBWoprHADevice()']]],
@@ -19,5 +19,5 @@ var searchData=
   ['jbwoprmqttdevice_16',['jbwoprmqttdevice',['../class_j_b_wopr_mqtt_device.html#a2368e793cc1bf6bc706d7376de1983b8',1,'JBWoprMqttDevice::JBWoprMqttDevice()'],['../class_j_b_wopr_mqtt_device.html',1,'JBWoprMqttDevice']]],
   ['jbwoprwifi_2eh_17',['jbwoprwifi.h',['../jbwoprwifi_8h.html',1,'']]],
   ['jbwoprwificonfiguration_18',['JBWoprWiFiConfiguration',['../struct_j_b_wopr_wi_fi_configuration.html',1,'']]],
-  ['jbwoprwifidevice_19',['jbwoprwifidevice',['../class_j_b_wopr_wi_fi_device.html',1,'JBWoprWiFiDevice'],['../class_j_b_wopr_wi_fi_device.html#ad985a8ade67834f0101b6a77d698ec9a',1,'JBWoprWiFiDevice::JBWoprWiFiDevice()']]]
+  ['jbwoprwifidevice_19',['jbwoprwifidevice',['../class_j_b_wopr_wi_fi_device.html#ad985a8ade67834f0101b6a77d698ec9a',1,'JBWoprWiFiDevice::JBWoprWiFiDevice()'],['../class_j_b_wopr_wi_fi_device.html',1,'JBWoprWiFiDevice']]]
 ];

@@ -27,14 +27,15 @@ var NAVTREE =
   [ "JBWOPR", "index.html", [
     [ "Installation", "index.html#autotoc_md1", null ],
     [ "Usage", "index.html#autotoc_md2", [
-      [ "Basic JBWoprDevice usage", "index.html#autotoc_md3", null ]
+      [ "Basic JBWoprDevice usage", "index.html#autotoc_md3", null ],
+      [ "Advanced JBWoprDevice usage", "index.html#autotoc_md4", null ]
     ] ],
-    [ "MQTT", "index.html#autotoc_md4", [
-      [ "MQTT Topics", "index.html#autotoc_md5", [
-        [ "Publishing state from the W.O.P.R.", "index.html#autotoc_md6", null ],
-        [ "Settings state from another device: Commands", "index.html#autotoc_md7", null ]
+    [ "MQTT", "index.html#autotoc_md5", [
+      [ "MQTT Topics", "index.html#autotoc_md6", [
+        [ "Publishing state from the W.O.P.R.", "index.html#autotoc_md7", null ],
+        [ "Settings state from another device: Commands", "index.html#autotoc_md8", null ]
       ] ],
-      [ "Home Assistant", "index.html#autotoc_md8", null ]
+      [ "Home Assistant", "index.html#autotoc_md9", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
