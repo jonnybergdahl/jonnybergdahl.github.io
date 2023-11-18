@@ -1,14 +1,14 @@
 var searchData=
 [
   ['_5fapcallback_0',['_apCallback',['../class_j_b_wopr_wi_fi_device.html#a6e1a688ffb3772e51857312e2d27acc7',1,'JBWoprWiFiDevice']]],
-  ['_5fbuttonbackbottomclick_1',['_buttonBackBottomClick',['../class_j_b_wopr_mqtt_device.html#abc7630b714c426ca80bf4ec2d3b51eb6',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonbackbottomdoubleclick_2',['_buttonBackBottomDoubleClick',['../class_j_b_wopr_mqtt_device.html#a439410b4b96ac312610eeb89221ea58f',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonbacktopclick_3',['_buttonBackTopClick',['../class_j_b_wopr_mqtt_device.html#a64701a694484234479cf38153213dcb2',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonbacktopdoubleclick_4',['_buttonBackTopDoubleClick',['../class_j_b_wopr_mqtt_device.html#a4e700a300346493f37c8e2619bcf13cd',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonfrontleftclick_5',['_buttonFrontLeftClick',['../class_j_b_wopr_mqtt_device.html#ad97fc76776c63c05f660394918f7ac89',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonfrontleftdoubleclick_6',['_buttonFrontLeftDoubleClick',['../class_j_b_wopr_mqtt_device.html#a2ae76b76a435f0e437c55aaa3f134378',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonfrontrightclick_7',['_buttonFrontRightClick',['../class_j_b_wopr_mqtt_device.html#a7b0027b7a8030e3c1a7fe093744891df',1,'JBWoprMqttDevice']]],
-  ['_5fbuttonfrontrightdoubleclick_8',['_buttonFrontRightDoubleClick',['../class_j_b_wopr_mqtt_device.html#aadca35bbf27ca0acb4f0d5eaf857bc4a',1,'JBWoprMqttDevice']]],
+  ['_5fbuttonbackbottomclick_1',['_buttonbackbottomclick',['../class_j_b_wopr_device.html#a254bd90c31fe2201f206a995133d4d82',1,'JBWoprDevice::_buttonBackBottomClick()'],['../class_j_b_wopr_mqtt_device.html#abc7630b714c426ca80bf4ec2d3b51eb6',1,'JBWoprMqttDevice::_buttonBackBottomClick()']]],
+  ['_5fbuttonbackbottomdoubleclick_2',['_buttonbackbottomdoubleclick',['../class_j_b_wopr_device.html#a04a3dba0ad61a18382d79d2d18d1a0b1',1,'JBWoprDevice::_buttonBackBottomDoubleClick()'],['../class_j_b_wopr_mqtt_device.html#a439410b4b96ac312610eeb89221ea58f',1,'JBWoprMqttDevice::_buttonBackBottomDoubleClick()']]],
+  ['_5fbuttonbacktopclick_3',['_buttonbacktopclick',['../class_j_b_wopr_device.html#ac53fadaf4418473f18d94e61e01d2ff4',1,'JBWoprDevice::_buttonBackTopClick()'],['../class_j_b_wopr_mqtt_device.html#a64701a694484234479cf38153213dcb2',1,'JBWoprMqttDevice::_buttonBackTopClick()']]],
+  ['_5fbuttonbacktopdoubleclick_4',['_buttonbacktopdoubleclick',['../class_j_b_wopr_device.html#ac0b51ed3bb714ddcd4892154e8caa98c',1,'JBWoprDevice::_buttonBackTopDoubleClick()'],['../class_j_b_wopr_mqtt_device.html#a4e700a300346493f37c8e2619bcf13cd',1,'JBWoprMqttDevice::_buttonBackTopDoubleClick()']]],
+  ['_5fbuttonfrontleftclick_5',['_buttonfrontleftclick',['../class_j_b_wopr_device.html#a42331942b8c05786b7e9adb3ef0cf91b',1,'JBWoprDevice::_buttonFrontLeftClick()'],['../class_j_b_wopr_mqtt_device.html#ad97fc76776c63c05f660394918f7ac89',1,'JBWoprMqttDevice::_buttonFrontLeftClick()']]],
+  ['_5fbuttonfrontleftdoubleclick_6',['_buttonfrontleftdoubleclick',['../class_j_b_wopr_device.html#a0db09425fe533ab9748c9b19c54e0999',1,'JBWoprDevice::_buttonFrontLeftDoubleClick()'],['../class_j_b_wopr_mqtt_device.html#a2ae76b76a435f0e437c55aaa3f134378',1,'JBWoprMqttDevice::_buttonFrontLeftDoubleClick()']]],
+  ['_5fbuttonfrontrightclick_7',['_buttonfrontrightclick',['../class_j_b_wopr_device.html#a806014eb9e4d5ac7956cdecaadc19c2a',1,'JBWoprDevice::_buttonFrontRightClick()'],['../class_j_b_wopr_mqtt_device.html#a7b0027b7a8030e3c1a7fe093744891df',1,'JBWoprMqttDevice::_buttonFrontRightClick()']]],
+  ['_5fbuttonfrontrightdoubleclick_8',['_buttonfrontrightdoubleclick',['../class_j_b_wopr_device.html#af40c2dde09754724fc8f6b8e3eddadce',1,'JBWoprDevice::_buttonFrontRightDoubleClick()'],['../class_j_b_wopr_mqtt_device.html#aadca35bbf27ca0acb4f0d5eaf857bc4a',1,'JBWoprMqttDevice::_buttonFrontRightDoubleClick()']]],
   ['_5fgetdevicename_9',['_getDeviceName',['../class_j_b_wopr_wi_fi_device.html#acb39d6c469139fd34221feb8a2128881',1,'JBWoprWiFiDevice']]],
   ['_5fgetsubscriptiontopic_10',['_getSubscriptionTopic',['../class_j_b_wopr_mqtt_device.html#ad1cd67269c0c468ba0aaad50b3974299',1,'JBWoprMqttDevice']]],
   ['_5fgettopic_11',['_getTopic',['../class_j_b_wopr_mqtt_device.html#ae9edfac92857f1a4ce7e7aa6a2f0dcc4',1,'JBWoprMqttDevice']]],
@@ -25,5 +25,13 @@ var searchData=
   ['_5fsetconfigfromjsondocument_22',['_setconfigfromjsondocument',['../class_j_b_wopr_h_a_device.html#a73cdd5c678c0e5a331618a6fdc6c4948',1,'JBWoprHADevice::_setConfigFromJsonDocument()'],['../class_j_b_wopr_mqtt_device.html#a8b0b30747d2e3971a9de5918a83f757f',1,'JBWoprMqttDevice::_setConfigFromJsonDocument()'],['../class_j_b_wopr_wi_fi_device.html#ab15079d75e2e013e07125feab9dc358d',1,'JBWoprWiFiDevice::_setConfigFromJsonDocument()']]],
   ['_5fsetjsondocumentfromconfig_23',['_setjsondocumentfromconfig',['../class_j_b_wopr_h_a_device.html#a3ab489d3959884543e95d20b38142fd1',1,'JBWoprHADevice::_setJsonDocumentFromConfig()'],['../class_j_b_wopr_mqtt_device.html#abd6aba89d3575c33ddcb38c8b69357c0',1,'JBWoprMqttDevice::_setJsonDocumentFromConfig()'],['../class_j_b_wopr_wi_fi_device.html#a665806395d59d25d6a23e3bc276c0145',1,'JBWoprWiFiDevice::_setJsonDocumentFromConfig()']]],
   ['_5fsetupwifimanager_24',['_setupwifimanager',['../class_j_b_wopr_h_a_device.html#af31f88716ec772813aa260a3a7922753',1,'JBWoprHADevice::_setupWiFiManager()'],['../class_j_b_wopr_mqtt_device.html#a6e0e46c09bac0ce864b868d376fb6550',1,'JBWoprMqttDevice::_setupWiFiManager()'],['../class_j_b_wopr_wi_fi_device.html#aa867154972ff0ad8486499cbc8284b38',1,'JBWoprWiFiDevice::_setupWiFiManager()']]],
-  ['_5fwebservercallback_25',['_webServerCallback',['../class_j_b_wopr_wi_fi_device.html#af5ebf814b74bc836f188314120915757',1,'JBWoprWiFiDevice']]]
+  ['_5fstaticbuttonbackbottomclickcallback_25',['_staticButtonBackBottomClickCallback',['../class_j_b_wopr_device.html#a3d2fb450c50a0ac2d780723f487fe481',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonbackbottomdoubleclickcallback_26',['_staticButtonBackBottomDoubleClickCallback',['../class_j_b_wopr_device.html#a1a6a5ffc275b9893a6fa7d6b51fe524e',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonbacktopclickcallback_27',['_staticButtonBackTopClickCallback',['../class_j_b_wopr_device.html#ad5c943a7e770623b731f003bf90cbd90',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonbacktopdoubleclickcallback_28',['_staticButtonBackTopDoubleClickCallback',['../class_j_b_wopr_device.html#a105fd6dfa2b5088fff45fb9611f990c8',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonfrontleftclickcallback_29',['_staticButtonFrontLeftClickCallback',['../class_j_b_wopr_device.html#a720f0ba212a988aeb19ca742df77ae02',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonfrontleftdoubleclickcallback_30',['_staticButtonFrontLeftDoubleClickCallback',['../class_j_b_wopr_device.html#a7386deeca3c243609adc265fa466527e',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonfrontrightclickcallback_31',['_staticButtonFrontRightClickCallback',['../class_j_b_wopr_device.html#ad87c55da9cedf68f40b08bcd8844f9cf',1,'JBWoprDevice']]],
+  ['_5fstaticbuttonfrontrightdoubleclickcallback_32',['_staticButtonFrontRightDoubleClickCallback',['../class_j_b_wopr_device.html#abb750f5a0dda9878969bf896f89741dd',1,'JBWoprDevice']]],
+  ['_5fwebservercallback_33',['_webServerCallback',['../class_j_b_wopr_wi_fi_device.html#af5ebf814b74bc836f188314120915757',1,'JBWoprWiFiDevice']]]
 ];

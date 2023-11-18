@@ -16,5 +16,6 @@ var searchData=
   ['conf_5ftime_5fformat_5fkey_13',['CONF_TIME_FORMAT_KEY',['../class_j_b_wopr_wi_fi_device.html#a8d2dd4b7771853d74fe02af0f646b04e',1,'JBWoprWiFiDevice']]],
   ['conf_5fwifi_5fhost_5fname_5fkey_14',['CONF_WIFI_HOST_NAME_KEY',['../class_j_b_wopr_wi_fi_device.html#a38a9c361e1175409103efc69c22540d8',1,'JBWoprWiFiDevice']]],
   ['conf_5fwifi_5fuse_5fweb_5fportal_5fkey_15',['CONF_WIFI_USE_WEB_PORTAL_KEY',['../class_j_b_wopr_wi_fi_device.html#ac341fb1c8c45c19a421b56ded2a89b37',1,'JBWoprWiFiDevice']]],
-  ['config_5ffile_5fname_16',['CONFIG_FILE_NAME',['../class_j_b_wopr_wi_fi_device.html#a10ec92f4ae8607ae284ceebc4699cdd7',1,'JBWoprWiFiDevice']]]
+  ['config_5ffile_5fname_16',['CONFIG_FILE_NAME',['../class_j_b_wopr_wi_fi_device.html#a10ec92f4ae8607ae284ceebc4699cdd7',1,'JBWoprWiFiDevice']]],
+  ['configuration_20related_20methods_17',['Configuration related methods',['../group___config_group.html',1,'']]]
 ];

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JBWOPR: Audio related methods</title>
+<title>JBWOPR: Logging related methods</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('group___audio_group.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('group___logging_group.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -92,85 +92,84 @@ $(document).ready(function(){initNavTree('group___audio_group.html',''); initRes
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">Audio related methods</div></div>
+  <div class="headertitle"><div class="title">Logging related methods</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga8aabc4934f4203c1b125222a265275d3" id="r_ga8aabc4934f4203c1b125222a265275d3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio_group.html#ga8aabc4934f4203c1b125222a265275d3">JBWoprDevice::audioPlayTone</a> (const uint16_t freq)</td></tr>
-<tr class="memdesc:ga8aabc4934f4203c1b125222a265275d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play audio tone.  <br /></td></tr>
-<tr class="separator:ga8aabc4934f4203c1b125222a265275d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab9b140e4d9de90505706e6a5534a480d" id="r_gab9b140e4d9de90505706e6a5534a480d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___audio_group.html#gab9b140e4d9de90505706e6a5534a480d">JBWoprDevice::audioPlayNote</a> (note_t note, uint8_t octave)</td></tr>
-<tr class="memdesc:gab9b140e4d9de90505706e6a5534a480d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Play audio tone.  <br /></td></tr>
-<tr class="separator:gab9b140e4d9de90505706e6a5534a480d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga837070234f2b961d80d3ae5a4b2abadf" id="r_ga837070234f2b961d80d3ae5a4b2abadf"><td class="memItemLeft" align="right" valign="top"><a id="ga837070234f2b961d80d3ae5a4b2abadf" name="ga837070234f2b961d80d3ae5a4b2abadf"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice::audioClear</b> ()</td></tr>
-<tr class="memdesc:ga837070234f2b961d80d3ae5a4b2abadf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop audio playback. <br /></td></tr>
-<tr class="separator:ga837070234f2b961d80d3ae5a4b2abadf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga46769ee0609026a0f8c65b4397568a1e" id="r_ga46769ee0609026a0f8c65b4397568a1e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___logging_group.html#ga46769ee0609026a0f8c65b4397568a1e">JBWoprDevice::setLogLevel</a> (LogLevel level)</td></tr>
+<tr class="memdesc:ga46769ee0609026a0f8c65b4397568a1e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set log level.  <br /></td></tr>
+<tr class="separator:ga46769ee0609026a0f8c65b4397568a1e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga1efbc2e41bb745ea228ac9bdaca99878" id="r_ga1efbc2e41bb745ea228ac9bdaca99878"><td class="memItemLeft" align="right" valign="top">virtual LogLevel&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878">JBWoprDevice::getLogLevel</a> ()</td></tr>
+<tr class="memdesc:ga1efbc2e41bb745ea228ac9bdaca99878"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get log level.  <br /></td></tr>
+<tr class="separator:ga1efbc2e41bb745ea228ac9bdaca99878"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="gab9b140e4d9de90505706e6a5534a480d" name="gab9b140e4d9de90505706e6a5534a480d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gab9b140e4d9de90505706e6a5534a480d">&#9670;&#160;</a></span>audioPlayNote()</h2>
+<a id="ga1efbc2e41bb745ea228ac9bdaca99878" name="ga1efbc2e41bb745ea228ac9bdaca99878"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga1efbc2e41bb745ea228ac9bdaca99878">&#9670;&#160;</a></span>getLogLevel()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void JBWoprDevice::audioPlayNote </td>
+          <td class="memname">LogLevel JBWoprDevice::getLogLevel </td>
           <td>(</td>
-          <td class="paramtype">note_t&#160;</td>
-          <td class="paramname"><em>note</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">uint8_t&#160;</td>
-          <td class="paramname"><em>octave</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>Play audio tone. </p>
+<p>Get log level. </p>
+<dl class="section return"><dt>Returns</dt><dd>Log level </dd></dl>
+
+<p>Reimplemented in <a class="el" href="class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac">JBWoprWiFiDevice</a>.</p>
+
+</div>
+</div>
+<a id="ga46769ee0609026a0f8c65b4397568a1e" name="ga46769ee0609026a0f8c65b4397568a1e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga46769ee0609026a0f8c65b4397568a1e">&#9670;&#160;</a></span>setLogLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprDevice::setLogLevel </td>
+          <td>(</td>
+          <td class="paramtype">LogLevel&#160;</td>
+          <td class="paramname"><em>level</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set log level. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">freq</td><td>Frequency </td></tr>
-    <tr><td class="paramname">octave</td><td>Octave </td></tr>
+    <tr><td class="paramname">level</td><td>Log level </td></tr>
   </table>
   </dd>
 </dl>
 
-</div>
-</div>
-<a id="ga8aabc4934f4203c1b125222a265275d3" name="ga8aabc4934f4203c1b125222a265275d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga8aabc4934f4203c1b125222a265275d3">&#9670;&#160;</a></span>audioPlayTone()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void JBWoprDevice::audioPlayTone </td>
-          <td>(</td>
-          <td class="paramtype">const uint16_t&#160;</td>
-          <td class="paramname"><em>freq</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Play audio tone. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">freq</td><td>Frequency </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Reimplemented in <a class="el" href="class_j_b_wopr_wi_fi_device.html#a3afd135434027fa8bb88e1e5696c0ff9">JBWoprWiFiDevice</a>.</p>
 
 </div>
 </div>
