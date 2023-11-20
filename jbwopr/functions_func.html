@@ -117,6 +117,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>_mqttReconnect()&#160;:&#160;<a class="el" href="class_j_b_wopr_mqtt_device.html#a37b598c077f5cafcb5aa56bdd5397160">JBWoprMqttDevice</a></li>
 <li>_mqttStart()&#160;:&#160;<a class="el" href="class_j_b_wopr_mqtt_device.html#a8f4afdce07cadcc1ede9d5577a77b18a">JBWoprMqttDevice</a></li>
 <li>_mqttStop()&#160;:&#160;<a class="el" href="class_j_b_wopr_mqtt_device.html#aa12f9380722682533cc7e2a4652504bd">JBWoprMqttDevice</a></li>
+<li>_onMqttConnect()&#160;:&#160;<a class="el" href="class_j_b_wopr_h_a_device.html#a89234c7cd3d7f0ef0f8484d98d4a9a89">JBWoprHADevice</a>, <a class="el" href="class_j_b_wopr_mqtt_device.html#aea0713f2527a793e2402151ac6084071">JBWoprMqttDevice</a></li>
 <li>_saveConfiguration()&#160;:&#160;<a class="el" href="class_j_b_wopr_wi_fi_device.html#a02fd432eeb790b6605ac3dd12cc7bfce">JBWoprWiFiDevice</a></li>
 <li>_saveParamsCallback()&#160;:&#160;<a class="el" href="class_j_b_wopr_h_a_device.html#a9ff992ff97074d7b4298d108a5485d00">JBWoprHADevice</a>, <a class="el" href="group___wi_fi_group.html#gaa929e28cfb91a809d69d8cd4df0353fa">JBWoprMqttDevice</a>, <a class="el" href="group___wi_fi_group.html#gafb611a1c08089b66821177ee95a4968a">JBWoprWiFiDevice</a></li>
 <li>_setConfigFromJsonDocument()&#160;:&#160;<a class="el" href="class_j_b_wopr_h_a_device.html#a73cdd5c678c0e5a331618a6fdc6c4948">JBWoprHADevice</a>, <a class="el" href="class_j_b_wopr_mqtt_device.html#a8b0b30747d2e3971a9de5918a83f757f">JBWoprMqttDevice</a>, <a class="el" href="class_j_b_wopr_wi_fi_device.html#ab15079d75e2e013e07125feab9dc358d">JBWoprWiFiDevice</a></li>
@@ -171,13 +172,14 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_e" name="index_e"></a>- e -</h3><ul>
+<li>effectsCurrentEffectIsRunning()&#160;:&#160;<a class="el" href="group___effects_group.html#gabb970eb9b64e9c801ffd20a0cf2315aa">JBWoprDevice</a></li>
+<li>effectsDefaultEffectIsRunning()&#160;:&#160;<a class="el" href="group___effects_group.html#ga0853c86baf3ad654fed67d3c8f813d84">JBWoprDevice</a></li>
 <li>effectsGetCurrentEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#ga5c425469cccac331ce05dab15edf2b6f">JBWoprDevice</a></li>
 <li>effectsGetRegisteredEffects()&#160;:&#160;<a class="el" href="group___effects_group.html#gac3d32e126512bc6494e5a15c40869cc2">JBWoprDevice</a></li>
-<li>effectsIsRunning()&#160;:&#160;<a class="el" href="group___effects_group.html#gaa3c573e2411bd75810a6a41da8ef76d1">JBWoprDevice</a></li>
+<li>effectsRegisterDefaultEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#ga2e55ff70087f154c8e7296a5402f826d">JBWoprDevice</a></li>
 <li>effectsRegisterEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725">JBWoprDevice</a></li>
 <li>effectsStartCurrentEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#ga664c66957213484e1122fdd854483cd0">JBWoprDevice</a></li>
 <li>effectsStartEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#ga53dca9127493b11608525713153eb18a">JBWoprDevice</a></li>
-<li>effectsStopCurrent()&#160;:&#160;<a class="el" href="group___effects_group.html#ga11846827a31fbe3fa257251eca3253b5">JBWoprDevice</a></li>
 <li>effectsStopCurrentEffect()&#160;:&#160;<a class="el" href="group___effects_group.html#gac4283877fbbde90ccbda71d587d309fe">JBWoprDevice</a></li>
 </ul>
 
@@ -192,7 +194,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 <li>getConfiguration()&#160;:&#160;<a class="el" href="group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62">JBWoprDevice</a></li>
 <li>getDefconLeds()&#160;:&#160;<a class="el" href="group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f">JBWoprDevice</a></li>
 <li>getDisplay()&#160;:&#160;<a class="el" href="group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91">JBWoprDevice</a></li>
-<li>getLogLevel()&#160;:&#160;<a class="el" href="group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878">JBWoprDevice</a>, <a class="el" href="class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac">JBWoprWiFiDevice</a></li>
+<li>getLogLevel()&#160;:&#160;<a class="el" href="group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878">JBWoprDevice</a>, <a class="el" href="class_j_b_wopr_h_a_device.html#a810e1edff463649febb0001b1a65f877">JBWoprHADevice</a>, <a class="el" href="class_j_b_wopr_mqtt_device.html#a8808b8ba9b999a2a44c4ca41a69c41b0">JBWoprMqttDevice</a>, <a class="el" href="class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac">JBWoprWiFiDevice</a></li>
 <li>getRightAlignedString()&#160;:&#160;<a class="el" href="class_j_b_string_helper.html#a89ae72ec201a3db2c402df246d681a8b">JBStringHelper</a></li>
 <li>getTime()&#160;:&#160;<a class="el" href="class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58">JBTimeHelper</a></li>
 <li>getUtcOffsetInSeconds()&#160;:&#160;<a class="el" href="class_j_b_time_helper.html#ad7072aaf0dffb88193a1187c24f05800">JBTimeHelper</a></li>
@@ -223,7 +225,7 @@ $(document).ready(function(){initNavTree('functions_func.html',''); initResizabl
 
 
 <h3><a id="index_s" name="index_s"></a>- s -</h3><ul>
-<li>setLogLevel()&#160;:&#160;<a class="el" href="group___logging_group.html#ga46769ee0609026a0f8c65b4397568a1e">JBWoprDevice</a>, <a class="el" href="class_j_b_wopr_wi_fi_device.html#a3afd135434027fa8bb88e1e5696c0ff9">JBWoprWiFiDevice</a></li>
+<li>setLogLevel()&#160;:&#160;<a class="el" href="group___logging_group.html#ga46769ee0609026a0f8c65b4397568a1e">JBWoprDevice</a>, <a class="el" href="class_j_b_wopr_h_a_device.html#a859bf0b015e8170bb943153ecba36451">JBWoprHADevice</a>, <a class="el" href="class_j_b_wopr_mqtt_device.html#ab2193505be61264b9310f4d0814371fc">JBWoprMqttDevice</a>, <a class="el" href="class_j_b_wopr_wi_fi_device.html#a3afd135434027fa8bb88e1e5696c0ff9">JBWoprWiFiDevice</a></li>
 <li>startWiFi()&#160;:&#160;<a class="el" href="group___wi_fi_group.html#ga7f278aa6fb5bc2cf1b2ab9b3a5a3b4dc">JBWoprWiFiDevice</a></li>
 <li>stringToRgb()&#160;:&#160;<a class="el" href="class_j_b_string_helper.html#adf0c70c4980e2b474ddabd36200db13f">JBStringHelper</a></li>
 </ul>

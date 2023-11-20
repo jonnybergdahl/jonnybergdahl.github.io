@@ -9,7 +9,7 @@ var searchData=
   ['getconfiguration_6',['getConfiguration',['../group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62',1,'JBWoprDevice']]],
   ['getdefconleds_7',['getDefconLeds',['../group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f',1,'JBWoprDevice']]],
   ['getdisplay_8',['getDisplay',['../group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91',1,'JBWoprDevice']]],
-  ['getloglevel_9',['getloglevel',['../group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878',1,'JBWoprDevice::getLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac',1,'JBWoprWiFiDevice::getLogLevel()']]],
+  ['getloglevel_9',['getloglevel',['../group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878',1,'JBWoprDevice::getLogLevel()'],['../class_j_b_wopr_h_a_device.html#a810e1edff463649febb0001b1a65f877',1,'JBWoprHADevice::getLogLevel()'],['../class_j_b_wopr_mqtt_device.html#a8808b8ba9b999a2a44c4ca41a69c41b0',1,'JBWoprMqttDevice::getLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac',1,'JBWoprWiFiDevice::getLogLevel()']]],
   ['getrightalignedstring_10',['getRightAlignedString',['../class_j_b_string_helper.html#a89ae72ec201a3db2c402df246d681a8b',1,'JBStringHelper']]],
   ['gettime_11',['getTime',['../class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58',1,'JBTimeHelper']]],
   ['getutcoffsetinseconds_12',['getUtcOffsetInSeconds',['../class_j_b_time_helper.html#ad7072aaf0dffb88193a1187c24f05800',1,'JBTimeHelper']]]

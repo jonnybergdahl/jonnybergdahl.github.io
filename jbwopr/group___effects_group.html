@@ -98,6 +98,12 @@ $(document).ready(function(){initNavTree('group___effects_group.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ga2e55ff70087f154c8e7296a5402f826d" id="r_ga2e55ff70087f154c8e7296a5402f826d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga2e55ff70087f154c8e7296a5402f826d">JBWoprDevice::effectsRegisterDefaultEffect</a> (JBWoprEffectBase *effect)</td></tr>
+<tr class="memdesc:ga2e55ff70087f154c8e7296a5402f826d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register default effect.  <br /></td></tr>
+<tr class="separator:ga2e55ff70087f154c8e7296a5402f826d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga0853c86baf3ad654fed67d3c8f813d84" id="r_ga0853c86baf3ad654fed67d3c8f813d84"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga0853c86baf3ad654fed67d3c8f813d84">JBWoprDevice::effectsDefaultEffectIsRunning</a> ()</td></tr>
+<tr class="memdesc:ga0853c86baf3ad654fed67d3c8f813d84"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if default effect is running.  <br /></td></tr>
+<tr class="separator:ga0853c86baf3ad654fed67d3c8f813d84"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae9419460a7d1e606c334f1a2ec744725" id="r_gae9419460a7d1e606c334f1a2ec744725"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725">JBWoprDevice::effectsRegisterEffect</a> (JBWoprEffectBase *effect)</td></tr>
 <tr class="memdesc:gae9419460a7d1e606c334f1a2ec744725"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register effect.  <br /></td></tr>
 <tr class="separator:gae9419460a7d1e606c334f1a2ec744725"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -115,9 +121,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice::effects
 void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice::effectsStopCurrentEffect</b> ()</td></tr>
 <tr class="memdesc:gac4283877fbbde90ccbda71d587d309fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop current effect. <br /></td></tr>
 <tr class="separator:gac4283877fbbde90ccbda71d587d309fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa3c573e2411bd75810a6a41da8ef76d1" id="r_gaa3c573e2411bd75810a6a41da8ef76d1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gaa3c573e2411bd75810a6a41da8ef76d1">JBWoprDevice::effectsIsRunning</a> ()</td></tr>
-<tr class="memdesc:gaa3c573e2411bd75810a6a41da8ef76d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if current effect is running.  <br /></td></tr>
-<tr class="separator:gaa3c573e2411bd75810a6a41da8ef76d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gabb970eb9b64e9c801ffd20a0cf2315aa" id="r_gabb970eb9b64e9c801ffd20a0cf2315aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gabb970eb9b64e9c801ffd20a0cf2315aa">JBWoprDevice::effectsCurrentEffectIsRunning</a> ()</td></tr>
+<tr class="memdesc:gabb970eb9b64e9c801ffd20a0cf2315aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if current effect is running.  <br /></td></tr>
+<tr class="separator:gabb970eb9b64e9c801ffd20a0cf2315aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga53dca9127493b11608525713153eb18a" id="r_ga53dca9127493b11608525713153eb18a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga53dca9127493b11608525713153eb18a">JBWoprDevice::effectsStartEffect</a> (JBWoprEffectBase *effect)</td></tr>
 <tr class="memdesc:ga53dca9127493b11608525713153eb18a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start effect.  <br /></td></tr>
 <tr class="separator:ga53dca9127493b11608525713153eb18a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -127,13 +133,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice::effects
 <tr class="memitem:gaba55c8980d41e7aaa80c2185e8ceb48e" id="r_gaba55c8980d41e7aaa80c2185e8ceb48e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gaba55c8980d41e7aaa80c2185e8ceb48e">JBWoprDevice::effectsStartEffect</a> (const char *name)</td></tr>
 <tr class="memdesc:gaba55c8980d41e7aaa80c2185e8ceb48e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start named effect.  <br /></td></tr>
 <tr class="separator:gaba55c8980d41e7aaa80c2185e8ceb48e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga11846827a31fbe3fa257251eca3253b5" id="r_ga11846827a31fbe3fa257251eca3253b5"><td class="memItemLeft" align="right" valign="top"><a id="ga11846827a31fbe3fa257251eca3253b5" name="ga11846827a31fbe3fa257251eca3253b5"></a>
-virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice::effectsStopCurrent</b> ()</td></tr>
-<tr class="memdesc:ga11846827a31fbe3fa257251eca3253b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop current effect. <br /></td></tr>
-<tr class="separator:ga11846827a31fbe3fa257251eca3253b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gabb970eb9b64e9c801ffd20a0cf2315aa" name="gabb970eb9b64e9c801ffd20a0cf2315aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gabb970eb9b64e9c801ffd20a0cf2315aa">&#9670;&#160;</a></span>effectsCurrentEffectIsRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JBWoprDevice::effectsCurrentEffectIsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if current effect is running. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if current effect is running </dd></dl>
+
+</div>
+</div>
+<a id="ga0853c86baf3ad654fed67d3c8f813d84" name="ga0853c86baf3ad654fed67d3c8f813d84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga0853c86baf3ad654fed67d3c8f813d84">&#9670;&#160;</a></span>effectsDefaultEffectIsRunning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JBWoprDevice::effectsDefaultEffectIsRunning </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Check if default effect is running. </p>
+<dl class="section return"><dt>Returns</dt><dd>True if default effect is running </dd></dl>
+
+</div>
+</div>
 <a id="ga5c425469cccac331ce05dab15edf2b6f" name="ga5c425469cccac331ce05dab15edf2b6f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga5c425469cccac331ce05dab15edf2b6f">&#9670;&#160;</a></span>effectsGetCurrentEffect()</h2>
 
@@ -174,23 +216,30 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice:
 
 </div>
 </div>
-<a id="gaa3c573e2411bd75810a6a41da8ef76d1" name="gaa3c573e2411bd75810a6a41da8ef76d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaa3c573e2411bd75810a6a41da8ef76d1">&#9670;&#160;</a></span>effectsIsRunning()</h2>
+<a id="ga2e55ff70087f154c8e7296a5402f826d" name="ga2e55ff70087f154c8e7296a5402f826d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga2e55ff70087f154c8e7296a5402f826d">&#9670;&#160;</a></span>effectsRegisterDefaultEffect()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool JBWoprDevice::effectsIsRunning </td>
+          <td class="memname">void JBWoprDevice::effectsRegisterDefaultEffect </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">JBWoprEffectBase *&#160;</td>
+          <td class="paramname"><em>effect</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Check if current effect is running. </p>
-<dl class="section return"><dt>Returns</dt><dd>True if current effect is running </dd></dl>
+<p>Register default effect. </p>
+<dl class="section note"><dt>Note</dt><dd>If a default effect is registered, it will be started after a timeout set by _config.effectsTimeout after any other effect is done running.</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">effect</td><td>Effect to register </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
