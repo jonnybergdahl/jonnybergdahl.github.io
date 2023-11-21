@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['s_0',['DEFCON LED&apos;s',['../index.html#autotoc_md10',1,'']]],
+  ['s_0',['DEFCON LED&apos;s',['../index.html#autotoc_md11',1,'']]],
   ['setalignment_1',['setAlignment',['../class_j_b_wopr_text_display_effect.html#a071080aab3ba89e82e3336b8cd695de3',1,'JBWoprTextDisplayEffect']]],
   ['setcodesolvevariant_2',['setCodeSolveVariant',['../class_j_b_wopr_missile_code_solve_effect.html#a8d85322eccabdaa6d5103056306e8fc2',1,'JBWoprMissileCodeSolveEffect']]],
   ['setdateformat_3',['setdateformat',['../class_j_b_wopr_date_time_display_effect.html#a1aade388975a62c98049747411343829',1,'JBWoprDateTimeDisplayEffect::setDateFormat()'],['../class_j_b_wopr_date_display_effect.html#a9b873509fcf0f41f902c64c37535b742',1,'JBWoprDateDisplayEffect::setDateFormat()']]],

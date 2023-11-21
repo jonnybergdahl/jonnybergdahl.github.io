@@ -28,18 +28,20 @@ var NAVTREE =
     [ "Installation", "index.html#autotoc_md1", null ],
     [ "Usage", "index.html#autotoc_md2", [
       [ "Quick start", "index.html#autotoc_md3", null ],
-      [ "Basic JBWoprDevice usage", "index.html#autotoc_md4", null ],
-      [ "Advanced usage of onboard devices", "index.html#autotoc_md5", null ]
+      [ "Code documentation", "index.html#autotoc_md4", null ]
     ] ],
-    [ "JBWoprWifiDevice", "index.html#autotoc_md6", null ],
-    [ "JBWoprMqttDevice", "index.html#autotoc_md7", null ],
-    [ "MQTT Topics", "index.html#autotoc_md8", [
-      [ "Display", "index.html#autotoc_md9", null ],
-      [ "DEFCON LED's", "index.html#autotoc_md10", null ],
-      [ "Effects", "index.html#autotoc_md11", null ],
-      [ "Buttons", "index.html#autotoc_md12", null ]
+    [ "JBWoprDevicee", "index.html#autotoc_md5", [
+      [ "Advanced usage of onboard devices", "index.html#autotoc_md6", null ]
     ] ],
-    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md13", null ],
+    [ "JBWoprWifiDevice", "index.html#autotoc_md7", null ],
+    [ "JBWoprMqttDevice", "index.html#autotoc_md8", null ],
+    [ "MQTT Topics", "index.html#autotoc_md9", [
+      [ "Display", "index.html#autotoc_md10", null ],
+      [ "DEFCON LED's", "index.html#autotoc_md11", null ],
+      [ "Effects", "index.html#autotoc_md12", null ],
+      [ "Buttons", "index.html#autotoc_md13", null ]
+    ] ],
+    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md14", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -67,7 +69,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "class_j_b_wopr_xmas_seconds_display_effect.html",
-"struct_j_b_wopr_song_effect_1_1_note.html#afea94c0527eaf577beb06f5927e0638f"
+"struct_j_b_wopr_song_effect_1_1_note.html#a91fa9bb51bfad74861ea9d0450659872"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

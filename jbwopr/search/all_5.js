@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effects_0',['Effects',['../index.html#autotoc_md11',1,'']]],
+  ['effects_0',['Effects',['../index.html#autotoc_md12',1,'']]],
   ['effects_20related_20methods_1',['Effects related methods',['../group___effects_group.html',1,'']]],
   ['effectscurrenteffectisrunning_2',['effectsCurrentEffectIsRunning',['../group___effects_group.html#gabb970eb9b64e9c801ffd20a0cf2315aa',1,'JBWoprDevice']]],
   ['effectsdefaulteffectisrunning_3',['effectsDefaultEffectIsRunning',['../group___effects_group.html#ga0853c86baf3ad654fed67d3c8f813d84',1,'JBWoprDevice']]],
