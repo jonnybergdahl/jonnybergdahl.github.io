@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['note_0',['note',['../struct_j_b_wopr_song_effect_1_1_note.html',1,'JBWoprSongEffect::Note'],['../struct_j_b_wopr_song_effect_1_1_note.html#afea94c0527eaf577beb06f5927e0638f',1,'JBWoprSongEffect::Note::note']]]
+  ['octave_0',['octave',['../struct_j_b_wopr_song_effect_1_1_note.html#a867b3bf09aa6c28cee8f08136cbb6746',1,'JBWoprSongEffect::Note']]],
+  ['of_20onboard_20devices_1',['Advanced usage of onboard devices',['../index.html#autotoc_md5',1,'']]],
+  ['onboard_20devices_2',['Advanced usage of onboard devices',['../index.html#autotoc_md5',1,'']]],
+  ['original_3',['ORIGINAL',['../jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053ac68af7f5fa830636c92ff457b408f59d',1,'jbwopr.h']]]
 ];

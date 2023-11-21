@@ -1,15 +1,4 @@
 var searchData=
 [
-  ['message_0',['MESSAGE',['../jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40ab3e6d7e18839259526a01001f558200f',1,'jbwopreffects.h']]],
-  ['methods_1',['methods',['../group___audio_group.html',1,'Audio related methods'],['../group___button_group.html',1,'Button related methods'],['../group___config_group.html',1,'Configuration related methods'],['../group___defcon_group.html',1,'DEFCON related methods'],['../group___display_group.html',1,'Display related methods'],['../group___effects_group.html',1,'Effects related methods'],['../group___h_a_group.html',1,'Home Assistant related methods'],['../group___logging_group.html',1,'Logging related methods'],['../group___mqtt_group.html',1,'MQTT related methods'],['../group___wi_fi_group.html',1,'WiFi related methods']]],
-  ['movie_2',['MOVIE',['../jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40a9b940ce83f2d03aabdd31ab2fee20813',1,'jbwopreffects.h']]],
-  ['mqtt_3',['MQTT',['../index.html#autotoc_md5',1,'']]],
-  ['mqtt_20related_20methods_4',['MQTT related methods',['../group___mqtt_group.html',1,'']]],
-  ['mqtt_20topics_5',['MQTT Topics',['../index.html#autotoc_md6',1,'']]],
-  ['mqttpassword_6',['mqttPassword',['../struct_j_b_wopr_mqtt_config.html#a7c5a189faf50f97c7067d43a38ce774e',1,'JBWoprMqttConfig']]],
-  ['mqttprefix_7',['mqttPrefix',['../struct_j_b_wopr_mqtt_config.html#aa0437648ea4220bf7455cbdcac61e64f',1,'JBWoprMqttConfig']]],
-  ['mqttpublishmessage_8',['mqttpublishmessage',['../group___mqtt_group.html#gaef60874c2f3bbfb6697485ea060b4a57',1,'JBWoprMqttDevice::mqttPublishMessage(const std::string topic, const std::string value, bool retain=false)'],['../group___mqtt_group.html#ga41acc91107272b06803be7ad5a7a73f4',1,'JBWoprMqttDevice::mqttPublishMessage(const char *topic, const char *value, bool retain=false)'],['../group___mqtt_group.html#ga3f0a4bafc563db470053e03b847d727f',1,'JBWoprMqttDevice::mqttPublishMessage(const std::string topic, const DynamicJsonDocument &amp;jsonDoc, bool retain=false)']]],
-  ['mqttservername_9',['mqttServerName',['../struct_j_b_wopr_mqtt_config.html#a2a93e0f4c07d979cfe76d07d4b4f750d',1,'JBWoprMqttConfig']]],
-  ['mqttserverport_10',['mqttServerPort',['../struct_j_b_wopr_mqtt_config.html#aba48638b36310a098fe17526db3347ef',1,'JBWoprMqttConfig']]],
-  ['mqttusername_11',['mqttUserName',['../struct_j_b_wopr_mqtt_config.html#ab324fd3fd4779a5fdc815bf0cc3b6109',1,'JBWoprMqttConfig']]]
+  ['note_0',['note',['../struct_j_b_wopr_song_effect_1_1_note.html',1,'JBWoprSongEffect::Note'],['../struct_j_b_wopr_song_effect_1_1_note.html#afea94c0527eaf577beb06f5927e0638f',1,'JBWoprSongEffect::Note::note']]]
 ];
