@@ -8,6 +8,6 @@ var topics =
     [ "Button related methods", "group___button_group.html", "group___button_group" ],
     [ "Effects related methods", "group___effects_group.html", "group___effects_group" ],
     [ "WiFi related methods", "group___wi_fi_group.html", "group___wi_fi_group" ],
-    [ "MQTT related methods", "group___mqtt_group.html", null ],
+    [ "MQTT related methods", "group___mqtt_group.html", "group___mqtt_group" ],
     [ "Home Assistant related methods", "group___h_a_group.html", null ]
 ];
