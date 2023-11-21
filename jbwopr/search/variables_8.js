@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['timeformat_0',['timeFormat',['../struct_j_b_wopr_configuration.html#aab66168bf4827ff6ffab98fa1d8b5303',1,'JBWoprConfiguration']]]
+  ['octave_0',['octave',['../struct_j_b_wopr_song_effect_1_1_note.html#a867b3bf09aa6c28cee8f08136cbb6746',1,'JBWoprSongEffect::Note']]]
 ];

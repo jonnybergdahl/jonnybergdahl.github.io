@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['jbdefconlevel_0',['JBDefconLevel',['../jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28',1,'jbwopr.h']]],
-  ['jbwoprboardvariant_1',['JBWoprBoardVariant',['../jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053',1,'jbwopr.h']]]
+  ['codesolvevariant_0',['CodeSolveVariant',['../jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40',1,'jbwopreffects.h']]]
 ];

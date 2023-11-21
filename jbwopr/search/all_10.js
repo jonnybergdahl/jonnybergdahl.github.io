@@ -1,19 +1,7 @@
 var searchData=
 [
-  ['setloglevel_0',['setloglevel',['../group___logging_group.html#ga46769ee0609026a0f8c65b4397568a1e',1,'JBWoprDevice::setLogLevel()'],['../class_j_b_wopr_h_a_device.html#a859bf0b015e8170bb943153ecba36451',1,'JBWoprHADevice::setLogLevel()'],['../class_j_b_wopr_mqtt_device.html#ab2193505be61264b9310f4d0814371fc',1,'JBWoprMqttDevice::setLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a3afd135434027fa8bb88e1e5696c0ff9',1,'JBWoprWiFiDevice::setLogLevel()']]],
-  ['settings_20state_20from_20another_20device_3a_20commands_1',['Settings state from another device: Commands',['../index.html#autotoc_md8',1,'']]],
-  ['startwifi_2',['startWiFi',['../group___wi_fi_group.html#ga7f278aa6fb5bc2cf1b2ab9b3a5a3b4dc',1,'JBWoprWiFiDevice']]],
-  ['state_20from_20another_20device_3a_20commands_3',['Settings state from another device: Commands',['../index.html#autotoc_md8',1,'']]],
-  ['state_20from_20the_20w_20o_20p_20r_4',['Publishing state from the W.O.P.R.',['../index.html#autotoc_md7',1,'']]],
-  ['state_5foff_5',['STATE_OFF',['../class_j_b_wopr_mqtt_device.html#a6d7fec5b4c8f8265c546d7f6f980a03d',1,'JBWoprMqttDevice']]],
-  ['state_5fon_6',['STATE_ON',['../class_j_b_wopr_mqtt_device.html#a32d48c062e77e69f3d6e0db51d9d7e55',1,'JBWoprMqttDevice']]],
-  ['stringtorgb_7',['stringToRgb',['../class_j_b_string_helper.html#adf0c70c4980e2b474ddabd36200db13f',1,'JBStringHelper']]],
-  ['subentity_5fname_5fbrightness_8',['SUBENTITY_NAME_BRIGHTNESS',['../class_j_b_wopr_mqtt_device.html#ae13f07fd681da3b56a75ab4640fe99eb',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fcolor_9',['SUBENTITY_NAME_COLOR',['../class_j_b_wopr_mqtt_device.html#a2bb42cbd9afb2505c93e8ca165438df9',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fevent_10',['SUBENTITY_NAME_EVENT',['../class_j_b_wopr_mqtt_device.html#ae6e9811b48b190b6b7d7244c94f64f6c',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5flevel_11',['SUBENTITY_NAME_LEVEL',['../class_j_b_wopr_mqtt_device.html#ab12434d0a871c7c970683a2369623423',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fname_12',['SUBENTITY_NAME_NAME',['../class_j_b_wopr_mqtt_device.html#a5a6b5f9df306ac6c4a82fd85363535b8',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fscrolltext_13',['SUBENTITY_NAME_SCROLLTEXT',['../class_j_b_wopr_mqtt_device.html#ace8270df73899faf9bbf6c32002b612d',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fstate_14',['SUBENTITY_NAME_STATE',['../class_j_b_wopr_mqtt_device.html#a92f258359618c3e9e47dd02b1040b513',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5ftext_15',['SUBENTITY_NAME_TEXT',['../class_j_b_wopr_mqtt_device.html#ad6bf8911238bd002cdd303a96aa10280',1,'JBWoprMqttDevice']]]
+  ['r_0',['Publishing state from the W.O.P.R.',['../index.html#autotoc_md7',1,'']]],
+  ['random_1',['RANDOM',['../jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40aa2b65445a3a16f164c5e811064d75726',1,'jbwopreffects.h']]],
+  ['related_20methods_2',['related methods',['../group___audio_group.html',1,'Audio related methods'],['../group___button_group.html',1,'Button related methods'],['../group___config_group.html',1,'Configuration related methods'],['../group___defcon_group.html',1,'DEFCON related methods'],['../group___display_group.html',1,'Display related methods'],['../group___effects_group.html',1,'Effects related methods'],['../group___h_a_group.html',1,'Home Assistant related methods'],['../group___logging_group.html',1,'Logging related methods'],['../group___mqtt_group.html',1,'MQTT related methods'],['../group___wi_fi_group.html',1,'WiFi related methods']]],
+  ['rgbtostring_3',['rgbToString',['../class_j_b_string_helper.html#a82c9f6a958b83ddde6d55ece33be86e0',1,'JBStringHelper']]]
 ];
