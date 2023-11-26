@@ -1,4 +1,6 @@
 # jonnybergdahl.github.io
 
-[JBLogger documentation](jblogger/)
-[JBWopr documentation](jbwopr/)
+## Documentation for my Arduino libraries
+
+ - [JBLogger documentation](jblogger/)
+ - [JBWopr documentation](jbwopr/)
