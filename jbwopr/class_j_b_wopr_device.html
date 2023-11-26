@@ -183,6 +183,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>effectsStopCurrentEff
 <tr class="memitem:ga22fd98bc3c8fe27db8737140ffee7b91" id="r_ga22fd98bc3c8fe27db8737140ffee7b91"><td class="memItemLeft" align="right" valign="top">std::array&lt; Adafruit_AlphaNum4, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91">getDisplay</a> ()</td></tr>
 <tr class="memdesc:ga22fd98bc3c8fe27db8737140ffee7b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get display.  <br /></td></tr>
 <tr class="separator:ga22fd98bc3c8fe27db8737140ffee7b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01eec06b393b816d45784d9deccd9db1" id="r_ga01eec06b393b816d45784d9deccd9db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga01eec06b393b816d45784d9deccd9db1">displaySetState</a> (bool state)</td></tr>
+<tr class="memdesc:ga01eec06b393b816d45784d9deccd9db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display state.  <br /></td></tr>
+<tr class="separator:ga01eec06b393b816d45784d9deccd9db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa2c727a46d83244fc4e040417d8b6f0f" id="r_gaa2c727a46d83244fc4e040417d8b6f0f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#gaa2c727a46d83244fc4e040417d8b6f0f">displayClear</a> ()</td></tr>
 <tr class="memdesc:gaa2c727a46d83244fc4e040417d8b6f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear display.  <br /></td></tr>
 <tr class="separator:gaa2c727a46d83244fc4e040417d8b6f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -235,6 +238,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>displayShow</
 <tr class="memitem:ga63999fb3f41002803ecfd68873df037f" id="r_ga63999fb3f41002803ecfd68873df037f"><td class="memItemLeft" align="right" valign="top">Adafruit_NeoPixel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f">getDefconLeds</a> ()</td></tr>
 <tr class="memdesc:ga63999fb3f41002803ecfd68873df037f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get DEFCON LEDs.  <br /></td></tr>
 <tr class="separator:ga63999fb3f41002803ecfd68873df037f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga05f420ca1d27eaaf60d53d8658968699" id="r_ga05f420ca1d27eaaf60d53d8658968699"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___defcon_group.html#ga05f420ca1d27eaaf60d53d8658968699">defconLedsSetState</a> (bool state)</td></tr>
+<tr class="memdesc:ga05f420ca1d27eaaf60d53d8658968699"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set DEFCON state.  <br /></td></tr>
+<tr class="separator:ga05f420ca1d27eaaf60d53d8658968699"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa42f548ab9109ff5dbf15ab7cdb0f144" id="r_gaa42f548ab9109ff5dbf15ab7cdb0f144"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___defcon_group.html#gaa42f548ab9109ff5dbf15ab7cdb0f144">defconLedsSetDefconLevel</a> (<a class="el" href="jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28">JBDefconLevel</a> level)</td></tr>
 <tr class="memdesc:gaa42f548ab9109ff5dbf15ab7cdb0f144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set DEFCON level.  <br /></td></tr>
 <tr class="separator:gaa42f548ab9109ff5dbf15ab7cdb0f144"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -408,14 +414,30 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_effectsCounter</
 std::array&lt; Adafruit_AlphaNum4, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>_display</b></td></tr>
 <tr class="memdesc:afa9e2acac18fd2e6c45377d8ec1f4589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display. <br /></td></tr>
 <tr class="separator:afa9e2acac18fd2e6c45377d8ec1f4589"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a472e34ce800709d70eb58fac77292edf" id="r_a472e34ce800709d70eb58fac77292edf"><td class="memItemLeft" align="right" valign="top"><a id="a472e34ce800709d70eb58fac77292edf" name="a472e34ce800709d70eb58fac77292edf"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_displayState</b> = true</td></tr>
+<tr class="memdesc:a472e34ce800709d70eb58fac77292edf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display state. <br /></td></tr>
+<tr class="separator:a472e34ce800709d70eb58fac77292edf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ab43a9f3c3ca87e3e4f7a14160f76e5" id="r_a4ab43a9f3c3ca87e3e4f7a14160f76e5"><td class="memItemLeft" align="right" valign="top"><a id="a4ab43a9f3c3ca87e3e4f7a14160f76e5" name="a4ab43a9f3c3ca87e3e4f7a14160f76e5"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_displayBrightness</b> = 100</td></tr>
+<tr class="memdesc:a4ab43a9f3c3ca87e3e4f7a14160f76e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display brightness. <br /></td></tr>
+<tr class="separator:a4ab43a9f3c3ca87e3e4f7a14160f76e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a848b40816fc82243a278c01a8bd3585f" id="r_a848b40816fc82243a278c01a8bd3585f"><td class="memItemLeft" align="right" valign="top"><a id="a848b40816fc82243a278c01a8bd3585f" name="a848b40816fc82243a278c01a8bd3585f"></a>
 Adafruit_NeoPixel&#160;</td><td class="memItemRight" valign="bottom"><b>_defconLeds</b> = Adafruit_NeoPixel(5, 1, NEO_GRB + NEO_KHZ800)</td></tr>
 <tr class="memdesc:a848b40816fc82243a278c01a8bd3585f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON LEDs. <br /></td></tr>
 <tr class="separator:a848b40816fc82243a278c01a8bd3585f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a45cb86b798c355595b6ad11d814194f1" id="r_a45cb86b798c355595b6ad11d814194f1"><td class="memItemLeft" align="right" valign="top"><a id="a45cb86b798c355595b6ad11d814194f1" name="a45cb86b798c355595b6ad11d814194f1"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>_defconState</b> = true</td></tr>
+<tr class="memdesc:a45cb86b798c355595b6ad11d814194f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON state. <br /></td></tr>
+<tr class="separator:a45cb86b798c355595b6ad11d814194f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8651302441cf21516921eaaa866b7dba" id="r_a8651302441cf21516921eaaa866b7dba"><td class="memItemLeft" align="right" valign="top"><a id="a8651302441cf21516921eaaa866b7dba" name="a8651302441cf21516921eaaa866b7dba"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconColors</b> [5]</td></tr>
 <tr class="memdesc:a8651302441cf21516921eaaa866b7dba"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON colors. <br /></td></tr>
 <tr class="separator:a8651302441cf21516921eaaa866b7dba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fcc9764873793d8e6509c964081c701" id="r_a9fcc9764873793d8e6509c964081c701"><td class="memItemLeft" align="right" valign="top"><a id="a9fcc9764873793d8e6509c964081c701" name="a9fcc9764873793d8e6509c964081c701"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconBrightness</b> = 100</td></tr>
+<tr class="memdesc:a9fcc9764873793d8e6509c964081c701"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON brightness. <br /></td></tr>
+<tr class="separator:a9fcc9764873793d8e6509c964081c701"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37085926dcb2d611f632c16885b0b56e" id="r_a37085926dcb2d611f632c16885b0b56e"><td class="memItemLeft" align="right" valign="top"><a id="a37085926dcb2d611f632c16885b0b56e" name="a37085926dcb2d611f632c16885b0b56e"></a>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconPixels</b> [5] { 0,0,0,0,0}</td></tr>
 <tr class="memdesc:a37085926dcb2d611f632c16885b0b56e"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON buffered pixel colors. <br /></td></tr>

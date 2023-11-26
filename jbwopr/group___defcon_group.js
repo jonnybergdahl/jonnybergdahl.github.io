@@ -10,5 +10,7 @@ var group___defcon_group =
     [ "JBWoprMqttDevice::defconLedsSetColor", "group___defcon_group.html#ga97c86ce99dd6807640513665cad2bc63", null ],
     [ "JBWoprDevice::defconLedsSetDefconLevel", "group___defcon_group.html#gaa42f548ab9109ff5dbf15ab7cdb0f144", null ],
     [ "JBWoprMqttDevice::defconLedsSetDefconLevel", "group___defcon_group.html#gad7c735abf758ce79a41fd4560967dd8b", null ],
+    [ "JBWoprDevice::defconLedsSetState", "group___defcon_group.html#ga05f420ca1d27eaaf60d53d8658968699", null ],
+    [ "JBWoprMqttDevice::defconLedsSetState", "group___defcon_group.html#gaa85d325fbefef44d1589dbbbf474e468", null ],
     [ "JBWoprDevice::getDefconLeds", "group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f", null ]
 ];

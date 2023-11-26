@@ -101,6 +101,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ga22fd98bc3c8fe27db8737140ffee7b91" id="r_ga22fd98bc3c8fe27db8737140ffee7b91"><td class="memItemLeft" align="right" valign="top">std::array&lt; Adafruit_AlphaNum4, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91">JBWoprDevice::getDisplay</a> ()</td></tr>
 <tr class="memdesc:ga22fd98bc3c8fe27db8737140ffee7b91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get display.  <br /></td></tr>
 <tr class="separator:ga22fd98bc3c8fe27db8737140ffee7b91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga01eec06b393b816d45784d9deccd9db1" id="r_ga01eec06b393b816d45784d9deccd9db1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga01eec06b393b816d45784d9deccd9db1">JBWoprDevice::displaySetState</a> (bool state)</td></tr>
+<tr class="memdesc:ga01eec06b393b816d45784d9deccd9db1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display state.  <br /></td></tr>
+<tr class="separator:ga01eec06b393b816d45784d9deccd9db1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa2c727a46d83244fc4e040417d8b6f0f" id="r_gaa2c727a46d83244fc4e040417d8b6f0f"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#gaa2c727a46d83244fc4e040417d8b6f0f">JBWoprDevice::displayClear</a> ()</td></tr>
 <tr class="memdesc:gaa2c727a46d83244fc4e040417d8b6f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear display.  <br /></td></tr>
 <tr class="separator:gaa2c727a46d83244fc4e040417d8b6f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -150,6 +153,9 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice:
 <tr class="memitem:gab594ec4f7c6dc61dc4f5c78f283d0eb7" id="r_gab594ec4f7c6dc61dc4f5c78f283d0eb7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#gab594ec4f7c6dc61dc4f5c78f283d0eb7">JBWoprDevice::displayScrollText</a> (const String &amp;text)</td></tr>
 <tr class="memdesc:gab594ec4f7c6dc61dc4f5c78f283d0eb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set display scroll text with a delay of 100 ms.  <br /></td></tr>
 <tr class="separator:gab594ec4f7c6dc61dc4f5c78f283d0eb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8fb279f4bdf0ec7653b05612f91e9397" id="r_ga8fb279f4bdf0ec7653b05612f91e9397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga8fb279f4bdf0ec7653b05612f91e9397">JBWoprMqttDevice::displaySetState</a> (bool state) override</td></tr>
+<tr class="memdesc:ga8fb279f4bdf0ec7653b05612f91e9397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display set state.  <br /></td></tr>
+<tr class="separator:ga8fb279f4bdf0ec7653b05612f91e9397"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab17fd2cf9482728264e93cb0bb16bc7f" id="r_gab17fd2cf9482728264e93cb0bb16bc7f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#gab17fd2cf9482728264e93cb0bb16bc7f">JBWoprMqttDevice::displayClear</a> () override</td></tr>
 <tr class="memdesc:gab17fd2cf9482728264e93cb0bb16bc7f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display clear.  <br /></td></tr>
 <tr class="separator:gab17fd2cf9482728264e93cb0bb16bc7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -872,6 +878,78 @@ virtual void&#160;</td><td class="memItemRight" valign="bottom"><b>JBWoprDevice:
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="ga01eec06b393b816d45784d9deccd9db1" name="ga01eec06b393b816d45784d9deccd9db1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga01eec06b393b816d45784d9deccd9db1">&#9670;&#160;</a></span>displaySetState() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprDevice::displaySetState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set display state. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>True to turn display on, false to turn it off </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="group___display_group.html#ga8fb279f4bdf0ec7653b05612f91e9397">JBWoprMqttDevice</a>.</p>
+
+</div>
+</div>
+<a id="ga8fb279f4bdf0ec7653b05612f91e9397" name="ga8fb279f4bdf0ec7653b05612f91e9397"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8fb279f4bdf0ec7653b05612f91e9397">&#9670;&#160;</a></span>displaySetState() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprMqttDevice::displaySetState </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>state</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Display set state. </p>
+<p>This method will set the display state and publish to to the MQTT broker. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">state</td><td>State </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented from <a class="el" href="group___display_group.html#ga01eec06b393b816d45784d9deccd9db1">JBWoprDevice</a>.</p>
 
 </div>
 </div>

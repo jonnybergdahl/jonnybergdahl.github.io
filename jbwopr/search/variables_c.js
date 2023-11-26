@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['web_5fportal_5fpassword_0',['WEB_PORTAL_PASSWORD',['../class_j_b_wopr_wi_fi_device.html#a544d97c4c58477bda4d308b8861b2b3e',1,'JBWoprWiFiDevice']]]
+  ['usemqtt_0',['useMqtt',['../struct_j_b_wopr_mqtt_config.html#af4428a9f3cf997c5007bab6350aab7d5',1,'JBWoprMqttConfig']]],
+  ['usewebportal_1',['useWebPortal',['../struct_j_b_wopr_wi_fi_configuration.html#a0f1be4cac853b4a055fcf9eece32770d',1,'JBWoprWiFiConfiguration']]]
 ];

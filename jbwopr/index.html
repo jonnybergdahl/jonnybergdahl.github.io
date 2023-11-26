@@ -98,9 +98,15 @@ $(document).ready(function(){initNavTree('index.html',''); initResizable(); });
 <p>&zwj;Note - The Home Assistant support is still a work in progress. </p>
 </blockquote>
 <h1><a class="anchor" id="autotoc_md1"></a>
+Work in progress</h1>
+<ul>
+<li>Add support for state on/off for display/defcon</li>
+<li>Add support for discovery in Home Asssistant</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md2"></a>
 Installation</h1>
 <p>Install using the library manager in the Arduino IDE.</p>
-<h1><a class="anchor" id="autotoc_md2"></a>
+<h1><a class="anchor" id="autotoc_md3"></a>
 Usage</h1>
 <p>The library exposes several classes that you can use to interact with the board.</p>
 <ul>
@@ -109,7 +115,20 @@ Usage</h1>
 <li><code><a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a></code> - This adds MQTT support to the <code>JBWoprWifiDevice</code> class.</li>
 <li><code>JBWoprHomeAssistantDevice</code> - This adds Home Assistant support to the <code><a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a></code> class.</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md3"></a>
+<h2><a class="anchor" id="autotoc_md4"></a>
+Compiling the examples</h2>
+<p>Due to the size of the library, you may need to change the partition size in the Arduino IDE.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Board   </th><th class="markdownTableHeadNone">Minimum <code>Partition Scheme</code>    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">TinyPICO / ESP32   </td><td class="markdownTableBodyNone">Minimal SPIFFS (Large APPS with OTA)    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">TinyS2 / ESP32S2   </td><td class="markdownTableBodyNone">Minimal SPIFFS (1.9MB APP with OTA/190 KB SPIFFS)    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">TinyS3 / ESP32S3   </td><td class="markdownTableBodyNone">Default (3MB APP with OTA/1.5MB SPIFFS)   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md5"></a>
 Quick start</h2>
 <p>Open the example 'JBWopr_Firmware', and uncomment one of the following defines. This is a feature complete firmware that you can also use as a starting point for your own firmware.</p>
 <ul>
@@ -117,10 +136,10 @@ Quick start</h2>
 <li><code>FIRMWARE_VARIANT_MQTT</code> - Use the WiFiManager, web configuration portal and MQTT support</li>
 <li><code>FIRMWARE_VARIANT_HA</code> - Use the WiFiManager, web configuration portal, MQTT and Home Assistant support</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 Code documentation</h2>
 <p>Full code documentation is available at <a href="https://jonnybergdahl.github.io/jbwopr/">https://jonnybergdahl.github.io/jbwopr/</a></p>
-<h1><a class="anchor" id="autotoc_md5"></a>
+<h1><a class="anchor" id="autotoc_md7"></a>
 JBWoprDevicee</h1>
 <p>Create an instance of the <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> class. Do any configuration you need to do then and call <code>begin()</code> in your <code>setup()</code> function. Then call <code>loop()</code> in your <code>loop()</code> function.</p>
 <p>See the example 'JBWopr_DeviceDemo' for more information on the basic <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> usage.</p>
@@ -146,10 +165,10 @@ JBWoprDevicee</h1>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Add your code here</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_j_b_wopr_device_html"><div class="ttname"><a href="class_j_b_wopr_device.html">JBWoprDevice</a></div><div class="ttdoc">W.O.P.R. device base class.</div><div class="ttdef"><b>Definition</b> jbwopr.h:86</div></div>
-<div class="ttc" id="aclass_j_b_wopr_device_html_a2c6ff33e1c2b648a66306e8fb3da49e5"><div class="ttname"><a href="class_j_b_wopr_device.html#a2c6ff33e1c2b648a66306e8fb3da49e5">JBWoprDevice::loop</a></div><div class="ttdeci">virtual void loop()</div><div class="ttdoc">JBWoprDevice loop.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:135</div></div>
-<div class="ttc" id="aclass_j_b_wopr_device_html_ac6b4a89f4fd1946c80b66aa457d610d2"><div class="ttname"><a href="class_j_b_wopr_device.html#ac6b4a89f4fd1946c80b66aa457d610d2">JBWoprDevice::begin</a></div><div class="ttdeci">virtual bool begin(JBWoprBoardVariant variant=JBWoprBoardVariant::ORIGINAL)</div><div class="ttdoc">Initialize JBWoprDevice.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:31</div></div>
-<div class="ttc" id="agroup___config_group_html_ga9a068ec9b0c53eb62196e70d0adebc62"><div class="ttname"><a href="group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62">JBWoprDevice::getConfiguration</a></div><div class="ttdeci">JBWoprConfiguration * getConfiguration()</div><div class="ttdoc">Get current JBWoprDevice configuration.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:175</div></div>
+<div class="ttc" id="aclass_j_b_wopr_device_html"><div class="ttname"><a href="class_j_b_wopr_device.html">JBWoprDevice</a></div><div class="ttdoc">W.O.P.R. device base class.</div><div class="ttdef"><b>Definition</b> jbwopr.h:85</div></div>
+<div class="ttc" id="aclass_j_b_wopr_device_html_a2c6ff33e1c2b648a66306e8fb3da49e5"><div class="ttname"><a href="class_j_b_wopr_device.html#a2c6ff33e1c2b648a66306e8fb3da49e5">JBWoprDevice::loop</a></div><div class="ttdeci">virtual void loop()</div><div class="ttdoc">JBWoprDevice loop.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:128</div></div>
+<div class="ttc" id="aclass_j_b_wopr_device_html_ac6b4a89f4fd1946c80b66aa457d610d2"><div class="ttname"><a href="class_j_b_wopr_device.html#ac6b4a89f4fd1946c80b66aa457d610d2">JBWoprDevice::begin</a></div><div class="ttdeci">virtual bool begin(JBWoprBoardVariant variant=JBWoprBoardVariant::ORIGINAL)</div><div class="ttdoc">Initialize JBWoprDevice.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:30</div></div>
+<div class="ttc" id="agroup___config_group_html_ga9a068ec9b0c53eb62196e70d0adebc62"><div class="ttname"><a href="group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62">JBWoprDevice::getConfiguration</a></div><div class="ttdeci">JBWoprConfiguration * getConfiguration()</div><div class="ttdoc">Get current JBWoprDevice configuration.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:168</div></div>
 <div class="ttc" id="ajbwopr_8h_html"><div class="ttname"><a href="jbwopr_8h.html">jbwopr.h</a></div><div class="ttdoc">Main header file for the JBWopr library.</div></div>
 <div class="ttc" id="ajbwopr_8h_html_adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894"><div class="ttname"><a href="jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894">HAXORZ</a></div><div class="ttdeci">@ HAXORZ</div><div class="ttdoc">Haxorz W.O.P.R. board.</div><div class="ttdef"><b>Definition</b> jbwopr.h:30</div></div>
 <div class="ttc" id="astruct_j_b_wopr_configuration_html"><div class="ttname"><a href="struct_j_b_wopr_configuration.html">JBWoprConfiguration</a></div><div class="ttdoc">JBWoprDevice configuration.</div><div class="ttdef"><b>Definition</b> jbwopr.h:54</div></div>
@@ -175,7 +194,7 @@ JBWoprDevicee</h1>
 <div class="line">void ButtonFrontRightClick() {</div>
 <div class="line">  Serial.println(<span class="stringliteral">&quot;Front right button clicked&quot;</span>);</div>
 <div class="line">}</div>
-<div class="ttc" id="agroup___button_group_html_ga694baaaf32f91cfc021e9d79b0b69e6f"><div class="ttname"><a href="group___button_group.html#ga694baaaf32f91cfc021e9d79b0b69e6f">JBWoprDevice::buttonFrontRightSetClickCallback</a></div><div class="ttdeci">virtual void buttonFrontRightSetClickCallback(std::function&lt; void()&gt; func)</div><div class="ttdoc">Set front right button click callback.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:537</div></div>
+<div class="ttc" id="agroup___button_group_html_ga694baaaf32f91cfc021e9d79b0b69e6f"><div class="ttname"><a href="group___button_group.html#ga694baaaf32f91cfc021e9d79b0b69e6f">JBWoprDevice::buttonFrontRightSetClickCallback</a></div><div class="ttdeci">virtual void buttonFrontRightSetClickCallback(std::function&lt; void()&gt; func)</div><div class="ttdoc">Set front right button click callback.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:544</div></div>
 </div><!-- fragment --><p>There is also support for running effects. There are some effects bundled with library, but you can also create your own effects by inheriting from the <code><a class="el" href="class_j_b_wopr_effect_base.html" title="Abstract effect base class.">JBWoprEffectBase</a></code> class.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="jbwopr_8h.html">jbwopr.h</a>&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;effects/jbwopreffets.h&gt;</span></div>
@@ -191,9 +210,9 @@ JBWoprDevicee</h1>
 <div class="line">    wopr.startEffect(<span class="stringliteral">&quot;Movie solve&quot;</span>);</div>
 <div class="line">}</div>
 <div class="ttc" id="aclass_j_b_wopr_missile_code_solve_effect_html"><div class="ttname"><a href="class_j_b_wopr_missile_code_solve_effect.html">JBWoprMissileCodeSolveEffect</a></div><div class="ttdoc">Display effect for showing the WOPR movie code solve.</div><div class="ttdef"><b>Definition</b> jbwopreffects.h:343</div></div>
-<div class="ttc" id="agroup___effects_group_html_gae9419460a7d1e606c334f1a2ec744725"><div class="ttname"><a href="group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725">JBWoprDevice::effectsRegisterEffect</a></div><div class="ttdeci">void effectsRegisterEffect(JBWoprEffectBase *effect)</div><div class="ttdoc">Register effect.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:197</div></div>
+<div class="ttc" id="agroup___effects_group_html_gae9419460a7d1e606c334f1a2ec744725"><div class="ttname"><a href="group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725">JBWoprDevice::effectsRegisterEffect</a></div><div class="ttdeci">void effectsRegisterEffect(JBWoprEffectBase *effect)</div><div class="ttdoc">Register effect.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:190</div></div>
 <div class="ttc" id="ajbwopreffects_8h_html_a659d91a1f51e2ed8aad808a75315cb40a9b940ce83f2d03aabdd31ab2fee20813"><div class="ttname"><a href="jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40a9b940ce83f2d03aabdd31ab2fee20813">MOVIE</a></div><div class="ttdeci">@ MOVIE</div><div class="ttdoc">Movie code solve.</div><div class="ttdef"><b>Definition</b> jbwopreffects.h:33</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md6"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md8"></a>
 Advanced usage of onboard devices</h2>
 <p>The class exposes the onboard devices as the following:</p>
 <ul>
@@ -208,65 +227,22 @@ Advanced usage of onboard devices</h2>
 <li>JBWopr_DefconDemo</li>
 <li>JBWopr_DisplayDemo</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md7"></a>
+<h1><a class="anchor" id="autotoc_md9"></a>
 JBWoprWifiDevice</h1>
 <p>The <code>JBWoprWifiDevice</code> class adds WiFiManager and web configuration portal support to the <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> class. At first boot it starts up an AP called <code>wopr-&lt;mac_address&gt;</code>. Connect to this AP and it will access the configuration portal. If it isn't opening that automatically, open the url <code><a href="http://192.168.4.1">http://192.168.4.1</a></code> to access the portal.</p>
 <p>Enter the details for your WiFi network and click save. The device will reboot and connect to your WiFi network.</p>
 <p>If the <em>Use web portal</em> setting is enabled, you can access the configuration portal by browsing to the IP address of the device. You can find the IP address by looking at the serial output of the device.</p>
 <p>The following settings are available in the web portal:</p>
 <p><img src="images/wificonfig.png" alt="WiFiManager" title="WiFi configuration" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md8"></a>
+<h1><a class="anchor" id="autotoc_md10"></a>
 JBWoprMqttDevice</h1>
 <p>The '<a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a>' class adds MQTT support to the <code>JBWoprWifiDevice</code> class. It uses the PubSubClient library to connect to an MQTT broker. It will publish the device state to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/state</code> topic and listen for commands on the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/command</code> topic.</p>
 <p>The following settings are available in the web portal:</p>
 <p><img src="images/mqttconfig.png" alt="MQTT" title="MQTT configuration" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md9"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 MQTT Topics</h1>
-<p>Device state is posted to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/&lt;entity&gt;/state</code> topic. It is posted at startup and when state is changed.</p>
-<p>The following topics are used for device state reporting, and can be used to control the device.</p>
-<h2><a class="anchor" id="autotoc_md10"></a>
-Display</h2>
-<p>The device will post a message to the following topics when the display state is changed.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/state   </td><td class="markdownTableBodyNone">ON / OFF   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/text   </td><td class="markdownTableBodyNone">Hello World   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/scrolltext   </td><td class="markdownTableBodyNone">Hello scrolling world   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness   </td><td class="markdownTableBodyNone">50   </td><td class="markdownTableBodyNone"></td></tr>
-</table>
-<h2><a class="anchor" id="autotoc_md11"></a>
-DEFCON LED's</h2>
-<p>The device will post a message to the following topics when the DEFCON LED's state is changed.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/state   </td><td class="markdownTableBodyNone">ON / OFF   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/level   </td><td class="markdownTableBodyNone">1 / 2 / 3 / 4 / 5   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/brightness   </td><td class="markdownTableBodyNone">50   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/color   </td><td class="markdownTableBodyNone">255,0,0   </td><td class="markdownTableBodyNone"></td></tr>
-</table>
-<p>The device will listen to messages on the following topics.</p>
-<table class="markdownTable">
-<tr class="markdownTableHead">
-<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/state/set   </td><td class="markdownTableBodyNone">ON / OFF   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/text/set   </td><td class="markdownTableBodyNone">Hello World   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/scrolltext/set   </td><td class="markdownTableBodyNone">Hello scrolling world   </td><td class="markdownTableBodyNone"></td></tr>
-<tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness/set   </td><td class="markdownTableBodyNone">50   </td><td class="markdownTableBodyNone"></td></tr>
-</table>
+<p>At startup, the device will publish an availability message to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/availability</code> topic with the payload <code>online</code>. It will also set the last will topic to the same topic with the payload <code>offline</code>. You can use that to check if the device is online or not.</p>
+<p>Current device state is posted to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/&lt;entity&gt;/state</code> topic, it is posted when state is changed.</p>
 <h2><a class="anchor" id="autotoc_md12"></a>
 Effects</h2>
 <p>The device will post a message to the following topics when an effect state is changed.</p>
@@ -274,38 +250,153 @@ Effects</h2>
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/state   </td><td class="markdownTableBodyNone">ON / OFF   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/state   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone">Effect state, on/off    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/name   </td><td class="markdownTableBodyNone">Rainbow   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/name   </td><td class="markdownTableBodyNone"><code>Rainbow</code>   </td><td class="markdownTableBodyNone">Effect name   </td></tr>
 </table>
 <p>The device will listen to messages on the following topics.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/state/set   </td><td class="markdownTableBodyNone">ON / OFF   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/state/set   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone"><code>ON</code> / <code>OFF</code>    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/name/set   </td><td class="markdownTableBodyNone">Rainbow   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/name/set   </td><td class="markdownTableBodyNone"><code>Rainbow</code>   </td><td class="markdownTableBodyNone">Registered name, will start effect as well   </td></tr>
 </table>
 <h2><a class="anchor" id="autotoc_md13"></a>
-Buttons</h2>
-<p>The device will post a message to the following topics when a button is clicked or double clicked.</p>
+Display</h2>
+<p>The device will post a message to the following topics when the display state is changed.</p>
 <table class="markdownTable">
 <tr class="markdownTableHead">
 <th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_front_left/event   </td><td class="markdownTableBodyNone">click / double_click   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/state   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone">Current display state, on/off    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_front_right/event   </td><td class="markdownTableBodyNone">click / double_click   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/text   </td><td class="markdownTableBodyNone"><code>Hello World</code>   </td><td class="markdownTableBodyNone">Currently displayed text    </td></tr>
 <tr class="markdownTableRowOdd">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_back_top/event   </td><td class="markdownTableBodyNone">click / double_click   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/scrolltext   </td><td class="markdownTableBodyNone"><code>Hello scrolling world</code>   </td><td class="markdownTableBodyNone">Currently scrolling text    </td></tr>
 <tr class="markdownTableRowEven">
-<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_back_bottom/event   </td><td class="markdownTableBodyNone">click / double_click   </td><td class="markdownTableBodyNone"></td></tr>
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness   </td><td class="markdownTableBodyNone"><code>50</code>   </td><td class="markdownTableBodyNone">Current display brightness, percent   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md14"></a>
+<p>The device will listen to command messages on the following topics.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/state/set   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone"><code>ON</code> or <code>OFF</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/text/set   </td><td class="markdownTableBodyNone"><code>Hello World</code>   </td><td class="markdownTableBodyNone">ASCII characters only    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/scrolltext/set   </td><td class="markdownTableBodyNone"><code>Hello scrolling world</code>   </td><td class="markdownTableBodyNone">ASCII characters only    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness/set   </td><td class="markdownTableBodyNone"><code>50</code>   </td><td class="markdownTableBodyNone"><code>0</code> to <code>100</code>   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md14"></a>
+DEFCON LED's</h2>
+<p>The device will post a message to the following topics when the DEFCON LED's state is changed.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/state   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone">Current DEFCON state, on/off    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/level   </td><td class="markdownTableBodyNone"><code>1</code>   </td><td class="markdownTableBodyNone">Current DEFCON level    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/brightness   </td><td class="markdownTableBodyNone"><code>50</code>   </td><td class="markdownTableBodyNone">Current DEFCON brightness, percent    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/color   </td><td class="markdownTableBodyNone"><code>255,0,0</code>   </td><td class="markdownTableBodyNone">Current color value   </td></tr>
+</table>
+<p>The device will listen to command messages on the following topics.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/state/set   </td><td class="markdownTableBodyNone"><code>ON</code>   </td><td class="markdownTableBodyNone"><code>ON</code> or <code>OFF</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/level/set   </td><td class="markdownTableBodyNone"><code>1</code>   </td><td class="markdownTableBodyNone">Values <code>0</code>,<code>1</code>,<code>2</code>,<code>3</code>,<code>4</code>,<code>5</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness/set   </td><td class="markdownTableBodyNone"><code>50</code>   </td><td class="markdownTableBodyNone"><code>0</code> to <code>100</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/color/set   </td><td class="markdownTableBodyNone"><code>0,0,128</code>   </td><td class="markdownTableBodyNone">RGB byte values in format <code>R,G,B</code>   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md15"></a>
+Buttons</h2>
+<p>The device will post a message to the following topics when a button is clicked or double-clicked.</p>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_front_left/event   </td><td class="markdownTableBodyNone"><code>click</code>   </td><td class="markdownTableBodyNone"><code>click</code> or <code>double_click</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_front_right/event   </td><td class="markdownTableBodyNone"><code>double_click</code>   </td><td class="markdownTableBodyNone"><code>click</code> or <code>double_click</code>    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_back_top/event   </td><td class="markdownTableBodyNone"><code>click</code>   </td><td class="markdownTableBodyNone"><code>click</code> or <code>double_click</code>    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_back_bottom/event   </td><td class="markdownTableBodyNone"><code>click</code>   </td><td class="markdownTableBodyNone"><code>click</code> or <code>double_click</code>   </td></tr>
+</table>
+<h1><a class="anchor" id="autotoc_md16"></a>
 JBWoprHomeAssistantDevice</h1>
-<p>TODO </p>
-</div></div><!-- PageDoc -->
+<p>TODO</p>
+<h2><a class="anchor" id="autotoc_md17"></a>
+Topics</h2>
+<table class="markdownTable">
+<tr class="markdownTableHead">
+<th class="markdownTableHeadNone">Topic   </th><th class="markdownTableHeadNone">Example payload   </th><th class="markdownTableHeadNone">Comment    </th></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/diagnostics/state   </td><td class="markdownTableBodyNone">JSON payload, See below   </td><td class="markdownTableBodyNone">Diagnostics    </td></tr>
+<tr class="markdownTableRowEven">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/config/state   </td><td class="markdownTableBodyNone">JSON payload, See below   </td><td class="markdownTableBodyNone">Configuration    </td></tr>
+<tr class="markdownTableRowOdd">
+<td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/device/set   </td><td class="markdownTableBodyNone">JSON payload, See below   </td><td class="markdownTableBodyNone">Device state   </td></tr>
+</table>
+<h2><a class="anchor" id="autotoc_md18"></a>
+Diagnostics</h2>
+<p>Diagnostic information is posted at startup.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;ipAddress&quot;: &quot;172.30.2.210&quot;,</div>
+<div class="line">  &quot;rssi&quot;: -50,</div>
+<div class="line">  &quot;version&quot;: &quot;1.0.0-beta3&quot;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md19"></a>
+Configuration</h2>
+<p>Current configuration is posted at startup.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;timeFormat&quot;: &quot;%H %M %s&quot;,</div>
+<div class="line">  &quot;dateFormat&quot;: &quot;%Y-%m-%d&quot;,</div>
+<div class="line">  &quot;displayBrightness&quot;: 50,</div>
+<div class="line">  &quot;defconLedsBrightness&quot;: 50,</div>
+<div class="line">  &quot;effectsTimeout&quot;: 30,</div>
+<div class="line">  &quot;wifiHostname&quot;: &quot;wopr-5ccf7f2b9b2c&quot;,</div>
+<div class="line">  &quot;useWebPortal&quot;: true,</div>
+<div class="line">  &quot;useMqtt&quot;: true,</div>
+<div class="line">  &quot;mqttServerName&quot;: &quot;servername.local&quot;,</div>
+<div class="line">  &quot;mqttServerPort&quot;: 1883,</div>
+<div class="line">  &quot;mqttUserName&quot;: &quot;username&quot;,</div>
+<div class="line">  &quot;mqttPassword&quot;: &quot;password&quot;,</div>
+<div class="line">  &quot;mqttPrefix&quot;: &quot;wopr&quot;</div>
+<div class="line">}</div>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md20"></a>
+Device state</h2>
+<p>Current device state is posted when state is changed.</p>
+<div class="fragment"><div class="line">{</div>
+<div class="line">  &quot;effect&quot;: {</div>
+<div class="line">    &quot;state&quot;: &quot;ON&quot;,</div>
+<div class="line">    &quot;name&quot;: &quot;Rainbow&quot;</div>
+<div class="line">  },</div>
+<div class="line">  &quot;display&quot;: {</div>
+<div class="line">    &quot;state&quot;: &quot;ON&quot;,</div>
+<div class="line">    &quot;text&quot;: &quot;Hello World&quot;,</div>
+<div class="line">    &quot;scrollText&quot;: &quot;Hello scrolling world&quot;,</div>
+<div class="line">    &quot;brightness&quot;: 50</div>
+<div class="line">  },</div>
+<div class="line">  &quot;defcon&quot;: {</div>
+<div class="line">    &quot;state&quot;: &quot;ON&quot;,</div>
+<div class="line">    &quot;level&quot;: 1,</div>
+<div class="line">    &quot;brightness&quot;: 50,</div>
+<div class="line">    &quot;color&quot;: &quot;255,0,0&quot;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

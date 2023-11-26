@@ -4,6 +4,5 @@ var struct_j_b_wopr_configuration =
     [ "defconLedsBrightness", "struct_j_b_wopr_configuration.html#ad9c177a6785eedf64d0bdd455dd59d05", null ],
     [ "displayBrightness", "struct_j_b_wopr_configuration.html#a807865a78dd31a8095d164f02f4e33b0", null ],
     [ "effectsTimeout", "struct_j_b_wopr_configuration.html#a2330ad223b0ff86f2e6ac23742630fd4", null ],
-    [ "timeFormat", "struct_j_b_wopr_configuration.html#aab66168bf4827ff6ffab98fa1d8b5303", null ],
-    [ "useTimeOnlyClock", "struct_j_b_wopr_configuration.html#a07f7238210a7a8554027d9eb43d06502", null ]
+    [ "timeFormat", "struct_j_b_wopr_configuration.html#aab66168bf4827ff6ffab98fa1d8b5303", null ]
 ];

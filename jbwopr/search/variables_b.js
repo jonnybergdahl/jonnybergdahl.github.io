@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['usemqtt_0',['useMqtt',['../struct_j_b_wopr_mqtt_config.html#af4428a9f3cf997c5007bab6350aab7d5',1,'JBWoprMqttConfig']]],
-  ['usetimeonlyclock_1',['useTimeOnlyClock',['../struct_j_b_wopr_configuration.html#a07f7238210a7a8554027d9eb43d06502',1,'JBWoprConfiguration']]],
-  ['usewebportal_2',['useWebPortal',['../struct_j_b_wopr_wi_fi_configuration.html#a0f1be4cac853b4a055fcf9eece32770d',1,'JBWoprWiFiConfiguration']]]
+  ['text_0',['text',['../struct_j_b_wopr_song_effect_1_1_note.html#a91fa9bb51bfad74861ea9d0450659872',1,'JBWoprSongEffect::Note']]],
+  ['timeformat_1',['timeFormat',['../struct_j_b_wopr_configuration.html#aab66168bf4827ff6ffab98fa1d8b5303',1,'JBWoprConfiguration']]]
 ];

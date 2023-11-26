@@ -17,6 +17,8 @@ var group___display_group =
     [ "JBWoprDevice::displaySetBrightness", "group___display_group.html#ga1ed14d3bda89646587f90462af411080", null ],
     [ "JBWoprMqttDevice::displaySetBrightness", "group___display_group.html#gaf8a8fc71500db0995ba6f6c52511886f", null ],
     [ "JBWoprDevice::displaySetChar", "group___display_group.html#ga8cc34199e73916424fd9dbcf46fa3380", null ],
+    [ "JBWoprDevice::displaySetState", "group___display_group.html#ga01eec06b393b816d45784d9deccd9db1", null ],
+    [ "JBWoprMqttDevice::displaySetState", "group___display_group.html#ga8fb279f4bdf0ec7653b05612f91e9397", null ],
     [ "JBWoprDevice::displayShow", "group___display_group.html#ga182d85cb5d6ed51a2b89cbea756d7a0b", null ],
     [ "JBWoprDevice::displayShowText", "group___display_group.html#gaf1cfe82316db15cf84d99a3fb58077c7", null ],
     [ "JBWoprMqttDevice::displayShowText", "group___display_group.html#gaf0c3311c0f5242eada547303cc748e8c", null ],

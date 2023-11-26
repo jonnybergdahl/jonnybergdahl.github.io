@@ -1,8 +1,22 @@
 var searchData=
 [
-  ['mqttpassword_0',['mqttPassword',['../struct_j_b_wopr_mqtt_config.html#a7c5a189faf50f97c7067d43a38ce774e',1,'JBWoprMqttConfig']]],
-  ['mqttprefix_1',['mqttPrefix',['../struct_j_b_wopr_mqtt_config.html#aa0437648ea4220bf7455cbdcac61e64f',1,'JBWoprMqttConfig']]],
-  ['mqttservername_2',['mqttServerName',['../struct_j_b_wopr_mqtt_config.html#a2a93e0f4c07d979cfe76d07d4b4f750d',1,'JBWoprMqttConfig']]],
-  ['mqttserverport_3',['mqttServerPort',['../struct_j_b_wopr_mqtt_config.html#aba48638b36310a098fe17526db3347ef',1,'JBWoprMqttConfig']]],
-  ['mqttusername_4',['mqttUserName',['../struct_j_b_wopr_mqtt_config.html#ab324fd3fd4779a5fdc815bf0cc3b6109',1,'JBWoprMqttConfig']]]
+  ['json_5fkey_5fconf_5fmqtt_5fprefix_0',['JSON_KEY_CONF_MQTT_PREFIX',['../class_j_b_wopr_mqtt_device.html#a9d1c9a41794786a92455cd6a3682239a',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5fdate_5fformat_1',['JSON_KEY_DATE_FORMAT',['../class_j_b_wopr_wi_fi_device.html#a9c31b80f16a50000a46a158154484ea4',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fdefcon_5fbrightness_2',['JSON_KEY_DEFCON_BRIGHTNESS',['../class_j_b_wopr_wi_fi_device.html#aa4f639aa5caa15040ea46b156a264518',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fdisplay_5fbrightness_3',['JSON_KEY_DISPLAY_BRIGHTNESS',['../class_j_b_wopr_wi_fi_device.html#a4b725bf7a4e21427fbeaf08670e326a6',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5feffects_5ftimeout_4',['JSON_KEY_EFFECTS_TIMEOUT',['../class_j_b_wopr_wi_fi_device.html#a6b72e1fa684eab5273b077696b225a0a',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fha_5fdiag_5fentity_5fip_5',['JSON_KEY_HA_DIAG_ENTITY_IP',['../class_j_b_wopr_h_a_device.html#a3c1cc9400be5e5737bb6408e3e784164',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fha_5fdiag_5fentity_5fram_6',['JSON_KEY_HA_DIAG_ENTITY_RAM',['../class_j_b_wopr_h_a_device.html#acc272dc283e418722796e748041f4cac',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fha_5fdiag_5fentity_5frssi_7',['JSON_KEY_HA_DIAG_ENTITY_RSSI',['../class_j_b_wopr_h_a_device.html#a09351b6e8cbc43e5bc55143d7af4cc6e',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fha_5fdiag_5fentity_5fversion_8',['JSON_KEY_HA_DIAG_ENTITY_VERSION',['../class_j_b_wopr_h_a_device.html#a7b64115bb0e6ab79074a78803d5be2e2',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fha_5fdiscovery_5fprefix_9',['JSON_KEY_HA_DISCOVERY_PREFIX',['../class_j_b_wopr_h_a_device.html#a888ea355bd50a011d1f806055021bf2d',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fha_5fuse_5fhome_5fassistant_10',['JSON_KEY_HA_USE_HOME_ASSISTANT',['../class_j_b_wopr_h_a_device.html#ad28132d275200260771050a1e09d1605',1,'JBWoprHADevice']]],
+  ['json_5fkey_5fmqtt_5fpassword_11',['JSON_KEY_MQTT_PASSWORD',['../class_j_b_wopr_mqtt_device.html#a47ae4b136c4039306b1a0202aaba4f0b',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5fmqtt_5fserver_5fname_12',['JSON_KEY_MQTT_SERVER_NAME',['../class_j_b_wopr_mqtt_device.html#a6e589c99d3ac0273e06a7fe14948084b',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5fmqtt_5fserver_5fport_13',['JSON_KEY_MQTT_SERVER_PORT',['../class_j_b_wopr_mqtt_device.html#a4751150fda365f1889ad40a09b3b4c34',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5fmqtt_5fuse_5fmqtt_14',['JSON_KEY_MQTT_USE_MQTT',['../class_j_b_wopr_mqtt_device.html#a4d11155a735d07ddedf23b799aa87898',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5fmqtt_5fuser_5fname_15',['JSON_KEY_MQTT_USER_NAME',['../class_j_b_wopr_mqtt_device.html#a2765bb5c16e3772a677acdad5a3475a3',1,'JBWoprMqttDevice']]],
+  ['json_5fkey_5ftime_5fformat_16',['JSON_KEY_TIME_FORMAT',['../class_j_b_wopr_wi_fi_device.html#a71b2710d0656e51131d3a1b19caf3d20',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fwifi_5fhost_5fname_17',['JSON_KEY_WIFI_HOST_NAME',['../class_j_b_wopr_wi_fi_device.html#a309bb6d3845ebc921da92f55e3a61c96',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fwifi_5fuse_5fweb_5fportal_18',['JSON_KEY_WIFI_USE_WEB_PORTAL',['../class_j_b_wopr_wi_fi_device.html#a5bbd3bdb3e8e672cfea620b61c766cd6',1,'JBWoprWiFiDevice']]]
 ];

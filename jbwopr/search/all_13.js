@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['web_5fportal_5fpassword_0',['WEB_PORTAL_PASSWORD',['../class_j_b_wopr_wi_fi_device.html#a544d97c4c58477bda4d308b8861b2b3e',1,'JBWoprWiFiDevice']]],
-  ['webportalstart_1',['webPortalStart',['../group___wi_fi_group.html#gac9254fb9737ede31c5042336de686744',1,'JBWoprWiFiDevice']]],
-  ['webportalstop_2',['webPortalStop',['../group___wi_fi_group.html#ga5f456c865b9dd548e8699a8779c8b403',1,'JBWoprWiFiDevice']]],
-  ['wifi_20related_20methods_3',['WiFi related methods',['../group___wi_fi_group.html',1,'']]]
+  ['usage_0',['Usage',['../index.html#autotoc_md3',1,'']]],
+  ['usage_20of_20onboard_20devices_1',['Advanced usage of onboard devices',['../index.html#autotoc_md8',1,'']]],
+  ['usemqtt_2',['useMqtt',['../struct_j_b_wopr_mqtt_config.html#af4428a9f3cf997c5007bab6350aab7d5',1,'JBWoprMqttConfig']]],
+  ['usewebportal_3',['useWebPortal',['../struct_j_b_wopr_wi_fi_configuration.html#a0f1be4cac853b4a055fcf9eece32770d',1,'JBWoprWiFiConfiguration']]]
 ];

@@ -98,12 +98,12 @@ $(document).ready(function(){initNavTree('group___mqtt_group.html',''); initResi
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ga3f0a4bafc563db470053e03b847d727f" id="r_ga3f0a4bafc563db470053e03b847d727f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga3f0a4bafc563db470053e03b847d727f">JBWoprMqttDevice::mqttPublishMessage</a> (const std::string topic, const DynamicJsonDocument &amp;jsonDoc, bool retain=false)</td></tr>
-<tr class="memdesc:ga3f0a4bafc563db470053e03b847d727f"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
-<tr class="separator:ga3f0a4bafc563db470053e03b847d727f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef60874c2f3bbfb6697485ea060b4a57" id="r_gaef60874c2f3bbfb6697485ea060b4a57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gaef60874c2f3bbfb6697485ea060b4a57">JBWoprMqttDevice::mqttPublishMessage</a> (const std::string topic, const std::string value, bool retain=false)</td></tr>
-<tr class="memdesc:gaef60874c2f3bbfb6697485ea060b4a57"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
-<tr class="separator:gaef60874c2f3bbfb6697485ea060b4a57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga001a40834fece80c16640317ffb3b2b9" id="r_ga001a40834fece80c16640317ffb3b2b9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga001a40834fece80c16640317ffb3b2b9">JBWoprMqttDevice::mqttPublishMessage</a> (const std::string &amp;topic, const DynamicJsonDocument &amp;jsonDoc, bool retain=false)</td></tr>
+<tr class="memdesc:ga001a40834fece80c16640317ffb3b2b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
+<tr class="separator:ga001a40834fece80c16640317ffb3b2b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gaba1346845fc9c0d8428b5681d26b4d4f" id="r_gaba1346845fc9c0d8428b5681d26b4d4f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gaba1346845fc9c0d8428b5681d26b4d4f">JBWoprMqttDevice::mqttPublishMessage</a> (const std::string &amp;topic, const std::string &amp;value, bool retain=false)</td></tr>
+<tr class="memdesc:gaba1346845fc9c0d8428b5681d26b4d4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
+<tr class="separator:gaba1346845fc9c0d8428b5681d26b4d4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga41acc91107272b06803be7ad5a7a73f4" id="r_ga41acc91107272b06803be7ad5a7a73f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga41acc91107272b06803be7ad5a7a73f4">JBWoprMqttDevice::mqttPublishMessage</a> (const char *topic, const char *value, bool retain=false)</td></tr>
 <tr class="memdesc:ga41acc91107272b06803be7ad5a7a73f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
 <tr class="separator:ga41acc91107272b06803be7ad5a7a73f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -134,15 +134,49 @@ Functions</h2></td></tr>
 <tr class="memitem:gaedd4719f39724598320693d9585bf73b" id="r_gaedd4719f39724598320693d9585bf73b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gaedd4719f39724598320693d9585bf73b">JBWoprMqttDevice::_handleDefconCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
 <tr class="memdesc:gaedd4719f39724598320693d9585bf73b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT defcon command message.  <br /></td></tr>
 <tr class="separator:gaedd4719f39724598320693d9585bf73b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae9edfac92857f1a4ce7e7aa6a2f0dcc4" id="r_gae9edfac92857f1a4ce7e7aa6a2f0dcc4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gae9edfac92857f1a4ce7e7aa6a2f0dcc4">JBWoprMqttDevice::_getTopic</a> (const char *entityId, const char *subEntityId)</td></tr>
+<tr class="memitem:gae9edfac92857f1a4ce7e7aa6a2f0dcc4" id="r_gae9edfac92857f1a4ce7e7aa6a2f0dcc4"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gae9edfac92857f1a4ce7e7aa6a2f0dcc4">JBWoprMqttDevice::_getTopic</a> (const char *entityId, const char *subEntityId)</td></tr>
 <tr class="memdesc:gae9edfac92857f1a4ce7e7aa6a2f0dcc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get publish topic for specified entity.  <br /></td></tr>
 <tr class="separator:gae9edfac92857f1a4ce7e7aa6a2f0dcc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad1cd67269c0c468ba0aaad50b3974299" id="r_gad1cd67269c0c468ba0aaad50b3974299"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gad1cd67269c0c468ba0aaad50b3974299">JBWoprMqttDevice::_getSubscriptionTopic</a> ()</td></tr>
+<tr class="memitem:ga12e3016ad297a19b1d20334cef8d78c7" id="r_ga12e3016ad297a19b1d20334cef8d78c7"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga12e3016ad297a19b1d20334cef8d78c7">JBWoprMqttDevice::_getTopic</a> (const std::string &amp;entityId, const std::string &amp;subEntityId)</td></tr>
+<tr class="memdesc:ga12e3016ad297a19b1d20334cef8d78c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get publish topic for specified entity.  <br /></td></tr>
+<tr class="separator:ga12e3016ad297a19b1d20334cef8d78c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad1cd67269c0c468ba0aaad50b3974299" id="r_gad1cd67269c0c468ba0aaad50b3974299"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gad1cd67269c0c468ba0aaad50b3974299">JBWoprMqttDevice::_getSubscriptionTopic</a> ()</td></tr>
 <tr class="memdesc:gad1cd67269c0c468ba0aaad50b3974299"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get subscription topic.  <br /></td></tr>
 <tr class="separator:gad1cd67269c0c468ba0aaad50b3974299"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacf7193e18fbb622819a9ae2123cc50ca" id="r_gacf7193e18fbb622819a9ae2123cc50ca"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gacf7193e18fbb622819a9ae2123cc50ca">JBWoprMqttDevice::_getAvailabilityTopic</a> ()</td></tr>
+<tr class="memdesc:gacf7193e18fbb622819a9ae2123cc50ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get availability topic.  <br /></td></tr>
+<tr class="separator:gacf7193e18fbb622819a9ae2123cc50ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="gacf7193e18fbb622819a9ae2123cc50ca" name="gacf7193e18fbb622819a9ae2123cc50ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacf7193e18fbb622819a9ae2123cc50ca">&#9670;&#160;</a></span>_getAvailabilityTopic()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string JBWoprMqttDevice::_getAvailabilityTopic </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get availability topic. </p>
+<dl class="section return"><dt>Returns</dt><dd>Availability topic </dd></dl>
+
+</div>
+</div>
 <a id="gad1cd67269c0c468ba0aaad50b3974299" name="gad1cd67269c0c468ba0aaad50b3974299"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gad1cd67269c0c468ba0aaad50b3974299">&#9670;&#160;</a></span>_getSubscriptionTopic()</h2>
 
@@ -161,7 +195,7 @@ Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -172,7 +206,7 @@ Functions</h2></td></tr>
 </div>
 </div>
 <a id="gae9edfac92857f1a4ce7e7aa6a2f0dcc4" name="gae9edfac92857f1a4ce7e7aa6a2f0dcc4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gae9edfac92857f1a4ce7e7aa6a2f0dcc4">&#9670;&#160;</a></span>_getTopic()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#gae9edfac92857f1a4ce7e7aa6a2f0dcc4">&#9670;&#160;</a></span>_getTopic() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -200,7 +234,53 @@ Functions</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get publish topic for specified entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entityId</td><td>Entity ID </td></tr>
+    <tr><td class="paramname">subEntityId</td><td>Sub entity ID </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Topic </dd></dl>
+
+</div>
+</div>
+<a id="ga12e3016ad297a19b1d20334cef8d78c7" name="ga12e3016ad297a19b1d20334cef8d78c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga12e3016ad297a19b1d20334cef8d78c7">&#9670;&#160;</a></span>_getTopic() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string JBWoprMqttDevice::_getTopic </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>entityId</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>subEntityId</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
@@ -643,8 +723,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ga3f0a4bafc563db470053e03b847d727f" name="ga3f0a4bafc563db470053e03b847d727f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ga3f0a4bafc563db470053e03b847d727f">&#9670;&#160;</a></span>mqttPublishMessage() <span class="overload">[2/3]</span></h2>
+<a id="ga001a40834fece80c16640317ffb3b2b9" name="ga001a40834fece80c16640317ffb3b2b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga001a40834fece80c16640317ffb3b2b9">&#9670;&#160;</a></span>mqttPublishMessage() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -652,7 +732,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool JBWoprMqttDevice::mqttPublishMessage </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>topic</em>, </td>
         </tr>
         <tr>
@@ -688,8 +768,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="gaef60874c2f3bbfb6697485ea060b4a57" name="gaef60874c2f3bbfb6697485ea060b4a57"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#gaef60874c2f3bbfb6697485ea060b4a57">&#9670;&#160;</a></span>mqttPublishMessage() <span class="overload">[3/3]</span></h2>
+<a id="gaba1346845fc9c0d8428b5681d26b4d4f" name="gaba1346845fc9c0d8428b5681d26b4d4f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gaba1346845fc9c0d8428b5681d26b4d4f">&#9670;&#160;</a></span>mqttPublishMessage() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -697,13 +777,13 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">bool JBWoprMqttDevice::mqttPublishMessage </td>
           <td>(</td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>topic</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
           <td class="paramname"><em>value</em>, </td>
         </tr>
         <tr>
