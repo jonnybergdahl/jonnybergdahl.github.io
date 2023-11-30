@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['progress_0',['Work in progress',['../index.html#autotoc_md1',1,'']]]
+  ['quick_20start_0',['Quick start',['../index.html#autotoc_md4',1,'']]]
 ];

@@ -145,6 +145,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ga41acc91107272b06803be7ad5a7a73f4" id="r_ga41acc91107272b06803be7ad5a7a73f4"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga41acc91107272b06803be7ad5a7a73f4">mqttPublishMessage</a> (const char *topic, const char *value, bool retain=false)</td></tr>
 <tr class="memdesc:ga41acc91107272b06803be7ad5a7a73f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT publish message.  <br /></td></tr>
 <tr class="separator:ga41acc91107272b06803be7ad5a7a73f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga693ada4bf8a209bc7a98148b32db6a7e" id="r_ga693ada4bf8a209bc7a98148b32db6a7e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga693ada4bf8a209bc7a98148b32db6a7e">effectsStartCurrentEffect</a> () override</td></tr>
+<tr class="memdesc:ga693ada4bf8a209bc7a98148b32db6a7e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects start current effect.  <br /></td></tr>
+<tr class="separator:ga693ada4bf8a209bc7a98148b32db6a7e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga2b40d28c3b59ccf593ce7aad2da5a5cf" id="r_ga2b40d28c3b59ccf593ce7aad2da5a5cf"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga2b40d28c3b59ccf593ce7aad2da5a5cf">effectsStopCurrentEffect</a> ()</td></tr>
+<tr class="memdesc:ga2b40d28c3b59ccf593ce7aad2da5a5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop current effect.  <br /></td></tr>
+<tr class="separator:ga2b40d28c3b59ccf593ce7aad2da5a5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gad57820a4590e911850221a0142839739" id="r_gad57820a4590e911850221a0142839739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gad57820a4590e911850221a0142839739">effectsStartEffect</a> (<a class="el" href="class_j_b_wopr_effect_base.html">JBWoprEffectBase</a> *effect) override</td></tr>
+<tr class="memdesc:gad57820a4590e911850221a0142839739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects start effect.  <br /></td></tr>
+<tr class="separator:gad57820a4590e911850221a0142839739"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga4b4924802f4ca690f39a004738c3306a" id="r_ga4b4924802f4ca690f39a004738c3306a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga4b4924802f4ca690f39a004738c3306a">effectsStartEffect</a> (const std::string &amp;effect) override</td></tr>
+<tr class="memdesc:ga4b4924802f4ca690f39a004738c3306a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects start effect.  <br /></td></tr>
+<tr class="separator:ga4b4924802f4ca690f39a004738c3306a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gab1daf2b1133a2a2a3f7eca0906a417d7" id="r_gab1daf2b1133a2a2a3f7eca0906a417d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gab1daf2b1133a2a2a3f7eca0906a417d7">effectsStartEffect</a> (const char *effect) override</td></tr>
+<tr class="memdesc:gab1daf2b1133a2a2a3f7eca0906a417d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects start effect.  <br /></td></tr>
+<tr class="separator:gab1daf2b1133a2a2a3f7eca0906a417d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8fb279f4bdf0ec7653b05612f91e9397" id="r_ga8fb279f4bdf0ec7653b05612f91e9397"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga8fb279f4bdf0ec7653b05612f91e9397">displaySetState</a> (bool state) override</td></tr>
 <tr class="memdesc:ga8fb279f4bdf0ec7653b05612f91e9397"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display set state.  <br /></td></tr>
 <tr class="separator:ga8fb279f4bdf0ec7653b05612f91e9397"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -256,31 +271,14 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:gae9419460a7d1e606c334f1a2ec744725 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register effect.  <br /></td></tr>
 <tr class="separator:gae9419460a7d1e606c334f1a2ec744725 inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac3d32e126512bc6494e5a15c40869cc2 inherit pub_methods_class_j_b_wopr_device" id="r_gac3d32e126512bc6494e5a15c40869cc2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_j_b_wopr_effect_base.html">JBWoprEffectBase</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gac3d32e126512bc6494e5a15c40869cc2">effectsGetRegisteredEffects</a> ()</td></tr>
-<tr class="memdesc:gac3d32e126512bc6494e5a15c40869cc2 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get list of registered effects.  <br /></td></tr>
+<tr class="memdesc:gac3d32e126512bc6494e5a15c40869cc2 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a list of registered effects.  <br /></td></tr>
 <tr class="separator:gac3d32e126512bc6494e5a15c40869cc2 inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga5c425469cccac331ce05dab15edf2b6f inherit pub_methods_class_j_b_wopr_device" id="r_ga5c425469cccac331ce05dab15edf2b6f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_j_b_wopr_effect_base.html">JBWoprEffectBase</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga5c425469cccac331ce05dab15edf2b6f">effectsGetCurrentEffect</a> ()</td></tr>
 <tr class="memdesc:ga5c425469cccac331ce05dab15edf2b6f inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get current effect.  <br /></td></tr>
 <tr class="separator:ga5c425469cccac331ce05dab15edf2b6f inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga664c66957213484e1122fdd854483cd0 inherit pub_methods_class_j_b_wopr_device" id="r_ga664c66957213484e1122fdd854483cd0"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>effectsStartCurrentEffect</b> ()</td></tr>
-<tr class="memdesc:ga664c66957213484e1122fdd854483cd0 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start current effect. <br /></td></tr>
-<tr class="separator:ga664c66957213484e1122fdd854483cd0 inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac4283877fbbde90ccbda71d587d309fe inherit pub_methods_class_j_b_wopr_device" id="r_gac4283877fbbde90ccbda71d587d309fe"><td class="memItemLeft" align="right" valign="top">
-void&#160;</td><td class="memItemRight" valign="bottom"><b>effectsStopCurrentEffect</b> ()</td></tr>
-<tr class="memdesc:gac4283877fbbde90ccbda71d587d309fe inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stop current effect. <br /></td></tr>
-<tr class="separator:gac4283877fbbde90ccbda71d587d309fe inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabb970eb9b64e9c801ffd20a0cf2315aa inherit pub_methods_class_j_b_wopr_device" id="r_gabb970eb9b64e9c801ffd20a0cf2315aa"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gabb970eb9b64e9c801ffd20a0cf2315aa">effectsCurrentEffectIsRunning</a> ()</td></tr>
 <tr class="memdesc:gabb970eb9b64e9c801ffd20a0cf2315aa inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Check if current effect is running.  <br /></td></tr>
 <tr class="separator:gabb970eb9b64e9c801ffd20a0cf2315aa inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga53dca9127493b11608525713153eb18a inherit pub_methods_class_j_b_wopr_device" id="r_ga53dca9127493b11608525713153eb18a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga53dca9127493b11608525713153eb18a">effectsStartEffect</a> (<a class="el" href="class_j_b_wopr_effect_base.html">JBWoprEffectBase</a> *effect)</td></tr>
-<tr class="memdesc:ga53dca9127493b11608525713153eb18a inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start effect.  <br /></td></tr>
-<tr class="separator:ga53dca9127493b11608525713153eb18a inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga36b7016b962666898a233998975da799 inherit pub_methods_class_j_b_wopr_device" id="r_ga36b7016b962666898a233998975da799"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#ga36b7016b962666898a233998975da799">effectsStartEffect</a> (std::string name)</td></tr>
-<tr class="memdesc:ga36b7016b962666898a233998975da799 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start named effect.  <br /></td></tr>
-<tr class="separator:ga36b7016b962666898a233998975da799 inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba55c8980d41e7aaa80c2185e8ceb48e inherit pub_methods_class_j_b_wopr_device" id="r_gaba55c8980d41e7aaa80c2185e8ceb48e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___effects_group.html#gaba55c8980d41e7aaa80c2185e8ceb48e">effectsStartEffect</a> (const char *name)</td></tr>
-<tr class="memdesc:gaba55c8980d41e7aaa80c2185e8ceb48e inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Start named effect.  <br /></td></tr>
-<tr class="separator:gaba55c8980d41e7aaa80c2185e8ceb48e inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga22fd98bc3c8fe27db8737140ffee7b91 inherit pub_methods_class_j_b_wopr_device" id="r_ga22fd98bc3c8fe27db8737140ffee7b91"><td class="memItemLeft" align="right" valign="top">std::array&lt; Adafruit_AlphaNum4, 3 &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91">getDisplay</a> ()</td></tr>
 <tr class="memdesc:ga22fd98bc3c8fe27db8737140ffee7b91 inherit pub_methods_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get display.  <br /></td></tr>
 <tr class="separator:ga22fd98bc3c8fe27db8737140ffee7b91 inherit pub_methods_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -380,6 +378,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:gae75b177997abe672e0ecf5d7c644875c" id="r_gae75b177997abe672e0ecf5d7c644875c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gae75b177997abe672e0ecf5d7c644875c">_handleCommand</a> (const std::string &amp;entity, const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
 <tr class="memdesc:gae75b177997abe672e0ecf5d7c644875c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT command message.  <br /></td></tr>
 <tr class="separator:gae75b177997abe672e0ecf5d7c644875c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c0a39bf499d30d3e49da5cf7f4e81b0" id="r_ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga8c0a39bf499d30d3e49da5cf7f4e81b0">_handleDeviceCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
+<tr class="memdesc:ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT device command message.  <br /></td></tr>
+<tr class="separator:ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd071bec660d8a4bce61fcf6905b4552" id="r_gacd071bec660d8a4bce61fcf6905b4552"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gacd071bec660d8a4bce61fcf6905b4552">_handleConfigCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
+<tr class="memdesc:gacd071bec660d8a4bce61fcf6905b4552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT config command message.  <br /></td></tr>
+<tr class="separator:gacd071bec660d8a4bce61fcf6905b4552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafab34e70b203cfc6aaf189e116e3d089" id="r_gafab34e70b203cfc6aaf189e116e3d089"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gafab34e70b203cfc6aaf189e116e3d089">_handleEffectCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
 <tr class="memdesc:gafab34e70b203cfc6aaf189e116e3d089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT effect command message.  <br /></td></tr>
 <tr class="separator:gafab34e70b203cfc6aaf189e116e3d089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -537,6 +541,14 @@ PubSubClient *&#160;</td><td class="memItemRight" valign="bottom"><b>_mqttClient
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_mqttActive</b> = false</td></tr>
 <tr class="memdesc:a2ee40d73e47ebae30f0502b446f36e3e"><td class="mdescLeft">&#160;</td><td class="mdescRight">MQTT active flag, set tp true after initialization. <br /></td></tr>
 <tr class="separator:a2ee40d73e47ebae30f0502b446f36e3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1f0e77ce933e7a0d40915196ab1c305" id="r_ac1f0e77ce933e7a0d40915196ab1c305"><td class="memItemLeft" align="right" valign="top"><a id="ac1f0e77ce933e7a0d40915196ab1c305" name="ac1f0e77ce933e7a0d40915196ab1c305"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ENTITY_NAME_DEVICE</b> = &quot;device&quot;</td></tr>
+<tr class="memdesc:ac1f0e77ce933e7a0d40915196ab1c305"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device entity name. <br /></td></tr>
+<tr class="separator:ac1f0e77ce933e7a0d40915196ab1c305"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51addbdeb34689730a287f8ee0e16570" id="r_a51addbdeb34689730a287f8ee0e16570"><td class="memItemLeft" align="right" valign="top"><a id="a51addbdeb34689730a287f8ee0e16570" name="a51addbdeb34689730a287f8ee0e16570"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ENTITY_NAME_CONFIG</b> = &quot;config&quot;</td></tr>
+<tr class="memdesc:a51addbdeb34689730a287f8ee0e16570"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config entity name. <br /></td></tr>
+<tr class="separator:a51addbdeb34689730a287f8ee0e16570"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a12867a17cc1dc27c06065ec30c72cd31" id="r_a12867a17cc1dc27c06065ec30c72cd31"><td class="memItemLeft" align="right" valign="top"><a id="a12867a17cc1dc27c06065ec30c72cd31" name="a12867a17cc1dc27c06065ec30c72cd31"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>ENTITY_NAME_EFFECT</b> = &quot;effect&quot;</td></tr>
 <tr class="memdesc:a12867a17cc1dc27c06065ec30c72cd31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effect entity name. <br /></td></tr>
@@ -597,6 +609,34 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAM
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_NAME</b> = &quot;name&quot;</td></tr>
 <tr class="memdesc:a5a6b5f9df306ac6c4a82fd85363535b8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effect subentity name. <br /></td></tr>
 <tr class="separator:a5a6b5f9df306ac6c4a82fd85363535b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23183bc9f38c4e0f3a6d5aa71cdd6348" id="r_a23183bc9f38c4e0f3a6d5aa71cdd6348"><td class="memItemLeft" align="right" valign="top"><a id="a23183bc9f38c4e0f3a6d5aa71cdd6348" name="a23183bc9f38c4e0f3a6d5aa71cdd6348"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_EFFECTS_TIMEOUT</b> = &quot;effects_timeout&quot;</td></tr>
+<tr class="memdesc:a23183bc9f38c4e0f3a6d5aa71cdd6348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects timeout key name. <br /></td></tr>
+<tr class="separator:a23183bc9f38c4e0f3a6d5aa71cdd6348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b04e00953edb66538d509a610114587" id="r_a6b04e00953edb66538d509a610114587"><td class="memItemLeft" align="right" valign="top"><a id="a6b04e00953edb66538d509a610114587" name="a6b04e00953edb66538d509a610114587"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_TIME_FORMAT</b> = &quot;time_format&quot;</td></tr>
+<tr class="memdesc:a6b04e00953edb66538d509a610114587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time format key name. <br /></td></tr>
+<tr class="separator:a6b04e00953edb66538d509a610114587"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b7e5ef32f16c3924d478edf8d81e79b" id="r_a4b7e5ef32f16c3924d478edf8d81e79b"><td class="memItemLeft" align="right" valign="top"><a id="a4b7e5ef32f16c3924d478edf8d81e79b" name="a4b7e5ef32f16c3924d478edf8d81e79b"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_DATE_FORMAT</b> = &quot;date_format&quot;</td></tr>
+<tr class="memdesc:a4b7e5ef32f16c3924d478edf8d81e79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date Format key name. <br /></td></tr>
+<tr class="separator:a4b7e5ef32f16c3924d478edf8d81e79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99621bb415d5b88192956b13728be31e" id="r_a99621bb415d5b88192956b13728be31e"><td class="memItemLeft" align="right" valign="top"><a id="a99621bb415d5b88192956b13728be31e" name="a99621bb415d5b88192956b13728be31e"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_DEFCON_BRIGHTNESS</b> = &quot;defcon_brightness&quot;</td></tr>
+<tr class="memdesc:a99621bb415d5b88192956b13728be31e"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON LEDs brightness key name. <br /></td></tr>
+<tr class="separator:a99621bb415d5b88192956b13728be31e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a564ac39c076828ee1413e2e9b719e1" id="r_a0a564ac39c076828ee1413e2e9b719e1"><td class="memItemLeft" align="right" valign="top"><a id="a0a564ac39c076828ee1413e2e9b719e1" name="a0a564ac39c076828ee1413e2e9b719e1"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_DISPLAY_BRIGHTNESS</b> = &quot;display_brightness&quot;</td></tr>
+<tr class="memdesc:a0a564ac39c076828ee1413e2e9b719e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Display brightness key name. <br /></td></tr>
+<tr class="separator:a0a564ac39c076828ee1413e2e9b719e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0a43ca15be166ca44cad18daac24e16" id="r_ac0a43ca15be166ca44cad18daac24e16"><td class="memItemLeft" align="right" valign="top"><a id="ac0a43ca15be166ca44cad18daac24e16" name="ac0a43ca15be166ca44cad18daac24e16"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_WIFI_HOST_NAME</b> = &quot;host_name&quot;</td></tr>
+<tr class="memdesc:ac0a43ca15be166ca44cad18daac24e16"><td class="mdescLeft">&#160;</td><td class="mdescRight">Host name key name. <br /></td></tr>
+<tr class="separator:ac0a43ca15be166ca44cad18daac24e16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8eafb78910e0d72a4456a4c23c204fc4" id="r_a8eafb78910e0d72a4456a4c23c204fc4"><td class="memItemLeft" align="right" valign="top"><a id="a8eafb78910e0d72a4456a4c23c204fc4" name="a8eafb78910e0d72a4456a4c23c204fc4"></a>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>SUBENTITY_NAME_WIFI_USE_WEB_PORTAL</b> = &quot;use_web_portal&quot;</td></tr>
+<tr class="memdesc:a8eafb78910e0d72a4456a4c23c204fc4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use portal key name. <br /></td></tr>
+<tr class="separator:a8eafb78910e0d72a4456a4c23c204fc4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a32d48c062e77e69f3d6e0db51d9d7e55" id="r_a32d48c062e77e69f3d6e0db51d9d7e55"><td class="memItemLeft" align="right" valign="top"><a id="a32d48c062e77e69f3d6e0db51d9d7e55" name="a32d48c062e77e69f3d6e0db51d9d7e55"></a>
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>STATE_ON</b> = &quot;ON&quot;</td></tr>
 <tr class="memdesc:a32d48c062e77e69f3d6e0db51d9d7e55"><td class="mdescLeft">&#160;</td><td class="mdescRight">State ON. <br /></td></tr>
@@ -639,7 +679,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>_apName</b> = 
 <tr class="memdesc:a527b27335737ef5302c266043260c707 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">AP name. <br /></td></tr>
 <tr class="separator:a527b27335737ef5302c266043260c707 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a544d97c4c58477bda4d308b8861b2b3e inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a544d97c4c58477bda4d308b8861b2b3e"><td class="memItemLeft" align="right" valign="top">
-const char *&#160;</td><td class="memItemRight" valign="bottom"><b>WEB_PORTAL_PASSWORD</b> = &quot;woprwopr&quot;</td></tr>
+const char *&#160;</td><td class="memItemRight" valign="bottom"><b>WEB_PORTAL_PASSWORD</b> = &quot;wopr1234&quot;</td></tr>
 <tr class="memdesc:a544d97c4c58477bda4d308b8861b2b3e inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">AP portal password. <br /></td></tr>
 <tr class="separator:a544d97c4c58477bda4d308b8861b2b3e inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b72e1fa684eab5273b077696b225a0a inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a6b72e1fa684eab5273b077696b225a0a"><td class="memItemLeft" align="right" valign="top">
@@ -783,6 +823,10 @@ Adafruit_NeoPixel&#160;</td><td class="memItemRight" valign="bottom"><b>_defconL
 bool&#160;</td><td class="memItemRight" valign="bottom"><b>_defconState</b> = true</td></tr>
 <tr class="memdesc:a45cb86b798c355595b6ad11d814194f1 inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON state. <br /></td></tr>
 <tr class="separator:a45cb86b798c355595b6ad11d814194f1 inherit pro_attribs_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c5f12e0ea6a4c2db16ae3cee0a50f9d inherit pro_attribs_class_j_b_wopr_device" id="r_a6c5f12e0ea6a4c2db16ae3cee0a50f9d"><td class="memItemLeft" align="right" valign="top">
+<a class="el" href="jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28">JBDefconLevel</a>&#160;</td><td class="memItemRight" valign="bottom"><b>_defconLevel</b> = <a class="el" href="jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28a29fd121d3dc2717f9c7438d678a2ebf9">JBDefconLevel::DEFCON_NONE</a></td></tr>
+<tr class="memdesc:a6c5f12e0ea6a4c2db16ae3cee0a50f9d inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON level. <br /></td></tr>
+<tr class="separator:a6c5f12e0ea6a4c2db16ae3cee0a50f9d inherit pro_attribs_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8651302441cf21516921eaaa866b7dba inherit pro_attribs_class_j_b_wopr_device" id="r_a8651302441cf21516921eaaa866b7dba"><td class="memItemLeft" align="right" valign="top">
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconColors</b> [5]</td></tr>
 <tr class="memdesc:a8651302441cf21516921eaaa866b7dba inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON colors. <br /></td></tr>
@@ -791,6 +835,10 @@ uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconColors</b>
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconBrightness</b> = 100</td></tr>
 <tr class="memdesc:a9fcc9764873793d8e6509c964081c701 inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON brightness. <br /></td></tr>
 <tr class="separator:a9fcc9764873793d8e6509c964081c701 inherit pro_attribs_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f6f472d0859a552b59808f2f53b99e inherit pro_attribs_class_j_b_wopr_device" id="r_a15f6f472d0859a552b59808f2f53b99e"><td class="memItemLeft" align="right" valign="top">
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconLedsColor</b> = 0</td></tr>
+<tr class="memdesc:a15f6f472d0859a552b59808f2f53b99e inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON LED's color. <br /></td></tr>
+<tr class="separator:a15f6f472d0859a552b59808f2f53b99e inherit pro_attribs_class_j_b_wopr_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37085926dcb2d611f632c16885b0b56e inherit pro_attribs_class_j_b_wopr_device" id="r_a37085926dcb2d611f632c16885b0b56e"><td class="memItemLeft" align="right" valign="top">
 uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>_defconPixels</b> [5] { 0,0,0,0,0}</td></tr>
 <tr class="memdesc:a37085926dcb2d611f632c16885b0b56e inherit pro_attribs_class_j_b_wopr_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">DEFCON buffered pixel colors. <br /></td></tr>

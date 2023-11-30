@@ -4,10 +4,17 @@ var searchData=
   ['state_5fon_1',['STATE_ON',['../class_j_b_wopr_mqtt_device.html#a32d48c062e77e69f3d6e0db51d9d7e55',1,'JBWoprMqttDevice']]],
   ['subentity_5fname_5fbrightness_2',['SUBENTITY_NAME_BRIGHTNESS',['../class_j_b_wopr_mqtt_device.html#ae13f07fd681da3b56a75ab4640fe99eb',1,'JBWoprMqttDevice']]],
   ['subentity_5fname_5fcolor_3',['SUBENTITY_NAME_COLOR',['../class_j_b_wopr_mqtt_device.html#a2bb42cbd9afb2505c93e8ca165438df9',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fevent_4',['SUBENTITY_NAME_EVENT',['../class_j_b_wopr_mqtt_device.html#ae6e9811b48b190b6b7d7244c94f64f6c',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5flevel_5',['SUBENTITY_NAME_LEVEL',['../class_j_b_wopr_mqtt_device.html#ab12434d0a871c7c970683a2369623423',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fname_6',['SUBENTITY_NAME_NAME',['../class_j_b_wopr_mqtt_device.html#a5a6b5f9df306ac6c4a82fd85363535b8',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fscrolltext_7',['SUBENTITY_NAME_SCROLLTEXT',['../class_j_b_wopr_mqtt_device.html#ace8270df73899faf9bbf6c32002b612d',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5fstate_8',['SUBENTITY_NAME_STATE',['../class_j_b_wopr_mqtt_device.html#a92f258359618c3e9e47dd02b1040b513',1,'JBWoprMqttDevice']]],
-  ['subentity_5fname_5ftext_9',['SUBENTITY_NAME_TEXT',['../class_j_b_wopr_mqtt_device.html#ad6bf8911238bd002cdd303a96aa10280',1,'JBWoprMqttDevice']]]
+  ['subentity_5fname_5fdate_5fformat_4',['SUBENTITY_NAME_DATE_FORMAT',['../class_j_b_wopr_mqtt_device.html#a4b7e5ef32f16c3924d478edf8d81e79b',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fdefcon_5fbrightness_5',['SUBENTITY_NAME_DEFCON_BRIGHTNESS',['../class_j_b_wopr_mqtt_device.html#a99621bb415d5b88192956b13728be31e',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fdisplay_5fbrightness_6',['SUBENTITY_NAME_DISPLAY_BRIGHTNESS',['../class_j_b_wopr_mqtt_device.html#a0a564ac39c076828ee1413e2e9b719e1',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5feffects_5ftimeout_7',['SUBENTITY_NAME_EFFECTS_TIMEOUT',['../class_j_b_wopr_mqtt_device.html#a23183bc9f38c4e0f3a6d5aa71cdd6348',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fevent_8',['SUBENTITY_NAME_EVENT',['../class_j_b_wopr_mqtt_device.html#ae6e9811b48b190b6b7d7244c94f64f6c',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5flevel_9',['SUBENTITY_NAME_LEVEL',['../class_j_b_wopr_mqtt_device.html#ab12434d0a871c7c970683a2369623423',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fname_10',['SUBENTITY_NAME_NAME',['../class_j_b_wopr_mqtt_device.html#a5a6b5f9df306ac6c4a82fd85363535b8',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fscrolltext_11',['SUBENTITY_NAME_SCROLLTEXT',['../class_j_b_wopr_mqtt_device.html#ace8270df73899faf9bbf6c32002b612d',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fstate_12',['SUBENTITY_NAME_STATE',['../class_j_b_wopr_mqtt_device.html#a92f258359618c3e9e47dd02b1040b513',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5ftext_13',['SUBENTITY_NAME_TEXT',['../class_j_b_wopr_mqtt_device.html#ad6bf8911238bd002cdd303a96aa10280',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5ftime_5fformat_14',['SUBENTITY_NAME_TIME_FORMAT',['../class_j_b_wopr_mqtt_device.html#a6b04e00953edb66538d509a610114587',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fwifi_5fhost_5fname_15',['SUBENTITY_NAME_WIFI_HOST_NAME',['../class_j_b_wopr_mqtt_device.html#ac0a43ca15be166ca44cad18daac24e16',1,'JBWoprMqttDevice']]],
+  ['subentity_5fname_5fwifi_5fuse_5fweb_5fportal_16',['SUBENTITY_NAME_WIFI_USE_WEB_PORTAL',['../class_j_b_wopr_mqtt_device.html#a8eafb78910e0d72a4456a4c23c204fc4',1,'JBWoprMqttDevice']]]
 ];

@@ -5,7 +5,9 @@ var annotated_dup =
     [ "JBWoprBoardPins", "struct_j_b_wopr_board_pins.html", "struct_j_b_wopr_board_pins" ],
     [ "JBWoprConfiguration", "struct_j_b_wopr_configuration.html", "struct_j_b_wopr_configuration" ],
     [ "JBWoprDateDisplayEffect", "class_j_b_wopr_date_display_effect.html", "class_j_b_wopr_date_display_effect" ],
+    [ "JBWoprDateDisplayRainbowEffect", "class_j_b_wopr_date_display_rainbow_effect.html", "class_j_b_wopr_date_display_rainbow_effect" ],
     [ "JBWoprDateTimeDisplayEffect", "class_j_b_wopr_date_time_display_effect.html", "class_j_b_wopr_date_time_display_effect" ],
+    [ "JBWoprDateTimeDisplayRainbowEffect", "class_j_b_wopr_date_time_display_rainbow_effect.html", "class_j_b_wopr_date_time_display_rainbow_effect" ],
     [ "JBWoprDefconRainbowEffect", "class_j_b_wopr_defcon_rainbow_effect.html", "class_j_b_wopr_defcon_rainbow_effect" ],
     [ "JBWoprDevice", "class_j_b_wopr_device.html", "class_j_b_wopr_device" ],
     [ "JBWoprEffectBase", "class_j_b_wopr_effect_base.html", "class_j_b_wopr_effect_base" ],
@@ -20,6 +22,7 @@ var annotated_dup =
     [ "JBWoprTextDisplayEffect", "class_j_b_wopr_text_display_effect.html", "class_j_b_wopr_text_display_effect" ],
     [ "JBWoprTheRickEffect", "class_j_b_wopr_the_rick_effect.html", "class_j_b_wopr_the_rick_effect" ],
     [ "JBWoprTimeDisplayEffect", "class_j_b_wopr_time_display_effect.html", "class_j_b_wopr_time_display_effect" ],
+    [ "JBWoprTimeDisplayRainbowEffect", "class_j_b_wopr_time_display_rainbow_effect.html", "class_j_b_wopr_time_display_rainbow_effect" ],
     [ "JBWoprWiFiConfiguration", "struct_j_b_wopr_wi_fi_configuration.html", "struct_j_b_wopr_wi_fi_configuration" ],
     [ "JBWoprWiFiDevice", "class_j_b_wopr_wi_fi_device.html", "class_j_b_wopr_wi_fi_device" ],
     [ "JBWoprXmasSecondsDisplayEffect", "class_j_b_wopr_xmas_seconds_display_effect.html", "class_j_b_wopr_xmas_seconds_display_effect" ]

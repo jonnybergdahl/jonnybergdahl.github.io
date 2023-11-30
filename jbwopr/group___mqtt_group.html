@@ -125,6 +125,12 @@ Functions</h2></td></tr>
 <tr class="memitem:gae75b177997abe672e0ecf5d7c644875c" id="r_gae75b177997abe672e0ecf5d7c644875c"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gae75b177997abe672e0ecf5d7c644875c">JBWoprMqttDevice::_handleCommand</a> (const std::string &amp;entity, const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
 <tr class="memdesc:gae75b177997abe672e0ecf5d7c644875c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT command message.  <br /></td></tr>
 <tr class="separator:gae75b177997abe672e0ecf5d7c644875c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga8c0a39bf499d30d3e49da5cf7f4e81b0" id="r_ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#ga8c0a39bf499d30d3e49da5cf7f4e81b0">JBWoprMqttDevice::_handleDeviceCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
+<tr class="memdesc:ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT device command message.  <br /></td></tr>
+<tr class="separator:ga8c0a39bf499d30d3e49da5cf7f4e81b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gacd071bec660d8a4bce61fcf6905b4552" id="r_gacd071bec660d8a4bce61fcf6905b4552"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gacd071bec660d8a4bce61fcf6905b4552">JBWoprMqttDevice::_handleConfigCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
+<tr class="memdesc:gacd071bec660d8a4bce61fcf6905b4552"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT config command message.  <br /></td></tr>
+<tr class="separator:gacd071bec660d8a4bce61fcf6905b4552"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafab34e70b203cfc6aaf189e116e3d089" id="r_gafab34e70b203cfc6aaf189e116e3d089"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___mqtt_group.html#gafab34e70b203cfc6aaf189e116e3d089">JBWoprMqttDevice::_handleEffectCommand</a> (const std::string &amp;subEntity, const std::string &amp;command, const std::string &amp;payload)</td></tr>
 <tr class="memdesc:gafab34e70b203cfc6aaf189e116e3d089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handle MQTT effect command message.  <br /></td></tr>
 <tr class="separator:gafab34e70b203cfc6aaf189e116e3d089"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -356,6 +362,58 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="gacd071bec660d8a4bce61fcf6905b4552" name="gacd071bec660d8a4bce61fcf6905b4552"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gacd071bec660d8a4bce61fcf6905b4552">&#9670;&#160;</a></span>_handleConfigCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprMqttDevice::_handleConfigCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>subEntity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>payload</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle MQTT config command message. </p>
+<p>This method will handle incoming MQTT config command messages. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subEntity</td><td>Sub entity name </td></tr>
+    <tr><td class="paramname">command</td><td>Command </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="gaedd4719f39724598320693d9585bf73b" name="gaedd4719f39724598320693d9585bf73b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaedd4719f39724598320693d9585bf73b">&#9670;&#160;</a></span>_handleDefconCommand()</h2>
 
@@ -398,6 +456,58 @@ Functions</h2></td></tr>
 
 <p>Handle MQTT defcon command message. </p>
 <p>This method will handle incoming MQTT defcon command messages. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">subEntity</td><td>Sub entity name </td></tr>
+    <tr><td class="paramname">command</td><td>Command </td></tr>
+    <tr><td class="paramname">payload</td><td>Payload </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga8c0a39bf499d30d3e49da5cf7f4e81b0" name="ga8c0a39bf499d30d3e49da5cf7f4e81b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8c0a39bf499d30d3e49da5cf7f4e81b0">&#9670;&#160;</a></span>_handleDeviceCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprMqttDevice::_handleDeviceCommand </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>subEntity</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>command</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>payload</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Handle MQTT device command message. </p>
+<p>This method will handle incoming MQTT device command messages. </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">subEntity</td><td>Sub entity name </td></tr>
     <tr><td class="paramname">command</td><td>Command </td></tr>
