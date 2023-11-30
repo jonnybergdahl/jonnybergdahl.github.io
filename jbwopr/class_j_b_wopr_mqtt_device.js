@@ -73,7 +73,6 @@ var class_j_b_wopr_mqtt_device =
     [ "_mqttTitleParam", "class_j_b_wopr_mqtt_device.html#a9993a40f716a94cd1d391c6196f3a37a", null ],
     [ "_mqttUserNameParam", "class_j_b_wopr_mqtt_device.html#a776977d4612f7dc31b5ce271be160aba", null ],
     [ "_useMqttParam", "class_j_b_wopr_mqtt_device.html#a71ae4fef9127a07a5f0642707653497e", null ],
-    [ "_wifiClient", "class_j_b_wopr_mqtt_device.html#a184136fd9c1b46639ddb1eaf8b3caf5f", null ],
     [ "COMMAND_SET", "class_j_b_wopr_mqtt_device.html#a9905997e957841ab0043ca2365b4a001", null ],
     [ "ENTITY_NAME_BUTTON_BACK_BOTTOM", "class_j_b_wopr_mqtt_device.html#a2b74293373dc62b359ec331dbf35669c", null ],
     [ "ENTITY_NAME_BUTTON_BACK_TOP", "class_j_b_wopr_mqtt_device.html#a8d182dcec9caaa4a9048d721c1042e45", null ],

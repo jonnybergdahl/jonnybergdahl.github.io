@@ -31,22 +31,24 @@ var NAVTREE =
       [ "Quick start", "index.html#autotoc_md4", null ],
       [ "Code documentation", "index.html#autotoc_md5", null ]
     ] ],
-    [ "JBWoprDevicee", "index.html#autotoc_md6", [
+    [ "JBWoprDevice", "index.html#autotoc_md6", [
       [ "Advanced usage of onboard devices", "index.html#autotoc_md7", null ]
     ] ],
     [ "JBWoprWifiDevice", "index.html#autotoc_md8", null ],
-    [ "JBWoprMqttDevice", "index.html#autotoc_md9", null ],
-    [ "MQTT Topics", "index.html#autotoc_md10", [
-      [ "Effects", "index.html#autotoc_md11", null ],
-      [ "Display", "index.html#autotoc_md12", null ],
-      [ "DEFCON LED's", "index.html#autotoc_md13", null ],
-      [ "Buttons", "index.html#autotoc_md14", null ]
+    [ "JBWoprMqttDevice", "index.html#autotoc_md9", [
+      [ "MQTT Topics", "index.html#autotoc_md10", [
+        [ "Device", "index.html#autotoc_md11", null ],
+        [ "Configuration", "index.html#autotoc_md12", null ],
+        [ "Display", "index.html#autotoc_md13", null ],
+        [ "DEFCON LED's", "index.html#autotoc_md14", null ],
+        [ "Buttons", "index.html#autotoc_md15", null ]
+      ] ]
     ] ],
-    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md15", [
-      [ "Topics", "index.html#autotoc_md16", null ],
-      [ "Diagnostics", "index.html#autotoc_md17", null ],
-      [ "Configuration", "index.html#autotoc_md18", null ],
-      [ "Device state", "index.html#autotoc_md19", null ]
+    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md16", [
+      [ "Home Assistant", "index.html#autotoc_md17", null ],
+      [ "MQTT Topics", "index.html#autotoc_md18", null ],
+      [ "Diagnostics", "index.html#autotoc_md19", null ],
+      [ "Configuration", "index.html#autotoc_md20", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
@@ -75,7 +77,7 @@ var NAVTREEINDEX =
 [
 "annotated.html",
 "class_j_b_wopr_the_rick_effect.html#a55a0f6de098df5b95597c8c1930112ac",
-"index.html"
+"hierarchy.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

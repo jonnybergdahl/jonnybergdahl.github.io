@@ -1,9 +1,9 @@
 var searchData=
 [
   ['jbwoprdatedisplayeffect_0',['JBWoprDateDisplayEffect',['../class_j_b_wopr_date_display_effect.html#ae27eca01a33a31d0e1b8af653d3677df',1,'JBWoprDateDisplayEffect']]],
-  ['jbwoprdatedisplayrainboweffect_1',['JBWoprDateDisplayRainbowEffect',['../class_j_b_wopr_date_display_rainbow_effect.html#ad642561af9a4cc5433869c28732a7b67',1,'JBWoprDateDisplayRainbowEffect']]],
+  ['jbwoprdatedisplayrainboweffect_1',['JBWoprDateDisplayRainbowEffect',['../class_j_b_wopr_date_display_rainbow_effect.html#a62e2c41d967f5890b311ff9399455c82',1,'JBWoprDateDisplayRainbowEffect']]],
   ['jbwoprdatetimedisplayeffect_2',['JBWoprDateTimeDisplayEffect',['../class_j_b_wopr_date_time_display_effect.html#ac5ecadcaf6f531e68ceff4bbeb993278',1,'JBWoprDateTimeDisplayEffect']]],
-  ['jbwoprdatetimedisplayrainboweffect_3',['JBWoprDateTimeDisplayRainbowEffect',['../class_j_b_wopr_date_time_display_rainbow_effect.html#a6628ea0e3c7539c535e40161a02f838b',1,'JBWoprDateTimeDisplayRainbowEffect']]],
+  ['jbwoprdatetimedisplayrainboweffect_3',['JBWoprDateTimeDisplayRainbowEffect',['../class_j_b_wopr_date_time_display_rainbow_effect.html#a9007e9a492155efcc396d67fba720f54',1,'JBWoprDateTimeDisplayRainbowEffect']]],
   ['jbwoprdefconrainboweffect_4',['JBWoprDefconRainbowEffect',['../class_j_b_wopr_defcon_rainbow_effect.html#a4faf6e446280accde5d090df23efd3a9',1,'JBWoprDefconRainbowEffect']]],
   ['jbwoprdevice_5',['JBWoprDevice',['../class_j_b_wopr_device.html#a6c55183650b6919639b65d4b5205ae88',1,'JBWoprDevice']]],
   ['jbwopreffectbase_6',['JBWoprEffectBase',['../class_j_b_wopr_effect_base.html#a86d681cd2f4ac98dd3e02dc8e3b6f5b5',1,'JBWoprEffectBase']]],
@@ -16,7 +16,7 @@ var searchData=
   ['jbwoprtextdisplayeffect_13',['JBWoprTextDisplayEffect',['../class_j_b_wopr_text_display_effect.html#a18b18b6a975885677cef6f8aac129a37',1,'JBWoprTextDisplayEffect']]],
   ['jbwoprtherickeffect_14',['JBWoprTheRickEffect',['../class_j_b_wopr_the_rick_effect.html#a55a0f6de098df5b95597c8c1930112ac',1,'JBWoprTheRickEffect']]],
   ['jbwoprtimedisplayeffect_15',['JBWoprTimeDisplayEffect',['../class_j_b_wopr_time_display_effect.html#af29167e82bfbe445f9ee0976e07dd338',1,'JBWoprTimeDisplayEffect']]],
-  ['jbwoprtimedisplayrainboweffect_16',['JBWoprTimeDisplayRainbowEffect',['../class_j_b_wopr_time_display_rainbow_effect.html#afe852cc5f9cac9bf70c771348822d6cc',1,'JBWoprTimeDisplayRainbowEffect']]],
+  ['jbwoprtimedisplayrainboweffect_16',['JBWoprTimeDisplayRainbowEffect',['../class_j_b_wopr_time_display_rainbow_effect.html#ad1174416f3501c830604e4fab3ea5ec3',1,'JBWoprTimeDisplayRainbowEffect']]],
   ['jbwoprwifidevice_17',['JBWoprWiFiDevice',['../class_j_b_wopr_wi_fi_device.html#ad985a8ade67834f0101b6a77d698ec9a',1,'JBWoprWiFiDevice']]],
   ['jbwoprxmassecondsdisplayeffect_18',['JBWoprXmasSecondsDisplayEffect',['../class_j_b_wopr_xmas_seconds_display_effect.html#a178aff3421851c2728cc9a9764d16e51',1,'JBWoprXmasSecondsDisplayEffect']]]
 ];
