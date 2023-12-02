@@ -123,7 +123,7 @@ Then run the sample with:</p>
 </div>
 <p>Source code:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">growcube_client</span> <span class="kn">import</span> <span class="n">GrowcubeClient</span><span class="p">,</span> <span class="n">GrowcubeReport</span>
+<span class="kn">from</span> <span class="nn">growcube_client</span> <span class="kn">import</span> <span class="n">GrowcubeReport</span><span class="p">,</span> <span class="n">GrowcubeClient</span>
 
 
 <span class="c1"># Define a callback function to print messages to the screen</span>
@@ -138,20 +138,20 @@ Then run the sample with:</p>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to Growcube at </span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="c1"># Connect to the Growcube and start listening for messages</span>
-    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect_and_listen</span><span class="p">()</span>
-    <span class="c1"># The above call never finishes, so we will not reach here</span>
-    <span class="c1"># In a real application this could be run in a background thread</span>
+    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
 
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
     <span class="c1"># Set host name or IP address</span>
-    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;172.30.2.70&quot;</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;172.30.2.72&quot;</span>
 
     <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">HOST</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Sample script output.</p>
-<div class="highlight-log notranslate"><div class="highlight"><pre><span></span>Connecting to Growcube at 172.30.2.70
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>Connecting to Growcube at 172.30.2.70
 Received: RepDeviceVersionCmd: version 3.6, device_id 12663500
 Received: RepLockstateCmd: lock_state False
 Received: RepWaterStateCmd: water_warning: True
@@ -193,6 +193,17 @@ devices on your network. By default, it will search for devices on the
 local network, but if the devices are located in a separate subnet you
 can also specify that network to search in.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_discover.py<span class="w"> </span><span class="m">192</span>.168.4.0/24
+</pre></div>
+</div>
+<p>The output will look like this.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Discovering</span> <span class="n">Growcube</span> <span class="n">clients</span> <span class="n">on</span> <span class="n">subnet</span> <span class="mf">172.30.2.0</span><span class="o">/</span><span class="mi">24</span>
+<span class="n">Trying</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="mf">172.30.2.1</span>
+<span class="n">Trying</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="mf">172.30.2.2</span>
+<span class="o">...</span>
+<span class="n">Trying</span> <span class="n">to</span> <span class="n">connect</span> <span class="n">to</span> <span class="mf">172.30.2.254</span>
+<span class="n">Found</span> <span class="mi">2</span> <span class="n">devices</span><span class="p">:</span>
+<span class="n">Found</span> <span class="n">device</span><span class="p">:</span> <span class="mf">172.30.2.71</span>
+<span class="n">Found</span> <span class="n">device</span><span class="p">:</span> <span class="mf">172.30.2.70</span>
 </pre></div>
 </div>
 <div class="toctree-wrapper compound">
