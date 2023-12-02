@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>growcube-client documentation &mdash; growcube-client  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Growcube client" href="growcubeclient.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            growcube-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeprotocol.html">Growcube protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">growcube-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">growcube-client documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="growcube-client-documentation">
+<h1>growcube-client documentation<a class="headerlink" href="#growcube-client-documentation" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jonny Bergdahl</p>
+</dd>
+<dt class="field-even">Email<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="mailto:github&#37;&#52;&#48;bergdahl&#46;org">github<span>&#64;</span>bergdahl<span>&#46;</span>org</a></p>
+</dd>
+<dt class="field-odd">Date<span class="colon">:</span></dt>
+<dd class="field-odd"><p>2023-12-02</p>
+</dd>
+<dt class="field-even">Version<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0.10</p>
+</dd>
+</dl>
+</section>
+<section id="python-growcube-client">
+<h1>Python-growcube-client<a class="headerlink" href="#python-growcube-client" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/growcube-client"><img alt="PyPI version" src="https://badge.fury.io/py/growcube-client.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/growcube-client/"><img alt="PyPI pyversions" src="https://img.shields.io/pypi/pyversions/growcube-client.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/ansicolortags/"><img alt="PyPI license" src="https://img.shields.io/pypi/l/ansicolortags.svg" /></a></p>
+<p>This is an asyncio Python library to communicate with <a class="reference external" href="https://www.elecrow.com/growcube-gardening-plants-smart-watering-kit-device.html">Elecrow
+Growcube</a>
+devices. By using this library you can communicate directly with the
+device, without the need to use the phone app.</p>
+<p>Once connected to a device, the library will listen for messages from
+the device and use a callback function to return parsed messages to the
+application. The application can also send commands to the device.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">growcube</span><span class="o">-</span><span class="n">client</span>
+</pre></div>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/rowcube.sample.py</span></code> file shows how to use the library. It
+defines a callback function where the GrowcubeClient sends messages as
+they arrive from the Growcube device. To use the sample, change the
+<code class="docutils literal notranslate"><span class="pre">HOST</span></code> variable to the host name or IP address of the Growcube device.
+Then run the sample with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_sample.py
+</pre></div>
+</div>
+<p>Source code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">growcube_client</span> <span class="kn">import</span> <span class="n">GrowcubeClient</span><span class="p">,</span> <span class="n">GrowcubeReport</span>
+
+
+<span class="c1"># Define a callback function to print messages to the screen</span>
+<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">GrowcubeReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Just dump the message to the console</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received: </span><span class="si">{</span><span class="n">report</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Create a client instance</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">GrowcubeClient</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to Growcube at </span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Connect to the Growcube and start listening for messages</span>
+    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect_and_listen</span><span class="p">()</span>
+    <span class="c1"># The above call never finishes, so we will not reach here</span>
+    <span class="c1"># In a real application this could be run in a background thread</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Set host name or IP address</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;172.30.2.70&quot;</span>
+
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">HOST</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Sample script output.</p>
+<div class="highlight-log notranslate"><div class="highlight"><pre><span></span>Connecting to Growcube at 172.30.2.70
+Received: RepDeviceVersionCmd: version 3.6, device_id 12663500
+Received: RepLockstateCmd: lock_state False
+Received: RepWaterStateCmd: water_warning: True
+Received: RepSTHSateCmd: pump: 0, moisture: 26, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 1, moisture: 26, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 2, moisture: 30, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 3, moisture: 33, humidity: 41, temperature: 24
+</pre></div>
+</div>
+</section>
+<section id="more-advanced-use">
+<h2>More advanced use<a class="headerlink" href="#more-advanced-use" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/growcube_app.py</span></code> file shows how to use the library in a more
+advanced application.</p>
+<p>To use the app, you need to install <code class="docutils literal notranslate"><span class="pre">wxPython</span></code> first, please follow
+<a class="reference external" href="https://wiki.wxpython.org/How%20to%20install%20wxPython">the directions
+here</a>.</p>
+<p>Start the app with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_app.py
+</pre></div>
+</div>
+<p>You are greeted with a screen asking for the host name or IP address of
+the Growcube device. Enter that and click the <em>Submit</em> button. The app
+will connect to your Growcube and starts displaying received data.</p>
+<p>You can water plants by setting a watering duration and clicking the
+<em>Pump X</em> button.</p>
+<figure class="align-default" id="id1">
+<img alt="Growcube app page 1" src="_images/app1.png" />
+<figcaption>
+<p><span class="caption-text">Growcube app page 1</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="auto-discovery">
+<h1>Auto discovery<a class="headerlink" href="#auto-discovery" title="Link to this heading"></a></h1>
+<p>You can use the sample script <code class="docutils literal notranslate"><span class="pre">src/growcube_discover.py</span></code> to search for
+devices on your network. By default, it will search for devices on the
+local network, but if the devices are located in a separate subnet you
+can also specify that network to search in.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_discover.py<span class="w"> </span><span class="m">192</span>.168.4.0/24
+</pre></div>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubeclient.html#growcube_client.growcubeclient.GrowcubeClient"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.ClosePumpCommand"><code class="docutils literal notranslate"><span class="pre">ClosePumpCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.GrowcubeCommand"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.PlantEndCommand"><code class="docutils literal notranslate"><span class="pre">PlantEndCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.RequestCurveDataCommand"><code class="docutils literal notranslate"><span class="pre">RequestCurveDataCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SetWorkModeCommand"><code class="docutils literal notranslate"><span class="pre">SetWorkModeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SyncDeviceUpgradeCommand"><code class="docutils literal notranslate"><span class="pre">SyncDeviceUpgradeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SyncTimeCommand"><code class="docutils literal notranslate"><span class="pre">SyncTimeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SyncWFactoryResetCommand"><code class="docutils literal notranslate"><span class="pre">SyncWFactoryResetCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SyncWaterLevelCommand"><code class="docutils literal notranslate"><span class="pre">SyncWaterLevelCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.SyncWaterTimeCommand"><code class="docutils literal notranslate"><span class="pre">SyncWaterTimeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.WaterCommand"><code class="docutils literal notranslate"><span class="pre">WaterCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.WateringModeCommand"><code class="docutils literal notranslate"><span class="pre">WateringModeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.WiFiSettingsCommand"><code class="docutils literal notranslate"><span class="pre">WiFiSettingsCommand</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubediscovery.html#growcube_client.growcubediscovery.GrowcubeDiscovery"><code class="docutils literal notranslate"><span class="pre">GrowcubeDiscovery</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel"><code class="docutils literal notranslate"><span class="pre">Channel</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.WateringMode"><code class="docutils literal notranslate"><span class="pre">WateringMode</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubemessage.html#growcube_client.growcubemessage.GrowcubeMessage"><code class="docutils literal notranslate"><span class="pre">GrowcubeMessage</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeprotocol.html">Growcube protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubeprotocol.html#growcube_client.growcubeprotocol.GrowcubeProtocol"><code class="docutils literal notranslate"><span class="pre">GrowcubeProtocol</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.AutoWaterGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckPumpBlockedGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorLockGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckWifiStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.DeviceVersionGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.EraseDataGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">EraseDataGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.GrowCubeIPGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">GrowCubeIPGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.GrowcubeReport"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.LockStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">LockStateGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.PumpCloseGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">PumpCloseGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.PumpOpenGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">PumpOpenGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">RepCurveEndFlagGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.UnknownGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">UnknownGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.WaterStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">WaterStateGrowcubeReport</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="growcubeclient.html" class="btn btn-neutral float-right" title="Growcube client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

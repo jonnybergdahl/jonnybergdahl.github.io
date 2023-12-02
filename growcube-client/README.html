@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python-growcube-client &mdash; growcube-client  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            growcube-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeprotocol.html">Growcube protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">growcube-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python-growcube-client</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/README.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="python-growcube-client">
+<h1>Python-growcube-client<a class="headerlink" href="#python-growcube-client" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/growcube-client"><img alt="PyPI version" src="https://badge.fury.io/py/growcube-client.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/growcube-client/"><img alt="PyPI pyversions" src="https://img.shields.io/pypi/pyversions/growcube-client.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/ansicolortags/"><img alt="PyPI license" src="https://img.shields.io/pypi/l/ansicolortags.svg" /></a></p>
+<p>This is an asyncio Python library to communicate with <a class="reference external" href="https://www.elecrow.com/growcube-gardening-plants-smart-watering-kit-device.html">Elecrow
+Growcube</a>
+devices. By using this library you can communicate directly with the
+device, without the need to use the phone app.</p>
+<p>Once connected to a device, the library will listen for messages from
+the device and use a callback function to return parsed messages to the
+application. The application can also send commands to the device.</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">growcube</span><span class="o">-</span><span class="n">client</span>
+</pre></div>
+</div>
+</section>
+<section id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/rowcube.sample.py</span></code> file shows how to use the library. It
+defines a callback function where the GrowcubeClient sends messages as
+they arrive from the Growcube device. To use the sample, change the
+<code class="docutils literal notranslate"><span class="pre">HOST</span></code> variable to the host name or IP address of the Growcube device.
+Then run the sample with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_sample.py
+</pre></div>
+</div>
+<p>Source code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">from</span> <span class="nn">growcube_client</span> <span class="kn">import</span> <span class="n">GrowcubeClient</span><span class="p">,</span> <span class="n">GrowcubeReport</span>
+
+
+<span class="c1"># Define a callback function to print messages to the screen</span>
+<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">GrowcubeReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Just dump the message to the console</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received: </span><span class="si">{</span><span class="n">report</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># Create a client instance</span>
+    <span class="n">client</span> <span class="o">=</span> <span class="n">GrowcubeClient</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to Growcube at </span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Connect to the Growcube and start listening for messages</span>
+    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect_and_listen</span><span class="p">()</span>
+    <span class="c1"># The above call never finishes, so we will not reach here</span>
+    <span class="c1"># In a real application this could be run in a background thread</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="c1"># Set host name or IP address</span>
+    <span class="n">HOST</span> <span class="o">=</span> <span class="s2">&quot;172.30.2.70&quot;</span>
+
+    <span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">(</span><span class="n">HOST</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Sample script output.</p>
+<div class="highlight-log notranslate"><div class="highlight"><pre><span></span>Connecting to Growcube at 172.30.2.70
+Received: RepDeviceVersionCmd: version 3.6, device_id 12663500
+Received: RepLockstateCmd: lock_state False
+Received: RepWaterStateCmd: water_warning: True
+Received: RepSTHSateCmd: pump: 0, moisture: 26, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 1, moisture: 26, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 2, moisture: 30, humidity: 41, temperature: 24
+Received: RepSTHSateCmd: pump: 3, moisture: 33, humidity: 41, temperature: 24
+</pre></div>
+</div>
+</section>
+<section id="more-advanced-use">
+<h2>More advanced use<a class="headerlink" href="#more-advanced-use" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">src/growcube_app.py</span></code> file shows how to use the library in a more
+advanced application.</p>
+<p>To use the app, you need to install <code class="docutils literal notranslate"><span class="pre">wxPython</span></code> first, please follow
+<a class="reference external" href="https://wiki.wxpython.org/How%20to%20install%20wxPython">the directions
+here</a>.</p>
+<p>Start the app with:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_app.py
+</pre></div>
+</div>
+<p>You are greeted with a screen asking for the host name or IP address of
+the Growcube device. Enter that and click the <em>Submit</em> button. The app
+will connect to your Growcube and starts displaying received data.</p>
+<p>You can water plants by setting a watering duration and clicking the
+<em>Pump X</em> button.</p>
+<figure class="align-default" id="id1">
+<img alt="Growcube app page 1" src="_images/app1.png" />
+<figcaption>
+<p><span class="caption-text">Growcube app page 1</span><a class="headerlink" href="#id1" title="Link to this image"></a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+<section id="auto-discovery">
+<h1>Auto discovery<a class="headerlink" href="#auto-discovery" title="Link to this heading"></a></h1>
+<p>You can use the sample script <code class="docutils literal notranslate"><span class="pre">src/growcube_discover.py</span></code> to search for
+devices on your network. By default, it will search for devices on the
+local network, but if the devices are located in a separate subnet you
+can also specify that network to search in.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>growcube_discover.py<span class="w"> </span><span class="m">192</span>.168.4.0/24
+</pre></div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

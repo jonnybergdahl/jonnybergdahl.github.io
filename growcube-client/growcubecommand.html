@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growcube commands &mdash; growcube-client  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Growcube discovery" href="growcubediscovery.html" />
+    <link rel="prev" title="Growcube client" href="growcubeclient.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            growcube-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Growcube commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.ClosePumpCommand"><code class="docutils literal notranslate"><span class="pre">ClosePumpCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CHD_HEAD"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CHD_HEAD</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_CLOSE_PUMP"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_CLOSE_PUMP</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_PLANT_END"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_PLANT_END</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_CURVE_DATA"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_REQ_CURVE_DATA</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_WATER"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_REQ_WATER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_SET_WORK_MODE"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_SET_WORK_MODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_SYNC_TIME"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_SYNC_TIME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_WATER_MODE"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_WATER_MODE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_WIFI_SETTINGS"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.CMD_WIFI_SETTINGS</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.Command"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.Command</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_DEVICE_UPGRADE"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.MSG_DEVICE_UPGRADE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_FACTORY_RESET"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.MSG_FACTORY_RESET</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_LEVEL"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.MSG_SYNC_WATER_LEVEL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_TIME"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.MSG_SYNC_WATER_TIME</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.get_description"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand.get_message"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand.get_message()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.PlantEndCommand"><code class="docutils literal notranslate"><span class="pre">PlantEndCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.RequestCurveDataCommand"><code class="docutils literal notranslate"><span class="pre">RequestCurveDataCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SetWorkModeCommand"><code class="docutils literal notranslate"><span class="pre">SetWorkModeCommand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.SetWorkModeCommand.get_description"><code class="docutils literal notranslate"><span class="pre">SetWorkModeCommand.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SyncDeviceUpgradeCommand"><code class="docutils literal notranslate"><span class="pre">SyncDeviceUpgradeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SyncTimeCommand"><code class="docutils literal notranslate"><span class="pre">SyncTimeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SyncWFactoryResetCommand"><code class="docutils literal notranslate"><span class="pre">SyncWFactoryResetCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SyncWaterLevelCommand"><code class="docutils literal notranslate"><span class="pre">SyncWaterLevelCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.SyncWaterTimeCommand"><code class="docutils literal notranslate"><span class="pre">SyncWaterTimeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.WaterCommand"><code class="docutils literal notranslate"><span class="pre">WaterCommand</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubecommand.WaterCommand.get_description"><code class="docutils literal notranslate"><span class="pre">WaterCommand.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.WateringModeCommand"><code class="docutils literal notranslate"><span class="pre">WateringModeCommand</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubecommand.WiFiSettingsCommand"><code class="docutils literal notranslate"><span class="pre">WiFiSettingsCommand</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeprotocol.html">Growcube protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">growcube-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Growcube commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/growcubecommand.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-growcube_client.growcubecommand">
+<span id="growcube-commands"></span><h1>Growcube commands<a class="headerlink" href="#module-growcube_client.growcubecommand" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.ClosePumpCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">ClosePumpCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.ClosePumpCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 46 - Close pump command
+This deletes any pump related settings for the given channel</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">GrowcubeCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Growcube command base class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Command</strong> (<em>dict</em>) – Dictionary mapping command codes to command names.</p></li>
+<li><p><strong>CHD_HEAD</strong> (<em>str</em>) – Command header for CHD messages.</p></li>
+<li><p><strong>CMD_SET_WORK_MODE</strong> (<em>str</em>) – Command code for SetWorkModeCmd.</p></li>
+<li><p><strong>CMD_SYNC_TIME</strong> (<em>str</em>) – Command code for SyncTimeCmd.</p></li>
+<li><p><strong>CMD_PLANT_END</strong> (<em>str</em>) – Command code for PlantEndCmd.</p></li>
+<li><p><strong>CMD_CLOSE_PUMP</strong> (<em>str</em>) – Command code for ClosePumpCmd.</p></li>
+<li><p><strong>CMD_REQ_WATER</strong> (<em>str</em>) – Command code for ReqWaterCmd.</p></li>
+<li><p><strong>CMD_REQ_CURVE_DATA</strong> (<em>str</em>) – Command code for ReqCurveDataCmd.</p></li>
+<li><p><strong>CMD_WATER_MODE</strong> (<em>str</em>) – Command code for WaterModeCmd.</p></li>
+<li><p><strong>CMD_WIFI_SETTINGS</strong> (<em>str</em>) – Command code for WifiSettingsCmd.</p></li>
+<li><p><strong>MSG_SYNC_WATER_LEVEL</strong> (<em>str</em>) – Command code for SyncWaterLevelCmd.</p></li>
+<li><p><strong>MSG_SYNC_WATER_TIME</strong> (<em>str</em>) – Command code for SyncWaterTimeCmd.</p></li>
+<li><p><strong>MSG_DEVICE_UPGRADE</strong> (<em>str</em>) – Command code for DeviceUpgradeCmd.</p></li>
+<li><p><strong>MSG_FACTORY_RESET</strong> (<em>str</em>) – Command code for FactoryResetCmd.</p></li>
+<li><p><strong>command</strong> – The command code.</p></li>
+<li><p><strong>message</strong> – The message to send.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<em>str</em>) – A string from the Command dictionary keys.</p></li>
+<li><p><strong>message</strong> (<em>str</em>) – The message to send.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CHD_HEAD">
+<span class="sig-name descname"><span class="pre">CHD_HEAD</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'elea'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CHD_HEAD" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_CLOSE_PUMP">
+<span class="sig-name descname"><span class="pre">CMD_CLOSE_PUMP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'46'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_CLOSE_PUMP" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_PLANT_END">
+<span class="sig-name descname"><span class="pre">CMD_PLANT_END</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'45'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_PLANT_END" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_CURVE_DATA">
+<span class="sig-name descname"><span class="pre">CMD_REQ_CURVE_DATA</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'48'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_CURVE_DATA" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_WATER">
+<span class="sig-name descname"><span class="pre">CMD_REQ_WATER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'47'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_REQ_WATER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_SET_WORK_MODE">
+<span class="sig-name descname"><span class="pre">CMD_SET_WORK_MODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'43'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_SET_WORK_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_SYNC_TIME">
+<span class="sig-name descname"><span class="pre">CMD_SYNC_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'44'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_SYNC_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_WATER_MODE">
+<span class="sig-name descname"><span class="pre">CMD_WATER_MODE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'49'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_WATER_MODE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.CMD_WIFI_SETTINGS">
+<span class="sig-name descname"><span class="pre">CMD_WIFI_SETTINGS</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'50'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.CMD_WIFI_SETTINGS" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.Command">
+<span class="sig-name descname"><span class="pre">Command</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'43':</span> <span class="pre">'SetWorkModeCmd',</span> <span class="pre">'44':</span> <span class="pre">'SyncTimeCmd',</span> <span class="pre">'45':</span> <span class="pre">'PlantEndCmd',</span> <span class="pre">'46':</span> <span class="pre">'ClosePumpCmd',</span> <span class="pre">'47':</span> <span class="pre">'ReqWaterCmd',</span> <span class="pre">'48':</span> <span class="pre">'ReqCurveDataCmd',</span> <span class="pre">'49':</span> <span class="pre">'WaterModeCmd',</span> <span class="pre">'50':</span> <span class="pre">'WifiSettingsCmd',</span> <span class="pre">'ele502':</span> <span class="pre">'SyncWaterLevelCmd',</span> <span class="pre">'ele503':</span> <span class="pre">'SyncWaterTimeCmd',</span> <span class="pre">'ele504':</span> <span class="pre">'DeviceUpgradeCmd',</span> <span class="pre">'ele505':</span> <span class="pre">'FactoryResetCmd'}</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.Command" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.MSG_DEVICE_UPGRADE">
+<span class="sig-name descname"><span class="pre">MSG_DEVICE_UPGRADE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ele504'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_DEVICE_UPGRADE" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.MSG_FACTORY_RESET">
+<span class="sig-name descname"><span class="pre">MSG_FACTORY_RESET</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ele505'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_FACTORY_RESET" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_LEVEL">
+<span class="sig-name descname"><span class="pre">MSG_SYNC_WATER_LEVEL</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ele502'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_LEVEL" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_TIME">
+<span class="sig-name descname"><span class="pre">MSG_SYNC_WATER_TIME</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'ele503'</span></em><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.MSG_SYNC_WATER_TIME" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the command.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.GrowcubeCommand.get_message">
+<span class="sig-name descname"><span class="pre">get_message</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubecommand.GrowcubeCommand.get_message" title="Link to this definition"></a></dt>
+<dd><p>Get the complete message for sending to the Growcube device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The complete message.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.PlantEndCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">PlantEndCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.PlantEndCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 45 - Plant end command
+This deletes any existing curve data for the given channel</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.RequestCurveDataCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">RequestCurveDataCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.RequestCurveDataCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 48 - Request curve data command
+This requests the moisture data for the given channel, used in the app to construct a graph</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SetWorkModeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SetWorkModeCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.SetWorkModeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 43 - Set work mode command</p>
+<p>This command is used to set the work mode, and it is often sent as the first package from the phone app.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SetWorkModeCommand.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubecommand.SetWorkModeCommand.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the command</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SyncDeviceUpgradeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SyncDeviceUpgradeCommand</span></span><a class="headerlink" href="#growcube_client.growcubecommand.SyncDeviceUpgradeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 504 - Device upgrade
+Issues a device upgrade request</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SyncTimeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SyncTimeCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timestamp:</span> <span class="pre">&lt;module</span> <span class="pre">'datetime'</span> <span class="pre">from</span> <span class="pre">'/Library/Developer/CommandLineTools/Library/Frameworks/Python3.framework/Versions/3.9/lib/python3.9/datetime.py'&gt;</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.SyncTimeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 44 - Sync time command</p>
+<p>This command is used to set the device time.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SyncWFactoryResetCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SyncWFactoryResetCommand</span></span><a class="headerlink" href="#growcube_client.growcubecommand.SyncWFactoryResetCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 505 - Factory reset
+Issues a factory reset request</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SyncWaterLevelCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SyncWaterLevelCommand</span></span><a class="headerlink" href="#growcube_client.growcubecommand.SyncWaterLevelCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 502 - Sync water level
+No idea what this does</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.SyncWaterTimeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">SyncWaterTimeCommand</span></span><a class="headerlink" href="#growcube_client.growcubecommand.SyncWaterTimeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 503 - Sync water time
+No idea what this does</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.WaterCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">WaterCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.WaterCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 47 - Water command
+This starts or stops watering on the given channel</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.WaterCommand.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubecommand.WaterCommand.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the command</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the command</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.WateringModeCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">WateringModeCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">watering_mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.WateringMode" title="growcube_client.growcubeenums.WateringMode"><span class="pre">WateringMode</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.WateringModeCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 49 - Water mode command
+This sets the watering mode for the given channel</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubecommand.WiFiSettingsCommand">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubecommand.</span></span><span class="sig-name descname"><span class="pre">WiFiSettingsCommand</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssid</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubecommand.WiFiSettingsCommand" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></p>
+<p>Command 50 - WiFi settings command
+This setups the WiFi settings for the Growcube</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="growcubeclient.html" class="btn btn-neutral float-left" title="Growcube client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="growcubediscovery.html" class="btn btn-neutral float-right" title="Growcube discovery" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Growcube report &mdash; growcube-client  documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Growcube protocol" href="growcubeprotocol.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            growcube-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeprotocol.html">Growcube protocol</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Growcube report</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.day"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.day</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.hour"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.hour</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.minute"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.minute</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.month"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.month</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.timestamp"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.timestamp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.year"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport.year</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckPumpBlockedGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">CheckPumpBlockedGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">CheckPumpBlockedGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport.fault_state"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport.fault_state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.lock_state"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport.lock_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport.state"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport.state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.device_id"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport.device_id</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.version"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport.version</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.EraseDataGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">EraseDataGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.EraseDataGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">EraseDataGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.EraseDataGrowcubeReport.success"><code class="docutils literal notranslate"><span class="pre">EraseDataGrowcubeReport.success</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">GrowCubeIPGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">GrowCubeIPGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport.ip"><code class="docutils literal notranslate"><span class="pre">GrowCubeIPGrowcubeReport.ip</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport.CMD_INNER"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport.CMD_INNER</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport.Response"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport.Response</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport.command"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport.command</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport.get_report"><code class="docutils literal notranslate"><span class="pre">GrowcubeReport.get_report()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.LockStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">LockStateGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.LockStateGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">LockStateGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.LockStateGrowcubeReport.lock_state"><code class="docutils literal notranslate"><span class="pre">LockStateGrowcubeReport.lock_state</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.humidity"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport.humidity</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.moisture"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport.moisture</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.temperature"><code class="docutils literal notranslate"><span class="pre">MoistureHumidityStateGrowcubeReport.temperature</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">PumpCloseGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">PumpCloseGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">PumpCloseGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">PumpOpenGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">PumpOpenGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">PumpOpenGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">RepCurveEndFlagGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.channel"><code class="docutils literal notranslate"><span class="pre">RepCurveEndFlagGrowcubeReport.channel</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">RepCurveEndFlagGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.UnknownGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">UnknownGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.UnknownGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">UnknownGrowcubeReport.get_description()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubereport.WaterStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">WaterStateGrowcubeReport</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.WaterStateGrowcubeReport.get_description"><code class="docutils literal notranslate"><span class="pre">WaterStateGrowcubeReport.get_description()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubereport.WaterStateGrowcubeReport.water_warning"><code class="docutils literal notranslate"><span class="pre">WaterStateGrowcubeReport.water_warning</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">growcube-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Growcube report</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/growcubereport.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-growcube_client.growcubereport">
+<span id="growcube-report"></span><h1>Growcube report<a class="headerlink" href="#module-growcube_client.growcubereport" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">AutoWaterGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 23 - AutoWater</p>
+<p>Reports a historic watering event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_channel</strong> – Channel number 0-3.</p></li>
+<li><p><strong>_year</strong> – Year.</p></li>
+<li><p><strong>_month</strong> – Month.</p></li>
+<li><p><strong>_day</strong> – Day of month.</p></li>
+<li><p><strong>_hour</strong> – Hour.</p></li>
+<li><p><strong>_minute</strong> – Minute.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<em>str</em>) – Response data.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.day">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">day</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.day" title="Link to this definition"></a></dt>
+<dd><p>Day of month</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Day of month.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.hour">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hour</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.hour" title="Link to this definition"></a></dt>
+<dd><p>Hour</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Hour.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.minute">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">minute</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.minute" title="Link to this definition"></a></dt>
+<dd><p>Minute</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Minute.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.month">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">month</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.month" title="Link to this definition"></a></dt>
+<dd><p>Month</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Month.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.timestamp">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">timestamp</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.timestamp" title="Link to this definition"></a></dt>
+<dd><p>Timestamp</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Timestamp.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>datetime</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.AutoWaterGrowcubeReport.year">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">year</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.AutoWaterGrowcubeReport.year" title="Link to this definition"></a></dt>
+<dd><p>Year</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Year.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">CheckPumpBlockedGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 29 - Pump channel blocked
+Reports that a pump channel is blocked</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_channel</strong> – Channel number 0-3</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">CheckSensorGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 28 - RepCheckSenSorNotConnected
+Reports that a sensor is malfunctioning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_fault_state</strong> – Fault state</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorGrowcubeReport.fault_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fault_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport.fault_state" title="Link to this definition"></a></dt>
+<dd><p>Fault state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if fault, otherwise False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorLockGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">CheckSensorLockGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 34 - ReqCheckSenSorLock
+Something related to the lock state of the sensor, I have no idea how to trigger this.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_channel</strong> – Channel number 0-3</p></li>
+<li><p><strong>_lock_state</strong> – Lock state</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorLockGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorLockGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorLockGrowcubeReport.lock_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorLockGrowcubeReport.lock_state" title="Link to this definition"></a></dt>
+<dd><p>Lock state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if locked, otherwise False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">CheckSensorNotConnectedGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 30 - RepCheckSenSorNotConnect
+Reports that a sensor is not connected</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_channel</strong> – Channel number 0-3</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></em><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>State</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckWifiStateGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">CheckWifiStateGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 31 - RepWifistate
+Reports wifi state, probably ony valid when in AP mode, to check if the new WiFi SSID is available</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_state</strong> – State</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckWifiStateGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.CheckWifiStateGrowcubeReport.state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.CheckWifiStateGrowcubeReport.state" title="Link to this definition"></a></dt>
+<dd><p>State</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if state, otherwise False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.DeviceVersionGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">DeviceVersionGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 24 - RepDeviceVersion
+Reports firmware version and device ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_version</strong> – Firmware version.</p></li>
+<li><p><strong>_device_id</strong> – Device ID.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.DeviceVersionGrowcubeReport.device_id">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">device_id</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.device_id" title="Link to this definition"></a></dt>
+<dd><p>Device ID</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Device ID.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.DeviceVersionGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.DeviceVersionGrowcubeReport.version">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">version</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubereport.DeviceVersionGrowcubeReport.version" title="Link to this definition"></a></dt>
+<dd><p>Firmware version</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Firmware version.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.EraseDataGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">EraseDataGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.EraseDataGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 25 - RepErasureData</p>
+<p>Reports the success of data erasure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_success</strong> – Indicates whether the data erasure was successful.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.EraseDataGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.EraseDataGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.EraseDataGrowcubeReport.success">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">success</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.EraseDataGrowcubeReport.success" title="Link to this definition"></a></dt>
+<dd><p>Success</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if success, otherwise False.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowCubeIPGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">GrowCubeIPGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 32 - RepGrowCubeIP
+Reports the IP address of the Growcube, I have no idea how to trigger this</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_ip</strong> – IP address</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowCubeIPGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowCubeIPGrowcubeReport.ip">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">ip</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubereport.GrowCubeIPGrowcubeReport.ip" title="Link to this definition"></a></dt>
+<dd><p>IP address</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>IP address</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">GrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Growcube report base class</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>Response</strong> (<em>dict</em><em>[</em><em>int</em><em>, </em><em>str</em><em>]</em>) – A dictionary mapping command values to corresponding report names.</p></li>
+<li><p><strong>CMD_INNER</strong> (<em>str</em>) – The inner command delimiter.</p></li>
+<li><p><strong>_command</strong> – The report command.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport.CMD_INNER">
+<span class="sig-name descname"><span class="pre">CMD_INNER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'&#64;'</span></em><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport.CMD_INNER" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport.Response">
+<span class="sig-name descname"><span class="pre">Response</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{20:</span> <span class="pre">'RepWaterStateCmd',</span> <span class="pre">21:</span> <span class="pre">'RepSTHSateCmd',</span> <span class="pre">22:</span> <span class="pre">'RepCurveCmd',</span> <span class="pre">23:</span> <span class="pre">'RepAutoWaterCmd',</span> <span class="pre">24:</span> <span class="pre">'RepDeviceVersionCmd',</span> <span class="pre">25:</span> <span class="pre">'RepErasureDataCmd',</span> <span class="pre">26:</span> <span class="pre">'RepPumpOpenCmd',</span> <span class="pre">27:</span> <span class="pre">'RepPumpCloseCmd',</span> <span class="pre">28:</span> <span class="pre">'RepCheckSenSorNotConnectedCmd',</span> <span class="pre">29:</span> <span class="pre">'RepCheckDuZhuanCmd',</span> <span class="pre">30:</span> <span class="pre">'RepCheckSenSorNotConnectCmd',</span> <span class="pre">31:</span> <span class="pre">'RepWifistateCmd',</span> <span class="pre">32:</span> <span class="pre">'RepGrowCubeIPCmd',</span> <span class="pre">33:</span> <span class="pre">'RepLockstateCmd',</span> <span class="pre">34:</span> <span class="pre">'ReqCheckSenSorLockCmd',</span> <span class="pre">35:</span> <span class="pre">'RepCurveEndFlagCmd'}</span></em><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport.Response" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport.command">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport.command" title="Link to this definition"></a></dt>
+<dd><p>Command value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Command value.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.GrowcubeReport.get_report">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_report</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Self</span></span></span><a class="headerlink" href="#growcube_client.growcubereport.GrowcubeReport.get_report" title="Link to this definition"></a></dt>
+<dd><p>Create a report from a message</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="growcubemessage.html#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><em>GrowcubeMessage</em></a>) – The message to create a report from.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A GrowcubeReport child class instance.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport">GrowcubeReport</a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.LockStateGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">LockStateGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.LockStateGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 33 - RepLockstate
+Reports if the device is in locked state, as indicated by the red LED on the device</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_lock_state</strong> – Lock state</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.LockStateGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.LockStateGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.LockStateGrowcubeReport.lock_state">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_state</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.LockStateGrowcubeReport.lock_state" title="Link to this definition"></a></dt>
+<dd><p>Lock state</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if locked, otherwise False</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">MoistureHumidityStateGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 21 - RepSTHSate</p>
+<p>Report moisture, humidity, and temperature for a channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>_channel</strong> – Channel number 0-3.</p></li>
+<li><p><strong>_moisture</strong> – Moisture value.</p></li>
+<li><p><strong>_humidity</strong> – Humidity value.</p></li>
+<li><p><strong>_temperature</strong> – Temperature value.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.humidity">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">humidity</span></span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.humidity" title="Link to this definition"></a></dt>
+<dd><p>Humidity value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Humidity value, %</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.moisture">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">moisture</span></span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.moisture" title="Link to this definition"></a></dt>
+<dd><p>Moisture value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Moisture value, %</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.temperature">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">temperature</span></span><a class="headerlink" href="#growcube_client.growcubereport.MoistureHumidityStateGrowcubeReport.temperature" title="Link to this definition"></a></dt>
+<dd><p>Temperature value</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Temperature value, °C</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpCloseGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">PumpCloseGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 27 - RepPumpClose
+Reports that a pump has been stopped</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_channel</strong> – Channel number 0-3</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpCloseGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></em><a class="headerlink" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpCloseGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.PumpCloseGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpOpenGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">PumpOpenGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 26 - RepPumpOpen</p>
+<p>Reports that a pump has been started</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_channel</strong> – Channel number 0-3</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpOpenGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></em><a class="headerlink" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel">Channel</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.PumpOpenGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.PumpOpenGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">RepCurveEndFlagGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 35 - RepCurveEndFlag
+Reports the end of the water event reports stream</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_channel</strong> – Channel number 0-3</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.channel">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">channel</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.channel" title="Link to this definition"></a></dt>
+<dd><p>Channel number 0-3</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Channel number 0-3</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.RepCurveEndFlagGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.UnknownGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">UnknownGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.UnknownGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Reports an unknown response</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.UnknownGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.UnknownGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human readable description of the report</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.WaterStateGrowcubeReport">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubereport.</span></span><span class="sig-name descname"><span class="pre">WaterStateGrowcubeReport</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.WaterStateGrowcubeReport" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><code class="xref py py-class docutils literal notranslate"><span class="pre">GrowcubeReport</span></code></a></p>
+<p>Response 20 - RepWaterState</p>
+<p>Reports water low state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>_water_warning</strong> – Flag indicating water warning.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.WaterStateGrowcubeReport.get_description">
+<span class="sig-name descname"><span class="pre">get_description</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubereport.WaterStateGrowcubeReport.get_description" title="Link to this definition"></a></dt>
+<dd><p>Get a human-readable description of the report</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable description of the report.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="growcube_client.growcubereport.WaterStateGrowcubeReport.water_warning">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">water_warning</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#growcube_client.growcubereport.WaterStateGrowcubeReport.water_warning" title="Link to this definition"></a></dt>
+<dd><p>Water warning</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if water warning, otherwise False.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="growcubeprotocol.html" class="btn btn-neutral float-left" title="Growcube protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
