@@ -1,4 +1,6 @@
 theme: jekyll-theme-minimal
 title: Home of jonnybergdahl on GitHub
 description: This site contains documentation for the projects I work on.
-include: _images
+include:
+  - _images/*
+  - _static/*
