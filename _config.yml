@@ -4,3 +4,5 @@ description: This site contains documentation for the projects I work on.
 include:
   - _images/*
   - _static/*
+  - _static/js/*
+  - _static/css/*
