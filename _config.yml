@@ -4,5 +4,5 @@ description: This site contains documentation for the projects I work on.
 include:
   - growcube-client/_images/*
   - growcube-client/_static/*
-  - */_static/js/*
-  - */_static/css/*
+  - growcube-client/_static/js/*
+  - growcube-client/_static/css/*
