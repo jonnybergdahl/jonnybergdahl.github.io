@@ -90,9 +90,10 @@ var searchData=
   ['_5fusemqttparam_87',['_useMqttParam',['../class_j_b_wopr_mqtt_device.html#a71ae4fef9127a07a5f0642707653497e',1,'JBWoprMqttDevice']]],
   ['_5fusewebportalparam_88',['_useWebPortalParam',['../class_j_b_wopr_wi_fi_device.html#ab030cefac80e74fbca99c01a071d6e26',1,'JBWoprWiFiDevice']]],
   ['_5fwholenote_89',['_wholeNote',['../class_j_b_wopr_song_effect.html#a24be4e914fea14d86e65a223cf8f0ec0',1,'JBWoprSongEffect']]],
-  ['_5fwificonfig_90',['_wifiConfig',['../class_j_b_wopr_wi_fi_device.html#a2c37a1804d538dba3101468433505f91',1,'JBWoprWiFiDevice']]],
-  ['_5fwifimanager_91',['_wifiManager',['../class_j_b_wopr_wi_fi_device.html#ae2cf89942707a55dc450261e0d7f8eff',1,'JBWoprWiFiDevice']]],
-  ['_5fwoprdevice_92',['_woprDevice',['../class_j_b_wopr_effect_base.html#ac6812c98d54e59094537285b1db164fa',1,'JBWoprEffectBase']]],
-  ['_5fwoprtitleparam_93',['_woprTitleParam',['../class_j_b_wopr_wi_fi_device.html#a17b70a3a1c0ba144a7b61f252b37f03b',1,'JBWoprWiFiDevice']]],
-  ['_5fwoprvariant_94',['_woprVariant',['../class_j_b_wopr_device.html#a7674c2582a76640d4609dd8f073bb4db',1,'JBWoprDevice']]]
+  ['_5fwificlient_90',['_wifiClient',['../class_j_b_wopr_mqtt_device.html#a184136fd9c1b46639ddb1eaf8b3caf5f',1,'JBWoprMqttDevice']]],
+  ['_5fwificonfig_91',['_wifiConfig',['../class_j_b_wopr_wi_fi_device.html#a2c37a1804d538dba3101468433505f91',1,'JBWoprWiFiDevice']]],
+  ['_5fwifimanager_92',['_wifiManager',['../class_j_b_wopr_wi_fi_device.html#ae2cf89942707a55dc450261e0d7f8eff',1,'JBWoprWiFiDevice']]],
+  ['_5fwoprdevice_93',['_woprDevice',['../class_j_b_wopr_effect_base.html#ac6812c98d54e59094537285b1db164fa',1,'JBWoprEffectBase']]],
+  ['_5fwoprtitleparam_94',['_woprTitleParam',['../class_j_b_wopr_wi_fi_device.html#a17b70a3a1c0ba144a7b61f252b37f03b',1,'JBWoprWiFiDevice']]],
+  ['_5fwoprvariant_95',['_woprVariant',['../class_j_b_wopr_device.html#a7674c2582a76640d4609dd8f073bb4db',1,'JBWoprDevice']]]
 ];

@@ -76,8 +76,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_j_b_wopr_the_rick_effect.html#a55a0f6de098df5b95597c8c1930112ac",
-"hierarchy.html"
+"class_j_b_wopr_text_display_effect.html#a4df2c751f228a9d497c3755ca129942b",
+"group___wi_fi_group.html#gaf5ebf814b74bc836f188314120915757"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

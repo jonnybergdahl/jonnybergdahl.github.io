@@ -331,6 +331,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a665806395d59d25d6a23e3bc276c0145" id="r_a665806395d59d25d6a23e3bc276c0145"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#a665806395d59d25d6a23e3bc276c0145">_setJsonDocumentFromConfig</a> (DynamicJsonDocument &amp;jsonDoc)</td></tr>
 <tr class="memdesc:a665806395d59d25d6a23e3bc276c0145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set configuration.  <br /></td></tr>
 <tr class="separator:a665806395d59d25d6a23e3bc276c0145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf5327acbb218c604a17c71e70b912e4" id="r_aaf5327acbb218c604a17c71e70b912e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#aaf5327acbb218c604a17c71e70b912e4">_dumpConfig</a> ()</td></tr>
+<tr class="memdesc:aaf5327acbb218c604a17c71e70b912e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump configuration to logger.  <br /></td></tr>
+<tr class="separator:aaf5327acbb218c604a17c71e70b912e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacb39d6c469139fd34221feb8a2128881" id="r_gacb39d6c469139fd34221feb8a2128881"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wi_fi_group.html#gacb39d6c469139fd34221feb8a2128881">_getDeviceName</a> ()</td></tr>
 <tr class="memdesc:gacb39d6c469139fd34221feb8a2128881"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get device name.  <br /></td></tr>
 <tr class="separator:gacb39d6c469139fd34221feb8a2128881"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -685,6 +688,36 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
 <p>This class extends the <a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a> class with WiFi support and uses WiFiManager for easy configuration. It also supports a web portal for configuration after the initial setup.</p>
 <p>The configuration is saved to a file on the device, and is loaded on startup. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="aaf5327acbb218c604a17c71e70b912e4" name="aaf5327acbb218c604a17c71e70b912e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf5327acbb218c604a17c71e70b912e4">&#9670;&#160;</a></span>_dumpConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprWiFiDevice::_dumpConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dump configuration to logger. </p>
+<p>Called when configuration is to be written to the logger. </p>
+
+<p>Reimplemented in <a class="el" href="class_j_b_wopr_h_a_device.html#a35625ac6d78067fe25b82a3aaddb15ab">JBWoprHADevice</a>, and <a class="el" href="class_j_b_wopr_mqtt_device.html#ab4fb5d1e866d96950566da1cb833d071">JBWoprMqttDevice</a>.</p>
+
+</div>
+</div>
 <a id="aea86a3c5b87b91c09c3a3516dee263c8" name="aea86a3c5b87b91c09c3a3516dee263c8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea86a3c5b87b91c09c3a3516dee263c8">&#9670;&#160;</a></span>_loadConfiguration()</h2>
 

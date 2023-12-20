@@ -374,6 +374,9 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a3ab489d3959884543e95d20b38142fd1" id="r_a3ab489d3959884543e95d20b38142fd1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_h_a_device.html#a3ab489d3959884543e95d20b38142fd1">_setJsonDocumentFromConfig</a> (DynamicJsonDocument &amp;jsonDoc) override</td></tr>
 <tr class="memdesc:a3ab489d3959884543e95d20b38142fd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set JSON document from configuration.  <br /></td></tr>
 <tr class="separator:a3ab489d3959884543e95d20b38142fd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a35625ac6d78067fe25b82a3aaddb15ab" id="r_a35625ac6d78067fe25b82a3aaddb15ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_h_a_device.html#a35625ac6d78067fe25b82a3aaddb15ab">_dumpConfig</a> () override</td></tr>
+<tr class="memdesc:a35625ac6d78067fe25b82a3aaddb15ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump configuration to logger.  <br /></td></tr>
+<tr class="separator:a35625ac6d78067fe25b82a3aaddb15ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af31f88716ec772813aa260a3a7922753" id="r_af31f88716ec772813aa260a3a7922753"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_h_a_device.html#af31f88716ec772813aa260a3a7922753">_setupWiFiManager</a> () override</td></tr>
 <tr class="memdesc:af31f88716ec772813aa260a3a7922753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup WiFiManager.  <br /></td></tr>
 <tr class="separator:af31f88716ec772813aa260a3a7922753"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -418,6 +421,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>_homeAssistantPublish
 <tr class="memitem:abd6aba89d3575c33ddcb38c8b69357c0 inherit pro_methods_class_j_b_wopr_mqtt_device" id="r_abd6aba89d3575c33ddcb38c8b69357c0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_mqtt_device.html#abd6aba89d3575c33ddcb38c8b69357c0">_setJsonDocumentFromConfig</a> (DynamicJsonDocument &amp;jsonDoc)</td></tr>
 <tr class="memdesc:abd6aba89d3575c33ddcb38c8b69357c0 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set JSON document values with <a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a> specific config values.  <br /></td></tr>
 <tr class="separator:abd6aba89d3575c33ddcb38c8b69357c0 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4fb5d1e866d96950566da1cb833d071 inherit pro_methods_class_j_b_wopr_mqtt_device" id="r_ab4fb5d1e866d96950566da1cb833d071"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_mqtt_device.html#ab4fb5d1e866d96950566da1cb833d071">_dumpConfig</a> () override</td></tr>
+<tr class="memdesc:ab4fb5d1e866d96950566da1cb833d071 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump configuration to logger.  <br /></td></tr>
+<tr class="separator:ab4fb5d1e866d96950566da1cb833d071 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga6e0e46c09bac0ce864b868d376fb6550 inherit pro_methods_class_j_b_wopr_mqtt_device" id="r_ga6e0e46c09bac0ce864b868d376fb6550"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___wi_fi_group.html#ga6e0e46c09bac0ce864b868d376fb6550">_setupWiFiManager</a> () override</td></tr>
 <tr class="memdesc:ga6e0e46c09bac0ce864b868d376fb6550 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Setup WiFiManager.  <br /></td></tr>
 <tr class="separator:ga6e0e46c09bac0ce864b868d376fb6550 inherit pro_methods_class_j_b_wopr_mqtt_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -693,6 +699,7 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><b>JSON_KEY_CONF
 <tr class="separator:a9d1c9a41794786a92455cd6a3682239a inherit pro_attribs_class_j_b_wopr_mqtt_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a184136fd9c1b46639ddb1eaf8b3caf5f inherit pro_attribs_class_j_b_wopr_mqtt_device" id="r_a184136fd9c1b46639ddb1eaf8b3caf5f"><td class="memItemLeft" align="right" valign="top">
 WiFiClient&#160;</td><td class="memItemRight" valign="bottom"><b>_wifiClient</b></td></tr>
+<tr class="memdesc:a184136fd9c1b46639ddb1eaf8b3caf5f inherit pro_attribs_class_j_b_wopr_mqtt_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">WiFi client. <br /></td></tr>
 <tr class="separator:a184136fd9c1b46639ddb1eaf8b3caf5f inherit pro_attribs_class_j_b_wopr_mqtt_device"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e50192aa8959d81428f985bdec5fdfd inherit pro_attribs_class_j_b_wopr_mqtt_device" id="r_a6e50192aa8959d81428f985bdec5fdfd"><td class="memItemLeft" align="right" valign="top">
 const char *&#160;</td><td class="memItemRight" valign="bottom"><b>HTML_MQTT_TITLE</b> = &quot;&lt;h2&gt;MQTT settings&lt;/h2&gt;&quot;</td></tr>
@@ -1302,6 +1309,36 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>JSON document </dd></dl>
+
+</div>
+</div>
+<a id="a35625ac6d78067fe25b82a3aaddb15ab" name="a35625ac6d78067fe25b82a3aaddb15ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a35625ac6d78067fe25b82a3aaddb15ab">&#9670;&#160;</a></span>_dumpConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBWoprHADevice::_dumpConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Dump configuration to logger. </p>
+<p>Called when configuration is to be written to the logger. </p>
+
+<p>Reimplemented from <a class="el" href="class_j_b_wopr_wi_fi_device.html#aaf5327acbb218c604a17c71e70b912e4">JBWoprWiFiDevice</a>.</p>
 
 </div>
 </div>

@@ -1,5 +1,9 @@
 var NAVTREEINDEX2 =
 {
+"group___wi_fi_group.html#gaf5ebf814b74bc836f188314120915757":[6,7,7],
+"group___wi_fi_group.html#gafb611a1c08089b66821177ee95a4968a":[6,7,3],
+"ha__abbr_8h.html":[8,0,0,1,0],
+"ha__abbr_8h_source.html":[8,0,0,1,0],
 "hierarchy.html":[7,2],
 "index.html":[],
 "index.html#autotoc_md1":[0],
