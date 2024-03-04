@@ -55,6 +55,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.on_connection_lost"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.on_connection_lost()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.on_message"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.on_message()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.send_command"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.send_command()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.send_keep_alive"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.send_keep_alive()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.water_plant"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.water_plant()</span></code></a></li>
 </ul>
 </li>
@@ -105,9 +106,9 @@
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>host</strong> – The name or IP address of the Growcube device.</p></li>
 <li><p><strong>port</strong> – The port number for the connection. (Default: 8800)</p></li>
-<li><p><strong>callback</strong> – Callback function to receive data from the Growcube.</p></li>
-<li><p><strong>on_connected_callback</strong> – Callback function for when the connection is established.</p></li>
-<li><p><strong>on_disconnected_callback</strong> – Callback function for when the connection is lost.</p></li>
+<li><p><strong>_callback</strong> – Callback function to receive data from the Growcube.</p></li>
+<li><p><strong>_on_connected_callback</strong> – Callback function for when the connection is established.</p></li>
+<li><p><strong>_on_disconnected_callback</strong> – Callback function for when the connection is lost.</p></li>
 <li><p><strong>log_level</strong> – Logging level. (Default: logging.INFO)</p></li>
 <li><p><strong>_exit</strong> – Internal flag indicating if the client is exiting.</p></li>
 <li><p><strong>_data</strong> – Buffer to accumulate received data.</p></li>
@@ -193,6 +194,20 @@ otherwise False and the error message.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
 <dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.send_keep_alive">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_keep_alive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.send_keep_alive" title="Link to this definition"></a></dt>
+<dd><p>Send a keep alive, we are using the SetWorkModeCommand for this</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>interval</strong> (<em>int</em>) – How often to send keep alive message</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
 </dd>
 </dl>
 </dd></dl>
