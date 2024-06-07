@@ -26,29 +26,33 @@ var NAVTREE =
 [
   [ "JBWOPR", "index.html", [
     [ "Installation", "index.html#autotoc_md1", null ],
-    [ "Usage", "index.html#autotoc_md2", [
-      [ "Compiling the examples", "index.html#autotoc_md3", null ],
-      [ "Quick start", "index.html#autotoc_md4", null ],
-      [ "Code documentation", "index.html#autotoc_md5", null ]
+    [ "Usage", "index.html#autotoc_md2", null ],
+    [ "Dependencies", "index.html#autotoc_md3", [
+      [ "JBWoprDevice", "index.html#autotoc_md4", null ],
+      [ "JBWoprWifiDevice", "index.html#autotoc_md5", null ],
+      [ "JBWoprMqttDevice", "index.html#autotoc_md6", null ],
+      [ "Compiling the examples", "index.html#autotoc_md7", null ],
+      [ "Quick start", "index.html#autotoc_md8", null ],
+      [ "Code documentation", "index.html#autotoc_md9", null ]
     ] ],
-    [ "JBWoprDevice", "index.html#autotoc_md6", [
-      [ "Advanced usage of onboard devices", "index.html#autotoc_md7", null ]
+    [ "JBWoprDevice", "index.html#autotoc_md10", [
+      [ "Advanced usage of onboard devices", "index.html#autotoc_md11", null ]
     ] ],
-    [ "JBWoprWifiDevice", "index.html#autotoc_md8", null ],
-    [ "JBWoprMqttDevice", "index.html#autotoc_md9", [
-      [ "MQTT Topics", "index.html#autotoc_md10", [
-        [ "Device", "index.html#autotoc_md11", null ],
-        [ "Configuration", "index.html#autotoc_md12", null ],
-        [ "Display", "index.html#autotoc_md13", null ],
-        [ "DEFCON LED's", "index.html#autotoc_md14", null ],
-        [ "Buttons", "index.html#autotoc_md15", null ]
+    [ "JBWoprWifiDevice", "index.html#autotoc_md12", null ],
+    [ "JBWoprMqttDevice", "index.html#autotoc_md13", [
+      [ "MQTT Topics", "index.html#autotoc_md14", [
+        [ "Device", "index.html#autotoc_md15", null ],
+        [ "Configuration", "index.html#autotoc_md16", null ],
+        [ "Display", "index.html#autotoc_md17", null ],
+        [ "DEFCON LED's", "index.html#autotoc_md18", null ],
+        [ "Buttons", "index.html#autotoc_md19", null ]
       ] ]
     ] ],
-    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md16", [
-      [ "Home Assistant", "index.html#autotoc_md17", null ],
-      [ "MQTT Topics", "index.html#autotoc_md18", null ],
-      [ "Diagnostics", "index.html#autotoc_md19", null ],
-      [ "Configuration", "index.html#autotoc_md20", null ]
+    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md20", [
+      [ "Home Assistant", "index.html#autotoc_md21", null ],
+      [ "MQTT Topics", "index.html#autotoc_md22", null ],
+      [ "Diagnostics", "index.html#autotoc_md23", null ],
+      [ "Configuration", "index.html#autotoc_md24", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
@@ -76,8 +80,8 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "annotated.html",
-"class_j_b_wopr_text_display_effect.html#a4df2c751f228a9d497c3755ca129942b",
-"group___wi_fi_group.html#gaf5ebf814b74bc836f188314120915757"
+"class_j_b_wopr_text_display_effect.html#a31f8fbd7ec5eb4b88675b9a100cbd4ec",
+"group___wi_fi_group.html#gacb39d6c469139fd34221feb8a2128881"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

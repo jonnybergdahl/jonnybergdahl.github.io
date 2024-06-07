@@ -102,6 +102,7 @@ var class_j_b_wopr_device =
     [ "_displayState", "class_j_b_wopr_device.html#a472e34ce800709d70eb58fac77292edf", null ],
     [ "_effects", "class_j_b_wopr_device.html#ac89ca3aa8f1dce5fd1810ea1f5552ed3", null ],
     [ "_effectsCounter", "class_j_b_wopr_device.html#af723acecebce7c59aeb43e31aa80b244", null ],
+    [ "_pins", "class_j_b_wopr_device.html#a7c651519b08afc9f8ce44470d4f1ba49", null ],
     [ "_useDAC", "class_j_b_wopr_device.html#a8d43e67e3b35b2a8cb4053c1f185f393", null ],
     [ "_woprVariant", "class_j_b_wopr_device.html#a7674c2582a76640d4609dd8f073bb4db", null ]
 ];

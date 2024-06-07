@@ -14,5 +14,5 @@ var searchData=
   ['buttonfrontrightpin_11',['buttonFrontRightPin',['../struct_j_b_wopr_board_pins.html#adecd831c7c53d3e6e3ae286767f779e0',1,'JBWoprBoardPins']]],
   ['buttonfrontrightsetclickcallback_12',['buttonFrontRightSetClickCallback',['../group___button_group.html#ga694baaaf32f91cfc021e9d79b0b69e6f',1,'JBWoprDevice']]],
   ['buttonfrontrightsetdoubleclickcallback_13',['buttonFrontRightSetDoubleClickCallback',['../group___button_group.html#ga45ccd3285cfe06ba8c85ed0ba0b7e1bb',1,'JBWoprDevice']]],
-  ['buttons_14',['Buttons',['../index.html#autotoc_md15',1,'']]]
+  ['buttons_14',['Buttons',['../index.html#autotoc_md19',1,'']]]
 ];
