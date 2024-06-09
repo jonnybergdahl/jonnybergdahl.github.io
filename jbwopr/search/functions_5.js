@@ -14,5 +14,5 @@ var searchData=
   ['getname_11',['getName',['../class_j_b_wopr_effect_base.html#a9bfe692df081e81c5310bdbec7a1b7df',1,'JBWoprEffectBase']]],
   ['getrightalignedstring_12',['getRightAlignedString',['../class_j_b_string_helper.html#a89ae72ec201a3db2c402df246d681a8b',1,'JBStringHelper']]],
   ['gettime_13',['getTime',['../class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58',1,'JBTimeHelper']]],
-  ['getutcoffsetinseconds_14',['getUtcOffsetInSeconds',['../class_j_b_time_helper.html#ad7072aaf0dffb88193a1187c24f05800',1,'JBTimeHelper']]]
+  ['getutcoffsetinseconds_14',['getUtcOffsetInSeconds',['../class_j_b_time_helper.html#abc56fc900fd2858a94bae298bf2b7171',1,'JBTimeHelper']]]
 ];
