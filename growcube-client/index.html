@@ -111,6 +111,11 @@ application. The application can also send commands to the device.</p>
 </pre></div>
 </div>
 </section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>The full library documentation can be <a class="reference external" href="https://jonnybergdahl.github.io/growcube-client/">found
+here</a>.</p>
+</section>
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Link to this heading"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">src/growcube_sample.py</span></code> file shows how to use the library. It
@@ -206,6 +211,55 @@ can also specify that network to search in.</p>
 <span class="n">Found</span> <span class="n">device</span><span class="p">:</span> <span class="mf">172.30.2.70</span>
 </pre></div>
 </div>
+<section id="important-device-states">
+<h2>Important device states<a class="headerlink" href="#important-device-states" title="Link to this heading"></a></h2>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Report class</p></th>
+<th class="head"><p>Use</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>WaterStateGrowcubeReport</p></td>
+<td><p>Water warning</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mo
+istureHumidityStateGrowcubeReport</p></td>
+<td><p>Moisture, humidity and
+temperature, reported per
+channel. <em>Note: Humidity and
+temperature is the same for all
+4</em></p></td>
+</tr>
+<tr class="row-even"><td><p>DeviceVersionGrowcubeReport</p></td>
+<td><p>Device id and firmware version</p></td>
+</tr>
+<tr class="row-odd"><td><p>PumpOpenGrowcubeReport</p></td>
+<td><p>Pump outlet is open for channel</p></td>
+</tr>
+<tr class="row-even"><td><p>PumpCloseGrowcubeReport</p></td>
+<td><p>Pump outlet is closed for channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>CheckSensorGrowcubeReport</p></td>
+<td><p>Sensor not connected for channel</p></td>
+</tr>
+<tr class="row-even"><td><p>CheckPumpBlockedGrowcubeReport</p></td>
+<td><p>Pump outlet is blocked for
+channel</p></td>
+</tr>
+<tr class="row-odd"><td><p>Chec
+kSensorNotConnectedGrowcubeReport</p></td>
+<td><p>Sensor is not connected for
+channel</p></td>
+</tr>
+<tr class="row-even"><td><p>LockStateGrowcubeReport</p></td>
+<td><p>Device is in locked mode</p></td>
+</tr>
+<tr class="row-odd"><td><p>CheckOutletLockGrowcubeReport</p></td>
+<td><p>Pump outlet is locked for channel</p></td>
+</tr>
+</tbody>
+</table>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
@@ -248,8 +302,8 @@ can also specify that network to search in.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.AutoWaterGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckOutletLockGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckOutletLockGrowcubeReport</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckPumpBlockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckPumpBlockedGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckOutletBlockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckOutletBlockedGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckOutletLockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckOutletLockedGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckWifiStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport</span></code></a></li>
@@ -268,6 +322,7 @@ can also specify that network to search in.</p>
 </li>
 </ul>
 </div>
+</section>
 </section>
 <section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
