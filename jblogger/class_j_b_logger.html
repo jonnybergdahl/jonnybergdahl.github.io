@@ -113,12 +113,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aab3a1cded919ea502edde7584558ab98" id="r_aab3a1cded919ea502edde7584558ab98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_logger.html#aab3a1cded919ea502edde7584558ab98">log</a> (<a class="el" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> logLevel, bool writePrefix, bool writeLinefeed, std::string &amp;message,...)</td></tr>
 <tr class="memdesc:aab3a1cded919ea502edde7584558ab98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a std::string message with the specified log level.  <br /></td></tr>
 <tr class="separator:aab3a1cded919ea502edde7584558ab98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd379c44b7f4b1a1714039ef70e33a7b" id="r_acd379c44b7f4b1a1714039ef70e33a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_logger.html#acd379c44b7f4b1a1714039ef70e33a7b">log</a> (<a class="el" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> logLevel, bool writePrefix, bool writeLinefeed, String &amp;message,...)</td></tr>
-<tr class="memdesc:acd379c44b7f4b1a1714039ef70e33a7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a String message with the specified log level.  <br /></td></tr>
-<tr class="separator:acd379c44b7f4b1a1714039ef70e33a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad5a955abcd0b3b1c4b08a73b8a30195" id="r_aad5a955abcd0b3b1c4b08a73b8a30195"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_logger.html#aad5a955abcd0b3b1c4b08a73b8a30195">log</a> (<a class="el" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a> logLevel, bool writePrefix, bool writeLinefeed, const __FlashStringHelper *message,...)</td></tr>
-<tr class="memdesc:aad5a955abcd0b3b1c4b08a73b8a30195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs a __FlashStringHelper* message with the specified log level.  <br /></td></tr>
-<tr class="separator:aad5a955abcd0b3b1c4b08a73b8a30195"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1f48e3ffe339af55bf249029441ec5e5" id="r_a1f48e3ffe339af55bf249029441ec5e5"><td class="memTemplParams" colspan="2">template&lt;class T , typename... Args&gt; </td></tr>
 <tr class="memitem:a1f48e3ffe339af55bf249029441ec5e5"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_j_b_logger.html#a1f48e3ffe339af55bf249029441ec5e5">error</a> (T message, Args... args)</td></tr>
 <tr class="memdesc:a1f48e3ffe339af55bf249029441ec5e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a message with the ERROR log level.  <br /></td></tr>
@@ -525,68 +519,8 @@ template&lt;class T , typename... Args&gt; </div>
 
 </div>
 </div>
-<a id="aad5a955abcd0b3b1c4b08a73b8a30195" name="aad5a955abcd0b3b1c4b08a73b8a30195"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad5a955abcd0b3b1c4b08a73b8a30195">&#9670;&#160;</a></span>log() <span class="overload">[1/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void JBLogger::log </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a>&#160;</td>
-          <td class="paramname"><em>logLevel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>writePrefix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>writeLinefeed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const __FlashStringHelper *&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Logs a __FlashStringHelper* message with the specified log level. </p>
-<p>This function logs a message with the given log level. It supports various options like specifying whether the message is a part of a larger message, whether to write a line feed after the message, and allows for variadic arguments to format the message.</p>
-<dl class="section note"><dt>Note</dt><dd>Uses sprintf to format the message, so string arguments needs to be given as char* </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logLevel</td><td>The log level to use for the message. </td></tr>
-    <tr><td class="paramname">writePrefix</td><td>Indicates whether to write the prefix before each message. </td></tr>
-    <tr><td class="paramname">writeLinefeed</td><td>Specifies whether to write a line feed after the message. </td></tr>
-    <tr><td class="paramname">message</td><td>The format string for the message, with optional format specifiers. </td></tr>
-    <tr><td class="paramname">...</td><td>Variadic arguments to be formatted according to the format string. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a3911702726938584f1aaabfed2bc8baf" name="a3911702726938584f1aaabfed2bc8baf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3911702726938584f1aaabfed2bc8baf">&#9670;&#160;</a></span>log() <span class="overload">[2/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3911702726938584f1aaabfed2bc8baf">&#9670;&#160;</a></span>log() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -646,7 +580,7 @@ template&lt;class T , typename... Args&gt; </div>
 </div>
 </div>
 <a id="aab3a1cded919ea502edde7584558ab98" name="aab3a1cded919ea502edde7584558ab98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab3a1cded919ea502edde7584558ab98">&#9670;&#160;</a></span>log() <span class="overload">[3/4]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3a1cded919ea502edde7584558ab98">&#9670;&#160;</a></span>log() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -690,66 +624,6 @@ template&lt;class T , typename... Args&gt; </div>
 </div><div class="memdoc">
 
 <p>Logs a std::string message with the specified log level. </p>
-<p>This function logs a message with the given log level. It supports various options like specifying whether the message is a part of a larger message, whether to write a line feed after the message, and allows for variadic arguments to format the message.</p>
-<dl class="section note"><dt>Note</dt><dd>Uses sprintf to format the message, so string arguments needs to be given as char* </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">logLevel</td><td>The log level to use for the message. </td></tr>
-    <tr><td class="paramname">writePrefix</td><td>Indicates whether to write the prefix before each message. </td></tr>
-    <tr><td class="paramname">writeLinefeed</td><td>Specifies whether to write a line feed after the message. </td></tr>
-    <tr><td class="paramname">message</td><td>The format string for the message, with optional format specifiers. </td></tr>
-    <tr><td class="paramname">...</td><td>Variadic arguments to be formatted according to the format string. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
-<a id="acd379c44b7f4b1a1714039ef70e33a7b" name="acd379c44b7f4b1a1714039ef70e33a7b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd379c44b7f4b1a1714039ef70e33a7b">&#9670;&#160;</a></span>log() <span class="overload">[4/4]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void JBLogger::log </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="jblogger_8h.html#aca1fd1d8935433e6ba2e3918214e07f9">LogLevel</a>&#160;</td>
-          <td class="paramname"><em>logLevel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>writePrefix</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>writeLinefeed</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">String &amp;&#160;</td>
-          <td class="paramname"><em>message</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname"><em>...</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Logs a String message with the specified log level. </p>
 <p>This function logs a message with the given log level. It supports various options like specifying whether the message is a part of a larger message, whether to write a line feed after the message, and allows for variadic arguments to format the message.</p>
 <dl class="section note"><dt>Note</dt><dd>Uses sprintf to format the message, so string arguments needs to be given as char* </dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
