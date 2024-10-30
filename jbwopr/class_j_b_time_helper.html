@@ -103,6 +103,9 @@ $(document).ready(function(){initNavTree('class_j_b_time_helper.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a55d65397d59b8c8baaf2637dcbb5e7c6" id="r_a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#a55d65397d59b8c8baaf2637dcbb5e7c6">configure</a> (JBLogger *log, std::string ntpServer, std::string timeOffsetString)</td></tr>
+<tr class="memdesc:a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure helper  <br /></td></tr>
+<tr class="separator:a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc56fc900fd2858a94bae298bf2b7171" id="r_abc56fc900fd2858a94bae298bf2b7171"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#abc56fc900fd2858a94bae298bf2b7171">getUtcOffsetInSeconds</a> ()</td></tr>
 <tr class="memdesc:abc56fc900fd2858a94bae298bf2b7171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UTC offset in seconds.  <br /></td></tr>
 <tr class="separator:abc56fc900fd2858a94bae298bf2b7171"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,6 +116,56 @@ Static Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class contains helper functions for time related tasks. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a55d65397d59b8c8baaf2637dcbb5e7c6" name="a55d65397d59b8c8baaf2637dcbb5e7c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d65397d59b8c8baaf2637dcbb5e7c6">&#9670;&#160;</a></span>configure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void JBTimeHelper::configure </td>
+          <td>(</td>
+          <td class="paramtype">JBLogger *&#160;</td>
+          <td class="paramname"><em>log</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>ntpServer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>timeOffsetString</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>configure helper </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">config</td><td>WiFi configuration </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ae00bf8ec57effada98d7ab8ea953cc58" name="ae00bf8ec57effada98d7ab8ea953cc58"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae00bf8ec57effada98d7ab8ea953cc58">&#9670;&#160;</a></span>getTime()</h2>
 
@@ -140,6 +193,7 @@ Static Public Member Functions</h2></td></tr>
 <p>Get local time. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">ntpServer</td><td>NTP server address </td></tr>
     <tr><td class="paramname">info</td><td>Pointer to tm struct</td></tr>
   </table>
   </dd>

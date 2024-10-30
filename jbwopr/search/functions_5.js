@@ -1,18 +1,12 @@
 var searchData=
 [
-  ['getboardvariant_0',['getBoardVariant',['../class_j_b_wopr_device.html#a31858e82ac94e24dbcd22d8cedd29b38',1,'JBWoprDevice']]],
-  ['getbuttonbackbottom_1',['getButtonBackBottom',['../group___button_group.html#gabfb35b3fa5b5915b41ec50bfb8b58d35',1,'JBWoprDevice']]],
-  ['getbuttonbacktop_2',['getButtonBackTop',['../group___button_group.html#ga6a42cd048dfeb304a173f3c36ac841c8',1,'JBWoprDevice']]],
-  ['getbuttonfrontleft_3',['getButtonFrontLeft',['../group___button_group.html#gaed79509e4eec50a2e11fe4af0124205d',1,'JBWoprDevice']]],
-  ['getbuttonfrontright_4',['getButtonFrontRight',['../group___button_group.html#ga9e55a73b8c2af89256c6421e71bc3957',1,'JBWoprDevice']]],
-  ['getcenteredstring_5',['getCenteredString',['../class_j_b_string_helper.html#a190d4eb51ed93c4aca4f1d2313311aa8',1,'JBStringHelper']]],
-  ['getconfiguration_6',['getConfiguration',['../group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62',1,'JBWoprDevice']]],
-  ['getdefconleds_7',['getDefconLeds',['../group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f',1,'JBWoprDevice']]],
-  ['getdisplay_8',['getDisplay',['../group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91',1,'JBWoprDevice']]],
-  ['getduration_9',['getDuration',['../class_j_b_wopr_effect_base.html#afb7f3cc1c50a251a94025c87aad2acb5',1,'JBWoprEffectBase']]],
-  ['getloglevel_10',['getloglevel',['../group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878',1,'JBWoprDevice::getLogLevel()'],['../class_j_b_wopr_h_a_device.html#a810e1edff463649febb0001b1a65f877',1,'JBWoprHADevice::getLogLevel()'],['../class_j_b_wopr_mqtt_device.html#a8808b8ba9b999a2a44c4ca41a69c41b0',1,'JBWoprMqttDevice::getLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac',1,'JBWoprWiFiDevice::getLogLevel()']]],
-  ['getname_11',['getName',['../class_j_b_wopr_effect_base.html#a9bfe692df081e81c5310bdbec7a1b7df',1,'JBWoprEffectBase']]],
-  ['getrightalignedstring_12',['getRightAlignedString',['../class_j_b_string_helper.html#a89ae72ec201a3db2c402df246d681a8b',1,'JBStringHelper']]],
-  ['gettime_13',['getTime',['../class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58',1,'JBTimeHelper']]],
-  ['getutcoffsetinseconds_14',['getUtcOffsetInSeconds',['../class_j_b_time_helper.html#abc56fc900fd2858a94bae298bf2b7171',1,'JBTimeHelper']]]
+  ['effectscurrenteffectisrunning_0',['effectsCurrentEffectIsRunning',['../group___effects_group.html#gabb970eb9b64e9c801ffd20a0cf2315aa',1,'JBWoprDevice']]],
+  ['effectsdefaulteffectisrunning_1',['effectsDefaultEffectIsRunning',['../group___effects_group.html#ga0853c86baf3ad654fed67d3c8f813d84',1,'JBWoprDevice']]],
+  ['effectsgetcurrenteffect_2',['effectsGetCurrentEffect',['../group___effects_group.html#ga5c425469cccac331ce05dab15edf2b6f',1,'JBWoprDevice']]],
+  ['effectsgetregisteredeffects_3',['effectsGetRegisteredEffects',['../group___effects_group.html#gac3d32e126512bc6494e5a15c40869cc2',1,'JBWoprDevice']]],
+  ['effectsregisterdefaulteffect_4',['effectsRegisterDefaultEffect',['../group___effects_group.html#ga2e55ff70087f154c8e7296a5402f826d',1,'JBWoprDevice']]],
+  ['effectsregistereffect_5',['effectsRegisterEffect',['../group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725',1,'JBWoprDevice']]],
+  ['effectsstartcurrenteffect_6',['effectsstartcurrenteffect',['../group___effects_group.html#ga664c66957213484e1122fdd854483cd0',1,'JBWoprDevice::effectsStartCurrentEffect()'],['../group___effects_group.html#ga693ada4bf8a209bc7a98148b32db6a7e',1,'JBWoprMqttDevice::effectsStartCurrentEffect()']]],
+  ['effectsstarteffect_7',['effectsstarteffect',['../group___effects_group.html#ga53dca9127493b11608525713153eb18a',1,'JBWoprDevice::effectsStartEffect(JBWoprEffectBase *effect)'],['../group___effects_group.html#ga49e0003bc17cfff5cfca7735e2d285c5',1,'JBWoprDevice::effectsStartEffect(const std::string &amp;name)'],['../group___effects_group.html#gaba55c8980d41e7aaa80c2185e8ceb48e',1,'JBWoprDevice::effectsStartEffect(const char *name)'],['../group___effects_group.html#gad57820a4590e911850221a0142839739',1,'JBWoprMqttDevice::effectsStartEffect(JBWoprEffectBase *effect) override'],['../group___effects_group.html#ga4b4924802f4ca690f39a004738c3306a',1,'JBWoprMqttDevice::effectsStartEffect(const std::string &amp;effect) override'],['../group___effects_group.html#gab1daf2b1133a2a2a3f7eca0906a417d7',1,'JBWoprMqttDevice::effectsStartEffect(const char *effect) override']]],
+  ['effectsstopcurrenteffect_8',['effectsstopcurrenteffect',['../group___effects_group.html#gac4283877fbbde90ccbda71d587d309fe',1,'JBWoprDevice::effectsStopCurrentEffect()'],['../group___effects_group.html#ga2b40d28c3b59ccf593ce7aad2da5a5cf',1,'JBWoprMqttDevice::effectsStopCurrentEffect()']]]
 ];

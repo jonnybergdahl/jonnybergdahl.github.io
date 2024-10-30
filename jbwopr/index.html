@@ -108,31 +108,34 @@ Usage</h1>
 <li><code>JBWoprHomeAssistantDevice</code> - This adds Home Assistant support to the <code><a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a></code> class.</li>
 </ul>
 <h1><a class="anchor" id="autotoc_md3"></a>
+Documentation</h1>
+<p>Full library code documentation <a href="https://jonnybergdahl.github.io/jbwopr/topics.html">is available here</a>.</p>
+<h1><a class="anchor" id="autotoc_md4"></a>
 Dependencies</h1>
 <p>Depending on the class used the following libraries need to be installed. They can all be installed using the Library Manager.</p>
-<h2><a class="anchor" id="autotoc_md4"></a>
+<h2><a class="anchor" id="autotoc_md5"></a>
 JBWoprDevice</h2>
 <ul>
 <li><a href="https://github.com/jonnybergdahl/Arduino_JBLogger_Library">JBLogger</a></li>
-<li><a href="https://github.com/adafruit/Adafruit-GFX-Library">Adafruit_GFX&gt;</a></li>
+<li><a href="https://github.com/adafruit/Adafruit-GFX-Library">Adafruit_GFX</a></li>
 <li><a href="https://github.com/adafruit/Adafruit_LED_Backpack">Adafruit_LEDBackpack</a></li>
 <li><a href="https://github.com/adafruit/Adafruit_NeoPixel">Adafruit_NeoPixel</a></li>
 <li><a href="https://github.com/mathertel/OneButton">OneButton</a></li>
 <li><a href="https://github.com/bblanchon/ArduinoJson">ArduinoJson</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md5"></a>
+<h2><a class="anchor" id="autotoc_md6"></a>
 JBWoprWifiDevice</h2>
 <p>The above, plus:</p>
 <ul>
 <li><a href="https://github.com/tzapu/WiFiManager">WiFiManager</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md6"></a>
+<h2><a class="anchor" id="autotoc_md7"></a>
 JBWoprMqttDevice</h2>
 <p>The above, plus:</p>
 <ul>
 <li><a href="https://github.com/tzapu/WiFiManager">WiFiManager</a></li>
 </ul>
-<h2><a class="anchor" id="autotoc_md7"></a>
+<h2><a class="anchor" id="autotoc_md8"></a>
 Compiling the examples</h2>
 <p>Due to the size of the library, you may need to change the partition size in the Arduino IDE.</p>
 <table class="markdownTable">
@@ -145,7 +148,7 @@ Compiling the examples</h2>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">TinyS3 / ESP32S3   </td><td class="markdownTableBodyNone">Default (3MB APP with OTA/1.5MB SPIFFS)   </td></tr>
 </table>
-<h2><a class="anchor" id="autotoc_md8"></a>
+<h2><a class="anchor" id="autotoc_md9"></a>
 Quick start</h2>
 <p>Open the example 'JBWopr_Firmware', and uncomment one of the following defines. This is a feature complete firmware that you can also use as a starting point for your own firmware.</p>
 <ul>
@@ -153,10 +156,10 @@ Quick start</h2>
 <li><code>FIRMWARE_VARIANT_MQTT</code> - Use the WiFiManager, web configuration portal and MQTT support</li>
 <li><code>FIRMWARE_VARIANT_HA</code> - Use the WiFiManager, web configuration portal, MQTT and Home Assistant support</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md9"></a>
+<h2><a class="anchor" id="autotoc_md10"></a>
 Code documentation</h2>
 <p>Full code documentation is available at <a href="https://jonnybergdahl.github.io/jbwopr/">https://jonnybergdahl.github.io/jbwopr/</a></p>
-<h1><a class="anchor" id="autotoc_md10"></a>
+<h1><a class="anchor" id="autotoc_md11"></a>
 JBWoprDevice</h1>
 <p>Create an instance of the <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> class. Do any configuration you need to do then and call <code>begin()</code> in your <code>setup()</code> function. Then call <code>loop()</code> in your <code>loop()</code> function.</p>
 <p>See the example 'JBWopr_DeviceDemo' for more information on the basic <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> usage.</p>
@@ -165,7 +168,7 @@ JBWoprDevice</h1>
 <div class="line"><a class="code hl_class" href="class_j_b_wopr_device.html">JBWoprDevice</a> wopr;</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
-<div class="line">    <span class="comment">// Configure the JBWoprDevice class</span></div>
+<div class="line">    <span class="comment">// configure the JBWoprDevice class</span></div>
 <div class="line">    <a class="code hl_struct" href="struct_j_b_wopr_configuration.html">JBWoprConfiguration</a>* config = wopr.<a class="code hl_function" href="group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62">getConfiguration</a>();</div>
 <div class="line">    config-&gt;<a class="code hl_variable" href="struct_j_b_wopr_configuration.html#aab66168bf4827ff6ffab98fa1d8b5303">timeFormat</a> = <span class="stringliteral">&quot;%H %M %s&quot;</span>;</div>
 <div class="line">    config-&gt;<a class="code hl_variable" href="struct_j_b_wopr_configuration.html#a44488ad26a831d7ffc2f03312ce9b0f9">dateFormat</a> = <span class="stringliteral">&quot;%Y-%m-%d&quot;</span>;</div>
@@ -229,7 +232,7 @@ JBWoprDevice</h1>
 <div class="ttc" id="aclass_j_b_wopr_missile_code_solve_effect_html"><div class="ttname"><a href="class_j_b_wopr_missile_code_solve_effect.html">JBWoprMissileCodeSolveEffect</a></div><div class="ttdoc">Display effect for showing the WOPR movie code solve.</div><div class="ttdef"><b>Definition</b> jbwopreffects.h:421</div></div>
 <div class="ttc" id="agroup___effects_group_html_gae9419460a7d1e606c334f1a2ec744725"><div class="ttname"><a href="group___effects_group.html#gae9419460a7d1e606c334f1a2ec744725">JBWoprDevice::effectsRegisterEffect</a></div><div class="ttdeci">void effectsRegisterEffect(JBWoprEffectBase *effect)</div><div class="ttdoc">Register effect.</div><div class="ttdef"><b>Definition</b> jbwopr.cpp:191</div></div>
 <div class="ttc" id="ajbwopreffects_8h_html_a659d91a1f51e2ed8aad808a75315cb40a9b940ce83f2d03aabdd31ab2fee20813"><div class="ttname"><a href="jbwopreffects_8h.html#a659d91a1f51e2ed8aad808a75315cb40a9b940ce83f2d03aabdd31ab2fee20813">MOVIE</a></div><div class="ttdeci">@ MOVIE</div><div class="ttdoc">Movie code solve.</div><div class="ttdef"><b>Definition</b> jbwopreffects.h:36</div></div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md11"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md12"></a>
 Advanced usage of onboard devices</h2>
 <p>The class exposes the onboard devices as the following:</p>
 <ul>
@@ -244,23 +247,23 @@ Advanced usage of onboard devices</h2>
 <li>JBWopr_DefconDemo</li>
 <li>JBWopr_DisplayDemo</li>
 </ul>
-<h1><a class="anchor" id="autotoc_md12"></a>
+<h1><a class="anchor" id="autotoc_md13"></a>
 JBWoprWifiDevice</h1>
 <p>The <code>JBWoprWifiDevice</code> class adds WiFiManager and web configuration portal support to the <code><a class="el" href="class_j_b_wopr_device.html" title="W.O.P.R. device base class.">JBWoprDevice</a></code> class. At first boot it starts up an AP called <code>wopr-&lt;mac_address&gt;</code>. Connect to this AP and it will access the configuration portal. If it isn't opening that automatically, open the url <code><a href="http://192.168.4.1">http://192.168.4.1</a></code> to access the portal.</p>
 <p>Enter the details for your WiFi network and click save. The device will reboot and connect to your WiFi network.</p>
 <p>If the <em>Use web portal</em> setting is enabled, you can access the configuration portal by browsing to the IP address of the device. You can find the IP address by looking at the serial output of the device.</p>
 <p>The following settings are available in the web portal:</p>
 <p><img src="images/wificonfig.png" alt="WiFiManager" title="WiFi configuration" class="inline"/></p>
-<h1><a class="anchor" id="autotoc_md13"></a>
+<h1><a class="anchor" id="autotoc_md14"></a>
 JBWoprMqttDevice</h1>
 <p>The '<a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a>' class adds MQTT support to the <code>JBWoprWifiDevice</code> class. It uses the PubSubClient library to connect to an MQTT broker. It will publish the device state to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/state</code> topic and listen for commands on the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/command</code> topic.</p>
 <p>The following settings are available in the web portal:</p>
 <p><img src="images/mqttconfig.png" alt="MQTT" title="MQTT configuration" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md14"></a>
+<h2><a class="anchor" id="autotoc_md15"></a>
 MQTT Topics</h2>
 <p>At startup, the device will publish an availability message to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/availability</code> topic with the payload <code>online</code>. It will also set the last will topic to the same topic with the payload <code>offline</code>. You can use that to check if the device is online or not.</p>
 <p>Current device state is posted to the <code>&lt;mqtt_prefix&gt;/&lt;device_id&gt;/&lt;entity&gt;/state</code> topic, it is posted when state is changed.</p>
-<h3><a class="anchor" id="autotoc_md15"></a>
+<h3><a class="anchor" id="autotoc_md16"></a>
 Device</h3>
 <p>The device will listen to messages on the following topic to restart the device.</p>
 <table class="markdownTable">
@@ -269,7 +272,7 @@ Device</h3>
 <tr class="markdownTableRowOdd">
 <td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/device/state/set   </td><td class="markdownTableBodyNone"><code>restart</code>   </td><td class="markdownTableBodyNone"><code>restart</code>   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md16"></a>
+<h3><a class="anchor" id="autotoc_md17"></a>
 Configuration</h3>
 <p>The device will listen to messages on the following topic to change configuration.</p>
 <table class="markdownTable">
@@ -311,7 +314,7 @@ Configuration</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/effect/name/set   </td><td class="markdownTableBodyNone"><code>Rainbow</code>   </td><td class="markdownTableBodyNone">Registered name, will start effect as well   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md17"></a>
+<h3><a class="anchor" id="autotoc_md18"></a>
 Display</h3>
 <p>The device will post a message to the following topics when the display state is changed.</p>
 <table class="markdownTable">
@@ -339,7 +342,7 @@ Display</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/display/brightness/set   </td><td class="markdownTableBodyNone"><code>50</code>   </td><td class="markdownTableBodyNone"><code>0</code> to <code>100</code>   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md18"></a>
+<h3><a class="anchor" id="autotoc_md19"></a>
 DEFCON LED's</h3>
 <p>The device will post a message to the following topics when the DEFCON LED's state is changed.</p>
 <table class="markdownTable">
@@ -367,7 +370,7 @@ DEFCON LED's</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/defcon/color/set   </td><td class="markdownTableBodyNone"><code>0,0,128</code>   </td><td class="markdownTableBodyNone">RGB byte values in format <code>R,G,B</code>   </td></tr>
 </table>
-<h3><a class="anchor" id="autotoc_md19"></a>
+<h3><a class="anchor" id="autotoc_md20"></a>
 Buttons</h3>
 <p>The device will post a message to the following topics when a button is clicked or double-clicked.</p>
 <table class="markdownTable">
@@ -382,14 +385,14 @@ Buttons</h3>
 <tr class="markdownTableRowEven">
 <td class="markdownTableBodyNone">&lt;mqtt_prefix&gt;/&lt;device_id&gt;/button_back_bottom/event   </td><td class="markdownTableBodyNone"><code>click</code>   </td><td class="markdownTableBodyNone"><code>click</code> or <code>double_click</code>   </td></tr>
 </table>
-<h1><a class="anchor" id="autotoc_md20"></a>
+<h1><a class="anchor" id="autotoc_md21"></a>
 JBWoprHomeAssistantDevice</h1>
 <p>The <code>JBWoprHomeAssistantDevice</code> class adds Home Assistant support to the <code><a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a></code> class. It will publish discovery data to the Home Assistant MQTT discovery topic when connected to the MQTT server.</p>
 <p>When a connection to the MQTT server is established, the device will publish a message to the <code>&lt;mqtt_prefix&gt;/&lt;homeassistant prefix&gt;/status</code> topic with the payload <code>online</code>, and also set the last will topic to the same topic with the payload <code>offline</code>. Home Assistant will use that to check if the device is online or not.</p>
 <p>It will then proceed to publish discovery data to the <code>&lt;mqtt_prefix&gt;/&lt;homeassistant prefix&gt;/&lt;entity&gt;/config</code> topic, followed by publishing diagnostics and configuration state in the form of JSON messages. It will finally publish the individual entity states.</p>
 <p>The following settings are available in the web portal:</p>
 <p><img src="images/haconfig.png" alt="WiFiManager" title="Home Assistant configuration" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md21"></a>
+<h2><a class="anchor" id="autotoc_md22"></a>
 Home Assistant</h2>
 <p>Once the device has published discovery data to Home Assistant, it will be available under the MQTT integration.</p>
 <p>If web portal is enabled, the <em>Visit</em> section will be active.</p>
@@ -400,10 +403,10 @@ Home Assistant</h2>
 <p><img src="images/haconfiguration.png" alt="Home Assistant Configuration" title="Configuration" class="inline"/></p>
 <p>The following entities will be available under <em>Diagnostics</em>.</p>
 <p><img src="images/hadiagnostics.png" alt="Home Assistant Diagnostics" title="Diagnostics" class="inline"/></p>
-<h2><a class="anchor" id="autotoc_md22"></a>
+<h2><a class="anchor" id="autotoc_md23"></a>
 MQTT Topics</h2>
 <p><code>JBWoprHomeAssistantDevice</code> uses the same topics as the <code><a class="el" href="class_j_b_wopr_mqtt_device.html" title="W.O.P.R. WiFi and MQTT device class.">JBWoprMqttDevice</a></code> class, and adds the following topics.</p>
-<h2><a class="anchor" id="autotoc_md23"></a>
+<h2><a class="anchor" id="autotoc_md24"></a>
 Diagnostics</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">
@@ -417,7 +420,7 @@ Diagnostics</h2>
 <div class="line">  &quot;ram&quot;: 201728,</div>
 <div class="line">  &quot;version&quot;: &quot;1.0.0&quot;</div>
 <div class="line">}</div>
-</div><!-- fragment --><h2><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md25"></a>
 Configuration</h2>
 <table class="markdownTable">
 <tr class="markdownTableHead">

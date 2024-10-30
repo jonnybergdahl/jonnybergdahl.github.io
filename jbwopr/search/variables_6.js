@@ -18,5 +18,7 @@ var searchData=
   ['json_5fkey_5fmqtt_5fuser_5fname_15',['JSON_KEY_MQTT_USER_NAME',['../class_j_b_wopr_mqtt_device.html#a2765bb5c16e3772a677acdad5a3475a3',1,'JBWoprMqttDevice']]],
   ['json_5fkey_5ftime_5fformat_16',['JSON_KEY_TIME_FORMAT',['../class_j_b_wopr_wi_fi_device.html#a71b2710d0656e51131d3a1b19caf3d20',1,'JBWoprWiFiDevice']]],
   ['json_5fkey_5fwifi_5fhost_5fname_17',['JSON_KEY_WIFI_HOST_NAME',['../class_j_b_wopr_wi_fi_device.html#a309bb6d3845ebc921da92f55e3a61c96',1,'JBWoprWiFiDevice']]],
-  ['json_5fkey_5fwifi_5fuse_5fweb_5fportal_18',['JSON_KEY_WIFI_USE_WEB_PORTAL',['../class_j_b_wopr_wi_fi_device.html#a5bbd3bdb3e8e672cfea620b61c766cd6',1,'JBWoprWiFiDevice']]]
+  ['json_5fkey_5fwifi_5fntp_5fserver_18',['JSON_KEY_WIFI_NTP_SERVER',['../class_j_b_wopr_wi_fi_device.html#a2538687456fc6a68177454a087d4215e',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fwifi_5ftime_5foffset_19',['JSON_KEY_WIFI_TIME_OFFSET',['../class_j_b_wopr_wi_fi_device.html#a340a51b066f3cd7d3a75a9c7f31b73e2',1,'JBWoprWiFiDevice']]],
+  ['json_5fkey_5fwifi_5fuse_5fweb_5fportal_20',['JSON_KEY_WIFI_USE_WEB_PORTAL',['../class_j_b_wopr_wi_fi_device.html#a5bbd3bdb3e8e672cfea620b61c766cd6',1,'JBWoprWiFiDevice']]]
 ];

@@ -20,7 +20,7 @@ var searchData=
   ['ha_5fdiag_5fentity_5frssi_17',['HA_DIAG_ENTITY_RSSI',['../class_j_b_wopr_h_a_device.html#aa65b225099326588f6bbfc4cf89989f3',1,'JBWoprHADevice']]],
   ['ha_5fdiag_5fprefix_18',['HA_DIAG_PREFIX',['../class_j_b_wopr_h_a_device.html#a37d5558b08263944eae02b0da00feb40',1,'JBWoprHADevice']]],
   ['haxorz_19',['HAXORZ',['../jbwopr_8h.html#adb11b2dbabd7d8f2f5b093930485e053a6c84364490e642df1c64370a90aec894',1,'jbwopr.h']]],
-  ['home_20assistant_20',['Home Assistant',['../index.html#autotoc_md21',1,'']]],
+  ['home_20assistant_20',['Home Assistant',['../index.html#autotoc_md22',1,'']]],
   ['home_20assistant_20related_20methods_21',['Home Assistant related methods',['../group___h_a_group.html',1,'']]],
   ['hostname_22',['hostName',['../struct_j_b_wopr_wi_fi_configuration.html#a33721a2490cc8bc05088b8a96c648b0e',1,'JBWoprWiFiConfiguration']]],
   ['html_5fcheckbox_5ffalse_23',['html_checkbox_false',['../class_j_b_wopr_h_a_device.html#a24f34f33d4c2d3b79303d859b964a8d6',1,'JBWoprHADevice::HTML_CHECKBOX_FALSE'],['../class_j_b_wopr_wi_fi_device.html#a6b6012cf4dc82df4bb36bfde1917a309',1,'JBWoprWiFiDevice::HTML_CHECKBOX_FALSE']]],

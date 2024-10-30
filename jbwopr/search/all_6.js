@@ -5,7 +5,7 @@ var searchData=
   ['getbuttonbacktop_2',['getButtonBackTop',['../group___button_group.html#ga6a42cd048dfeb304a173f3c36ac841c8',1,'JBWoprDevice']]],
   ['getbuttonfrontleft_3',['getButtonFrontLeft',['../group___button_group.html#gaed79509e4eec50a2e11fe4af0124205d',1,'JBWoprDevice']]],
   ['getbuttonfrontright_4',['getButtonFrontRight',['../group___button_group.html#ga9e55a73b8c2af89256c6421e71bc3957',1,'JBWoprDevice']]],
-  ['getcenteredstring_5',['getCenteredString',['../class_j_b_string_helper.html#a190d4eb51ed93c4aca4f1d2313311aa8',1,'JBStringHelper']]],
+  ['getcenteredstring_5',['getCenteredString',['../class_j_b_string_helper.html#aa6c7a5aa809350ca301271f0fb956067',1,'JBStringHelper']]],
   ['getconfiguration_6',['getConfiguration',['../group___config_group.html#ga9a068ec9b0c53eb62196e70d0adebc62',1,'JBWoprDevice']]],
   ['getdefconleds_7',['getDefconLeds',['../group___defcon_group.html#ga63999fb3f41002803ecfd68873df037f',1,'JBWoprDevice']]],
   ['getdisplay_8',['getDisplay',['../group___display_group.html#ga22fd98bc3c8fe27db8737140ffee7b91',1,'JBWoprDevice']]],
