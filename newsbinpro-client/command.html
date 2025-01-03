@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Commands &mdash; newsbinpro-client 2025-01-03 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51d87180"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Download file set" href="downloadfileset.html" />
+    <link rel="prev" title="Newsbin Pro Client" href="newsbinproclient.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            newsbinpro-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="newsbinproclient.html">Newsbin Pro Client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#newsbinpro_client.command.Command"><code class="docutils literal notranslate"><span class="pre">Command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Auth"><code class="docutils literal notranslate"><span class="pre">Command.Auth</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Bwl"><code class="docutils literal notranslate"><span class="pre">Command.Bwl</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Close"><code class="docutils literal notranslate"><span class="pre">Command.Close</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Continue"><code class="docutils literal notranslate"><span class="pre">Command.Continue</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsAssemble"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsAssemble</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsClear"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsClear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsCount"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsDelete"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsDelete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsFind"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsFind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsList"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsList</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsLock"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsLock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsMoveBottom"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsMoveBottom</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsMoveDown"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsMoveDown</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsMoveTop"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsMoveTop</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsMoveUp"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsMoveUp</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsPause"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsPause</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsResume"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsResume</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsSort"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsSort</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.DownloadsUnlock"><code class="docutils literal notranslate"><span class="pre">Command.DownloadsUnlock</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilesCount"><code class="docutils literal notranslate"><span class="pre">Command.FilesCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilesDownload"><code class="docutils literal notranslate"><span class="pre">Command.FilesDownload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilesList"><code class="docutils literal notranslate"><span class="pre">Command.FilesList</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterAddGroupFilter"><code class="docutils literal notranslate"><span class="pre">Command.FilterAddGroupFilter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterClear"><code class="docutils literal notranslate"><span class="pre">Command.FilterClear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterEnableFilters"><code class="docutils literal notranslate"><span class="pre">Command.FilterEnableFilters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterHideOld"><code class="docutils literal notranslate"><span class="pre">Command.FilterHideOld</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterMarkAllOld"><code class="docutils literal notranslate"><span class="pre">Command.FilterMarkAllOld</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterMarkOld"><code class="docutils literal notranslate"><span class="pre">Command.FilterMarkOld</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterSetAge"><code class="docutils literal notranslate"><span class="pre">Command.FilterSetAge</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterSetMaxSize"><code class="docutils literal notranslate"><span class="pre">Command.FilterSetMaxSize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterSetMinSize"><code class="docutils literal notranslate"><span class="pre">Command.FilterSetMinSize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterSetProfile"><code class="docutils literal notranslate"><span class="pre">Command.FilterSetProfile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.FilterSetTextFilter"><code class="docutils literal notranslate"><span class="pre">Command.FilterSetTextFilter</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.GroupClear"><code class="docutils literal notranslate"><span class="pre">Command.GroupClear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.GroupDelete"><code class="docutils literal notranslate"><span class="pre">Command.GroupDelete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.GroupLoad"><code class="docutils literal notranslate"><span class="pre">Command.GroupLoad</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListChildren"><code class="docutils literal notranslate"><span class="pre">Command.ListChildren</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListChildrenDetails"><code class="docutils literal notranslate"><span class="pre">Command.ListChildrenDetails</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListFilters"><code class="docutils literal notranslate"><span class="pre">Command.ListFilters</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListGogs"><code class="docutils literal notranslate"><span class="pre">Command.ListGogs</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListGroups"><code class="docutils literal notranslate"><span class="pre">Command.ListGroups</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.ListServers"><code class="docutils literal notranslate"><span class="pre">Command.ListServers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedClear"><code class="docutils literal notranslate"><span class="pre">Command.LoadedClear</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedCount"><code class="docutils literal notranslate"><span class="pre">Command.LoadedCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedDownload"><code class="docutils literal notranslate"><span class="pre">Command.LoadedDownload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedFind"><code class="docutils literal notranslate"><span class="pre">Command.LoadedFind</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedGetNzb"><code class="docutils literal notranslate"><span class="pre">Command.LoadedGetNzb</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedList"><code class="docutils literal notranslate"><span class="pre">Command.LoadedList</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.LoadedSort"><code class="docutils literal notranslate"><span class="pre">Command.LoadedSort</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Pause"><code class="docutils literal notranslate"><span class="pre">Command.Pause</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Quit"><code class="docutils literal notranslate"><span class="pre">Command.Quit</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Save"><code class="docutils literal notranslate"><span class="pre">Command.Save</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.SearchInternet"><code class="docutils literal notranslate"><span class="pre">Command.SearchInternet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.SearchLocal"><code class="docutils literal notranslate"><span class="pre">Command.SearchLocal</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Status"><code class="docutils literal notranslate"><span class="pre">Command.Status</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.Update"><code class="docutils literal notranslate"><span class="pre">Command.Update</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.UploadNzbBinary"><code class="docutils literal notranslate"><span class="pre">Command.UploadNzbBinary</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.WishCount"><code class="docutils literal notranslate"><span class="pre">Command.WishCount</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.WishDownload"><code class="docutils literal notranslate"><span class="pre">Command.WishDownload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.command.Command.WishList"><code class="docutils literal notranslate"><span class="pre">Command.WishList</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="downloadfileset.html">Download file set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadpartstatus.html">Download part status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesdownloaditem.html">Files Download Part Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesfileset.html">Files File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupfileset.html">Group File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupofgroupstree.html">Group of Groups Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listresponse.html">List Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newsbinprostatus.html">Newsbin Pro Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="response.html">Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statuscode.html">Status Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wishfileset.html">Wish File Set</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">newsbinpro-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Commands</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/command.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h1>
+<p>The Command class defines the commands strings that is used for the remote control interface.</p>
+<dl class="py class" id="module-newsbinpro_client.command">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">newsbinpro_client.command.</span></span><span class="sig-name descname"><span class="pre">Command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.command.Command" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Auth">
+<span class="sig-name descname"><span class="pre">Auth</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'AUTH'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Auth" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Bwl">
+<span class="sig-name descname"><span class="pre">Bwl</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'BWL'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Bwl" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Close">
+<span class="sig-name descname"><span class="pre">Close</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CLOSE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Close" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Continue">
+<span class="sig-name descname"><span class="pre">Continue</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'300</span> <span class="pre">CONTINUE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Continue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsAssemble">
+<span class="sig-name descname"><span class="pre">DownloadsAssemble</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">ASSEMBLE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsAssemble" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsClear">
+<span class="sig-name descname"><span class="pre">DownloadsClear</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">CLEAR'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsClear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsCount">
+<span class="sig-name descname"><span class="pre">DownloadsCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">COUNT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsCount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsDelete">
+<span class="sig-name descname"><span class="pre">DownloadsDelete</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">DELETE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsDelete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsFind">
+<span class="sig-name descname"><span class="pre">DownloadsFind</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">FIND'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsFind" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsList">
+<span class="sig-name descname"><span class="pre">DownloadsList</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">LIST'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsList" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsLock">
+<span class="sig-name descname"><span class="pre">DownloadsLock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">LOCK'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsLock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsMoveBottom">
+<span class="sig-name descname"><span class="pre">DownloadsMoveBottom</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">MOVEBOTTOM'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsMoveBottom" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsMoveDown">
+<span class="sig-name descname"><span class="pre">DownloadsMoveDown</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">MOVEDOWN'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsMoveDown" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsMoveTop">
+<span class="sig-name descname"><span class="pre">DownloadsMoveTop</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">MOVETOP'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsMoveTop" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsMoveUp">
+<span class="sig-name descname"><span class="pre">DownloadsMoveUp</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">MOVEUP'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsMoveUp" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsPause">
+<span class="sig-name descname"><span class="pre">DownloadsPause</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">PAUSE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsPause" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsResume">
+<span class="sig-name descname"><span class="pre">DownloadsResume</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">RESUME'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsResume" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsSort">
+<span class="sig-name descname"><span class="pre">DownloadsSort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">SORT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsSort" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.DownloadsUnlock">
+<span class="sig-name descname"><span class="pre">DownloadsUnlock</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'DOWNLOADS</span> <span class="pre">UNLOCK'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.DownloadsUnlock" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilesCount">
+<span class="sig-name descname"><span class="pre">FilesCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILES</span> <span class="pre">COUNT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilesCount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilesDownload">
+<span class="sig-name descname"><span class="pre">FilesDownload</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILES</span> <span class="pre">DOWNLOAD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilesDownload" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilesList">
+<span class="sig-name descname"><span class="pre">FilesList</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILES</span> <span class="pre">LIST'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilesList" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterAddGroupFilter">
+<span class="sig-name descname"><span class="pre">FilterAddGroupFilter</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">ADDGROUPFILTER'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterAddGroupFilter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterClear">
+<span class="sig-name descname"><span class="pre">FilterClear</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">CLEAR'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterClear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterEnableFilters">
+<span class="sig-name descname"><span class="pre">FilterEnableFilters</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">ENABLEFILTERS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterEnableFilters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterHideOld">
+<span class="sig-name descname"><span class="pre">FilterHideOld</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">HIDEOLD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterHideOld" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterMarkAllOld">
+<span class="sig-name descname"><span class="pre">FilterMarkAllOld</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">MARKOLD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterMarkAllOld" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterMarkOld">
+<span class="sig-name descname"><span class="pre">FilterMarkOld</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">MARKOLD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterMarkOld" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterSetAge">
+<span class="sig-name descname"><span class="pre">FilterSetAge</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">SETAGE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterSetAge" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterSetMaxSize">
+<span class="sig-name descname"><span class="pre">FilterSetMaxSize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">SETMAXSIZE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterSetMaxSize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterSetMinSize">
+<span class="sig-name descname"><span class="pre">FilterSetMinSize</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">SETMINSIZE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterSetMinSize" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterSetProfile">
+<span class="sig-name descname"><span class="pre">FilterSetProfile</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">SETPROFILE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterSetProfile" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.FilterSetTextFilter">
+<span class="sig-name descname"><span class="pre">FilterSetTextFilter</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'FILTER</span> <span class="pre">SETTEXTFILTER'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.FilterSetTextFilter" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.GroupClear">
+<span class="sig-name descname"><span class="pre">GroupClear</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GROUP</span> <span class="pre">CLEAR'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.GroupClear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.GroupDelete">
+<span class="sig-name descname"><span class="pre">GroupDelete</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GROUP</span> <span class="pre">DELETE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.GroupDelete" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.GroupLoad">
+<span class="sig-name descname"><span class="pre">GroupLoad</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GROUP</span> <span class="pre">LOAD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.GroupLoad" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListChildren">
+<span class="sig-name descname"><span class="pre">ListChildren</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">CHILDREN'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListChildren" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListChildrenDetails">
+<span class="sig-name descname"><span class="pre">ListChildrenDetails</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">CHILDRENDETAILS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListChildrenDetails" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListFilters">
+<span class="sig-name descname"><span class="pre">ListFilters</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">FILTERS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListFilters" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListGogs">
+<span class="sig-name descname"><span class="pre">ListGogs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">GOGS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListGogs" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListGroups">
+<span class="sig-name descname"><span class="pre">ListGroups</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">GROUPS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListGroups" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.ListServers">
+<span class="sig-name descname"><span class="pre">ListServers</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LIST</span> <span class="pre">SERVERS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.ListServers" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedClear">
+<span class="sig-name descname"><span class="pre">LoadedClear</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">CLEAR'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedClear" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedCount">
+<span class="sig-name descname"><span class="pre">LoadedCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">COUNT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedCount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedDownload">
+<span class="sig-name descname"><span class="pre">LoadedDownload</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">DOWNLOAD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedDownload" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedFind">
+<span class="sig-name descname"><span class="pre">LoadedFind</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">FIND'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedFind" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedGetNzb">
+<span class="sig-name descname"><span class="pre">LoadedGetNzb</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">GETNZB'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedGetNzb" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedList">
+<span class="sig-name descname"><span class="pre">LoadedList</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">LIST'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedList" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.LoadedSort">
+<span class="sig-name descname"><span class="pre">LoadedSort</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'LOADED</span> <span class="pre">SORT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.LoadedSort" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Pause">
+<span class="sig-name descname"><span class="pre">Pause</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'PAUSE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Pause" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Quit">
+<span class="sig-name descname"><span class="pre">Quit</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'QUIT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Quit" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Save">
+<span class="sig-name descname"><span class="pre">Save</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SAVE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Save" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.SearchInternet">
+<span class="sig-name descname"><span class="pre">SearchInternet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SEARCH</span> <span class="pre">INTERNET'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.SearchInternet" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.SearchLocal">
+<span class="sig-name descname"><span class="pre">SearchLocal</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SEARCH</span> <span class="pre">LOCAL'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.SearchLocal" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Status">
+<span class="sig-name descname"><span class="pre">Status</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'STATUS'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Status" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.Update">
+<span class="sig-name descname"><span class="pre">Update</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UPDATE'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.Update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.UploadNzbBinary">
+<span class="sig-name descname"><span class="pre">UploadNzbBinary</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'UPLOAD</span> <span class="pre">NZBBINARY'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.UploadNzbBinary" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.WishCount">
+<span class="sig-name descname"><span class="pre">WishCount</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WISH</span> <span class="pre">COUNT'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.WishCount" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.WishDownload">
+<span class="sig-name descname"><span class="pre">WishDownload</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WISH</span> <span class="pre">DOWNLOAD'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.WishDownload" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.command.Command.WishList">
+<span class="sig-name descname"><span class="pre">WishList</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'WISH</span> <span class="pre">LIST'</span></em><a class="headerlink" href="#newsbinpro_client.command.Command.WishList" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="newsbinproclient.html" class="btn btn-neutral float-left" title="Newsbin Pro Client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="downloadfileset.html" class="btn btn-neutral float-right" title="Download file set" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

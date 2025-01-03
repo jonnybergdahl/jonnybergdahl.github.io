@@ -1,0 +1,1232 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsbin Pro Client &mdash; newsbinpro-client 2025-01-03 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51d87180"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Commands" href="command.html" />
+    <link rel="prev" title="newsbinpro-client documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            newsbinpro-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Newsbin Pro Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.add_group_filter"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.add_group_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.assemble_download"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.assemble_download()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_downloads"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.clear_downloads()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_filters"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.clear_filters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_group"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.clear_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.clear_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.close"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.close()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.connect"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.connected"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.connected</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.delete_from_group"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.delete_from_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.disconnect"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_file_from_files"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_file_from_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_from_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_wish"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_from_wish()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_bottom"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_move_bottom()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_down"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_move_down()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_top"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_move_top()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_up"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_move_up()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_stream_from_files"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.download_stream_from_files()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.enable_filters"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.enable_filters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.find_in_downloads"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.find_in_downloads()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.find_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.find_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_auth_string"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_auth_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_bandwidth_limiter_state"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_bandwidth_limiter_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_count"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_downloads_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_list"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_downloads_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_count"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_files_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_list"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_files_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_loaded_count"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_loaded_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_nzb_from_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_nzb_from_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_paused_state"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_paused_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_response"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_status"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_status()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_count"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_wish_count()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_list"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.get_wish_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.hide_old"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.hide_old()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_children"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_children()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_children_details"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_children_details()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_filters"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_filters()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_gogs"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_gogs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_group_of_groups_with_children"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_group_of_groups_with_children()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_groups"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_groups()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_servers"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.list_servers()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.load_group"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.load_group()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.lock_downloads"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.lock_downloads()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.mark_all_old"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.mark_all_old()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.mark_old"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.mark_old()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.pause_download"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.pause_download()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.read_binary"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.read_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.read_line_async"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.read_line_async()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.resume_download"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.resume_download()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.save"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.save()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.search_internet"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.search_internet()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.search_local"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.search_local()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_command"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.send_command()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_command_without_response"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.send_command_without_response()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_list_command"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.send_list_command()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_long_command"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.send_long_command()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_bandwidth_limiter_state"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_bandwidth_limiter_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_age"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_filter_age()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_max_size"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_filter_max_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_min_size"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_filter_min_size()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_profile"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_filter_profile()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_paused_state"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_paused_state()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_text_filter"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.set_text_filter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.sort_downloads_list"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.sort_downloads_list()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.sort_loaded"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.sort_loaded()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.unlock_downloads"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.unlock_downloads()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.update"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.update()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_file"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.upload_nzb_file()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_stream"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.upload_nzb_stream()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.write_binary"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.write_binary()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.write_line_async"><code class="docutils literal notranslate"><span class="pre">NewsbinProClient.write_line_async()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadfileset.html">Download file set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadpartstatus.html">Download part status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesdownloaditem.html">Files Download Part Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesfileset.html">Files File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupfileset.html">Group File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupofgroupstree.html">Group of Groups Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listresponse.html">List Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newsbinprostatus.html">Newsbin Pro Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="response.html">Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statuscode.html">Status Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wishfileset.html">Wish File Set</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">newsbinpro-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Newsbin Pro Client</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/newsbinproclient.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="newsbin-pro-client">
+<h1>Newsbin Pro Client<a class="headerlink" href="#newsbin-pro-client" title="Link to this heading"></a></h1>
+<p>NewsbinproClient is the main client for communicating with Newsbin Pro.</p>
+<dl class="py class" id="module-newsbinpro_client.newsbinproclient">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">newsbinpro_client.newsbinproclient.</span></span><span class="sig-name descname"><span class="pre">NewsbinProClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server_address</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_connected_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_disconnected_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_data_sent</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_data_received</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_received_list_item</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>A client for connecting to a NewsbinPro server for remote control.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.add_group_filter">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">add_group_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.add_group_filter" title="Link to this definition"></a></dt>
+<dd><p>Adds a group or a group of groups if a topic is selected. The topic is expanded into the list of current groups.
+These groups are used by “Load” and “Search” to specify what groups to look into.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>group_name</strong> – The name of the group filter to add.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the group filter was successfully added.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.assemble_download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">assemble_download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.assemble_download" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The identifier of the download to be assembled.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating whether the assembly of the download was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.clear_downloads">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_downloads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_downloads" title="Link to this definition"></a></dt>
+<dd><p>Clears the current list of downloads.</p>
+<p>Sends a command to clear all download entries and checks the response status code to confirm the action was successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the list of downloads is successfully cleared, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.clear_filters">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">clear</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_filters" title="Link to this definition"></a></dt>
+<dd><p>Clears the existing size filters and groups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>clear</strong> – A boolean value indicating whether to clear all filters (True) or not (False).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value representing whether the command succeeded (True) or failed (False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.clear_group">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_group</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_group" title="Link to this definition"></a></dt>
+<dd><p>Clear a group</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns True if the group is successfully cleared, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.clear_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">clear_loaded</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.clear_loaded" title="Link to this definition"></a></dt>
+<dd><p>Clears the loaded list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns True if the command was successfully executed, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.close">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.close" title="Link to this definition"></a></dt>
+<dd><p>Closes the Newsbin Pro application. No further communication is possible after this call.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the command execution was successful and the status code is OK, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.connect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.connect" title="Link to this definition"></a></dt>
+<dd><p>Establishes a connection to the NewsbinPro server.</p>
+<p>If authentication is required, it attempts to authenticate
+using the provided password.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<em>int</em>) – The maximum time (in seconds) to wait for the connection. Default is 30 seconds.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>Exception</strong> – If authentication with the server fails.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.connected">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connected</span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.connected" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns True if the client is connected, otherwise, returns False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.delete_from_group">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">delete_from_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">group_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.delete_from_group" title="Link to this definition"></a></dt>
+<dd><p>Delete from a group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>group_id</strong> – The identifier of the group to be deleted.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the deletion was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.disconnect">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnects the client by sending the quit command to the server.
+Handles the client disconnection event and disposes of the connection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_file_from_files">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_file_from_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_file_from_files" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – The name of the file where the content will be saved.</p></li>
+<li><p><strong>item_id</strong> – The identifier for the file to be downloaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the file was successfully downloaded, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_from_loaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_loaded" title="Link to this definition"></a></dt>
+<dd><p>Download a file from the loaded list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The identifier of the item to be downloaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the download operation was successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_wish">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_from_wish</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_from_wish" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The unique identifier for the wish download request.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether the download operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_bottom">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_move_bottom</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_bottom" title="Link to this definition"></a></dt>
+<dd><p>Moves a download item to the bottom of the download queue.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The identifier of the download item to be moved.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns True if the operation was successful, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_down">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_move_down</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_down" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The unique identifier of the item to move down in the download list.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the command to move the download down was successfully executed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_top">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_move_top</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_top" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – Identifier of the download to be moved to the top of the queue.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean indicating whether the operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_up">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_move_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_move_up" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – Identifier of the download to be moved up in the queue.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the operation was successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.download_stream_from_files">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_stream_from_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.download_stream_from_files" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>stream</strong> – The binary stream where the downloaded file content will be written.</p></li>
+<li><p><strong>item_id</strong> – The identifier of the file to be downloaded.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Returns True if the file was successfully downloaded, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.enable_filters">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">enable_filters</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">enabled</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.enable_filters" title="Link to this definition"></a></dt>
+<dd><p>Enable/Disable filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>enabled</strong> – Boolean value indicating whether to enable (True) or disable (False) filters.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Boolean value indicating whether the operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.find_in_downloads">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_in_downloads</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.find_in_downloads" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – The text to search for in the download list.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the search operation was successful (True if the status code equals OK, False otherwise).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.find_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">find_loaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="groupfileset.html#newsbinpro_client.groupfileset.GroupFileSet" title="newsbinpro_client.groupfileset.GroupFileSet"><span class="pre">GroupFileSet</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.find_loaded" title="Link to this definition"></a></dt>
+<dd><p>Finds matching items in the loaded list.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – The text used to search and filter the loaded file sets.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of GroupFileSet instances representing the loaded file sets that match the search criteria.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_auth_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_auth_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">password</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password_salt</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_auth_string" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>password</strong> – The original password string that needs to be hashed.</p></li>
+<li><p><strong>password_salt</strong> – A salt string to be appended to the password for added security.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A hexadecimal string representation of the MD5 hash of the concatenated password and salt.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_bandwidth_limiter_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_bandwidth_limiter_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_bandwidth_limiter_state" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to check the state of the bandwidth limiter and returns its status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the bandwidth limiter is on, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_count">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_downloads_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_count" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to retrieve the total downloads count.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The number of downloads.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_downloads_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="downloadfileset.html#newsbinpro_client.downloadfileset.DownloadFileSet" title="newsbinpro_client.downloadfileset.DownloadFileSet"><span class="pre">DownloadFileSet</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_downloads_list" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_index</strong> – The starting index for the range of downloads to retrieve.</p></li>
+<li><p><strong>end_index</strong> – The ending index for the range of downloads to retrieve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of DownloadFileSet objects representing the downloads in the specified range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_count">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_files_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_count" title="Link to this definition"></a></dt>
+<dd><p>Asynchronously retrieves the count of files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The count of files as an integer.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_files_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="filesfileset.html#newsbinpro_client.filesfileset.FilesFileSet" title="newsbinpro_client.filesfileset.FilesFileSet"><span class="pre">FilesFileSet</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_files_list" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_index</strong> – The starting index for retrieving the list of files.</p></li>
+<li><p><strong>end_index</strong> – The ending index for retrieving the list of files.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of FilesFileSet objects representing the retrieved files.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_loaded_count">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_loaded_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_loaded_count" title="Link to this definition"></a></dt>
+<dd><p>Gets the number of loaded items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The total count of loaded items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_nzb_from_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_nzb_from_loaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_nzb_from_loaded" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_index</strong> – The minimum index of the NZB to retrieve.</p></li>
+<li><p><strong>max_index</strong> – The maximum index of the NZB to retrieve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the NZB was successfully retrieved, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_paused_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_paused_state</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_paused_state" title="Link to this definition"></a></dt>
+<dd><p>Sends a pause command to check whether the system is in a paused state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A boolean indicating if the system is in a paused state. True if the system is paused, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_response">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_response</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="response.html#newsbinpro_client.response.Response" title="newsbinpro_client.response.Response"><span class="pre">Response</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_response" title="Link to this definition"></a></dt>
+<dd><p>Reads a line asynchronously and returns a Response object containing the line read.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of the Response class containing the data from the asynchronously read line.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_status">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_status</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="newsbinprostatus.html#newsbinpro_client.newsbinprostatus.NewsbinProStatus" title="newsbinpro_client.newsbinprostatus.NewsbinProStatus"><span class="pre">NewsbinProStatus</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_status" title="Link to this definition"></a></dt>
+<dd><p>Retrieves the status of NewsbinPro by sending a status command
+and aggregating the response into a NewsbinProStatus object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An instance of NewsbinProStatus containing the aggregated status data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_count">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_wish_count</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_count" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The count of wishes as an integer received from sending the WishCount command.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_wish_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="wishfileset.html#newsbinpro_client.wishfileset.WishFileSet" title="newsbinpro_client.wishfileset.WishFileSet"><span class="pre">WishFileSet</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.get_wish_list" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_index</strong> – The starting index for the wish list items to retrieve.</p></li>
+<li><p><strong>end_index</strong> – The ending index for the wish list items to retrieve.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of WishFileSet objects representing the retrieved wish list items.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.hide_old">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hide_old</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hide</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.hide_old" title="Link to this definition"></a></dt>
+<dd><p>Enable/Disable the “hide old” filter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hide</strong> – A boolean value indicating whether to hide old filters. If True, old filters will be hidden; otherwise, they will not.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating whether the command to hide old filters was successfully executed.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_children">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_children</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gog_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_children" title="Link to this definition"></a></dt>
+<dd><p>Lists all children of a particular parent topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gog_name</strong> – The name of the group or object whose children need to be listed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ListResponse containing the children of the specified group or object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_children_details">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_children_details</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gog_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_children_details" title="Link to this definition"></a></dt>
+<dd><p>Lists all children details of a particular parent topic.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>gog_name</strong> – The name of the group or object whose children details need to be listed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ListResponse containing the details of the children for the specified group or object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_filters">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_filters</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_filters" title="Link to this definition"></a></dt>
+<dd><p>Lists all filters</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A ListResponse object containing the available filters.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_gogs">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_gogs</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_gogs" title="Link to this definition"></a></dt>
+<dd><p>Lists all group topics (parents)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The response containing the list of Gogs.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse">ListResponse</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_group_of_groups_with_children">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_group_of_groups_with_children</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="groupofgroupstree.html#newsbinpro_client.groupofgroupstree.GroupOfGroupsTree" title="newsbinpro_client.groupofgroupstree.GroupOfGroupsTree"><span class="pre">GroupOfGroupsTree</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_group_of_groups_with_children" title="Link to this definition"></a></dt>
+<dd><p>Lists groups and their respective child groups into a tree structure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>GroupOfGroupsTree object representing the hierarchy of groups and their children.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_groups">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_groups</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_groups" title="Link to this definition"></a></dt>
+<dd><p>Lists all subscribed groups.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A ListResponse object containing the details of all groups.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_loaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_index</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="groupfileset.html#newsbinpro_client.groupfileset.GroupFileSet" title="newsbinpro_client.groupfileset.GroupFileSet"><span class="pre">GroupFileSet</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_loaded" title="Link to this definition"></a></dt>
+<dd><p>List the loaded items.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>start_index</strong> – The starting index from which to begin retrieving the loaded file sets.</p></li>
+<li><p><strong>end_index</strong> – The ending index at which to stop retrieving the loaded file sets.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A list of GroupFileSet objects representing the loaded file sets within the specified range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.list_servers">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">list_servers</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.list_servers" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to list all available servers and returns the response.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An object of type ListResponse containing the list of servers.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.load_group">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_group</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.load_group" title="Link to this definition"></a></dt>
+<dd><p>Load a group. To load the last 10 days of records for instance the min_age would be 10 and the max_age would
+be zero. It counts backwards. load_group(20, 10) would load posts from 20 days ago to 10 days ago.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_age</strong> – The minimum age for filtering the group.</p></li>
+<li><p><strong>max_age</strong> – The maximum age for filtering the group.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The result of the command, representing the number of entries loaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.lock_downloads">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">lock_downloads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.lock_downloads" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to lock the downloads and returns whether the operation was successful.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the downloads were successfully locked, False otherwise</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.mark_all_old">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_all_old</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.mark_all_old" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to mark all items as old.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the operation was successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.mark_old">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">mark_old</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.mark_old" title="Link to this definition"></a></dt>
+<dd><p>Tag the files as “Old” both in the display list and on disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The unique identifier of the filter to be marked as old.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the filter was successfully marked as old, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.pause_download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pause_download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.pause_download" title="Link to this definition"></a></dt>
+<dd><p>Pauses an active download by its identifier.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The unique identifier of the download to be paused.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the pause command was successfully executed, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.read_binary">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bytes_to_read</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.read_binary" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>bytes_to_read</strong> – The number of bytes to read from the binary stream.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A bytes object containing the data read from the stream. Returns an empty bytes object if no reader is available.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.read_line_async">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">read_line_async</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.read_line_async" title="Link to this definition"></a></dt>
+<dd><p>Reads a single line of data asynchronously using the reader and processes it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A single line of data read from the reader, stripped of whitespace and decoded as a UTF-8 string.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>str</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>AttributeError</strong> – If the <cite>_reader</cite> attribute is not set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.resume_download">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">resume_download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">item_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.resume_download" title="Link to this definition"></a></dt>
+<dd><p>Resumes a paused download for the specified download ID.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>item_id</strong> – The unique identifier of the download to be resumed.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True if the download was successfully resumed, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.save">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.save" title="Link to this definition"></a></dt>
+<dd><p>Saves the current configuration file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A boolean indicating whether the save operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.search_internet">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search_internet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.search_internet" title="Link to this definition"></a></dt>
+<dd><p>Searches using the search server, the groups listed using “AddGroupFilter” or all groups if no groups have
+been added. It loads each group in turn and only saves the items in memory that match the filter string
+and size filters. These matched items are added to the display buffer and become accessible using the
+“Loaded” interface. The min age/max age set how many day in the past to search from.
+So, a setting of 100 and 0 means “from 100 days ago to 0 days ago( Now)”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_age</strong> – The minimum age to include in the search criteria.</p></li>
+<li><p><strong>max_age</strong> – The maximum age to include in the search criteria.</p></li>
+<li><p><strong>search_string</strong> – The term or phrase to search for on the internet.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the search operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.search_local">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">search_local</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_age</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">search_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.search_local" title="Link to this definition"></a></dt>
+<dd><p>Searches the groups listed using “AddGroupFilter” or all groups if no groups have been added.
+It loads each group in turn and only saves the items in memory that match the filter string and size filters.
+These matched items are added to the display buffer and become accessible using the “Loaded” interface.
+The min age/max age set how many day in the past to search from. So, a setting of 100 and 0 means
+“from 100 days ago to 0 days ago( Now)”. Only finds records from groups that have actually
+had headers downloaded.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>min_age</strong> – The minimum age to filter the search results.</p></li>
+<li><p><strong>max_age</strong> – The maximum age to filter the search results.</p></li>
+<li><p><strong>search_string</strong> – The string to search for in the local data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the search operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.send_command">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="command.html#newsbinpro_client.command.Command" title="newsbinpro_client.command.Command"><span class="pre">Command</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="response.html#newsbinpro_client.response.Response" title="newsbinpro_client.response.Response"><span class="pre">Response</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_command" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – The command to be sent to the external system.</p></li>
+<li><p><strong>arg1</strong> – First argument to be appended to the command, optional.</p></li>
+<li><p><strong>arg2</strong> – Second argument to be appended to the command, optional.</p></li>
+<li><p><strong>arg3</strong> – Third argument to be appended to the command, optional.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A Response object containing the result from the external system.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.send_command_without_response">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_command_without_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="command.html#newsbinpro_client.command.Command" title="newsbinpro_client.command.Command"><span class="pre">Command</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_command_without_response" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command</strong> – The command to be sent, represented as an instance of the Command class.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None. This method does not return a value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.send_list_command">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_list_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="command.html#newsbinpro_client.command.Command" title="newsbinpro_client.command.Command"><span class="pre">Command</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="listresponse.html#newsbinpro_client.listresponse.ListResponse" title="newsbinpro_client.listresponse.ListResponse"><span class="pre">ListResponse</span></a></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_list_command" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – The command to be sent, represented as a Command object.</p></li>
+<li><p><strong>arg1</strong> – Optional string argument to append to the command.</p></li>
+<li><p><strong>arg2</strong> – Optional string argument to append to the command.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A ListResponse object containing the parsed response data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.send_long_command">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_long_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="command.html#newsbinpro_client.command.Command" title="newsbinpro_client.command.Command"><span class="pre">Command</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arg2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.send_long_command" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – The command to be sent, represented as a Command object.</p></li>
+<li><p><strong>arg1</strong> – An optional argument to be included in the command, defaults to an empty string.</p></li>
+<li><p><strong>arg2</strong> – An optional second argument to be included in the command, defaults to an empty string.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>An integer value parsed from the response message if the status code is OK, otherwise returns 0.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_bandwidth_limiter_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_bandwidth_limiter_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_bandwidth_limiter_state" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – A boolean value indicating the desired state of the bandwidth limiter. True to turn it on, False to turn it off.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the operation to set the bandwidth limiter state was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_age">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_filter_age</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hours</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_age" title="Link to this definition"></a></dt>
+<dd><p>Sets the maximum age of the sets in the display buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hours</strong> – The age limit for the filter in hours.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating if the filter age was successfully set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_max_size">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_filter_max_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">max_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_max_size" title="Link to this definition"></a></dt>
+<dd><p>Sets the maximum size filter for when search or group loading is performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>max_size</strong> – The maximum size to set for the filter as an integer.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the operation to set the maximum size was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_min_size">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_filter_min_size</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">min_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_min_size" title="Link to this definition"></a></dt>
+<dd><p>Sets the minimum size filter for when search or group loading is performed.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>min_size</strong> (<em>int</em>) – The minimum size value to set for the filter.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the command to set the filter minimum size was successful.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_profile">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_filter_profile</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">profile_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_filter_profile" title="Link to this definition"></a></dt>
+<dd><p>Set filter profile.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>profile_name</strong> – The name of the filter profile to set.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_paused_state">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_paused_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_paused_state" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>state</strong> – A boolean value indicating the desired paused state. True to set the state to paused, False to set it to unpaused.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the operation was successful. Returns True if the pause state was successfully set to the desired value, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.set_text_filter">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">set_text_filter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">text</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.set_text_filter" title="Link to this definition"></a></dt>
+<dd><p>Sets the current text filter. Text quoting is optional (but recommended).
+An empty string will clear the text filter.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>text</strong> – The text to set as the filter.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating whether setting the text filter was successful or not.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.sort_downloads_list">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sort_downloads_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.sort_downloads_list" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – The index of the column by which the downloads list should be sorted.</p></li>
+<li><p><strong>ascending</strong> – A boolean indicating whether the sorting should be in ascending order. If False, sorting will be in descending order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the operation was successful (True) or not (False).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.sort_loaded">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sort_loaded</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">column</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ascending</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.sort_loaded" title="Link to this definition"></a></dt>
+<dd><p>Sorts the loaded items according to the specified column.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>column</strong> – The index of the column to sort.</p></li>
+<li><p><strong>ascending</strong> – A boolean indicating the sort order. If True, sort in ascending order; if False, sort in descending order.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the sorting operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.unlock_downloads">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">unlock_downloads</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.unlock_downloads" title="Link to this definition"></a></dt>
+<dd><p>Sends a command to unlock downloads and checks the response status.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the downloads were successfully unlocked, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.update">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.update" title="Link to this definition"></a></dt>
+<dd><p>Sends an update command.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the update command was successful (status is OK), otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_file">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">upload_nzb_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_file" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_name</strong> – The path to the NZB file to be uploaded.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean indicating whether the NZB file was successfully uploaded.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_stream">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">upload_nzb_stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stream</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">BinaryIO</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.upload_nzb_stream" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_name</strong> – The name of the NZB file being uploaded.</p></li>
+<li><p><strong>stream</strong> – A binary stream containing the contents of the NZB file.</p></li>
+<li><p><strong>size</strong> – The size of the NZB file in bytes.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating whether the upload operation was successful.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.write_binary">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_binary</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">buffer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.write_binary" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>buffer</strong> – The binary data to write, passed as a bytes object.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A boolean value indicating whether the operation was successful. Returns True if the data was written successfully, otherwise False.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinproclient.NewsbinProClient.write_line_async">
+<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">write_line_async</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.newsbinproclient.NewsbinProClient.write_line_async" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>command</strong> – The string command to write to the underlying writer, appended with a newline character.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None. This is an asynchronous method that writes the command and optionally executes a callback.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="newsbinpro-client documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="command.html" class="btn btn-neutral float-right" title="Commands" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
