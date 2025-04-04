@@ -1,5 +1,11 @@
 var NAVTREEINDEX2 =
 {
+"group___mqtt_group.html#gaedd4719f39724598320693d9585bf73b":[8,8,6],
+"group___mqtt_group.html#gafab34e70b203cfc6aaf189e116e3d089":[8,8,9],
+"group___wi_fi_group.html":[8,7],
+"group___wi_fi_group.html#ga323c115c951f76307d85472a5290bc6c":[8,7,2],
+"group___wi_fi_group.html#ga5f456c865b9dd548e8699a8779c8b403":[8,7,10],
+"group___wi_fi_group.html#ga6e0e46c09bac0ce864b868d376fb6550":[8,7,6],
 "group___wi_fi_group.html#ga6e1a688ffb3772e51857312e2d27acc7":[8,7,0],
 "group___wi_fi_group.html#ga7f278aa6fb5bc2cf1b2ab9b3a5a3b4dc":[8,7,8],
 "group___wi_fi_group.html#gaa867154972ff0ad8486499cbc8284b38":[8,7,5],

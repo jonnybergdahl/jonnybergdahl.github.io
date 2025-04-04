@@ -1,9 +1,9 @@
 var class_j_b_wopr_h_a_device =
 [
     [ "JBWoprHADevice", "class_j_b_wopr_h_a_device.html#ab9edbc4d8ae0ed98a15cb5e124fcf0b2", null ],
-    [ "_addAvailabilityData", "class_j_b_wopr_h_a_device.html#ae8e63cebbabbce1e9f2677d812682656", null ],
-    [ "_addDeviceData", "class_j_b_wopr_h_a_device.html#a058172def9209b5943d4eab690e0b711", null ],
-    [ "_addDiscoveryPayload", "class_j_b_wopr_h_a_device.html#a6f0c857d7931bd76e112e303b63ee9cf", null ],
+    [ "_addAvailabilityData", "class_j_b_wopr_h_a_device.html#a6e037fb6070c10461bce52b3d0088a59", null ],
+    [ "_addDeviceData", "class_j_b_wopr_h_a_device.html#ae83fc6fff971f4d4b39aa7eb3ee734d1", null ],
+    [ "_addDiscoveryPayload", "class_j_b_wopr_h_a_device.html#af23a0c377d4bcdda4c7ec3802e3bc04b", null ],
     [ "_dumpConfig", "class_j_b_wopr_h_a_device.html#a35625ac6d78067fe25b82a3aaddb15ab", null ],
     [ "_getDiscoveryTopic", "class_j_b_wopr_h_a_device.html#abacd71862bd796b49febbe5624ea1656", null ],
     [ "_homeAssistantPublishConfig", "class_j_b_wopr_h_a_device.html#a29575c14af15b622c1c9caf8a1c1381a", null ],
@@ -12,8 +12,8 @@ var class_j_b_wopr_h_a_device =
     [ "_homeAssistantSendDiscovery", "class_j_b_wopr_h_a_device.html#a5bb1bfc8497186af3e99cafab1f3c485", null ],
     [ "_onMqttConnect", "class_j_b_wopr_h_a_device.html#a89234c7cd3d7f0ef0f8484d98d4a9a89", null ],
     [ "_saveParamsCallback", "class_j_b_wopr_h_a_device.html#a9ff992ff97074d7b4298d108a5485d00", null ],
-    [ "_setConfigFromJsonDocument", "class_j_b_wopr_h_a_device.html#a73cdd5c678c0e5a331618a6fdc6c4948", null ],
-    [ "_setJsonDocumentFromConfig", "class_j_b_wopr_h_a_device.html#a3ab489d3959884543e95d20b38142fd1", null ],
+    [ "_setConfigFromJsonDocument", "class_j_b_wopr_h_a_device.html#ad3047b40e0406b2d1cae64bb5c6aaf2c", null ],
+    [ "_setJsonDocumentFromConfig", "class_j_b_wopr_h_a_device.html#a5f772828a4b55588b53ccbdac3504cc1", null ],
     [ "_setupWiFiManager", "class_j_b_wopr_h_a_device.html#af31f88716ec772813aa260a3a7922753", null ],
     [ "begin", "class_j_b_wopr_h_a_device.html#a5e6b0be41ab8719bdf5c79e71e725b4a", null ],
     [ "begin", "class_j_b_wopr_h_a_device.html#a8e27354470d9d30d76768a0e66dbfcee", null ],

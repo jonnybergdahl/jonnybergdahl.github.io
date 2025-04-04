@@ -324,12 +324,12 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a02fd432eeb790b6605ac3dd12cc7bfce" id="r_a02fd432eeb790b6605ac3dd12cc7bfce"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#a02fd432eeb790b6605ac3dd12cc7bfce">_saveConfiguration</a> ()</td></tr>
 <tr class="memdesc:a02fd432eeb790b6605ac3dd12cc7bfce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Save configuration to file.  <br /></td></tr>
 <tr class="separator:a02fd432eeb790b6605ac3dd12cc7bfce"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab15079d75e2e013e07125feab9dc358d" id="r_ab15079d75e2e013e07125feab9dc358d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#ab15079d75e2e013e07125feab9dc358d">_setConfigFromJsonDocument</a> (const DynamicJsonDocument &amp;jsonDoc)</td></tr>
-<tr class="memdesc:ab15079d75e2e013e07125feab9dc358d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get configuration.  <br /></td></tr>
-<tr class="separator:ab15079d75e2e013e07125feab9dc358d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a665806395d59d25d6a23e3bc276c0145" id="r_a665806395d59d25d6a23e3bc276c0145"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#a665806395d59d25d6a23e3bc276c0145">_setJsonDocumentFromConfig</a> (DynamicJsonDocument &amp;jsonDoc)</td></tr>
-<tr class="memdesc:a665806395d59d25d6a23e3bc276c0145"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set configuration.  <br /></td></tr>
-<tr class="separator:a665806395d59d25d6a23e3bc276c0145"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae46e998f32e21f1c8c38dca0474e3a0a" id="r_ae46e998f32e21f1c8c38dca0474e3a0a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#ae46e998f32e21f1c8c38dca0474e3a0a">_setConfigFromJsonDocument</a> (const JsonDocument &amp;jsonDoc)</td></tr>
+<tr class="memdesc:ae46e998f32e21f1c8c38dca0474e3a0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get configuration.  <br /></td></tr>
+<tr class="separator:ae46e998f32e21f1c8c38dca0474e3a0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e8f476ce422a0b17626c1f9682d0fe6" id="r_a9e8f476ce422a0b17626c1f9682d0fe6"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#a9e8f476ce422a0b17626c1f9682d0fe6">_setJsonDocumentFromConfig</a> (JsonDocument &amp;jsonDoc)</td></tr>
+<tr class="memdesc:a9e8f476ce422a0b17626c1f9682d0fe6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set configuration.  <br /></td></tr>
+<tr class="separator:a9e8f476ce422a0b17626c1f9682d0fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aaf5327acbb218c604a17c71e70b912e4" id="r_aaf5327acbb218c604a17c71e70b912e4"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_wopr_wi_fi_device.html#aaf5327acbb218c604a17c71e70b912e4">_dumpConfig</a> ()</td></tr>
 <tr class="memdesc:aaf5327acbb218c604a17c71e70b912e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dump configuration to logger.  <br /></td></tr>
 <tr class="separator:aaf5327acbb218c604a17c71e70b912e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -793,8 +793,8 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
 
 </div>
 </div>
-<a id="ab15079d75e2e013e07125feab9dc358d" name="ab15079d75e2e013e07125feab9dc358d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab15079d75e2e013e07125feab9dc358d">&#9670;&#160;</a></span>_setConfigFromJsonDocument()</h2>
+<a id="ae46e998f32e21f1c8c38dca0474e3a0a" name="ae46e998f32e21f1c8c38dca0474e3a0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae46e998f32e21f1c8c38dca0474e3a0a">&#9670;&#160;</a></span>_setConfigFromJsonDocument()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -805,7 +805,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
         <tr>
           <td class="memname">void JBWoprWiFiDevice::_setConfigFromJsonDocument </td>
           <td>(</td>
-          <td class="paramtype">const DynamicJsonDocument &amp;&#160;</td>
+          <td class="paramtype">const JsonDocument &amp;&#160;</td>
           <td class="paramname"><em>jsonDoc</em></td><td>)</td>
           <td></td>
         </tr>
@@ -825,12 +825,12 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_j_b_wopr_mqtt_device.html#a8b0b30747d2e3971a9de5918a83f757f">JBWoprMqttDevice</a>, and <a class="el" href="class_j_b_wopr_h_a_device.html#a73cdd5c678c0e5a331618a6fdc6c4948">JBWoprHADevice</a>.</p>
+<p>Reimplemented in <a class="el" href="class_j_b_wopr_mqtt_device.html#aa77fdee6d75597d754ef501fec5d6dec">JBWoprMqttDevice</a>, and <a class="el" href="class_j_b_wopr_h_a_device.html#ad3047b40e0406b2d1cae64bb5c6aaf2c">JBWoprHADevice</a>.</p>
 
 </div>
 </div>
-<a id="a665806395d59d25d6a23e3bc276c0145" name="a665806395d59d25d6a23e3bc276c0145"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a665806395d59d25d6a23e3bc276c0145">&#9670;&#160;</a></span>_setJsonDocumentFromConfig()</h2>
+<a id="a9e8f476ce422a0b17626c1f9682d0fe6" name="a9e8f476ce422a0b17626c1f9682d0fe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e8f476ce422a0b17626c1f9682d0fe6">&#9670;&#160;</a></span>_setJsonDocumentFromConfig()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -841,7 +841,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
         <tr>
           <td class="memname">void JBWoprWiFiDevice::_setJsonDocumentFromConfig </td>
           <td>(</td>
-          <td class="paramtype">DynamicJsonDocument &amp;&#160;</td>
+          <td class="paramtype">JsonDocument &amp;&#160;</td>
           <td class="paramname"><em>jsonDoc</em></td><td>)</td>
           <td></td>
         </tr>
@@ -861,7 +861,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>_staticButtonB
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="class_j_b_wopr_mqtt_device.html#abd6aba89d3575c33ddcb38c8b69357c0">JBWoprMqttDevice</a>, and <a class="el" href="class_j_b_wopr_h_a_device.html#a3ab489d3959884543e95d20b38142fd1">JBWoprHADevice</a>.</p>
+<p>Reimplemented in <a class="el" href="class_j_b_wopr_mqtt_device.html#a94ea20948b7c24f8c88ddcc285840b3f">JBWoprMqttDevice</a>, and <a class="el" href="class_j_b_wopr_h_a_device.html#a5f772828a4b55588b53ccbdac3504cc1">JBWoprHADevice</a>.</p>
 
 </div>
 </div>

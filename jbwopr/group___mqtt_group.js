@@ -16,6 +16,6 @@ var group___mqtt_group =
     [ "JBWoprMqttDevice::_mqttStop", "group___mqtt_group.html#gaa12f9380722682533cc7e2a4652504bd", null ],
     [ "JBWoprMqttDevice::_onMqttConnect", "group___mqtt_group.html#gaea0713f2527a793e2402151ac6084071", null ],
     [ "JBWoprMqttDevice::mqttPublishMessage", "group___mqtt_group.html#ga41acc91107272b06803be7ad5a7a73f4", null ],
-    [ "JBWoprMqttDevice::mqttPublishMessage", "group___mqtt_group.html#ga001a40834fece80c16640317ffb3b2b9", null ],
-    [ "JBWoprMqttDevice::mqttPublishMessage", "group___mqtt_group.html#gaba1346845fc9c0d8428b5681d26b4d4f", null ]
+    [ "JBWoprMqttDevice::mqttPublishMessage", "group___mqtt_group.html#gaba1346845fc9c0d8428b5681d26b4d4f", null ],
+    [ "JBWoprMqttDevice::mqttPublishMessage", "group___mqtt_group.html#gabed764a68c4b74e34068e401251adb8e", null ]
 ];
