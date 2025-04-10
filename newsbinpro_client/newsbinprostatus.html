@@ -1,0 +1,239 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsbin Pro Status &mdash; newsbinpro_client 2025-01-03 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51d87180"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Response" href="response.html" />
+    <link rel="prev" title="List Response" href="listresponse.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            newsbinpro_client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="newsbinproclient.html">Newsbin Pro Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadfileset.html">Download file set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadpartstatus.html">Download part status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesdownloaditem.html">Files Download Part Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesfileset.html">Files File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupfileset.html">Group File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupofgroupstree.html">Group of Groups Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listresponse.html">List Response</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Newsbin Pro Status</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.add"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.add()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.convert_bytes_to_string"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.convert_bytes_to_string()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.data_folder_free_space</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space_str"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.data_folder_free_space_str</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.download_folder_free_space</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space_str"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.download_folder_free_space_str</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.queued_file_size"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.queued_file_size</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.speed</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed_samples"><code class="docutils literal notranslate"><span class="pre">NewsbinProStatus.speed_samples</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="response.html">Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statuscode.html">Status Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="wishfileset.html">Wish File Set</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">newsbinpro_client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Newsbin Pro Status</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/newsbinprostatus.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="newsbin-pro-status">
+<h1>Newsbin Pro Status<a class="headerlink" href="#newsbin-pro-status" title="Link to this heading"></a></h1>
+<p>The NewsbinProStatus class represents the status of Newsbin Pro.</p>
+<dl class="py class" id="module-newsbinpro_client.newsbinprostatus">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">newsbinpro_client.newsbinprostatus.</span></span><span class="sig-name descname"><span class="pre">NewsbinProStatus</span></span><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Represents the status of the NewsbinPro application, including information about download speed, free space in specific folders, queued file size, and speed samples.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.add">
+<span class="sig-name descname"><span class="pre">add</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.add" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> – A tab-delimited string containing key-value pairs or data sequences. The keys indicate the type of data (e.g., “Speed”, “DownloadFolder”, “DataFolder”, etc.), and the corresponding values provide the associated numerical data or list of numbers.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>None. This method updates the object’s attributes or appends data to the <cite>speed_samples</cite> list based on the input.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.convert_bytes_to_string">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">convert_bytes_to_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size_in_bytes</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.convert_bytes_to_string" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>size_in_bytes</strong> – The size in bytes that needs to be converted into a human-readable string representation.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A string representing the size in a readable format with appropriate units (e.g., KB, MB, GB).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_folder_free_space</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The available free space in the data folder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_folder_free_space_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.data_folder_free_space_str" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A human-readable string representing the available free space in the data folder. The value is converted from bytes to an appropriate unit (e.g., KB, MB, GB) for easier interpretation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_folder_free_space</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The amount of free space available in the download folder.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space_str">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">download_folder_free_space_str</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.download_folder_free_space_str" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The available free space in the download folder as a human-readable string.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.queued_file_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">queued_file_size</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.queued_file_size" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The size of the file currently queued, represented by the private attribute _queued_file_size.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speed</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The current speed of the object.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed_samples">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">speed_samples</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#newsbinpro_client.newsbinprostatus.NewsbinProStatus.speed_samples" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Returns the recorded speed samples.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="listresponse.html" class="btn btn-neutral float-left" title="List Response" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="response.html" class="btn btn-neutral float-right" title="Response" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

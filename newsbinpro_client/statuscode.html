@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Status Code &mdash; newsbinpro_client 2025-01-03 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=51d87180"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wish File Set" href="wishfileset.html" />
+    <link rel="prev" title="Response" href="response.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            newsbinpro_client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="newsbinproclient.html">Newsbin Pro Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="command.html">Commands</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadfileset.html">Download file set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="downloadpartstatus.html">Download part status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesdownloaditem.html">Files Download Part Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="filesfileset.html">Files File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupfileset.html">Group File Set</a></li>
+<li class="toctree-l1"><a class="reference internal" href="groupofgroupstree.html">Group of Groups Tree</a></li>
+<li class="toctree-l1"><a class="reference internal" href="listresponse.html">List Response</a></li>
+<li class="toctree-l1"><a class="reference internal" href="newsbinprostatus.html">Newsbin Pro Status</a></li>
+<li class="toctree-l1"><a class="reference internal" href="response.html">Response</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Status Code</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode"><code class="docutils literal notranslate"><span class="pre">StatusCode</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.AuthNeedAuth"><code class="docutils literal notranslate"><span class="pre">StatusCode.AuthNeedAuth</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorAgeMinGreaterThanMax"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorAgeMinGreaterThanMax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorAuthNoPasswordSet"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorAuthNoPasswordSet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorAuthNotRegistered"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorAuthNotRegistered</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorDownloadIncomplete"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorDownloadIncomplete</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorDownloadNoFile"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorDownloadNoFile</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorFilterNotFound"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorFilterNotFound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorFindInvalidSearchString"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorFindInvalidSearchString</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorGroupListNoGroup"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorGroupListNoGroup</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorGroupListRange"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorGroupListRange</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorNotEnoughParams"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorNotEnoughParams</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorRangeExceeded"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorRangeExceeded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorRangeMinGreaterThanMax"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorRangeMinGreaterThanMax</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorSortColumnExceeded"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorSortColumnExceeded</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnableToSaveConfig"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUnableToSaveConfig</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnimplemented"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUnimplemented</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnregistered"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUnregistered</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupMissing"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUpdateGroupMissing</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupNotFound"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUpdateGroupNotFound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileName"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUploadMissingFileName</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileSize"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUploadMissingFileSize</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadNoAutoload"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUploadNoAutoload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadUnableToSave"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorUploadUnableToSave</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarFormatError"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorVarFormatError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarUnableToSet"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorVarUnableToSet</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarVariableNotFound"><code class="docutils literal notranslate"><span class="pre">StatusCode.ErrorVarVariableNotFound</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.OK"><code class="docutils literal notranslate"><span class="pre">StatusCode.OK</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.ParseError"><code class="docutils literal notranslate"><span class="pre">StatusCode.ParseError</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOff"><code class="docutils literal notranslate"><span class="pre">StatusCode.StatusBwLimiterOff</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOn"><code class="docutils literal notranslate"><span class="pre">StatusCode.StatusBwLimiterOn</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.StatusPauseOff"><code class="docutils literal notranslate"><span class="pre">StatusCode.StatusPauseOff</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.StatusPauseOn"><code class="docutils literal notranslate"><span class="pre">StatusCode.StatusPauseOn</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#newsbinpro_client.statuscode.StatusCode.StatusPostData"><code class="docutils literal notranslate"><span class="pre">StatusCode.StatusPostData</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="wishfileset.html">Wish File Set</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">newsbinpro_client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Status Code</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/statuscode.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="status-code">
+<h1>Status Code<a class="headerlink" href="#status-code" title="Link to this heading"></a></h1>
+<p>The StatusCode enumeration class represents all possible status codes.</p>
+<dl class="py class" id="module-newsbinpro_client.statuscode">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">newsbinpro_client.statuscode.</span></span><span class="sig-name descname"><span class="pre">StatusCode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
+<p>StatusCode is an enumerated type (IntEnum) representing various status codes and error codes.</p>
+<p>This enum is used to define internal codes, Newsbin operational codes, and errors that are encountered during executions.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.AuthNeedAuth">
+<span class="sig-name descname"><span class="pre">AuthNeedAuth</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">480</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.AuthNeedAuth" title="Link to this definition"></a></dt>
+<dd><p>Authentication is required for this operation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorAgeMinGreaterThanMax">
+<span class="sig-name descname"><span class="pre">ErrorAgeMinGreaterThanMax</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">402</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorAgeMinGreaterThanMax" title="Link to this definition"></a></dt>
+<dd><p>The minimum age exceeds the maximum age.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorAuthNoPasswordSet">
+<span class="sig-name descname"><span class="pre">ErrorAuthNoPasswordSet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">413</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorAuthNoPasswordSet" title="Link to this definition"></a></dt>
+<dd><p>No password is set for authentication.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorAuthNotRegistered">
+<span class="sig-name descname"><span class="pre">ErrorAuthNotRegistered</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">414</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorAuthNotRegistered" title="Link to this definition"></a></dt>
+<dd><p>The user is not registered.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorDownloadIncomplete">
+<span class="sig-name descname"><span class="pre">ErrorDownloadIncomplete</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">431</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorDownloadIncomplete" title="Link to this definition"></a></dt>
+<dd><p>The download process was incomplete.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorDownloadNoFile">
+<span class="sig-name descname"><span class="pre">ErrorDownloadNoFile</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">430</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorDownloadNoFile" title="Link to this definition"></a></dt>
+<dd><p>No file exists for the specified download.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorFilterNotFound">
+<span class="sig-name descname"><span class="pre">ErrorFilterNotFound</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">440</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorFilterNotFound" title="Link to this definition"></a></dt>
+<dd><p>The specified filter was not found.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorFindInvalidSearchString">
+<span class="sig-name descname"><span class="pre">ErrorFindInvalidSearchString</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">410</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorFindInvalidSearchString" title="Link to this definition"></a></dt>
+<dd><p>The search string provided is invalid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorGroupListNoGroup">
+<span class="sig-name descname"><span class="pre">ErrorGroupListNoGroup</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">407</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorGroupListNoGroup" title="Link to this definition"></a></dt>
+<dd><p>Missing group in the group list.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorGroupListRange">
+<span class="sig-name descname"><span class="pre">ErrorGroupListRange</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">403</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorGroupListRange" title="Link to this definition"></a></dt>
+<dd><p>The group list range is invalid.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorNotEnoughParams">
+<span class="sig-name descname"><span class="pre">ErrorNotEnoughParams</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">401</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorNotEnoughParams" title="Link to this definition"></a></dt>
+<dd><p>Insufficient parameters were provided for the operation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorRangeExceeded">
+<span class="sig-name descname"><span class="pre">ErrorRangeExceeded</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">405</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorRangeExceeded" title="Link to this definition"></a></dt>
+<dd><p>The range exceeds allowable limits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorRangeMinGreaterThanMax">
+<span class="sig-name descname"><span class="pre">ErrorRangeMinGreaterThanMax</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">404</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorRangeMinGreaterThanMax" title="Link to this definition"></a></dt>
+<dd><p>The range’s minimum value exceeds the maximum value.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorSortColumnExceeded">
+<span class="sig-name descname"><span class="pre">ErrorSortColumnExceeded</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">406</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorSortColumnExceeded" title="Link to this definition"></a></dt>
+<dd><p>The sort column exceeds valid limits.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUnableToSaveConfig">
+<span class="sig-name descname"><span class="pre">ErrorUnableToSaveConfig</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">419</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnableToSaveConfig" title="Link to this definition"></a></dt>
+<dd><p>Unable to save configuration changes.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUnimplemented">
+<span class="sig-name descname"><span class="pre">ErrorUnimplemented</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">500</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnimplemented" title="Link to this definition"></a></dt>
+<dd><p>The operation is not yet implemented.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUnregistered">
+<span class="sig-name descname"><span class="pre">ErrorUnregistered</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">415</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUnregistered" title="Link to this definition"></a></dt>
+<dd><p>An unregistered user attempted an operation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupMissing">
+<span class="sig-name descname"><span class="pre">ErrorUpdateGroupMissing</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">408</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupMissing" title="Link to this definition"></a></dt>
+<dd><p>The update operation is missing a group.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupNotFound">
+<span class="sig-name descname"><span class="pre">ErrorUpdateGroupNotFound</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">409</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUpdateGroupNotFound" title="Link to this definition"></a></dt>
+<dd><p>The specified update group was not found.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileName">
+<span class="sig-name descname"><span class="pre">ErrorUploadMissingFileName</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">411</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileName" title="Link to this definition"></a></dt>
+<dd><p>The upload operation is missing a file name.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileSize">
+<span class="sig-name descname"><span class="pre">ErrorUploadMissingFileSize</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">420</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadMissingFileSize" title="Link to this definition"></a></dt>
+<dd><p>The upload is missing the file size.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUploadNoAutoload">
+<span class="sig-name descname"><span class="pre">ErrorUploadNoAutoload</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">421</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadNoAutoload" title="Link to this definition"></a></dt>
+<dd><p>No autoload is set for this upload operation.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorUploadUnableToSave">
+<span class="sig-name descname"><span class="pre">ErrorUploadUnableToSave</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">412</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorUploadUnableToSave" title="Link to this definition"></a></dt>
+<dd><p>Failure occurred while saving an uploaded file.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorVarFormatError">
+<span class="sig-name descname"><span class="pre">ErrorVarFormatError</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">416</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarFormatError" title="Link to this definition"></a></dt>
+<dd><p>A variable format error occurred.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorVarUnableToSet">
+<span class="sig-name descname"><span class="pre">ErrorVarUnableToSet</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">418</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarUnableToSet" title="Link to this definition"></a></dt>
+<dd><p>Failed to set a specified variable.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ErrorVarVariableNotFound">
+<span class="sig-name descname"><span class="pre">ErrorVarVariableNotFound</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">417</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ErrorVarVariableNotFound" title="Link to this definition"></a></dt>
+<dd><p>A specified variable was not found.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.OK">
+<span class="sig-name descname"><span class="pre">OK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">200</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.OK" title="Link to this definition"></a></dt>
+<dd><p>The operation was successful.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.ParseError">
+<span class="sig-name descname"><span class="pre">ParseError</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.ParseError" title="Link to this definition"></a></dt>
+<dd><p>The operation encountered a parse error.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOff">
+<span class="sig-name descname"><span class="pre">StatusBwLimiterOff</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">252</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOff" title="Link to this definition"></a></dt>
+<dd><p>The bandwidth limiter is disabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOn">
+<span class="sig-name descname"><span class="pre">StatusBwLimiterOn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">251</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.StatusBwLimiterOn" title="Link to this definition"></a></dt>
+<dd><p>The bandwidth limiter is enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.StatusPauseOff">
+<span class="sig-name descname"><span class="pre">StatusPauseOff</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">254</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.StatusPauseOff" title="Link to this definition"></a></dt>
+<dd><p>The pause mode is disabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.StatusPauseOn">
+<span class="sig-name descname"><span class="pre">StatusPauseOn</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">253</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.StatusPauseOn" title="Link to this definition"></a></dt>
+<dd><p>The pause mode is enabled.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="newsbinpro_client.statuscode.StatusCode.StatusPostData">
+<span class="sig-name descname"><span class="pre">StatusPostData</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">300</span></em><a class="headerlink" href="#newsbinpro_client.statuscode.StatusCode.StatusPostData" title="Link to this definition"></a></dt>
+<dd><p>Indicates new data for posting.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="response.html" class="btn btn-neutral float-left" title="Response" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="wishfileset.html" class="btn btn-neutral float-right" title="Wish File Set" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
