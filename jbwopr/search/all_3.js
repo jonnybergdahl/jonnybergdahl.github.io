@@ -7,5 +7,5 @@ var searchData=
   ['config_5ffile_5fname_4',['CONFIG_FILE_NAME',['../class_j_b_wopr_wi_fi_device.html#a10ec92f4ae8607ae284ceebc4699cdd7',1,'JBWoprWiFiDevice']]],
   ['configuration_5',['configuration',['../index.html#autotoc_md25',1,'Configuration'],['../index.html#autotoc_md17',1,'Configuration']]],
   ['configuration_20related_20methods_6',['Configuration related methods',['../group___config_group.html',1,'']]],
-  ['configure_7',['configure',['../class_j_b_time_helper.html#a55d65397d59b8c8baaf2637dcbb5e7c6',1,'JBTimeHelper']]]
+  ['configure_7',['configure',['../class_j_b_time_helper.html#ae54618bcf181ca600305eb6ea4c979fe',1,'JBTimeHelper']]]
 ];

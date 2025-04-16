@@ -103,21 +103,25 @@ $(document).ready(function(){initNavTree('class_j_b_time_helper.html',''); initR
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a55d65397d59b8c8baaf2637dcbb5e7c6" id="r_a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#a55d65397d59b8c8baaf2637dcbb5e7c6">configure</a> (JBLogger *log, std::string ntpServer, std::string timeOffsetString)</td></tr>
-<tr class="memdesc:a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">configure helper  <br /></td></tr>
-<tr class="separator:a55d65397d59b8c8baaf2637dcbb5e7c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae54618bcf181ca600305eb6ea4c979fe" id="r_ae54618bcf181ca600305eb6ea4c979fe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#ae54618bcf181ca600305eb6ea4c979fe">configure</a> (JBLogger *log, std::string ntpServer=&quot;&quot;, std::string timeOffsetString=&quot;&quot;)</td></tr>
+<tr class="memdesc:ae54618bcf181ca600305eb6ea4c979fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure helper with NTP Server and time offset.  <br /></td></tr>
+<tr class="separator:ae54618bcf181ca600305eb6ea4c979fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abc56fc900fd2858a94bae298bf2b7171" id="r_abc56fc900fd2858a94bae298bf2b7171"><td class="memItemLeft" align="right" valign="top">static int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#abc56fc900fd2858a94bae298bf2b7171">getUtcOffsetInSeconds</a> ()</td></tr>
 <tr class="memdesc:abc56fc900fd2858a94bae298bf2b7171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UTC offset in seconds.  <br /></td></tr>
 <tr class="separator:abc56fc900fd2858a94bae298bf2b7171"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae00bf8ec57effada98d7ab8ea953cc58" id="r_ae00bf8ec57effada98d7ab8ea953cc58"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58">getTime</a> (tm *info)</td></tr>
 <tr class="memdesc:ae00bf8ec57effada98d7ab8ea953cc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get local time.  <br /></td></tr>
 <tr class="separator:ae00bf8ec57effada98d7ab8ea953cc58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af09d0f5afe97784b42aa9e3895e343f4" id="r_af09d0f5afe97784b42aa9e3895e343f4"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_j_b_time_helper.html#af09d0f5afe97784b42aa9e3895e343f4">setTime</a> (const std::string currentDateTime)</td></tr>
+<tr class="separator:af09d0f5afe97784b42aa9e3895e343f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>This class contains helper functions for time related tasks. </p>
+<p>Provides utility methods for time management, including configuring an NTP server, retrieving UTC offset, and setting local time.</p>
+<p>This class allows for synchronization with an NTP server to obtain accurate time, calculates the UTC offset using external APIs, and provides methods to obtain or set the local time. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a55d65397d59b8c8baaf2637dcbb5e7c6" name="a55d65397d59b8c8baaf2637dcbb5e7c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55d65397d59b8c8baaf2637dcbb5e7c6">&#9670;&#160;</a></span>configure()</h2>
+<a id="ae54618bcf181ca600305eb6ea4c979fe" name="ae54618bcf181ca600305eb6ea4c979fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae54618bcf181ca600305eb6ea4c979fe">&#9670;&#160;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -135,13 +139,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>ntpServer</em>, </td>
+          <td class="paramname"><em>ntpServer</em> = <code>&quot;&quot;</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>timeOffsetString</em>&#160;</td>
+          <td class="paramname"><em>timeOffsetString</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -156,7 +160,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>configure helper </p>
+<p>Configure helper with NTP Server and time offset. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">config</td><td>WiFi configuration </td></tr>
@@ -227,6 +231,39 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get UTC offset in seconds. </p>
 <p>Uses <a href="https://ipapi.co/timezone/">https://ipapi.co/timezone/</a> to get the local UTC offset </p><dl class="section return"><dt>Returns</dt><dd>UTC offset in seconds </dd></dl>
+
+</div>
+</div>
+<a id="af09d0f5afe97784b42aa9e3895e343f4" name="af09d0f5afe97784b42aa9e3895e343f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af09d0f5afe97784b42aa9e3895e343f4">&#9670;&#160;</a></span>setTime()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool JBTimeHelper::setTime </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>currentDateTime</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Sets the current date and time. </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">currentDateTime</td><td>The current date/time as a string in ISO format.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Example date/time in ISO format: 2025-02-16T22:03:00 </p><dl class="section return"><dt>Returns</dt><dd>True if successful </dd></dl>
 
 </div>
 </div>
