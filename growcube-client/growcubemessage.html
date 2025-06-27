@@ -141,7 +141,7 @@ Date: 2023-09-05</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.command">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command</span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.command" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.command" title="Link to this definition"></a></dt>
 <dd><p>Command value</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
@@ -169,7 +169,7 @@ Date: 2023-09-05</p>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.from_bytes">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data:</span> <span class="pre">bytearray)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'int'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">'GrowcubeMessage'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.from_bytes" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytearray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><span class="pre">GrowcubeMessage</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.from_bytes" title="Link to this definition"></a></dt>
 <dd><p>Tries to construct a complete GrowcubeMessage from the data and returns
 the index of the next non-consumed data in the buffer, together with the message.
 Converts a byte array to a GrowcubeMessage instance.</p>
@@ -182,14 +182,14 @@ Converts a byte array to a GrowcubeMessage instance.</p>
 or the next found start index and None if the message is incomplete.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>tuple[int, <a class="reference internal" href="#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage">GrowcubeMessage</a>] or tuple[int, None]</p>
+<dd class="field-odd"><p>Tuple[int, <a class="reference internal" href="#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage">GrowcubeMessage</a>] or Tuple[int, None]</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.payload">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payload</span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.payload" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payload</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.payload" title="Link to this definition"></a></dt>
 <dd><p>Message payload</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
