@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Growcube message &mdash; growcube-client  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -97,28 +95,11 @@
 <h1>Growcube message<a class="headerlink" href="#growcube-message" title="Link to this heading"></a></h1>
 <p>The GrowcubeMessage class is used as an abstraction of the protocol used to communicate
 with Growcube devices.</p>
-<p id="module-growcube_client.growcubemessage">Growcube client library
-<a class="reference external" href="https://github.com/jonnybergdahl/Python-growcube-client">https://github.com/jonnybergdahl/Python-growcube-client</a></p>
-<p>Author: Jonny Bergdahl
-Date: 2023-09-05</p>
-<dl class="py class">
+<dl class="py class" id="module-growcube_client.growcubemessage">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubemessage.</span></span><span class="sig-name descname"><span class="pre">GrowcubeMessage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Growcube protocol message base class</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>HEADER</strong> (<em>str</em>) – The header for a Growcube protocol message.</p></li>
-<li><p><strong>DELIMITER</strong> (<em>str</em>) – The delimiter used in the message.</p></li>
-<li><p><strong>END_DELIMITER</strong> (<em>str</em>) – The end delimiter used in the message.</p></li>
-<li><p><strong>EMPTY_MESSAGE</strong> (<em>str</em>) – An empty message used as a template.</p></li>
-<li><p><strong>_command</strong> – The command value.</p></li>
-<li><p><strong>_payload</strong> – The message payload.</p></li>
-<li><p><strong>_data</strong> – The complete message as bytes.</p></li>
-</ul>
-</dd>
-</dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.DELIMITER">
 <span class="sig-name descname"><span class="pre">DELIMITER</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'#'</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.DELIMITER" title="Link to this definition"></a></dt>
@@ -141,82 +122,62 @@ Date: 2023-09-05</p>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.command">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.command" title="Link to this definition"></a></dt>
-<dd><p>Command value</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Command value.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>int</p>
-</dd>
-</dl>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">command</span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.command" title="Link to this definition"></a></dt>
+<dd><p>Command value
+Returns:</p>
+<blockquote>
+<div><p>Command value</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.data">
 <em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bytes</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.data" title="Link to this definition"></a></dt>
-<dd><p>The complete message as bytes</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The complete message as bytes.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>bytes</p>
-</dd>
-</dl>
+<dd><p>The complete message as bytes
+Returns:</p>
+<blockquote>
+<div><p>The complete message as bytes</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.from_bytes">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytearray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><a class="reference internal" href="#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><span class="pre">GrowcubeMessage</span></a><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.from_bytes" title="Link to this definition"></a></dt>
-<dd><p>Tries to construct a complete GrowcubeMessage from the data and returns
-the index of the next non-consumed data in the buffer, together with the message.
-Converts a byte array to a GrowcubeMessage instance.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>bytearray</em>) – The current data buffer.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>The index of the next non-consumed data in the buffer, together with the message,
-or the next found start index and None if the message is incomplete.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple[int, <a class="reference internal" href="#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage">GrowcubeMessage</a>] or Tuple[int, None]</p>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data:</span> <span class="pre">bytearray)</span> <span class="pre">-&gt;</span> <span class="pre">(&lt;class</span> <span class="pre">'int'&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">typing.Self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.from_bytes" title="Link to this definition"></a></dt>
+<dd><p>Tries to construct a complete GrowcubeMessage from the data, and returns
+the index of the next non consumed data in the buffer, together with the message
+Converts a byte array to a GrowcubeMessage instance
+Args:</p>
+<blockquote>
+<div><p>data: the current data buffer</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>The index of the next non consumed data in the buffer, together with the message,
+or the next found start index and None if the message is incomplete</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py property">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.payload">
-<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payload</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.payload" title="Link to this definition"></a></dt>
-<dd><p>Message payload</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Message payload.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>str</p>
-</dd>
-</dl>
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">payload</span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.payload" title="Link to this definition"></a></dt>
+<dd><p>Message payload
+Returns:</p>
+<blockquote>
+<div><p>Message payload</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubemessage.GrowcubeMessage.to_bytes">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">to_bytes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#growcube_client.growcubemessage.GrowcubeMessage.to_bytes" title="Link to this definition"></a></dt>
-<dd><p>Creates a bytearray representation of a message as used in the protocol.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>command</strong> (<em>int</em>) – Command value.</p></li>
-<li><p><strong>data</strong> (<em>str</em>) – Data to send.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>A bytearray representation of a message as used in the protocol.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bytes</p>
+<dd><p>Creates a bytearray representation of a message as used in the protocol
+Args:</p>
+<blockquote>
+<div><p>command: Command value
+data: Data to send</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>A bytearray representation of a message as used in the protocol</p>
 </dd>
 </dl>
 </dd></dl>

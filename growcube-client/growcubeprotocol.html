@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Growcube protocol &mdash; growcube-client  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -93,73 +91,37 @@
 <p>GrowcubeProtocol is custom asyncio Protocol for communication with a Growcube device.</p>
 <dl class="py class" id="module-growcube_client.growcubeprotocol">
 <dt class="sig sig-object py" id="growcube_client.growcubeprotocol.GrowcubeProtocol">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeprotocol.</span></span><span class="sig-name descname"><span class="pre">GrowcubeProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_connected</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="growcubemessage.html#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><span class="pre">GrowcubeMessage</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_connection_lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeprotocol.</span></span><span class="sig-name descname"><span class="pre">GrowcubeProtocol</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">on_connected</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_connection_lost</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Protocol</span></code></p>
-<p>Implements a custom asyncio Protocol for communication with a Growcube device.</p>
-<p>This protocol is designed to handle the communication between a client and a Growcube device.
-It includes methods for handling connection events, receiving and processing data,
-and sending messages to the device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>on_connected</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em>) – A callback function to be executed when the connection is established.</p></li>
-<li><p><strong>on_message</strong> (<em>Callable</em><em>[</em><em>[</em><em>str</em><em>]</em><em>, </em><em>None</em><em>]</em>) – A callback function to be executed when a message is received.</p></li>
-<li><p><strong>on_connection_lost</strong> (<em>Callable</em><em>[</em><em>[</em><em>]</em><em>, </em><em>None</em><em>]</em>) – A callback function to be executed when the connection is lost.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Variables<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>transport</strong> – The transport instance associated with the protocol.</p></li>
-<li><p><strong>_data</strong> – A buffer to accumulate received data.</p></li>
-<li><p><strong>_on_connected</strong> – Callback function for connection established event.</p></li>
-<li><p><strong>_on_message</strong> – Callback function for message received event.</p></li>
-<li><p><strong>_on_connection_lost</strong> – Callback function for connection lost event.</p></li>
-</ul>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubeprotocol.GrowcubeProtocol.connection_lost">
-<span class="sig-name descname"><span class="pre">connection_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Exception</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.connection_lost" title="Link to this definition"></a></dt>
-<dd><p>Called when the connection is lost.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>exc</strong> (<em>Exception</em>) – An exception indicating the reason for the connection loss.</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">connection_lost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exc</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.connection_lost" title="Link to this definition"></a></dt>
+<dd><p>Called when the connection is lost or closed.</p>
+<p>The argument is an exception object or None (the latter
+meaning a regular EOF is received or the connection was
+aborted or closed).</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubeprotocol.GrowcubeProtocol.connection_made">
-<span class="sig-name descname"><span class="pre">connection_made</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.connection_made" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">connection_made</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">transport</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.connection_made" title="Link to this definition"></a></dt>
 <dd><p>Called when a connection is made.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>transport</strong> (<em>asyncio.Transport</em>) – The transport instance associated with the connection.</p>
-</dd>
-</dl>
+<p>The argument is the transport representing the pipe connection.
+To receive data, wait for data_received() calls.
+When the connection is closed, connection_lost() is called.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubeprotocol.GrowcubeProtocol.data_received">
-<span class="sig-name descname"><span class="pre">data_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.data_received" title="Link to this definition"></a></dt>
-<dd><p>Called when data is received.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<em>bytes</em>) – The received data.</p>
-</dd>
-</dl>
+<span class="sig-name descname"><span class="pre">data_received</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.data_received" title="Link to this definition"></a></dt>
+<dd><p>Called when some data is received.</p>
+<p>The argument is a bytes object.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="growcube_client.growcubeprotocol.GrowcubeProtocol.send_message">
 <span class="sig-name descname"><span class="pre">send_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bytes</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeprotocol.GrowcubeProtocol.send_message" title="Link to this definition"></a></dt>
-<dd><p>Sends a message to the connected device.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>message</strong> (<em>bytes</em>) – The message to send.</p>
-</dd>
-</dl>
-</dd></dl>
+<dd></dd></dl>
 
 </dd></dl>
 

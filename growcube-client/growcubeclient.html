@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Growcube client &mdash; growcube-client  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -46,21 +44,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Growcube client</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.connect"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.connect()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.disconnect"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.disconnect()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.host"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.host</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.on_connected"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.on_connected()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.on_connection_lost"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.on_connection_lost()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.on_message"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.on_message()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.send_command"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.send_command()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.send_keep_alive"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.send_keep_alive()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeclient.GrowcubeClient.water_plant"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient.water_plant()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Growcube client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a></li>
 <li class="toctree-l1"><a class="reference internal" href="growcubediscovery.html">Growcube discovery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a></li>
@@ -96,144 +80,6 @@
   <section id="growcube-client">
 <h1>Growcube client<a class="headerlink" href="#growcube-client" title="Link to this heading"></a></h1>
 <p>GrowcubeClient is the main client for communicating with a Growcube device.</p>
-<dl class="py class" id="module-growcube_client.growcubeclient">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeclient.</span></span><span class="sig-name descname"><span class="pre">GrowcubeClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.GrowcubeReport" title="growcube_client.growcubereport.GrowcubeReport"><span class="pre">GrowcubeReport</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_connected_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">on_disconnected_callback</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Awaitable</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_level</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">20</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>Growcube client class</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>host</strong> – The name or IP address of the Growcube device.</p></li>
-<li><p><strong>port</strong> – The port number for the connection. (Default: 8800)</p></li>
-<li><p><strong>_callback</strong> – Callback function to receive data from the Growcube.</p></li>
-<li><p><strong>_on_connected_callback</strong> – Callback function for when the connection is established.</p></li>
-<li><p><strong>_on_disconnected_callback</strong> – Callback function for when the connection is lost.</p></li>
-<li><p><strong>log_level</strong> – Logging level. (Default: logging.INFO)</p></li>
-<li><p><strong>_exit</strong> – Internal flag indicating if the client is exiting.</p></li>
-<li><p><strong>_data</strong> – Buffer to accumulate received data.</p></li>
-<li><p><strong>transport</strong> – The transport instance associated with the protocol.</p></li>
-<li><p><strong>protocol</strong> – The protocol instance associated with the connection.</p></li>
-<li><p><strong>connected</strong> – Indicates whether the client is connected to the Growcube.</p></li>
-<li><p><strong>connection_timeout</strong> – Timeout for connection attempts. (Default: 5 seconds)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.connect">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.connect" title="Link to this definition"></a></dt>
-<dd><p>Connect to the Growcube and start listening for data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>A tuple. True and an empty string if the connection was successful,
-otherwise False and the error message.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>Tuple[bool, str]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.disconnect">
-<span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.disconnect" title="Link to this definition"></a></dt>
-<dd><p>Disconnect from the Growcube</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.host">
-<span class="sig-name descname"><span class="pre">host</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.host" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.on_connected">
-<span class="sig-name descname"><span class="pre">on_connected</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.on_connected" title="Link to this definition"></a></dt>
-<dd><p>Callback function for when the connection is established</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.on_connection_lost">
-<span class="sig-name descname"><span class="pre">on_connection_lost</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.on_connection_lost" title="Link to this definition"></a></dt>
-<dd><p>Callback function for when the connection is lost</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>None</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.on_message">
-<span class="sig-name descname"><span class="pre">on_message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubemessage.html#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><span class="pre">GrowcubeMessage</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.on_message" title="Link to this definition"></a></dt>
-<dd><p>Callback function for when a message is received from the Growcube</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>message</strong> (<a class="reference internal" href="growcubemessage.html#growcube_client.growcubemessage.GrowcubeMessage" title="growcube_client.growcubemessage.GrowcubeMessage"><em>GrowcubeMessage</em></a>) – The received GrowcubeMessage.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.send_command">
-<span class="sig-name descname"><span class="pre">send_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><span class="pre">GrowcubeCommand</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.send_command" title="Link to this definition"></a></dt>
-<dd><p>Send a command to the Growcube.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>command</strong> (<a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.GrowcubeCommand" title="growcube_client.growcubecommand.GrowcubeCommand"><em>GrowcubeCommand</em></a>) – A GrowcubeCommand object.</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the command was sent successfully, otherwise False.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.send_keep_alive">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">send_keep_alive</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">interval</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.send_keep_alive" title="Link to this definition"></a></dt>
-<dd><p>Send a keep alive, we are using the SetWorkModeCommand for this</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>interval</strong> (<em>int</em>) – How often to send keep alive message</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>None</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="growcube_client.growcubeclient.GrowcubeClient.water_plant">
-<em class="property"><span class="pre">async</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">water_plant</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><span class="pre">Channel</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">duration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#growcube_client.growcubeclient.GrowcubeClient.water_plant" title="Link to this definition"></a></dt>
-<dd><p>Water a plant for a given duration. This function will block until the watering is complete.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>channel</strong> (<a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel" title="growcube_client.growcubeenums.Channel"><em>Channel</em></a>) – Channel number 0-3.</p></li>
-<li><p><strong>duration</strong> (<em>int</em>) – Duration in seconds.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True if the watering was successful, otherwise False.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>bool</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 
 

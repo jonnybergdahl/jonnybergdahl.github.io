@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" data-content_root="./">
 <head>
@@ -6,18 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Growcube enums &mdash; growcube-client  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
   
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script src="_static/jquery.js?v=5d32c60e"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="_static/doctools.js?v=888ff710"></script>
-        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="_static/doctools.js?v=9a2dae69"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -63,11 +61,6 @@
 <li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeenums.WateringMode.SmartOutside"><code class="docutils literal notranslate"><span class="pre">WateringMode.SmartOutside</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#growcube_client.growcubeenums.WorkMode"><code class="docutils literal notranslate"><span class="pre">WorkMode</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeenums.WorkMode.Direct"><code class="docutils literal notranslate"><span class="pre">WorkMode.Direct</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#growcube_client.growcubeenums.WorkMode.Network"><code class="docutils literal notranslate"><span class="pre">WorkMode.Network</span></code></a></li>
-</ul>
-</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a></li>
@@ -103,93 +96,61 @@
 <span id="growcube-enums"></span><h1>Growcube enums<a class="headerlink" href="#module-growcube_client.growcubeenums" title="Link to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.Channel">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeenums.</span></span><span class="sig-name descname"><span class="pre">Channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeenums.Channel" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
-<p>Enum representing watering channels</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Channel_A</strong> (<em>int</em>) – Channel A</p></li>
-<li><p><strong>Channel_B</strong> (<em>int</em>) – Channel B</p></li>
-<li><p><strong>Channel_C</strong> (<em>int</em>) – Channel C</p></li>
-<li><p><strong>Channel_D</strong> (<em>int</em>) – Channel D</p></li>
-</ul>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeenums.</span></span><span class="sig-name descname"><span class="pre">Channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeenums.Channel" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Channel_A = Channel A
+Channel_B = Channel B
+Channel_C = Channel C
+Channel_D = Channel D</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.Channel.Channel_A">
-<span class="sig-name descname"><span class="pre">Channel_A</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_A" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Channel_A</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_A" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.Channel.Channel_B">
-<span class="sig-name descname"><span class="pre">Channel_B</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_B" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Channel_B</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_B" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.Channel.Channel_C">
-<span class="sig-name descname"><span class="pre">Channel_C</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_C" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Channel_C</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_C" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.Channel.Channel_D">
-<span class="sig-name descname"><span class="pre">Channel_D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_D" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Channel_D</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#growcube_client.growcubeenums.Channel.Channel_D" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.WateringMode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeenums.</span></span><span class="sig-name descname"><span class="pre">WateringMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
-<p>Enum representing the configured watering mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Smart</strong> (<em>int</em>) – Smart watering</p></li>
-<li><p><strong>SmartOutside</strong> (<em>int</em>) – Smart watering “outside” (haven’t seen this in use in the app)</p></li>
-<li><p><strong>Scheduled</strong> (<em>int</em>) – Scheduled watering</p></li>
-</ul>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeenums.</span></span><span class="sig-name descname"><span class="pre">WateringMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<p>Watering mode</p>
+<dl class="simple">
+<dt>Attributes:</dt><dd><p>Smart = Smart watering based on moisture level
+SmartOutside = Smart watering, outside of sunlight hours
+Scheduled = Scheduled watering</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.WateringMode.Scheduled">
-<span class="sig-name descname"><span class="pre">Scheduled</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.Scheduled" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Scheduled</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.Scheduled" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.WateringMode.Smart">
-<span class="sig-name descname"><span class="pre">Smart</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.Smart" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">Smart</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.Smart" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt class="sig sig-object py" id="growcube_client.growcubeenums.WateringMode.SmartOutside">
-<span class="sig-name descname"><span class="pre">SmartOutside</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.SmartOutside" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="growcube_client.growcubeenums.WorkMode">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">growcube_client.growcubeenums.</span></span><span class="sig-name descname"><span class="pre">WorkMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#growcube_client.growcubeenums.WorkMode" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></p>
-<p>Enum representing the configured work mode</p>
-<dl class="field-list simple">
-<dt class="field-odd">Variables<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>Direct</strong> (<em>int</em>) – Direct connection, device as AP</p></li>
-<li><p><strong>Network</strong> (<em>int</em>) – Network connection, connected as WiFi client</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="growcube_client.growcubeenums.WorkMode.Direct">
-<span class="sig-name descname"><span class="pre">Direct</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WorkMode.Direct" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="growcube_client.growcubeenums.WorkMode.Network">
-<span class="sig-name descname"><span class="pre">Network</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WorkMode.Network" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">SmartOutside</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#growcube_client.growcubeenums.WateringMode.SmartOutside" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
