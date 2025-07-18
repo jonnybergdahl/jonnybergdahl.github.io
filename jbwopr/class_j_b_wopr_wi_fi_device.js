@@ -4,6 +4,7 @@ var class_j_b_wopr_wi_fi_device =
     [ "_apCallback", "group___wi_fi_group.html#ga6e1a688ffb3772e51857312e2d27acc7", null ],
     [ "_dumpConfig", "class_j_b_wopr_wi_fi_device.html#aaf5327acbb218c604a17c71e70b912e4", null ],
     [ "_getDeviceName", "group___wi_fi_group.html#gacb39d6c469139fd34221feb8a2128881", null ],
+    [ "_getInitialDeviceName", "group___wi_fi_group.html#gab475b3c468df638a9cadf756477128e1", null ],
     [ "_getWiFiManager", "group___wi_fi_group.html#ga323c115c951f76307d85472a5290bc6c", null ],
     [ "_loadConfiguration", "class_j_b_wopr_wi_fi_device.html#aea86a3c5b87b91c09c3a3516dee263c8", null ],
     [ "_saveConfiguration", "class_j_b_wopr_wi_fi_device.html#a02fd432eeb790b6605ac3dd12cc7bfce", null ],

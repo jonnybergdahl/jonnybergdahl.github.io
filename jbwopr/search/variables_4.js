@@ -5,7 +5,7 @@ var searchData=
   ['entity_5fname_5fbutton_5fback_5ftop_2',['ENTITY_NAME_BUTTON_BACK_TOP',['../class_j_b_wopr_mqtt_device.html#a8d182dcec9caaa4a9048d721c1042e45',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fbutton_5ffront_5fleft_3',['ENTITY_NAME_BUTTON_FRONT_LEFT',['../class_j_b_wopr_mqtt_device.html#a8f17bb616c73eaf8bb71199512391a97',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fbutton_5ffront_5fright_4',['ENTITY_NAME_BUTTON_FRONT_RIGHT',['../class_j_b_wopr_mqtt_device.html#a657d471a3a01c1a0a8832613c17a39fd',1,'JBWoprMqttDevice']]],
-  ['entity_5fname_5fconfig_5',['entity_name_config',['../class_j_b_wopr_h_a_device.html#a2b10c1251b1ecc67ee8bd0cbb61b8ea9',1,'JBWoprHADevice::ENTITY_NAME_CONFIG'],['../class_j_b_wopr_mqtt_device.html#a51addbdeb34689730a287f8ee0e16570',1,'JBWoprMqttDevice::ENTITY_NAME_CONFIG']]],
+  ['entity_5fname_5fconfig_5',['ENTITY_NAME_CONFIG',['../class_j_b_wopr_h_a_device.html#a2b10c1251b1ecc67ee8bd0cbb61b8ea9',1,'JBWoprHADevice::ENTITY_NAME_CONFIG'],['../class_j_b_wopr_mqtt_device.html#a51addbdeb34689730a287f8ee0e16570',1,'JBWoprMqttDevice::ENTITY_NAME_CONFIG']]],
   ['entity_5fname_5fdefcon_6',['ENTITY_NAME_DEFCON',['../class_j_b_wopr_mqtt_device.html#a88b2e99ed37dc68c654191f1ac295a23',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fdevice_7',['ENTITY_NAME_DEVICE',['../class_j_b_wopr_mqtt_device.html#ac1f0e77ce933e7a0d40915196ab1c305',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fdiagnostic_8',['ENTITY_NAME_DIAGNOSTIC',['../class_j_b_wopr_h_a_device.html#ac0e66e0db4ba6a91ec9ead25e0356c02',1,'JBWoprHADevice']]],

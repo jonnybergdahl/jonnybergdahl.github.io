@@ -44,16 +44,17 @@ var NAVTREE =
       [ "MQTT Topics", "index.html#autotoc_md15", [
         [ "Device", "index.html#autotoc_md16", null ],
         [ "Configuration", "index.html#autotoc_md17", null ],
-        [ "Display", "index.html#autotoc_md18", null ],
-        [ "DEFCON LED's", "index.html#autotoc_md19", null ],
-        [ "Buttons", "index.html#autotoc_md20", null ]
+        [ "Effects", "index.html#autotoc_md18", null ],
+        [ "Display", "index.html#autotoc_md19", null ],
+        [ "DEFCON LED's", "index.html#autotoc_md20", null ],
+        [ "Buttons", "index.html#autotoc_md21", null ]
       ] ]
     ] ],
-    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md21", [
-      [ "Home Assistant", "index.html#autotoc_md22", null ],
-      [ "MQTT Topics", "index.html#autotoc_md23", null ],
-      [ "Diagnostics", "index.html#autotoc_md24", null ],
-      [ "Configuration", "index.html#autotoc_md25", null ]
+    [ "JBWoprHomeAssistantDevice", "index.html#autotoc_md22", [
+      [ "Home Assistant", "index.html#autotoc_md23", null ],
+      [ "MQTT Topics", "index.html#autotoc_md24", null ],
+      [ "Diagnostics", "index.html#autotoc_md25", null ],
+      [ "Configuration", "index.html#autotoc_md26", null ]
     ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
@@ -85,5 +86,6 @@ var NAVTREEINDEX =
 "group___mqtt_group.html#gaedd4719f39724598320693d9585bf73b"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
+var LISTOFALLMEMBERS = 'List of all members';
