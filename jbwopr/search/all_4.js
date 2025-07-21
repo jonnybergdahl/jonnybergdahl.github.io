@@ -12,7 +12,7 @@ var searchData=
   ['defcon_5f4_9',['DEFCON_4',['../jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28a05abd7ab682eb42aaea9ff8994838248',1,'jbwopr.h']]],
   ['defcon_5f5_10',['DEFCON_5',['../jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28add1b4c466736d32deb2a0b57e73eab2f',1,'jbwopr.h']]],
   ['defcon_5fnone_11',['DEFCON_NONE',['../jbwopr_8h.html#a7b61d069247812a5d9c2fafb3eedbf28a29fd121d3dc2717f9c7438d678a2ebf9',1,'jbwopr.h']]],
-  ['defconledsbrightness_12',['defconLedsBrightness',['../struct_j_b_wopr_configuration.html#ad9c177a6785eedf64d0bdd455dd59d05',1,'JBWoprConfiguration']]],
+  ['defconledsbrightness_12',['defconLedsBrightness',['../struct_j_b_wopr_configuration.html#a97556f06022294d8c153a9f36393f539',1,'JBWoprConfiguration']]],
   ['defconledsclear_13',['defconLedsClear',['../group___defcon_group.html#gabe804e66277813e74574dfed71167cc0',1,'JBWoprDevice']]],
   ['defconledsetcolor_14',['defconLedSetColor',['../group___defcon_group.html#gae2497ed53a9b558622c59ecdd9cfe588',1,'JBWoprDevice::defconLedSetColor()'],['../group___defcon_group.html#ga7c0f05045a1b43ed6e00b17ebddd29c7',1,'JBWoprMqttDevice::defconLedSetColor()']]],
   ['defconledsetdefconstatecolor_15',['defconLedSetDefconStateColor',['../group___defcon_group.html#ga96d607854548f6e93109dc3805bfb892',1,'JBWoprDevice']]],

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['effectstimeout_0',['effectsTimeout',['../struct_j_b_wopr_configuration.html#a2330ad223b0ff86f2e6ac23742630fd4',1,'JBWoprConfiguration']]],
+  ['effectstimeout_0',['effectsTimeout',['../struct_j_b_wopr_configuration.html#a46f277b901d23854fcd52a70591f8dec',1,'JBWoprConfiguration']]],
   ['entity_5fname_5fbutton_5fback_5fbottom_1',['ENTITY_NAME_BUTTON_BACK_BOTTOM',['../class_j_b_wopr_mqtt_device.html#a2b74293373dc62b359ec331dbf35669c',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fbutton_5fback_5ftop_2',['ENTITY_NAME_BUTTON_BACK_TOP',['../class_j_b_wopr_mqtt_device.html#a8d182dcec9caaa4a9048d721c1042e45',1,'JBWoprMqttDevice']]],
   ['entity_5fname_5fbutton_5ffront_5fleft_3',['ENTITY_NAME_BUTTON_FRONT_LEFT',['../class_j_b_wopr_mqtt_device.html#a8f17bb616c73eaf8bb71199512391a97',1,'JBWoprMqttDevice']]],
