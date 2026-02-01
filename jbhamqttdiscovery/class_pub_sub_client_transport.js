@@ -4,5 +4,7 @@ var class_pub_sub_client_transport =
     [ "connected", "group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76", null ],
     [ "publish", "group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc", null ],
     [ "setOnConnect", "group__transport.html#ga6970c39726c419520af31357c30c2f83", null ],
+    [ "setServer", "group__transport.html#gaab1f87f75140a5304677f6e18f1598db", null ],
+    [ "setServer", "group__transport.html#gaa445c2cb1f437c53548328bd1e61face", null ],
     [ "tick", "group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6", null ]
 ];

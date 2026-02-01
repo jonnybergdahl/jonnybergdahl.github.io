@@ -103,73 +103,97 @@ $(function(){initNavTree('_pub_sub_client_transport_8h_source.html','',''); });
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    : client(client) {}</div>
 </div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span></div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">   31</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">connected</a>()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <span class="keywordflow">return</span> client.connected();</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>  }</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="}">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="group__transport.html#gaab1f87f75140a5304677f6e18f1598db">   36</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#gaab1f87f75140a5304677f6e18f1598db">setServer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* host, uint16_t port, <span class="keyword">const</span> <span class="keywordtype">char</span>* user = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <span class="keywordtype">char</span>* pass = <span class="keyword">nullptr</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    client.setServer(host, port);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    this-&gt;user = user;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    this-&gt;pass = pass;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>  }</div>
 </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span></div>
-<div class="foldopen" id="foldopen00038" data-start="{" data-end="}">
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">   38</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">publish</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic,</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>               <span class="keyword">const</span> uint8_t* payload,</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>               <span class="keywordtype">size_t</span> len,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>               <span class="keywordtype">bool</span> retained,</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>               uint8_t <span class="comment">/*qos*/</span>)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    <span class="keywordflow">if</span> (payload == <span class="keyword">nullptr</span>) {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>      len = 0;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    JB_LOGD(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish topic=%s len=%u retained=%d&quot;</span>, topic,</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>           (<span class="keywordtype">unsigned</span>)len, retained ? 1 : 0);</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">bool</span> ok = client.publish(topic,</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                             payload,</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>                             <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(len),</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>                             retained);</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordflow">if</span> (!ok) {</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>      JB_LOGE(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish FAILED topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>      JB_LOGD(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish OK topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    }</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> ok;</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>  }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span></div>
+<div class="foldopen" id="foldopen00050" data-start="{" data-end="}">
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="group__transport.html#gaa445c2cb1f437c53548328bd1e61face">   50</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#gaa445c2cb1f437c53548328bd1e61face">setServer</a>(<span class="keyword">const</span> std::string&amp; host, uint16_t port, <span class="keyword">const</span> std::string&amp; user = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; pass = <span class="stringliteral">&quot;&quot;</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    client.setServer(host.c_str(), port);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    this-&gt;userStr = user;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    this-&gt;passStr = pass;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    this-&gt;user = this-&gt;userStr.c_str();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    this-&gt;pass = this-&gt;passStr.c_str();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>  }</div>
 </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
-<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="group__transport.html#ga6970c39726c419520af31357c30c2f83">   66</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#ga6970c39726c419520af31357c30c2f83">setOnConnect</a>(<span class="keywordtype">void</span> (*cb_)(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    cb = cb_;</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    ctx = ctx_;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>  }</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span></div>
+<div class="foldopen" id="foldopen00061" data-start="{" data-end="}">
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">   61</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">connected</a>()<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> client.connected();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>  }</div>
 </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span></div>
-<div class="foldopen" id="foldopen00081" data-start="{" data-end="}">
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">   81</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">tick</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordtype">bool</span> nowConnected = client.connected();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="keywordflow">if</span> (nowConnected &amp;&amp; !wasConnected) {</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>      <span class="keywordflow">if</span> (cb) {</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>        cb(ctx);</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>      }</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    }</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    wasConnected = nowConnected;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="foldopen" id="foldopen00068" data-start="{" data-end="}">
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">   68</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">publish</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>               <span class="keyword">const</span> uint8_t* payload,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>               <span class="keywordtype">size_t</span> len,</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>               <span class="keywordtype">bool</span> retained,</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>               uint8_t <span class="comment">/*qos*/</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (payload == <span class="keyword">nullptr</span>) {</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>      len = 0;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    }</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    JB_LOGD(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish topic=%s len=%u retained=%d&quot;</span>, topic,</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>           (<span class="keywordtype">unsigned</span>)len, retained ? 1 : 0);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordtype">bool</span> ok = client.publish(topic,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                             payload,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                             <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(len),</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>                             retained);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <span class="keywordflow">if</span> (!ok) {</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>      JB_LOGE(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish FAILED topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    } <span class="keywordflow">else</span> {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>      JB_LOGD(<span class="stringliteral">&quot;MQTT&quot;</span>, <span class="stringliteral">&quot;PubSub publish OK topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> ok;</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>  }</div>
 </div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  PubSubClient&amp; client;</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>  <span class="keywordtype">bool</span> wasConnected = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>  void (*cb)(<span class="keywordtype">void</span>*) = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>  <span class="keywordtype">void</span>* ctx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span></div>
+<div class="foldopen" id="foldopen00096" data-start="{" data-end="}">
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="group__transport.html#ga6970c39726c419520af31357c30c2f83">   96</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#ga6970c39726c419520af31357c30c2f83">setOnConnect</a>(<span class="keywordtype">void</span> (*cb_)(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    cb = cb_;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    ctx = ctx_;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>  }</div>
+</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span></div>
+<div class="foldopen" id="foldopen00111" data-start="{" data-end="}">
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">  111</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">tick</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordtype">bool</span> nowConnected = client.connected();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">if</span> (nowConnected &amp;&amp; !wasConnected) {</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>      <span class="keywordflow">if</span> (cb) {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        cb(ctx);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>      }</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    }</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    wasConnected = nowConnected;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>  }</div>
+</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>  PubSubClient&amp; client;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>  <span class="keyword">const</span> <span class="keywordtype">char</span>* user = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>  <span class="keyword">const</span> <span class="keywordtype">char</span>* pass = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>  std::string userStr;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>  std::string passStr;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>  <span class="keywordtype">bool</span> wasConnected = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>  void (*cb)(<span class="keywordtype">void</span>*) = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>  <span class="keywordtype">void</span>* ctx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>};</div>
 </div>
 <div class="ttc" id="aclass_mqtt_transport_html"><div class="ttname"><a href="class_mqtt_transport.html">MqttTransport</a></div><div class="ttdoc">Abstract MQTT transport interface.</div><div class="ttdef"><b>Definition</b> MqttTransport.h:30</div></div>
-<div class="ttc" id="agroup__transport_html_ga6970c39726c419520af31357c30c2f83"><div class="ttname"><a href="group__transport.html#ga6970c39726c419520af31357c30c2f83">PubSubClientTransport::setOnConnect</a></div><div class="ttdeci">void setOnConnect(void(*cb_)(void *), void *ctx_) override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:66</div></div>
-<div class="ttc" id="agroup__transport_html_ga7530c95cad1fa5e0d808de23a2214e76"><div class="ttname"><a href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">PubSubClientTransport::connected</a></div><div class="ttdeci">bool connected() const override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:31</div></div>
+<div class="ttc" id="agroup__transport_html_ga6970c39726c419520af31357c30c2f83"><div class="ttname"><a href="group__transport.html#ga6970c39726c419520af31357c30c2f83">PubSubClientTransport::setOnConnect</a></div><div class="ttdeci">void setOnConnect(void(*cb_)(void *), void *ctx_) override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:96</div></div>
+<div class="ttc" id="agroup__transport_html_ga7530c95cad1fa5e0d808de23a2214e76"><div class="ttname"><a href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">PubSubClientTransport::connected</a></div><div class="ttdeci">bool connected() const override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:61</div></div>
 <div class="ttc" id="agroup__transport_html_ga8a892c595465c043fc0a994489b74cc6"><div class="ttname"><a href="group__transport.html#ga8a892c595465c043fc0a994489b74cc6">PubSubClientTransport::PubSubClientTransport</a></div><div class="ttdeci">PubSubClientTransport(PubSubClient &amp;client)</div><div class="ttdoc">Construct a PubSubClient transport adapter.</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:25</div></div>
-<div class="ttc" id="agroup__transport_html_gad8e42fa0c3ef0f40f7920d42067b82dc"><div class="ttname"><a href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">PubSubClientTransport::publish</a></div><div class="ttdeci">bool publish(const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t) override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:38</div></div>
-<div class="ttc" id="agroup__transport_html_gaf56a4320f7e10a2d0e6ccba679f958f6"><div class="ttname"><a href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">PubSubClientTransport::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdoc">Detect MQTT connection transitions.</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:81</div></div>
+<div class="ttc" id="agroup__transport_html_gaa445c2cb1f437c53548328bd1e61face"><div class="ttname"><a href="group__transport.html#gaa445c2cb1f437c53548328bd1e61face">PubSubClientTransport::setServer</a></div><div class="ttdeci">void setServer(const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;) override</div><div class="ttdoc">Set MQTT server and credentials (std::string version).</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:50</div></div>
+<div class="ttc" id="agroup__transport_html_gaab1f87f75140a5304677f6e18f1598db"><div class="ttname"><a href="group__transport.html#gaab1f87f75140a5304677f6e18f1598db">PubSubClientTransport::setServer</a></div><div class="ttdeci">void setServer(const char *host, uint16_t port, const char *user=nullptr, const char *pass=nullptr) override</div><div class="ttdoc">Set MQTT server and credentials.</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:36</div></div>
+<div class="ttc" id="agroup__transport_html_gad8e42fa0c3ef0f40f7920d42067b82dc"><div class="ttname"><a href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">PubSubClientTransport::publish</a></div><div class="ttdeci">bool publish(const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t) override</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:68</div></div>
+<div class="ttc" id="agroup__transport_html_gaf56a4320f7e10a2d0e6ccba679f958f6"><div class="ttname"><a href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">PubSubClientTransport::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdoc">Detect MQTT connection transitions.</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:111</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

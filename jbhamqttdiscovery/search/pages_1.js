@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['dependencies_0',['Dependencies',['../index.html#autotoc_md2',1,'']]],
-  ['driven_20no_20polling_20required_1',['AsyncMqttClient (event-driven, no polling required)',['../index.html#autotoc_md4',1,'']]]
+  ['binary_20sensor_0',['Binary sensor',['../index.html#autotoc_md9',1,'']]],
+  ['button_1',['Button',['../index.html#autotoc_md10',1,'']]]
 ];

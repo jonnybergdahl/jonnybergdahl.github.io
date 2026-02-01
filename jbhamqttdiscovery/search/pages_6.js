@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['usage_0',['Usage',['../index.html#autotoc_md1',1,'']]]
+  ['library_0',['What is this library?',['../index.html#autotoc_md1',1,'']]]
 ];

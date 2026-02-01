@@ -1,19 +1,8 @@
 var searchData=
 [
-  ['payload_5foff_0',['payload_off',['../struct_ha_switch_config.html#a334dc2f8c1db7a7cd8e59ce1085f6802',1,'HaSwitchConfig::payload_off'],['../struct_ha_binary_sensor_config.html#ac4e2f772f85b344db6f24c72a9c66148',1,'HaBinarySensorConfig::payload_off']]],
-  ['payload_5fon_1',['payload_on',['../struct_ha_switch_config.html#a927f41b0f31631a5220dabc080b1ca14',1,'HaSwitchConfig::payload_on'],['../struct_ha_binary_sensor_config.html#af0eba3b6361ef72e572b2bf25afb1784',1,'HaBinarySensorConfig::payload_on']]],
-  ['payload_5fpress_2',['payload_press',['../struct_ha_button_config.html#a24a1b51ac69169606cb0300d8b851b5a',1,'HaButtonConfig']]],
-  ['polling_20required_3',['polling required',['../index.html#autotoc_md4',1,'AsyncMqttClient (event-driven, no polling required)'],['../index.html#autotoc_md3',1,'PubSubClient (polling required)']]],
-  ['pressbutton_4',['pressButton',['../class_ha_discovery.html#af283bf445934a4402c6a6e34f48dc8fe',1,'HaDiscovery']]],
-  ['publish_5',['publish',['../class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7',1,'AsyncMqttClientTransport::publish()'],['../class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce',1,'MqttTransport::publish()'],['../group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc',1,'PubSubClientTransport::publish()']]],
-  ['publishavailabilityoffline_6',['publishAvailabilityOffline',['../class_ha_discovery.html#a65651d2d9bf340a9102abb4f68a3bf89',1,'HaDiscovery']]],
-  ['publishavailabilityonline_7',['publishAvailabilityOnline',['../class_ha_discovery.html#a468522b9e70234a48d7d5c610273987b',1,'HaDiscovery']]],
-  ['publishbinarysensordiscovery_8',['publishBinarySensorDiscovery',['../class_ha_discovery.html#affb1dc69237094bb902e4bbd78d53c55',1,'HaDiscovery']]],
-  ['publishbuttondiscovery_9',['publishButtonDiscovery',['../class_ha_discovery.html#a440e497e8a54b3f02a61050efd1faf27',1,'HaDiscovery']]],
-  ['publishsensordiscovery_10',['publishSensorDiscovery',['../class_ha_discovery.html#ab5b58031c78207007c38c517305676e3',1,'HaDiscovery']]],
-  ['publishstate_11',['publishState',['../class_ha_discovery.html#a688175a0406684265eec23a9a85ada4c',1,'HaDiscovery']]],
-  ['publishstateswitch_12',['publishStateSwitch',['../class_ha_discovery.html#ac873ceadd104279e6afb2874550124ad',1,'HaDiscovery']]],
-  ['publishswitchdiscovery_13',['publishSwitchDiscovery',['../class_ha_discovery.html#a280b24f3fc678223d44aa3c4b857a726',1,'HaDiscovery']]],
-  ['pubsubclient_20polling_20required_14',['PubSubClient (polling required)',['../index.html#autotoc_md3',1,'']]],
-  ['pubsubclienttransport_15',['PubSubClientTransport',['../class_pub_sub_client_transport.html',1,'PubSubClientTransport'],['../group__transport.html#ga8a892c595465c043fc0a994489b74cc6',1,'PubSubClientTransport::PubSubClientTransport()']]]
+  ['manufacturer_0',['manufacturer',['../struct_ha_device_info.html#a5e62669c9f6b0c2f2ec5b11264c2d5e6',1,'HaDeviceInfo']]],
+  ['model_1',['model',['../struct_ha_device_info.html#a6f83bdce4b4d8364bfc7fefd48fb798d',1,'HaDeviceInfo']]],
+  ['mqtt_20discovery_2',['Home Assistant MQTT Discovery',['../group__hadiscovery.html',1,'']]],
+  ['mqtt_20transports_3',['MQTT Transports',['../group__transport.html',1,'']]],
+  ['mqtttransport_4',['MqttTransport',['../class_mqtt_transport.html',1,'']]]
 ];

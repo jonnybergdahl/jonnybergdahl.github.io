@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>JBHaMqttDiscovery: Arduino_JBHaMqttDiscovery</title>
+<title>JBHaMqttDiscovery: JBHaMqttDiscovery</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -88,21 +88,26 @@ $(function(){initNavTree('index.html','',''); });
 </div>
 
 <div><div class="header">
-  <div class="headertitle"><div class="title">Arduino_JBHaMqttDiscovery </div></div>
+  <div class="headertitle"><div class="title">JBHaMqttDiscovery </div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
-<p>An Arduino library for Home Assistant MQTT Auto Discovery</p>
+<p>An Arduino library for Home Assistant MQTT Auto Discovery.</p>
 <h1 class="doxsection"><a class="anchor" id="autotoc_md1"></a>
+What is this library?</h1>
+<p><b>JBHaMqttDiscovery</b> makes sensors and devices connected to Arduino/ESP8266/ESP32 devices show up automatically in <b>Home Assistant</b> via <b>MQTT Discovery</b>.</p>
+<p>It helps you builds the correct <em>discovery topics</em> and <em>JSON configuration payloads</em> and publishes them as <b>retained</b> messages, so Home Assistant can create entities (e.g. sensors, switches, binary sensors, buttons) without manual UI/YAML setup.</p>
+<p>It is also <b>transport-agnostic</b>: you can use different MQTT client libraries through a small “transport” adapter (e.g. PubSubClient or AsyncMqttClient), while keeping the same discovery API in your firmware.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
 Usage</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md2"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
 Dependencies</h2>
 <ol type="1">
 <li><a href="https://arduinojson.org/">ArduinoJson</a></li>
 <li><a href="https://pubsubclient.knolleary.net/">PubSubClient</a> or <a href="https://github.com/marvinroger/async-mqtt-client">AsyncMqttClient</a></li>
 <li><a href="https://github.com/jonnybergdahl/Arduino_JBLogger_Library">JBLogger</a></li>
 </ol>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md3"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
 PubSubClient (polling required)</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;PubSubClient.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;HaDiscovery.h&gt;</span></div>
@@ -114,22 +119,34 @@ PubSubClient (polling required)</h2>
 <div class="line"><a class="code hl_class" href="class_ha_discovery.html">HaDiscovery</a> ha(transport);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  String mac = WiFi.macAddress();</div>
+<div class="line">  mac.replace(<span class="stringliteral">&quot;:&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">  String nodeId = <span class="stringliteral">&quot;esp8266_&quot;</span> + mac;</div>
+<div class="line"> </div>
 <div class="line">  ha.setDevice({</div>
-<div class="line">    .node_id = <span class="stringliteral">&quot;esp8266_office_01&quot;</span>,</div>
+<div class="line">    .node_id = nodeId.c_str(),</div>
 <div class="line">    .name = <span class="stringliteral">&quot;Office Node&quot;</span>,</div>
 <div class="line">    .manufacturer = <span class="stringliteral">&quot;YourBrand&quot;</span>,</div>
 <div class="line">    .model = <span class="stringliteral">&quot;ESP8266&quot;</span>,</div>
 <div class="line">    .sw_version = <span class="stringliteral">&quot;1.0.0&quot;</span>,</div>
-<div class="line">    .identifiers = <span class="stringliteral">&quot;112233445566&quot;</span></div>
+<div class="line">    .identifiers = mac.c_str()</div>
 <div class="line">  });</div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// Configure mqtt server/credentials externally, then connect:</span></div>
-<div class="line">  <span class="comment">// mqtt.setServer(...); mqtt.connect(...);</span></div>
+<div class="line">  <span class="comment">// Configure mqtt server/credentials through the transport, then connect:</span></div>
+<div class="line">  transport.setServer(<span class="stringliteral">&quot;mqtt-broker.local&quot;</span>, 1883, <span class="stringliteral">&quot;user&quot;</span>, <span class="stringliteral">&quot;pass&quot;</span>);</div>
+<div class="line">  mqtt.connect(nodeId.c_str(), <span class="stringliteral">&quot;user&quot;</span>, <span class="stringliteral">&quot;pass&quot;</span>);</div>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_struct" href="struct_ha_switch_config.html">HaSwitchConfig</a> sw{</div>
 <div class="line">    .common = { .object_id=<span class="stringliteral">&quot;relay1&quot;</span>, .name=<span class="stringliteral">&quot;Desk Relay&quot;</span> }</div>
 <div class="line">  };</div>
 <div class="line">  ha.publishSwitchDiscovery(sw);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_struct" href="struct_ha_sensor_config.html">HaSensorConfig</a> temp{</div>
+<div class="line">    .common = { .object_id=<span class="stringliteral">&quot;temperature&quot;</span>, .name=<span class="stringliteral">&quot;Office Temperature&quot;</span> },</div>
+<div class="line">    .unit_of_measurement=<span class="stringliteral">&quot;°C&quot;</span>,</div>
+<div class="line">    .device_class=<span class="stringliteral">&quot;temperature&quot;</span></div>
+<div class="line">  };</div>
+<div class="line">  ha.publishSensorDiscovery(temp);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
@@ -138,8 +155,9 @@ PubSubClient (polling required)</h2>
 <div class="line">}</div>
 <div class="ttc" id="aclass_ha_discovery_html"><div class="ttname"><a href="class_ha_discovery.html">HaDiscovery</a></div><div class="ttdoc">Home Assistant MQTT Discovery publisher (transport-agnostic).</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:169</div></div>
 <div class="ttc" id="aclass_pub_sub_client_transport_html"><div class="ttname"><a href="class_pub_sub_client_transport.html">PubSubClientTransport</a></div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:18</div></div>
+<div class="ttc" id="astruct_ha_sensor_config_html"><div class="ttname"><a href="struct_ha_sensor_config.html">HaSensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:84</div></div>
 <div class="ttc" id="astruct_ha_switch_config_html"><div class="ttname"><a href="struct_ha_switch_config.html">HaSwitchConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery switch.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:100</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md4"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md5"></a>
 AsyncMqttClient (event-driven, no polling required)</h2>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;AsyncMqttClient.h&gt;</span></div>
 <div class="line"><span class="preprocessor">#include &lt;HaDiscovery.h&gt;</span></div>
@@ -150,16 +168,21 @@ AsyncMqttClient (event-driven, no polling required)</h2>
 <div class="line"><a class="code hl_class" href="class_ha_discovery.html">HaDiscovery</a> ha(transport);</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> setup() {</div>
+<div class="line">  String mac = WiFi.macAddress();</div>
+<div class="line">  mac.replace(<span class="stringliteral">&quot;:&quot;</span>, <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line">  String nodeId = <span class="stringliteral">&quot;esp32_&quot;</span> + mac;</div>
+<div class="line"> </div>
 <div class="line">  ha.setDevice({</div>
-<div class="line">    .node_id = <span class="stringliteral">&quot;esp32_kitchen_01&quot;</span>,</div>
+<div class="line">    .node_id = nodeId.c_str(),</div>
 <div class="line">    .name = <span class="stringliteral">&quot;Kitchen Node&quot;</span>,</div>
 <div class="line">    .manufacturer = <span class="stringliteral">&quot;YourBrand&quot;</span>,</div>
 <div class="line">    .model = <span class="stringliteral">&quot;ESP32&quot;</span>,</div>
 <div class="line">    .sw_version = <span class="stringliteral">&quot;1.0.0&quot;</span>,</div>
-<div class="line">    .identifiers = <span class="stringliteral">&quot;AABBCCDDEEFF&quot;</span></div>
+<div class="line">    .identifiers = mac.c_str()</div>
 <div class="line">  });</div>
 <div class="line"> </div>
-<div class="line">  <span class="comment">// Configure mqtt host/credentials/LWT externally, then connect:</span></div>
+<div class="line">  <span class="comment">// Configure mqtt host/credentials/LWT through the transport, then connect:</span></div>
+<div class="line">  transport.setServer(<span class="stringliteral">&quot;mqtt-broker.local&quot;</span>, 1883, <span class="stringliteral">&quot;user&quot;</span>, <span class="stringliteral">&quot;pass&quot;</span>);</div>
 <div class="line">  mqtt.connect();</div>
 <div class="line"> </div>
 <div class="line">  <a class="code hl_struct" href="struct_ha_sensor_config.html">HaSensorConfig</a> temp{</div>
@@ -169,21 +192,63 @@ AsyncMqttClient (event-driven, no polling required)</h2>
 <div class="line">    .state_class=<span class="stringliteral">&quot;measurement&quot;</span></div>
 <div class="line">  };</div>
 <div class="line">  ha.publishSensorDiscovery(temp);</div>
+<div class="line"> </div>
+<div class="line">  <a class="code hl_struct" href="struct_ha_switch_config.html">HaSwitchConfig</a> relay{</div>
+<div class="line">    .common = { .object_id=<span class="stringliteral">&quot;relay1&quot;</span>, .name=<span class="stringliteral">&quot;Kitchen Light&quot;</span> }</div>
+<div class="line">  };</div>
+<div class="line">  ha.publishSwitchDiscovery(relay);</div>
 <div class="line">}</div>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">  <span class="comment">// nothing required for HaDiscovery</span></div>
 <div class="line">}</div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">## Entitity usage</span></div>
-<div class="line"> </div>
-<div class="line"><span class="preprocessor">### Binary sensor</span></div>
 <div class="ttc" id="aclass_async_mqtt_client_transport_html"><div class="ttname"><a href="class_async_mqtt_client_transport.html">AsyncMqttClientTransport</a></div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:21</div></div>
-<div class="ttc" id="astruct_ha_sensor_config_html"><div class="ttname"><a href="struct_ha_sensor_config.html">HaSensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:84</div></div>
-</div><!-- fragment --><p> c++ <a class="el" href="struct_ha_binary_sensor_config.html" title="Configuration for a Home Assistant MQTT Discovery binary_sensor.">HaBinarySensorConfig</a> motion{ .common = { .object_id="motion", .name="Hallway Motion", .icon="mdi:motion-sensor" }, .device_class = "motion" }; ha.publishBinarySensorDiscovery(motion); </p><div class="fragment"><div class="line">### Button</div>
-</div><!-- fragment --><p> c++ <a class="el" href="struct_ha_button_config.html" title="Configuration for a Home Assistant MQTT Discovery button.">HaButtonConfig</a> restart{ .common = { .object_id="restart", .name="Restart Device", .icon="mdi:restart" }, .payload_press = "PRESS" }; ha.publishButtonDiscovery(restart);</p>
-<p>// later: ha.pressButton("restart"); ``` </p>
-</div></div><!-- PageDoc -->
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md6"></a>
+Entity usage</h1>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md7"></a>
+Sensor</h2>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_sensor_config.html">HaSensorConfig</a> temp{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;temperature&quot;</span>, .name=<span class="stringliteral">&quot;Kitchen Temperature&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:thermometer&quot;</span> },</div>
+<div class="line">  .unit_of_measurement=<span class="stringliteral">&quot;°C&quot;</span>,</div>
+<div class="line">  .device_class=<span class="stringliteral">&quot;temperature&quot;</span>,</div>
+<div class="line">  .state_class=<span class="stringliteral">&quot;measurement&quot;</span></div>
+<div class="line">};</div>
+<div class="line">ha.publishSensorDiscovery(temp);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// later:</span></div>
+<div class="line">ha.publishState(<span class="stringliteral">&quot;temperature&quot;</span>, <span class="stringliteral">&quot;22.5&quot;</span>);</div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md8"></a>
+Switch</h2>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_switch_config.html">HaSwitchConfig</a> relay{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;relay1&quot;</span>, .name=<span class="stringliteral">&quot;Desk Light&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:lightbulb&quot;</span> }</div>
+<div class="line">};</div>
+<div class="line">ha.publishSwitchDiscovery(relay);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// later:</span></div>
+<div class="line">ha.publishStateSwitch(<span class="stringliteral">&quot;relay1&quot;</span>, <span class="keyword">true</span>); <span class="comment">// ON</span></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md9"></a>
+Binary sensor</h2>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> motion{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;motion&quot;</span>, .name=<span class="stringliteral">&quot;Hallway Motion&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:motion-sensor&quot;</span> },</div>
+<div class="line">  .device_class = <span class="stringliteral">&quot;motion&quot;</span></div>
+<div class="line">};</div>
+<div class="line">ha.publishBinarySensorDiscovery(motion);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// later:</span></div>
+<div class="line">ha.publishState(<span class="stringliteral">&quot;motion&quot;</span>, <span class="stringliteral">&quot;ON&quot;</span>);</div>
+<div class="ttc" id="astruct_ha_binary_sensor_config_html"><div class="ttname"><a href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery binary_sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:121</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md10"></a>
+Button</h2>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_button_config.html">HaButtonConfig</a> restart{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;restart&quot;</span>, .name=<span class="stringliteral">&quot;Restart Device&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:restart&quot;</span> },</div>
+<div class="line">  .payload_press = <span class="stringliteral">&quot;PRESS&quot;</span></div>
+<div class="line">};</div>
+<div class="line">ha.publishButtonDiscovery(restart);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// later:</span></div>
+<div class="line">ha.pressButton(<span class="stringliteral">&quot;restart&quot;</span>);</div>
+<div class="ttc" id="astruct_ha_button_config_html"><div class="ttname"><a href="struct_ha_button_config.html">HaButtonConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery button.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:140</div></div>
+</div><!-- fragment --> </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->
 </div><!-- doc-content -->

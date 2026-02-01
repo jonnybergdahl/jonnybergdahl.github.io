@@ -25,7 +25,18 @@
 var NAVTREE =
 [
   [ "JBHaMqttDiscovery", "index.html", [
-    [ "Arduino_JBHaMqttDiscovery", "index.html", "index" ],
+    [ "What is this library?", "index.html#autotoc_md1", null ],
+    [ "Usage", "index.html#autotoc_md2", [
+      [ "Dependencies", "index.html#autotoc_md3", null ],
+      [ "PubSubClient (polling required)", "index.html#autotoc_md4", null ],
+      [ "AsyncMqttClient (event-driven, no polling required)", "index.html#autotoc_md5", null ]
+    ] ],
+    [ "Entity usage", "index.html#autotoc_md6", [
+      [ "Sensor", "index.html#autotoc_md7", null ],
+      [ "Switch", "index.html#autotoc_md8", null ],
+      [ "Binary sensor", "index.html#autotoc_md9", null ],
+      [ "Button", "index.html#autotoc_md10", null ]
+    ] ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],

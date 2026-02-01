@@ -105,6 +105,10 @@ Inheritance diagram for AsyncMqttClientTransport:</div>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ae9fe1f16870cb6bfabeb43d84a12a629" id="r_ae9fe1f16870cb6bfabeb43d84a12a629"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport</a> (AsyncMqttClient &amp;client)</td></tr>
 <tr class="memdesc:ae9fe1f16870cb6bfabeb43d84a12a629"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an AsyncMqttClient transport adapter.  <br /></td></tr>
+<tr class="memitem:a5fb8c67a28eedee3b7293a84041d70b2" id="r_a5fb8c67a28eedee3b7293a84041d70b2"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5fb8c67a28eedee3b7293a84041d70b2">setServer</a> (const char *host, uint16_t port, const char *user=nullptr, const char *pass=nullptr) override</td></tr>
+<tr class="memdesc:a5fb8c67a28eedee3b7293a84041d70b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MQTT server and credentials.  <br /></td></tr>
+<tr class="memitem:a138c43b05565c2c8f944b6c6f4caa019" id="r_a138c43b05565c2c8f944b6c6f4caa019"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a138c43b05565c2c8f944b6c6f4caa019">setServer</a> (const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;) override</td></tr>
+<tr class="memdesc:a138c43b05565c2c8f944b6c6f4caa019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MQTT server and credentials (std::string version).  <br /></td></tr>
 <tr class="memitem:a8a044f396762fcbadcc19e7d9311aaf1" id="r_a8a044f396762fcbadcc19e7d9311aaf1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8a044f396762fcbadcc19e7d9311aaf1">connected</a> () const override</td></tr>
 <tr class="memitem:a249101bba2589ce7cb8b35b376a1bee7" id="r_a249101bba2589ce7cb8b35b376a1bee7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a249101bba2589ce7cb8b35b376a1bee7">publish</a> (const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</td></tr>
 <tr class="memitem:acc1587a8b4e24474900935a87d7eb170" id="r_acc1587a8b4e24474900935a87d7eb170"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc1587a8b4e24474900935a87d7eb170">setOnConnect</a> (void(*cb_)(void *), void *ctx_) override</td></tr>
@@ -271,6 +275,110 @@ Public Member Functions</h2></td></tr>
  </p>
 
 <p>Implements <a class="el" href="class_mqtt_transport.html#a567d76c233d37aebb8e1cdccfbe16d1d">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="a5fb8c67a28eedee3b7293a84041d70b2" name="a5fb8c67a28eedee3b7293a84041d70b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5fb8c67a28eedee3b7293a84041d70b2">&#9670;&#160;</a></span>setServer() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::setServer </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>user</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>pass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set MQTT server and credentials. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>MQTT host/IP </td></tr>
+    <tr><td class="paramname">port</td><td>MQTT port </td></tr>
+    <tr><td class="paramname">user</td><td>MQTT username </td></tr>
+    <tr><td class="paramname">pass</td><td>MQTT password </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="a138c43b05565c2c8f944b6c6f4caa019" name="a138c43b05565c2c8f944b6c6f4caa019"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138c43b05565c2c8f944b6c6f4caa019">&#9670;&#160;</a></span>setServer() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::setServer </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>host</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint16_t</td>          <td class="paramname"><span class="paramname"><em>port</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>user</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>pass</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set MQTT server and credentials (std::string version). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">host</td><td>MQTT host/IP </td></tr>
+    <tr><td class="paramname">port</td><td>MQTT port </td></tr>
+    <tr><td class="paramname">user</td><td>MQTT username </td></tr>
+    <tr><td class="paramname">pass</td><td>MQTT password </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#ad38dc3536fc19fe6fb7ae6616a569a73">MqttTransport</a>.</p>
 
 </div>
 </div>
