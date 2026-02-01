@@ -91,6 +91,11 @@ $(function(){initNavTree('class_async_mqtt_client_transport.html','','class_asyn
   <div class="headertitle"><div class="title">AsyncMqttClientTransport Class Reference<div class="ingroups"><a class="el" href="group__transport.html">MQTT Transports</a></div></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>MQTT transport adapter for AsyncMqttClient.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="_async_mqtt_client_transport_8h_source.html">AsyncMqttClientTransport.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for AsyncMqttClientTransport:</div>
 <div class="dyncontent">
@@ -115,8 +120,25 @@ Public Member Functions</h2></td></tr>
 <tr class="inherit_header pub_methods_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
 <tr class="memitem:ab2a4155a62a28aec5c7bb060e004e9f4 inherit pub_methods_class_mqtt_transport" id="r_ab2a4155a62a28aec5c7bb060e004e9f4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4">tick</a> ()</td></tr>
 <tr class="memdesc:ab2a4155a62a28aec5c7bb060e004e9f4 inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic processing hook (optional).  <br /></td></tr>
+<tr class="memitem:a3b50717c5593263cce3e727a55489d9c inherit pub_methods_class_mqtt_transport" id="r_a3b50717c5593263cce3e727a55489d9c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#a3b50717c5593263cce3e727a55489d9c">setLogger</a> (<a class="el" href="class_j_b_logger.html">JBLogger</a> *logger)</td></tr>
+<tr class="memdesc:a3b50717c5593263cce3e727a55489d9c inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the logger for this transport.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_attribs_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
+<tr class="memitem:abb9896c90a5eeaa2f7df3fa879a4c1d4 inherit pro_attribs_class_mqtt_transport" id="r_abb9896c90a5eeaa2f7df3fa879a4c1d4"><td class="memItemLeft">
+<a class="el" href="class_j_b_logger.html">JBLogger</a> *&#160;</td><td class="memItemRight"><b>log</b> = nullptr</td></tr>
 </table>
-<a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>MQTT transport adapter for AsyncMqttClient. </p>
+<p>AsyncMqttClient is a fully asynchronous, event-driven MQTT client.</p>
+<p>Advantages:</p><ul>
+<li>No polling required</li>
+<li>Proper QoS support</li>
+<li>Native connection callbacks</li>
+</ul>
+<p>This transport provides the most reliable behavior for Home Assistant discovery and availability handling. </p>
+</div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae9fe1f16870cb6bfabeb43d84a12a629" name="ae9fe1f16870cb6bfabeb43d84a12a629"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9fe1f16870cb6bfabeb43d84a12a629">&#9670;&#160;</a></span>AsyncMqttClientTransport()</h2>
 

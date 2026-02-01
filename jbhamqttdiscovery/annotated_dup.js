@@ -8,6 +8,7 @@ var annotated_dup =
     [ "HaEntityCommon", "struct_ha_entity_common.html", "struct_ha_entity_common" ],
     [ "HaSensorConfig", "struct_ha_sensor_config.html", "struct_ha_sensor_config" ],
     [ "HaSwitchConfig", "struct_ha_switch_config.html", "struct_ha_switch_config" ],
+    [ "JBLogger", "class_j_b_logger.html", "class_j_b_logger" ],
     [ "MqttTransport", "class_mqtt_transport.html", "class_mqtt_transport" ],
     [ "PubSubClientTransport", "class_pub_sub_client_transport.html", "class_pub_sub_client_transport" ]
 ];

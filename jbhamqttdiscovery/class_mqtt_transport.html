@@ -102,8 +102,8 @@ Inheritance diagram for MqttTransport:</div>
  <div class="center">
   <img src="class_mqtt_transport.png" usemap="#MqttTransport_map" alt=""/>
   <map id="MqttTransport_map" name="MqttTransport_map">
-<area href="class_async_mqtt_client_transport.html" alt="AsyncMqttClientTransport" shape="rect" coords="0,56,157,80"/>
-<area href="class_pub_sub_client_transport.html" alt="PubSubClientTransport" shape="rect" coords="167,56,324,80"/>
+<area href="class_async_mqtt_client_transport.html" title="MQTT transport adapter for AsyncMqttClient." alt="AsyncMqttClientTransport" shape="rect" coords="0,56,157,80"/>
+<area href="class_pub_sub_client_transport.html" title="MQTT transport adapter for PubSubClient." alt="PubSubClientTransport" shape="rect" coords="167,56,324,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -121,6 +121,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ad38dc3536fc19fe6fb7ae6616a569a73"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MQTT server and credentials (std::string version).  <br /></td></tr>
 <tr class="memitem:ab2a4155a62a28aec5c7bb060e004e9f4" id="r_ab2a4155a62a28aec5c7bb060e004e9f4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ab2a4155a62a28aec5c7bb060e004e9f4">tick</a> ()</td></tr>
 <tr class="memdesc:ab2a4155a62a28aec5c7bb060e004e9f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic processing hook (optional).  <br /></td></tr>
+<tr class="memitem:a3b50717c5593263cce3e727a55489d9c" id="r_a3b50717c5593263cce3e727a55489d9c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a3b50717c5593263cce3e727a55489d9c">setLogger</a> (<a class="el" href="class_j_b_logger.html">JBLogger</a> *logger)</td></tr>
+<tr class="memdesc:a3b50717c5593263cce3e727a55489d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the logger for this transport.  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pro-attribs" class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:abb9896c90a5eeaa2f7df3fa879a4c1d4" id="r_abb9896c90a5eeaa2f7df3fa879a4c1d4"><td class="memItemLeft"><a id="abb9896c90a5eeaa2f7df3fa879a4c1d4" name="abb9896c90a5eeaa2f7df3fa879a4c1d4"></a>
+<a class="el" href="class_j_b_logger.html">JBLogger</a> *&#160;</td><td class="memItemRight"><b>log</b> = nullptr</td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Abstract MQTT transport interface. </p>
@@ -166,7 +173,7 @@ Public Member Functions</h2></td></tr>
 <p>Check whether the MQTT client is currently connected. </p>
 <dl class="section return"><dt>Returns</dt><dd>true if connected, false otherwise </dd></dl>
 
-<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">AsyncMqttClientTransport</a>, and <a class="el" href="group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76">PubSubClientTransport</a>.</p>
+<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">AsyncMqttClientTransport</a>, and <a class="el" href="class_pub_sub_client_transport.html#a7530c95cad1fa5e0d808de23a2214e76">PubSubClientTransport</a>.</p>
 
 </div>
 </div>
@@ -226,7 +233,40 @@ Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>true if the publish request was accepted, false otherwise</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Passing payload == nullptr publishes an empty payload, which is required for Home Assistant entity removal. </dd></dl>
 
-<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">AsyncMqttClientTransport</a>, and <a class="el" href="group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc">PubSubClientTransport</a>.</p>
+<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">AsyncMqttClientTransport</a>, and <a class="el" href="class_pub_sub_client_transport.html#ad8e42fa0c3ef0f40f7920d42067b82dc">PubSubClientTransport</a>.</p>
+
+</div>
+</div>
+<a id="a3b50717c5593263cce3e727a55489d9c" name="a3b50717c5593263cce3e727a55489d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3b50717c5593263cce3e727a55489d9c">&#9670;&#160;</a></span>setLogger()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void MqttTransport::setLogger </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_j_b_logger.html">JBLogger</a> *</td>          <td class="paramname"><span class="paramname"><em>logger</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the logger for this transport. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">logger</td><td>Pointer to a <a class="el" href="class_j_b_logger.html" title="Minimal logger interface used when jblogger.h is missing.">JBLogger</a> instance. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -268,7 +308,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">AsyncMqttClientTransport</a>, and <a class="el" href="group__transport.html#ga6970c39726c419520af31357c30c2f83">PubSubClientTransport</a>.</p>
+<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">AsyncMqttClientTransport</a>, and <a class="el" href="class_pub_sub_client_transport.html#a6970c39726c419520af31357c30c2f83">PubSubClientTransport</a>.</p>
 
 </div>
 </div>
@@ -320,7 +360,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">AsyncMqttClientTransport</a>, and <a class="el" href="group__transport.html#gaab1f87f75140a5304677f6e18f1598db">PubSubClientTransport</a>.</p>
+<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">AsyncMqttClientTransport</a>, and <a class="el" href="class_pub_sub_client_transport.html#aab1f87f75140a5304677f6e18f1598db">PubSubClientTransport</a>.</p>
 
 </div>
 </div>
@@ -372,7 +412,7 @@ Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">AsyncMqttClientTransport</a>, and <a class="el" href="group__transport.html#gaa445c2cb1f437c53548328bd1e61face">PubSubClientTransport</a>.</p>
+<p>Implemented in <a class="el" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">AsyncMqttClientTransport</a>, and <a class="el" href="class_pub_sub_client_transport.html#aa445c2cb1f437c53548328bd1e61face">PubSubClientTransport</a>.</p>
 
 </div>
 </div>
@@ -403,7 +443,7 @@ Public Member Functions</h2></td></tr>
 <p>This is required only for synchronous MQTT clients that do not provide a native connection callback.</p>
 <p>The host firmware should call this regularly (e.g. from loop()) if using such a transport. </p>
 
-<p>Reimplemented in <a class="el" href="group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6">PubSubClientTransport</a>.</p>
+<p>Reimplemented in <a class="el" href="class_pub_sub_client_transport.html#af56a4320f7e10a2d0e6ccba679f958f6">PubSubClientTransport</a>.</p>
 
 </div>
 </div>

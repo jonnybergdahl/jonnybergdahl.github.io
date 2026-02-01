@@ -62,7 +62,7 @@ $(function() {
   </div>
 </div>
 <script type="text/javascript">
-$(function(){initNavTree('class_mqtt_transport.html','',''); });
+$(function(){initNavTree('class_j_b_logger.html','',''); });
 </script>
 <div id="container">
 <div id="doc-content">
@@ -88,21 +88,18 @@ $(function(){initNavTree('class_mqtt_transport.html','',''); });
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">MqttTransport Member List</div></div>
+  <div class="headertitle"><div class="title">JBLogger Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="class_mqtt_transport.html">MqttTransport</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="class_j_b_logger.html">JBLogger</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="class_mqtt_transport.html#ae9b1703e8c0356febde9b891f997f372">connected</a>() const =0</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="odd"><td class="entry"><b>log</b> (defined in <a class="el" href="class_mqtt_transport.html">MqttTransport</a>)</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce">publish</a>(const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos)=0</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_mqtt_transport.html#a3b50717c5593263cce3e727a55489d9c">setLogger</a>(JBLogger *logger)</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_mqtt_transport.html#a567d76c233d37aebb8e1cdccfbe16d1d">setOnConnect</a>(void(*cb)(void *), void *ctx)=0</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282">setServer</a>(const char *host, uint16_t port, const char *user=nullptr, const char *pass=nullptr)=0</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="class_mqtt_transport.html#ad38dc3536fc19fe6fb7ae6616a569a73">setServer</a>(const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;)=0</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4">tick</a>()</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
-  <tr bgcolor="#f0f0f0" class="even"><td class="entry"><b>~MqttTransport</b>()=default (defined in <a class="el" href="class_mqtt_transport.html">MqttTransport</a>)</td><td class="entry"><a class="el" href="class_mqtt_transport.html">MqttTransport</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_j_b_logger.html#aae1af82fe965eea3a9b69d9119874db3">debug</a>(const char *format,...)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_j_b_logger.html#ae1344b0edfda8d66d1c3b5252dad045c">error</a>(const char *format,...)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_j_b_logger.html#a4b50b75e21c5cfb911f3eb117ef9d587">info</a>(const char *format,...)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_j_b_logger.html#a609ba6b225702d03c1a733b7c3d1240b">JBLogger</a>(const char *moduleName)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="class_j_b_logger.html#a2b0ba3c7c3e20645702645a6ddbfbab9">setLogLevel</a>(LogLevel level)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="class_j_b_logger.html#aa876b65e205ddcaadfcfddaedffa70ca">warn</a>(const char *format,...)</td><td class="entry"><a class="el" href="class_j_b_logger.html">JBLogger</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

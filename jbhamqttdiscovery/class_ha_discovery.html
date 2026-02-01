@@ -101,6 +101,8 @@ $(function(){initNavTree('class_ha_discovery.html','','class_ha_discovery-member
 Public Member Functions</h2></td></tr>
 <tr class="memitem:ad2d04f2099f9435f2b76e7bb1bdac2b7" id="r_ad2d04f2099f9435f2b76e7bb1bdac2b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad2d04f2099f9435f2b76e7bb1bdac2b7">HaDiscovery</a> (<a class="el" href="class_mqtt_transport.html">MqttTransport</a> &amp;transport, const char *discovery_prefix=&quot;homeassistant&quot;, const char *base_topic_prefix=&quot;devices&quot;)</td></tr>
 <tr class="memdesc:ad2d04f2099f9435f2b76e7bb1bdac2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a Home Assistant MQTT Discovery publisher.  <br /></td></tr>
+<tr class="memitem:a4613640966a1eefb154485dfa9a3bf05" id="r_a4613640966a1eefb154485dfa9a3bf05"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4613640966a1eefb154485dfa9a3bf05">setLogLevel</a> (LogLevel level)</td></tr>
+<tr class="memdesc:a4613640966a1eefb154485dfa9a3bf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the minimum log level for the internal logger.  <br /></td></tr>
 <tr class="memitem:aaef9ba1e9f8e90165aa8269b68183077" id="r_aaef9ba1e9f8e90165aa8269b68183077"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077">setDevice</a> (const <a class="el" href="struct_ha_device_info.html">HaDeviceInfo</a> &amp;dev)</td></tr>
 <tr class="memdesc:aaef9ba1e9f8e90165aa8269b68183077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the device information used in <span class="tt">dev</span> object of Discovery payloads.  <br /></td></tr>
 <tr class="memitem:aa80e3bed2024a918e1f2a05417cd6fe7" id="r_aa80e3bed2024a918e1f2a05417cd6fe7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7">tick</a> ()</td></tr>
@@ -114,11 +116,11 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a280b24f3fc678223d44aa3c4b857a726" id="r_a280b24f3fc678223d44aa3c4b857a726"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a280b24f3fc678223d44aa3c4b857a726">publishSwitchDiscovery</a> (const <a class="el" href="struct_ha_switch_config.html">HaSwitchConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
 <tr class="memdesc:a280b24f3fc678223d44aa3c4b857a726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a switch Discovery config (retained by default).  <br /></td></tr>
 <tr class="memitem:affb1dc69237094bb902e4bbd78d53c55" id="r_affb1dc69237094bb902e4bbd78d53c55"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#affb1dc69237094bb902e4bbd78d53c55">publishBinarySensorDiscovery</a> (const <a class="el" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
-<tr class="memdesc:affb1dc69237094bb902e4bbd78d53c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an entity from Home Assistant by clearing its retained config topic.  <br /></td></tr>
+<tr class="memdesc:affb1dc69237094bb902e4bbd78d53c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a binary_sensor Discovery config (retained by default).  <br /></td></tr>
 <tr class="memitem:a440e497e8a54b3f02a61050efd1faf27" id="r_a440e497e8a54b3f02a61050efd1faf27"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a440e497e8a54b3f02a61050efd1faf27">publishButtonDiscovery</a> (const <a class="el" href="struct_ha_button_config.html">HaButtonConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
 <tr class="memdesc:a440e497e8a54b3f02a61050efd1faf27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a button Discovery config (retained by default).  <br /></td></tr>
-<tr class="memitem:a9818a9054781af08f9892f943bf54efd" id="r_a9818a9054781af08f9892f943bf54efd"><td class="memItemLeft"><a id="a9818a9054781af08f9892f943bf54efd" name="a9818a9054781af08f9892f943bf54efd"></a>
-bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const char *component, const char *object_id, uint8_t qos=1)</td></tr>
+<tr class="memitem:a9818a9054781af08f9892f943bf54efd" id="r_a9818a9054781af08f9892f943bf54efd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9818a9054781af08f9892f943bf54efd">removeEntity</a> (const char *component, const char *object_id, uint8_t qos=1)</td></tr>
+<tr class="memdesc:a9818a9054781af08f9892f943bf54efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an entity from Home Assistant by clearing its retained config topic.  <br /></td></tr>
 <tr class="memitem:a688175a0406684265eec23a9a85ada4c" id="r_a688175a0406684265eec23a9a85ada4c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a688175a0406684265eec23a9a85ada4c">publishState</a> (const char *object_id, const char *payload, bool retained=false, uint8_t qos=0)</td></tr>
 <tr class="memdesc:a688175a0406684265eec23a9a85ada4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish an entity state payload using default state topic for object_id.  <br /></td></tr>
 <tr class="memitem:ac873ceadd104279e6afb2874550124ad" id="r_ac873ceadd104279e6afb2874550124ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac873ceadd104279e6afb2874550124ad">publishStateSwitch</a> (const char *object_id, bool on, bool retained=false, uint8_t qos=0)</td></tr>
@@ -127,24 +129,34 @@ bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const char *compone
 <tr class="memdesc:af283bf445934a4402c6a6e34f48dc8fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a button "press" command to the default command topic.  <br /></td></tr>
 <tr class="memitem:a069011732a93ee1c9cd806bd9e030b0b" id="r_a069011732a93ee1c9cd806bd9e030b0b"><td class="memItemLeft"><a id="a069011732a93ee1c9cd806bd9e030b0b" name="a069011732a93ee1c9cd806bd9e030b0b"></a>
 bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const std::string &amp;object_id, uint8_t qos=1)</td></tr>
+<tr class="memdesc:a069011732a93ee1c9cd806bd9e030b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string. <br /></td></tr>
 <tr class="memitem:a97a6ca950d5b04ec9fa0b90f8faa4296" id="r_a97a6ca950d5b04ec9fa0b90f8faa4296"><td class="memItemLeft"><a id="a97a6ca950d5b04ec9fa0b90f8faa4296" name="a97a6ca950d5b04ec9fa0b90f8faa4296"></a>
 bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const char *component, const std::string &amp;object_id, uint8_t qos=1)</td></tr>
+<tr class="memdesc:a97a6ca950d5b04ec9fa0b90f8faa4296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for object_id. <br /></td></tr>
 <tr class="memitem:ace635c69eb2848d8bf046c912e82b944" id="r_ace635c69eb2848d8bf046c912e82b944"><td class="memItemLeft"><a id="ace635c69eb2848d8bf046c912e82b944" name="ace635c69eb2848d8bf046c912e82b944"></a>
 bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const char *object_id, uint8_t qos=1)</td></tr>
+<tr class="memdesc:ace635c69eb2848d8bf046c912e82b944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for component. <br /></td></tr>
 <tr class="memitem:adb16d4ee3480097061e8804a79e074d4" id="r_adb16d4ee3480097061e8804a79e074d4"><td class="memItemLeft"><a id="adb16d4ee3480097061e8804a79e074d4" name="adb16d4ee3480097061e8804a79e074d4"></a>
 bool&#160;</td><td class="memItemRight"><b>publishState</b> (const std::string &amp;object_id, const std::string &amp;payload, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:adb16d4ee3480097061e8804a79e074d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishState using std::string. <br /></td></tr>
 <tr class="memitem:a8a0d6d694beae1b8fea918d8605f4ced" id="r_a8a0d6d694beae1b8fea918d8605f4ced"><td class="memItemLeft"><a id="a8a0d6d694beae1b8fea918d8605f4ced" name="a8a0d6d694beae1b8fea918d8605f4ced"></a>
 bool&#160;</td><td class="memItemRight"><b>publishState</b> (const std::string &amp;object_id, const char *payload, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a8a0d6d694beae1b8fea918d8605f4ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishState using std::string for object_id. <br /></td></tr>
 <tr class="memitem:a80499324da469209f923d45db6432af1" id="r_a80499324da469209f923d45db6432af1"><td class="memItemLeft"><a id="a80499324da469209f923d45db6432af1" name="a80499324da469209f923d45db6432af1"></a>
 bool&#160;</td><td class="memItemRight"><b>publishState</b> (const char *object_id, const std::string &amp;payload, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a80499324da469209f923d45db6432af1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishState using std::string for payload. <br /></td></tr>
 <tr class="memitem:a5847966b07948a9e4b9491a24d53a0d5" id="r_a5847966b07948a9e4b9491a24d53a0d5"><td class="memItemLeft"><a id="a5847966b07948a9e4b9491a24d53a0d5" name="a5847966b07948a9e4b9491a24d53a0d5"></a>
 bool&#160;</td><td class="memItemRight"><b>publishStateSwitch</b> (const std::string &amp;object_id, bool on, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a5847966b07948a9e4b9491a24d53a0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishStateSwitch using std::string for object_id. <br /></td></tr>
 <tr class="memitem:a6bc6baba4bbe654c337f132739d65af8" id="r_a6bc6baba4bbe654c337f132739d65af8"><td class="memItemLeft"><a id="a6bc6baba4bbe654c337f132739d65af8" name="a6bc6baba4bbe654c337f132739d65af8"></a>
 bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, const std::string &amp;payload, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a6bc6baba4bbe654c337f132739d65af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string. <br /></td></tr>
 <tr class="memitem:a3f7f59a981a864bd71fe1464ff29697a" id="r_a3f7f59a981a864bd71fe1464ff29697a"><td class="memItemLeft"><a id="a3f7f59a981a864bd71fe1464ff29697a" name="a3f7f59a981a864bd71fe1464ff29697a"></a>
 bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, const char *payload, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a3f7f59a981a864bd71fe1464ff29697a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string for object_id. <br /></td></tr>
 <tr class="memitem:a3e0a90b3820a55499e6cc3dca7c17775" id="r_a3e0a90b3820a55499e6cc3dca7c17775"><td class="memItemLeft"><a id="a3e0a90b3820a55499e6cc3dca7c17775" name="a3e0a90b3820a55499e6cc3dca7c17775"></a>
 bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a3e0a90b3820a55499e6cc3dca7c17775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string for object_id (no payload). <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Home Assistant MQTT Discovery publisher (transport-agnostic). </p>
@@ -320,18 +332,7 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
       </table>
 </div><div class="memdoc">
 
-<p>Remove an entity from Home Assistant by clearing its retained config topic. </p>
-<p>Home Assistant removes the entity when the Discovery config topic is published with an empty payload and retain=true.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">component</td><td>Component name (e.g. "sensor", "switch") </td></tr>
-    <tr><td class="paramname">object_id</td><td>Entity object_id used in the config topic </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 if supported) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise</dd></dl>
-<p>Publish a binary_sensor Discovery config (retained by default).</p>
+<p>Publish a binary_sensor Discovery config (retained by default). </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cfg</td><td>Binary sensor configuration </td></tr>
@@ -541,6 +542,44 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 
 </div>
 </div>
+<a id="a9818a9054781af08f9892f943bf54efd" name="a9818a9054781af08f9892f943bf54efd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9818a9054781af08f9892f943bf54efd">&#9670;&#160;</a></span>removeEntity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::removeEntity </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>component</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove an entity from Home Assistant by clearing its retained config topic. </p>
+<p>Home Assistant removes the entity when the Discovery config topic is published with an empty payload and retain=true.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">component</td><td>Component name (e.g. "sensor", "switch") </td></tr>
+    <tr><td class="paramname">object_id</td><td>Entity object_id used in the config topic </td></tr>
+    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 if supported) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+
+</div>
+</div>
 <a id="aaef9ba1e9f8e90165aa8269b68183077" name="aaef9ba1e9f8e90165aa8269b68183077"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaef9ba1e9f8e90165aa8269b68183077">&#9670;&#160;</a></span>setDevice()</h2>
 
@@ -561,6 +600,31 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">dev</td><td>Device info struct (pointers must remain valid) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4613640966a1eefb154485dfa9a3bf05" name="a4613640966a1eefb154485dfa9a3bf05"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4613640966a1eefb154485dfa9a3bf05">&#9670;&#160;</a></span>setLogLevel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HaDiscovery::setLogLevel </td>
+          <td>(</td>
+          <td class="paramtype">LogLevel</td>          <td class="paramname"><span class="paramname"><em>level</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the minimum log level for the internal logger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">level</td><td>The minimum log level to be logged. </td></tr>
   </table>
   </dd>
 </dl>

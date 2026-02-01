@@ -11,25 +11,19 @@ var group__transport =
     [ "MqttTransport", "class_mqtt_transport.html", [
       [ "connected", "class_mqtt_transport.html#ae9b1703e8c0356febde9b891f997f372", null ],
       [ "publish", "class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce", null ],
+      [ "setLogger", "class_mqtt_transport.html#a3b50717c5593263cce3e727a55489d9c", null ],
       [ "setOnConnect", "class_mqtt_transport.html#a567d76c233d37aebb8e1cdccfbe16d1d", null ],
       [ "setServer", "class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282", null ],
       [ "setServer", "class_mqtt_transport.html#ad38dc3536fc19fe6fb7ae6616a569a73", null ],
       [ "tick", "class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4", null ]
     ] ],
     [ "PubSubClientTransport", "class_pub_sub_client_transport.html", [
-      [ "PubSubClientTransport", "group__transport.html#ga8a892c595465c043fc0a994489b74cc6", null ],
-      [ "connected", "group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76", null ],
-      [ "publish", "group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc", null ],
-      [ "setOnConnect", "group__transport.html#ga6970c39726c419520af31357c30c2f83", null ],
-      [ "setServer", "group__transport.html#gaab1f87f75140a5304677f6e18f1598db", null ],
-      [ "setServer", "group__transport.html#gaa445c2cb1f437c53548328bd1e61face", null ],
-      [ "tick", "group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6", null ]
-    ] ],
-    [ "PubSubClientTransport::connected", "group__transport.html#ga7530c95cad1fa5e0d808de23a2214e76", null ],
-    [ "PubSubClientTransport::publish", "group__transport.html#gad8e42fa0c3ef0f40f7920d42067b82dc", null ],
-    [ "PubSubClientTransport::PubSubClientTransport", "group__transport.html#ga8a892c595465c043fc0a994489b74cc6", null ],
-    [ "PubSubClientTransport::setOnConnect", "group__transport.html#ga6970c39726c419520af31357c30c2f83", null ],
-    [ "PubSubClientTransport::setServer", "group__transport.html#gaab1f87f75140a5304677f6e18f1598db", null ],
-    [ "PubSubClientTransport::setServer", "group__transport.html#gaa445c2cb1f437c53548328bd1e61face", null ],
-    [ "PubSubClientTransport::tick", "group__transport.html#gaf56a4320f7e10a2d0e6ccba679f958f6", null ]
+      [ "PubSubClientTransport", "class_pub_sub_client_transport.html#a8a892c595465c043fc0a994489b74cc6", null ],
+      [ "connected", "class_pub_sub_client_transport.html#a7530c95cad1fa5e0d808de23a2214e76", null ],
+      [ "publish", "class_pub_sub_client_transport.html#ad8e42fa0c3ef0f40f7920d42067b82dc", null ],
+      [ "setOnConnect", "class_pub_sub_client_transport.html#a6970c39726c419520af31357c30c2f83", null ],
+      [ "setServer", "class_pub_sub_client_transport.html#aab1f87f75140a5304677f6e18f1598db", null ],
+      [ "setServer", "class_pub_sub_client_transport.html#aa445c2cb1f437c53548328bd1e61face", null ],
+      [ "tick", "class_pub_sub_client_transport.html#af56a4320f7e10a2d0e6ccba679f958f6", null ]
+    ] ]
 ];
