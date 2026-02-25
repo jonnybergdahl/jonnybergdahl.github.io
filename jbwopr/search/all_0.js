@@ -2,7 +2,7 @@ var searchData=
 [
   ['_5faddavailabilitydata_0',['_addAvailabilityData',['../class_j_b_wopr_h_a_device.html#a6e037fb6070c10461bce52b3d0088a59',1,'JBWoprHADevice']]],
   ['_5fadddevicedata_1',['_addDeviceData',['../class_j_b_wopr_h_a_device.html#ae83fc6fff971f4d4b39aa7eb3ee734d1',1,'JBWoprHADevice']]],
-  ['_5fadddiscoverypayload_2',['_addDiscoveryPayload',['../class_j_b_wopr_h_a_device.html#af23a0c377d4bcdda4c7ec3802e3bc04b',1,'JBWoprHADevice']]],
+  ['_5fadddiscoverypayload_2',['_addDiscoveryPayload',['../class_j_b_wopr_h_a_device.html#aa4ad5a59039b4d1e77dc05f87294c892',1,'JBWoprHADevice']]],
   ['_5falignment_3',['_alignment',['../class_j_b_wopr_text_display_effect.html#a4df2c751f228a9d497c3755ca129942b',1,'JBWoprTextDisplayEffect']]],
   ['_5fapcallback_4',['_apCallback',['../group___wi_fi_group.html#ga6e1a688ffb3772e51857312e2d27acc7',1,'JBWoprWiFiDevice']]],
   ['_5fapname_5',['_apName',['../class_j_b_wopr_wi_fi_device.html#a527b27335737ef5302c266043260c707',1,'JBWoprWiFiDevice']]],

@@ -3,7 +3,7 @@ var class_j_b_wopr_h_a_device =
     [ "JBWoprHADevice", "class_j_b_wopr_h_a_device.html#ab9edbc4d8ae0ed98a15cb5e124fcf0b2", null ],
     [ "_addAvailabilityData", "class_j_b_wopr_h_a_device.html#a6e037fb6070c10461bce52b3d0088a59", null ],
     [ "_addDeviceData", "class_j_b_wopr_h_a_device.html#ae83fc6fff971f4d4b39aa7eb3ee734d1", null ],
-    [ "_addDiscoveryPayload", "class_j_b_wopr_h_a_device.html#af23a0c377d4bcdda4c7ec3802e3bc04b", null ],
+    [ "_addDiscoveryPayload", "class_j_b_wopr_h_a_device.html#aa4ad5a59039b4d1e77dc05f87294c892", null ],
     [ "_dumpConfig", "class_j_b_wopr_h_a_device.html#a35625ac6d78067fe25b82a3aaddb15ab", null ],
     [ "_getDiscoveryTopic", "class_j_b_wopr_h_a_device.html#abacd71862bd796b49febbe5624ea1656", null ],
     [ "_homeAssistantPublishConfig", "class_j_b_wopr_h_a_device.html#a29575c14af15b622c1c9caf8a1c1381a", null ],
