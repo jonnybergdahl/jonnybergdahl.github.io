@@ -51,12 +51,14 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yt_live_scraper.scraper">yt_live_scraper.scraper module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus"><code class="docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.UpcomingStream"><code class="docutils literal notranslate"><span class="pre">UpcomingStream</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_upcoming_streams"><code class="docutils literal notranslate"><span class="pre">get_upcoming_streams()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.is_stream_live"><code class="docutils literal notranslate"><span class="pre">is_stream_live()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yt_live_scraper">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.StreamLiveStatus"><code class="docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.UpcomingStream"><code class="docutils literal notranslate"><span class="pre">UpcomingStream</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.get_upcoming_streams"><code class="docutils literal notranslate"><span class="pre">get_upcoming_streams()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.is_stream_live"><code class="docutils literal notranslate"><span class="pre">is_stream_live()</span></code></a></li>
@@ -119,6 +121,33 @@
 <section id="module-yt_live_scraper.scraper">
 <span id="yt-live-scraper-scraper-module"></span><h2>yt_live_scraper.scraper module<a class="headerlink" href="#module-yt_live_scraper.scraper" title="Link to this heading"></a></h2>
 <p>Scrape YouTube channel pages for live and upcoming stream events.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.StreamLiveStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">StreamLiveStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_live</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.StreamLiveStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Result of checking whether a stream is live.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_live</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the stream is currently live.</p></li>
+<li><p><strong>actual_start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – The actual broadcast start time in UTC, extracted from
+<code class="docutils literal notranslate"><span class="pre">liveBroadcastDetails.startTimestamp</span></code>.  <code class="docutils literal notranslate"><span class="pre">None</span></code> when
+the timestamp is unavailable or the stream is not live.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.StreamLiveStatus.actual_start">
+<span class="sig-name descname"><span class="pre">actual_start</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#yt_live_scraper.scraper.StreamLiveStatus.actual_start" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.StreamLiveStatus.is_live">
+<span class="sig-name descname"><span class="pre">is_live</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#yt_live_scraper.scraper.StreamLiveStatus.is_live" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.scraper.UpcomingStream">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">UpcomingStream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">video_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduled_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">live</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.UpcomingStream" title="Link to this definition"></a></dt>
@@ -228,7 +257,9 @@ start time.</p>
 <span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">is_stream_live</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_id</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.is_stream_live" title="Link to this definition"></a></dt>
 <dd><p>Check whether a YouTube stream is currently live.</p>
 <p>Fetches the video page and inspects the player response for the
-<code class="docutils literal notranslate"><span class="pre">isLive</span></code> flag inside <code class="docutils literal notranslate"><span class="pre">videoDetails</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">isLive</span></code> flag inside <code class="docutils literal notranslate"><span class="pre">videoDetails</span></code>.  When the stream is live,
+the actual broadcast start time is extracted from
+<code class="docutils literal notranslate"><span class="pre">liveBroadcastDetails.startTimestamp</span></code> if available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -237,11 +268,12 @@ start time.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus" title="yt_live_scraper.scraper.StreamLiveStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the stream is currently live, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise
-(including on network errors).</p>
+<dd class="field-odd"><p>A <a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus" title="yt_live_scraper.scraper.StreamLiveStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a> with the live flag and, when
+available, the actual start time.  On network or parse errors
+the status defaults to not-live with no start time.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -249,6 +281,33 @@ start time.</p>
 </section>
 <section id="module-yt_live_scraper">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yt_live_scraper" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yt_live_scraper.StreamLiveStatus">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">StreamLiveStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_live</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.StreamLiveStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Result of checking whether a stream is live.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>is_live</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the stream is currently live.</p></li>
+<li><p><strong>actual_start</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">datetime</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>) – The actual broadcast start time in UTC, extracted from
+<code class="docutils literal notranslate"><span class="pre">liveBroadcastDetails.startTimestamp</span></code>.  <code class="docutils literal notranslate"><span class="pre">None</span></code> when
+the timestamp is unavailable or the stream is not live.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.StreamLiveStatus.actual_start">
+<span class="sig-name descname"><span class="pre">actual_start</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></span><a class="headerlink" href="#yt_live_scraper.StreamLiveStatus.actual_start" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.StreamLiveStatus.is_live">
+<span class="sig-name descname"><span class="pre">is_live</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></span><a class="headerlink" href="#yt_live_scraper.StreamLiveStatus.is_live" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.UpcomingStream">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">UpcomingStream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">video_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scheduled_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">live</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.UpcomingStream" title="Link to this definition"></a></dt>
@@ -358,7 +417,9 @@ start time.</p>
 <span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">is_stream_live</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">video_id</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.is_stream_live" title="Link to this definition"></a></dt>
 <dd><p>Check whether a YouTube stream is currently live.</p>
 <p>Fetches the video page and inspects the player response for the
-<code class="docutils literal notranslate"><span class="pre">isLive</span></code> flag inside <code class="docutils literal notranslate"><span class="pre">videoDetails</span></code>.</p>
+<code class="docutils literal notranslate"><span class="pre">isLive</span></code> flag inside <code class="docutils literal notranslate"><span class="pre">videoDetails</span></code>.  When the stream is live,
+the actual broadcast start time is extracted from
+<code class="docutils literal notranslate"><span class="pre">liveBroadcastDetails.startTimestamp</span></code> if available.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -367,11 +428,12 @@ start time.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus" title="yt_live_scraper.scraper.StreamLiveStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the stream is currently live, <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise
-(including on network errors).</p>
+<dd class="field-odd"><p>A <a class="reference internal" href="#yt_live_scraper.StreamLiveStatus" title="yt_live_scraper.StreamLiveStatus"><code class="xref py py-class docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a> with the live flag and, when
+available, the actual start time.  On network or parse errors
+the status defaults to not-live with no start time.</p>
 </dd>
 </dl>
 </dd></dl>
