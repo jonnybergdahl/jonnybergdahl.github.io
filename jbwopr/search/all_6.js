@@ -13,6 +13,5 @@ var searchData=
   ['getloglevel_10',['getLogLevel',['../group___logging_group.html#ga1efbc2e41bb745ea228ac9bdaca99878',1,'JBWoprDevice::getLogLevel()'],['../class_j_b_wopr_h_a_device.html#a810e1edff463649febb0001b1a65f877',1,'JBWoprHADevice::getLogLevel()'],['../class_j_b_wopr_mqtt_device.html#a8808b8ba9b999a2a44c4ca41a69c41b0',1,'JBWoprMqttDevice::getLogLevel()'],['../class_j_b_wopr_wi_fi_device.html#a9ba2a90d6ede0dbe2e9f127bdec3b3ac',1,'JBWoprWiFiDevice::getLogLevel()']]],
   ['getname_11',['getName',['../class_j_b_wopr_effect_base.html#a9bfe692df081e81c5310bdbec7a1b7df',1,'JBWoprEffectBase']]],
   ['getrightalignedstring_12',['getRightAlignedString',['../class_j_b_string_helper.html#a89ae72ec201a3db2c402df246d681a8b',1,'JBStringHelper']]],
-  ['gettime_13',['getTime',['../class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58',1,'JBTimeHelper']]],
-  ['getutcoffsetinseconds_14',['getUtcOffsetInSeconds',['../class_j_b_time_helper.html#abc56fc900fd2858a94bae298bf2b7171',1,'JBTimeHelper']]]
+  ['gettime_13',['getTime',['../class_j_b_time_helper.html#ae00bf8ec57effada98d7ab8ea953cc58',1,'JBTimeHelper']]]
 ];

@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"group___mqtt_group.html#gaea0713f2527a793e2402151ac6084071":[8,8,14],
 "group___mqtt_group.html#gaedd4719f39724598320693d9585bf73b":[8,8,6],
 "group___mqtt_group.html#gafab34e70b203cfc6aaf189e116e3d089":[8,8,9],
 "group___wi_fi_group.html":[8,7],
@@ -125,7 +126,9 @@ var NAVTREEINDEX2 =
 "struct_j_b_wopr_wi_fi_configuration.html":[9,0,23],
 "struct_j_b_wopr_wi_fi_configuration.html#a0f1be4cac853b4a055fcf9eece32770d":[9,0,23,3],
 "struct_j_b_wopr_wi_fi_configuration.html#a33721a2490cc8bc05088b8a96c648b0e":[9,0,23,0],
-"struct_j_b_wopr_wi_fi_configuration.html#a6bc476dcc64f2bfd1d947e0d9f1907b8":[9,0,23,2],
 "struct_j_b_wopr_wi_fi_configuration.html#ad26e38e42f4e16eee9e0e3b173a14d80":[9,0,23,1],
-"topics.html":[8]
+"struct_j_b_wopr_wi_fi_configuration.html#ae1859b0741da56b0835e0921593c10d4":[9,0,23,2],
+"struct_tz_data.html":[9,0,26],
+"topics.html":[8],
+"tz__data_8h_source.html":[10,0,0,9]
 };

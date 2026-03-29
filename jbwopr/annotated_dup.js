@@ -25,5 +25,6 @@ var annotated_dup =
     [ "JBWoprTimeDisplayRainbowEffect", "class_j_b_wopr_time_display_rainbow_effect.html", "class_j_b_wopr_time_display_rainbow_effect" ],
     [ "JBWoprWiFiConfiguration", "struct_j_b_wopr_wi_fi_configuration.html", "struct_j_b_wopr_wi_fi_configuration" ],
     [ "JBWoprWiFiDevice", "class_j_b_wopr_wi_fi_device.html", "class_j_b_wopr_wi_fi_device" ],
-    [ "JBWoprXmasSecondsDisplayEffect", "class_j_b_wopr_xmas_seconds_display_effect.html", "class_j_b_wopr_xmas_seconds_display_effect" ]
+    [ "JBWoprXmasSecondsDisplayEffect", "class_j_b_wopr_xmas_seconds_display_effect.html", "class_j_b_wopr_xmas_seconds_display_effect" ],
+    [ "TzData", "struct_tz_data.html", null ]
 ];

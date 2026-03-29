@@ -8,5 +8,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "jbwoprhelpers.cpp", "jbwoprhelpers_8cpp.html", null ],
     [ "jbwoprhelpers.h", "jbwoprhelpers_8h_source.html", null ],
     [ "jbwoprmqtt.h", "jbwoprmqtt_8h.html", "jbwoprmqtt_8h" ],
-    [ "jbwoprwifi.h", "jbwoprwifi_8h.html", "jbwoprwifi_8h" ]
+    [ "jbwoprwifi.h", "jbwoprwifi_8h.html", "jbwoprwifi_8h" ],
+    [ "tz_data.h", "tz__data_8h_source.html", null ]
 ];

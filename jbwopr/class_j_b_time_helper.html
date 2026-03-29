@@ -99,10 +99,8 @@ $(function(){initNavTree('class_j_b_time_helper.html','','class_j_b_time_helper-
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ae54618bcf181ca600305eb6ea4c979fe" id="r_ae54618bcf181ca600305eb6ea4c979fe"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#ae54618bcf181ca600305eb6ea4c979fe">configure</a> (JBLogger *log, std::string ntpServer=&quot;&quot;, std::string timeOffsetString=&quot;&quot;)</td></tr>
-<tr class="memdesc:ae54618bcf181ca600305eb6ea4c979fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure helper with NTP Server and time offset.  <br /></td></tr>
-<tr class="memitem:abc56fc900fd2858a94bae298bf2b7171" id="r_abc56fc900fd2858a94bae298bf2b7171"><td class="memItemLeft">static int64_t&#160;</td><td class="memItemRight"><a class="el" href="#abc56fc900fd2858a94bae298bf2b7171">getUtcOffsetInSeconds</a> ()</td></tr>
-<tr class="memdesc:abc56fc900fd2858a94bae298bf2b7171"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get UTC offset in seconds.  <br /></td></tr>
+<tr class="memitem:a2933c7c5ed29b4f40ef6cef99c7864fb" id="r_a2933c7c5ed29b4f40ef6cef99c7864fb"><td class="memItemLeft">static void&#160;</td><td class="memItemRight"><a class="el" href="#a2933c7c5ed29b4f40ef6cef99c7864fb">configure</a> (JBLogger *log, std::string ntpServer=&quot;&quot;, std::string tzString=&quot;&quot;)</td></tr>
+<tr class="memdesc:a2933c7c5ed29b4f40ef6cef99c7864fb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configure helper with NTP Server and time offset.  <br /></td></tr>
 <tr class="memitem:ae00bf8ec57effada98d7ab8ea953cc58" id="r_ae00bf8ec57effada98d7ab8ea953cc58"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#ae00bf8ec57effada98d7ab8ea953cc58">getTime</a> (tm *info)</td></tr>
 <tr class="memdesc:ae00bf8ec57effada98d7ab8ea953cc58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get local time.  <br /></td></tr>
 <tr class="memitem:af09d0f5afe97784b42aa9e3895e343f4" id="r_af09d0f5afe97784b42aa9e3895e343f4"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#af09d0f5afe97784b42aa9e3895e343f4">setTime</a> (const std::string currentDateTime)</td></tr>
@@ -112,8 +110,8 @@ Static Public Member Functions</h2></td></tr>
 <p>Provides utility methods for time management, including configuring an NTP server, retrieving UTC offset, and setting local time.</p>
 <p>This class allows for synchronization with an NTP server to obtain accurate time, calculates the UTC offset using external APIs, and provides methods to obtain or set the local time. </p>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="ae54618bcf181ca600305eb6ea4c979fe" name="ae54618bcf181ca600305eb6ea4c979fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae54618bcf181ca600305eb6ea4c979fe">&#9670;&#160;</a></span>configure()</h2>
+<a id="a2933c7c5ed29b4f40ef6cef99c7864fb" name="a2933c7c5ed29b4f40ef6cef99c7864fb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2933c7c5ed29b4f40ef6cef99c7864fb">&#9670;&#160;</a></span>configure()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -134,7 +132,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>timeOffsetString</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
+          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>tzString</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -186,34 +184,6 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <p>Uses NTP server pool.ntp.org to set local time </p><dl class="section return"><dt>Returns</dt><dd>True if successful </dd></dl>
-
-</div>
-</div>
-<a id="abc56fc900fd2858a94bae298bf2b7171" name="abc56fc900fd2858a94bae298bf2b7171"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc56fc900fd2858a94bae298bf2b7171">&#9670;&#160;</a></span>getUtcOffsetInSeconds()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int64_t JBTimeHelper::getUtcOffsetInSeconds </td>
-          <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get UTC offset in seconds. </p>
-<p>Uses <a href="https://ipapi.co/timezone/">https://ipapi.co/timezone/</a> to get the local UTC offset </p><dl class="section return"><dt>Returns</dt><dd>UTC offset in seconds </dd></dl>
 
 </div>
 </div>

@@ -35,5 +35,6 @@ var hierarchy =
     [ "JBWoprHAConfig", "struct_j_b_wopr_h_a_config.html", null ],
     [ "JBWoprMqttConfig", "struct_j_b_wopr_mqtt_config.html", null ],
     [ "JBWoprWiFiConfiguration", "struct_j_b_wopr_wi_fi_configuration.html", null ],
-    [ "JBWoprSongEffect::Note", "struct_j_b_wopr_song_effect_1_1_note.html", null ]
+    [ "JBWoprSongEffect::Note", "struct_j_b_wopr_song_effect_1_1_note.html", null ],
+    [ "TzData", "struct_tz_data.html", null ]
 ];

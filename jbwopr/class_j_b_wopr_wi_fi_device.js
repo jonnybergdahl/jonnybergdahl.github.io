@@ -35,7 +35,8 @@ var class_j_b_wopr_wi_fi_device =
     [ "_ntpServerNameParam", "class_j_b_wopr_wi_fi_device.html#ada187646d8d3b77f0e35625c7057ec33", null ],
     [ "_shouldSaveConfig", "class_j_b_wopr_wi_fi_device.html#a3457b554c01b03dcf9e03e74f443012f", null ],
     [ "_timeFormatParam", "class_j_b_wopr_wi_fi_device.html#aa80e9d7f936efc00c566ae9b81e87d00", null ],
-    [ "_timeOffsetParam", "class_j_b_wopr_wi_fi_device.html#af6ceb036fade3340474530579d43470a", null ],
+    [ "_tzHtml", "class_j_b_wopr_wi_fi_device.html#af65f6fbcd800798f696413877f1125e6", null ],
+    [ "_tzStringParam", "class_j_b_wopr_wi_fi_device.html#a0e6cb4667349fbc36443706c56573b73", null ],
     [ "_useWebPortalParam", "class_j_b_wopr_wi_fi_device.html#ab030cefac80e74fbca99c01a071d6e26", null ],
     [ "_wifiConfig", "class_j_b_wopr_wi_fi_device.html#a2c37a1804d538dba3101468433505f91", null ],
     [ "_wifiManager", "class_j_b_wopr_wi_fi_device.html#ae2cf89942707a55dc450261e0d7f8eff", null ],
@@ -52,7 +53,7 @@ var class_j_b_wopr_wi_fi_device =
     [ "JSON_KEY_TIME_FORMAT", "class_j_b_wopr_wi_fi_device.html#a71b2710d0656e51131d3a1b19caf3d20", null ],
     [ "JSON_KEY_WIFI_HOST_NAME", "class_j_b_wopr_wi_fi_device.html#a309bb6d3845ebc921da92f55e3a61c96", null ],
     [ "JSON_KEY_WIFI_NTP_SERVER", "class_j_b_wopr_wi_fi_device.html#a2538687456fc6a68177454a087d4215e", null ],
-    [ "JSON_KEY_WIFI_TIME_OFFSET", "class_j_b_wopr_wi_fi_device.html#a340a51b066f3cd7d3a75a9c7f31b73e2", null ],
+    [ "JSON_KEY_WIFI_TIMEZONE", "class_j_b_wopr_wi_fi_device.html#a8d8e30a089a9270e83e75086210c3d0a", null ],
     [ "JSON_KEY_WIFI_USE_WEB_PORTAL", "class_j_b_wopr_wi_fi_device.html#a5bbd3bdb3e8e672cfea620b61c766cd6", null ],
     [ "WEB_PORTAL_PASSWORD", "class_j_b_wopr_wi_fi_device.html#a544d97c4c58477bda4d308b8861b2b3e", null ]
 ];

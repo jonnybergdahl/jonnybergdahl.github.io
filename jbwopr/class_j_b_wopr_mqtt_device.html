@@ -536,9 +536,9 @@ const char *&#160;</td><td class="memItemRight"><b>JSON_KEY_WIFI_HOST_NAME</b> =
 <tr class="memitem:a2538687456fc6a68177454a087d4215e inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a2538687456fc6a68177454a087d4215e"><td class="memItemLeft">
 const char *&#160;</td><td class="memItemRight"><b>JSON_KEY_WIFI_NTP_SERVER</b> = &quot;ntpServer&quot;</td></tr>
 <tr class="memdesc:a2538687456fc6a68177454a087d4215e inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTP Server key name. <br /></td></tr>
-<tr class="memitem:a340a51b066f3cd7d3a75a9c7f31b73e2 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a340a51b066f3cd7d3a75a9c7f31b73e2"><td class="memItemLeft">
-const char *&#160;</td><td class="memItemRight"><b>JSON_KEY_WIFI_TIME_OFFSET</b> = &quot;timeOffsetString&quot;</td></tr>
-<tr class="memdesc:a340a51b066f3cd7d3a75a9c7f31b73e2 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTP Server key name. <br /></td></tr>
+<tr class="memitem:a8d8e30a089a9270e83e75086210c3d0a inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a8d8e30a089a9270e83e75086210c3d0a"><td class="memItemLeft">
+const char *&#160;</td><td class="memItemRight"><b>JSON_KEY_WIFI_TIMEZONE</b> = &quot;tzString&quot;</td></tr>
+<tr class="memdesc:a8d8e30a089a9270e83e75086210c3d0a inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timezone key name. <br /></td></tr>
 <tr class="memitem:a5bbd3bdb3e8e672cfea620b61c766cd6 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a5bbd3bdb3e8e672cfea620b61c766cd6"><td class="memItemLeft">
 const char *&#160;</td><td class="memItemRight"><b>JSON_KEY_WIFI_USE_WEB_PORTAL</b> = &quot;useWebPortal&quot;</td></tr>
 <tr class="memdesc:a5bbd3bdb3e8e672cfea620b61c766cd6 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use portal key name. <br /></td></tr>
@@ -584,12 +584,15 @@ WiFiManagerParameter *&#160;</td><td class="memItemRight"><b>_hostNameParam</b><
 <tr class="memitem:ada187646d8d3b77f0e35625c7057ec33 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_ada187646d8d3b77f0e35625c7057ec33"><td class="memItemLeft">
 WiFiManagerParameter *&#160;</td><td class="memItemRight"><b>_ntpServerNameParam</b></td></tr>
 <tr class="memdesc:ada187646d8d3b77f0e35625c7057ec33 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">NTP Server address. <br /></td></tr>
-<tr class="memitem:af6ceb036fade3340474530579d43470a inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_af6ceb036fade3340474530579d43470a"><td class="memItemLeft">
-WiFiManagerParameter *&#160;</td><td class="memItemRight"><b>_timeOffsetParam</b></td></tr>
-<tr class="memdesc:af6ceb036fade3340474530579d43470a inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Time offset. <br /></td></tr>
+<tr class="memitem:a0e6cb4667349fbc36443706c56573b73 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_a0e6cb4667349fbc36443706c56573b73"><td class="memItemLeft">
+WiFiManagerParameter *&#160;</td><td class="memItemRight"><b>_tzStringParam</b></td></tr>
+<tr class="memdesc:a0e6cb4667349fbc36443706c56573b73 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timezone string. <br /></td></tr>
 <tr class="memitem:ab030cefac80e74fbca99c01a071d6e26 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_ab030cefac80e74fbca99c01a071d6e26"><td class="memItemLeft">
 WiFiManagerParameter *&#160;</td><td class="memItemRight"><b>_useWebPortalParam</b></td></tr>
 <tr class="memdesc:ab030cefac80e74fbca99c01a071d6e26 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Use web portal parameter. <br /></td></tr>
+<tr class="memitem:af65f6fbcd800798f696413877f1125e6 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_af65f6fbcd800798f696413877f1125e6"><td class="memItemLeft">
+std::string&#160;</td><td class="memItemRight"><b>_tzHtml</b></td></tr>
+<tr class="memdesc:af65f6fbcd800798f696413877f1125e6 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timezone HTML string. <br /></td></tr>
 <tr class="memitem:af7b7a3f53735ac09c4cd0892e4f501f2 inherit pro_attribs_class_j_b_wopr_wi_fi_device" id="r_af7b7a3f53735ac09c4cd0892e4f501f2"><td class="memItemLeft">
 char&#160;</td><td class="memItemRight"><b>_effectsTimeoutValue</b> [4]</td></tr>
 <tr class="memdesc:af7b7a3f53735ac09c4cd0892e4f501f2 inherit pro_attribs_class_j_b_wopr_wi_fi_device"><td class="mdescLeft">&#160;</td><td class="mdescRight">Effects timeout value, set in WiFiManager callback. <br /></td></tr>
