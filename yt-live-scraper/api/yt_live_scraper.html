@@ -53,6 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-yt_live_scraper.scraper">yt_live_scraper.scraper module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus"><code class="docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.UpcomingStream"><code class="docutils literal notranslate"><span class="pre">UpcomingStream</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_channel"><code class="docutils literal notranslate"><span class="pre">get_channel()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_upcoming_streams"><code class="docutils literal notranslate"><span class="pre">get_upcoming_streams()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.is_stream_live"><code class="docutils literal notranslate"><span class="pre">is_stream_live()</span></code></a></li>
 </ul>
@@ -233,6 +234,26 @@ the timestamp is unavailable or the stream is not live.</p></li>
 <span class="sig-name descname"><span class="pre">video_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.scraper.UpcomingStream.video_id" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.get_channel">
+<span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">get_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_handle</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.get_channel" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of a YouTube channel from its handle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_handle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel handle (with or without leading <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p></li>
+<li><p><strong>timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – HTTP request timeout in seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The channel’s display name, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it does not exist.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
