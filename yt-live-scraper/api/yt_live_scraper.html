@@ -51,16 +51,21 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yt_live_scraper.scraper">yt_live_scraper.scraper module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.ChannelInfo"><code class="docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.StreamLiveStatus"><code class="docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.UpcomingStream"><code class="docutils literal notranslate"><span class="pre">UpcomingStream</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_channel"><code class="docutils literal notranslate"><span class="pre">get_channel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_channel_info"><code class="docutils literal notranslate"><span class="pre">get_channel_info()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.get_upcoming_streams"><code class="docutils literal notranslate"><span class="pre">get_upcoming_streams()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.scraper.is_stream_live"><code class="docutils literal notranslate"><span class="pre">is_stream_live()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-yt_live_scraper">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.ChannelInfo"><code class="docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.StreamLiveStatus"><code class="docutils literal notranslate"><span class="pre">StreamLiveStatus</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.UpcomingStream"><code class="docutils literal notranslate"><span class="pre">UpcomingStream</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.get_channel"><code class="docutils literal notranslate"><span class="pre">get_channel()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.get_channel_info"><code class="docutils literal notranslate"><span class="pre">get_channel_info()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.get_upcoming_streams"><code class="docutils literal notranslate"><span class="pre">get_upcoming_streams()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#yt_live_scraper.is_stream_live"><code class="docutils literal notranslate"><span class="pre">is_stream_live()</span></code></a></li>
 </ul>
@@ -122,6 +127,37 @@
 <section id="module-yt_live_scraper.scraper">
 <span id="yt-live-scraper-scraper-module"></span><h2>yt_live_scraper.scraper module<a class="headerlink" href="#module-yt_live_scraper.scraper" title="Link to this heading"></a></h2>
 <p>Scrape YouTube channel pages for live and upcoming stream events.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Basic metadata for a YouTube channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel display name.</p></li>
+<li><p><strong>channel_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – YouTube channel ID.</p></li>
+<li><p><strong>thumbnail_url</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – URL of the channel’s avatar image.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo.channel_id">
+<span class="sig-name descname"><span class="pre">channel_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo.channel_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo.thumbnail_url">
+<span class="sig-name descname"><span class="pre">thumbnail_url</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo.thumbnail_url" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.scraper.StreamLiveStatus">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">StreamLiveStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_live</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.StreamLiveStatus" title="Link to this definition"></a></dt>
@@ -257,6 +293,27 @@ the timestamp is unavailable or the stream is not live.</p></li>
 </dd></dl>
 
 <dl class="py function">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.get_channel_info">
+<span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">get_channel_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_handle</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.get_channel_info" title="Link to this definition"></a></dt>
+<dd><p>Get basic metadata for a YouTube channel from its handle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_handle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel handle (with or without leading <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p></li>
+<li><p><strong>timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – HTTP request timeout in seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#yt_live_scraper.scraper.ChannelInfo" title="yt_live_scraper.scraper.ChannelInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="#yt_live_scraper.scraper.ChannelInfo" title="yt_live_scraper.scraper.ChannelInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a> with the channel’s name, ID and avatar
+thumbnail URL, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the channel does not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="yt_live_scraper.scraper.get_upcoming_streams">
 <span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">get_upcoming_streams</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channels</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_date</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">15</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.get_upcoming_streams" title="Link to this definition"></a></dt>
 <dd><p>Fetch upcoming live streams for a list of YouTube channel handles.</p>
@@ -308,6 +365,37 @@ the status defaults to not-live with no start time.</p>
 </section>
 <section id="module-yt_live_scraper">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yt_live_scraper" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.ChannelInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Basic metadata for a YouTube channel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel display name.</p></li>
+<li><p><strong>channel_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – YouTube channel ID.</p></li>
+<li><p><strong>thumbnail_url</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – URL of the channel’s avatar image.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo.channel_id">
+<span class="sig-name descname"><span class="pre">channel_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.ChannelInfo.channel_id" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo.name">
+<span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.ChannelInfo.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo.thumbnail_url">
+<span class="sig-name descname"><span class="pre">thumbnail_url</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.ChannelInfo.thumbnail_url" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.StreamLiveStatus">
 <span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">StreamLiveStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">is_live</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">actual_start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.StreamLiveStatus" title="Link to this definition"></a></dt>
@@ -420,6 +508,47 @@ the timestamp is unavailable or the stream is not live.</p></li>
 <span class="sig-name descname"><span class="pre">video_id</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.UpcomingStream.video_id" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yt_live_scraper.get_channel">
+<span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">get_channel</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_handle</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.get_channel" title="Link to this definition"></a></dt>
+<dd><p>Get the display name of a YouTube channel from its handle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_handle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel handle (with or without leading <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p></li>
+<li><p><strong>timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – HTTP request timeout in seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The channel’s display name, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it does not exist.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yt_live_scraper.get_channel_info">
+<span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">get_channel_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">channel_handle</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.get_channel_info" title="Link to this definition"></a></dt>
+<dd><p>Get basic metadata for a YouTube channel from its handle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>channel_handle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel handle (with or without leading <code class="docutils literal notranslate"><span class="pre">&#64;</span></code>).</p></li>
+<li><p><strong>timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>) – HTTP request timeout in seconds.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#yt_live_scraper.scraper.ChannelInfo" title="yt_live_scraper.scraper.ChannelInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A <a class="reference internal" href="#yt_live_scraper.ChannelInfo" title="yt_live_scraper.ChannelInfo"><code class="xref py py-class docutils literal notranslate"><span class="pre">ChannelInfo</span></code></a> with the channel’s name, ID and avatar
+thumbnail URL, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if the channel does not exist.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py function">
