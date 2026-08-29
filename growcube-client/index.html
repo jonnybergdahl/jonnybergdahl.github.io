@@ -7,15 +7,15 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>growcube-client documentation &mdash; growcube-client  documentation</title>
-      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
 
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="_static/doctools.js?v=9a2dae69"></script>
-      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -128,23 +128,29 @@ Then run the sample with:</p>
 </pre></div>
 </div>
 <p>Source code:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asyncio</span>
-<span class="kn">from</span> <span class="nn">growcube_client</span> <span class="kn">import</span> <span class="n">GrowcubeReport</span><span class="p">,</span> <span class="n">GrowcubeClient</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">growcube_client</span><span class="w"> </span><span class="kn">import</span> <span class="n">GrowcubeReport</span><span class="p">,</span> <span class="n">GrowcubeClient</span>
 
 
 <span class="c1"># Define a on_message_callback function to print messages to the screen</span>
-<span class="k">def</span> <span class="nf">callback</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">GrowcubeReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">report</span><span class="p">:</span> <span class="n">GrowcubeReport</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Just dump the message to the console</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received: </span><span class="si">{</span><span class="n">report</span><span class="o">.</span><span class="n">get_description</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
-<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="c1"># Create a client instance</span>
     <span class="n">client</span> <span class="o">=</span> <span class="n">GrowcubeClient</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connecting to Growcube at </span><span class="si">{</span><span class="n">HOST</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-    <span class="c1"># Connect to the Growcube and start listening for messages</span>
-    <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="c1"># Connect to the Growcube and start listening for messages. This waits for</span>
+    <span class="c1"># the device to identify itself, so success means a Growcube really did</span>
+    <span class="c1"># answer. On failure the connection is already closed.</span>
+    <span class="n">connected</span><span class="p">,</span> <span class="n">error</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">connected</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Failed to connect: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">return</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Connected to device </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">device_id</span><span class="si">}</span><span class="s2">, firmware </span><span class="si">{</span><span class="n">client</span><span class="o">.</span><span class="n">version</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -281,7 +287,10 @@ can also specify that network to search in.</p>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="growcubeclient.html">Growcube client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="growcubeclient.html#growcube_client.growcubeclient.GrowcubeClient"><code class="docutils literal notranslate"><span class="pre">GrowcubeClient</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="growcubecommand.html">Growcube commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.ClosePumpCommand"><code class="docutils literal notranslate"><span class="pre">ClosePumpCommand</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubecommand.html#growcube_client.growcubecommand.GrowcubeCommand"><code class="docutils literal notranslate"><span class="pre">GrowcubeCommand</span></code></a></li>
@@ -305,6 +314,7 @@ can also specify that network to search in.</p>
 <li class="toctree-l1"><a class="reference internal" href="growcubeenums.html">Growcube enums</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.Channel"><code class="docutils literal notranslate"><span class="pre">Channel</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.WateringMode"><code class="docutils literal notranslate"><span class="pre">WateringMode</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubeenums.html#growcube_client.growcubeenums.WorkMode"><code class="docutils literal notranslate"><span class="pre">WorkMode</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="growcubemessage.html">Growcube message</a><ul>
@@ -317,9 +327,9 @@ can also specify that network to search in.</p>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="growcubereport.html">Growcube report</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.AutoWaterGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">AutoWaterGrowcubeReport</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckDuZhuanGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckDuZhuanGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckOutletBlockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckOutletBlockedGrowcubeReport</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckOutletLockedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckOutletLockedGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorGrowcubeReport</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorLockGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorLockGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckSensorNotConnectedGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckSensorNotConnectedGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.CheckWifiStateGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">CheckWifiStateGrowcubeReport</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="growcubereport.html#growcube_client.growcubereport.DeviceVersionGrowcubeReport"><code class="docutils literal notranslate"><span class="pre">DeviceVersionGrowcubeReport</span></code></a></li>
