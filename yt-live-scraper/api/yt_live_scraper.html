@@ -130,7 +130,7 @@
 <p>Scrape YouTube channel pages for live and upcoming stream events.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscriber_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic metadata for a YouTube channel.</p>
 <dl class="field-list simple">
@@ -139,6 +139,8 @@
 <li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel display name.</p></li>
 <li><p><strong>channel_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – YouTube channel ID.</p></li>
 <li><p><strong>thumbnail_url</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – URL of the channel’s avatar image.</p></li>
+<li><p><strong>subscriber_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Subscriber count as a human-readable string (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;1.2M&quot;</span></code>),
+or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if unavailable.</p></li>
 </ul>
 </dd>
 </dl>
@@ -150,6 +152,11 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo.name">
 <span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.scraper.ChannelInfo.subscriber_count">
+<span class="sig-name descname"><span class="pre">subscriber_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></span><a class="headerlink" href="#yt_live_scraper.scraper.ChannelInfo.subscriber_count" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -379,7 +386,7 @@ the status defaults to not-live with no start time.</p>
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yt_live_scraper" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.ChannelInfo" title="Link to this definition"></a></dt>
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">yt_live_scraper.</span></span><span class="sig-name descname"><span class="pre">ChannelInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">channel_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thumbnail_url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subscriber_count</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#yt_live_scraper.ChannelInfo" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>Basic metadata for a YouTube channel.</p>
 <dl class="field-list simple">
@@ -388,6 +395,8 @@ the status defaults to not-live with no start time.</p>
 <li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Channel display name.</p></li>
 <li><p><strong>channel_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – YouTube channel ID.</p></li>
 <li><p><strong>thumbnail_url</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – URL of the channel’s avatar image.</p></li>
+<li><p><strong>subscriber_count</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Subscriber count as a human-readable string (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;1.2M&quot;</span></code>),
+or <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code> if unavailable.</p></li>
 </ul>
 </dd>
 </dl>
@@ -399,6 +408,11 @@ the status defaults to not-live with no start time.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo.name">
 <span class="sig-name descname"><span class="pre">name</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><a class="headerlink" href="#yt_live_scraper.ChannelInfo.name" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="yt_live_scraper.ChannelInfo.subscriber_count">
+<span class="sig-name descname"><span class="pre">subscriber_count</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">''</span></span><a class="headerlink" href="#yt_live_scraper.ChannelInfo.subscriber_count" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
