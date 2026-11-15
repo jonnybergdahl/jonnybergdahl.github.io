@@ -3,10 +3,13 @@
 ## Documentation for my Python libraries
 
  - [growcube-client documentation](growcube-client/)
- - [newsbinpro-client documentation](newsbinpro-client/)
+ - [husdata-h66-modbus documentation](husdata-h66-modbus/)
+ - [newsbinpro-client documentation](newsbinpro_client/)
+ - [yt-live-scraper documentation](yt-live-scraper/)
 
 ## Documentation for my Arduino libraries
 
+ - [JBHaMqttDiscovery documentation](jbhamqttdiscovery/)
  - [JBLogger documentation](jblogger/)
  - [JBWopr documentation](jbwopr/)
 
