@@ -1,0 +1,579 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>husdata-h66-modbus documentation &mdash; husdata-h66-modbus 0.1.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=01f34227"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="husdata_h66" href="api/modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            husdata-h66-modbus
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">husdata_h66</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">husdata-h66-modbus</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">husdata-h66-modbus documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="husdata-h66-modbus-documentation">
+<h1>husdata-h66-modbus documentation<a class="headerlink" href="#husdata-h66-modbus-documentation" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jonny Bergdahl</p>
+</dd>
+<dt class="field-even">Date<span class="colon">:</span></dt>
+<dd class="field-even"><p>2026-11-15</p>
+</dd>
+<dt class="field-odd">Version<span class="colon">:</span></dt>
+<dd class="field-odd"><p>0.1.0</p>
+</dd>
+</dl>
+</section>
+<section id="husdata-h66-modbus">
+<h1>husdata-h66-modbus<a class="headerlink" href="#husdata-h66-modbus" title="Link to this heading"></a></h1>
+<p>Async Python library for the Modbus TCP interface of the <a class="reference external" href="https://husdata.se/produkt/h66-wifi-eth-gateway-styr-din-varmepump/">Husdata
+H66</a>
+heat pump gateway.</p>
+<p>It is built on
+<a class="reference external" href="https://github.com/home-assistant-libs/modbus-connection">modbus-connection</a>,
+the Modbus layer Home Assistant uses from 2026.9. The library never
+opens a connection itself: you give it a <code class="docutils literal notranslate"><span class="pre">ModbusUnit</span></code>, either from
+<code class="docutils literal notranslate"><span class="pre">modbus_connection</span></code> or from Home Assistant’s <code class="docutils literal notranslate"><span class="pre">async_get_unit</span></code>. It
+has no Home Assistant dependency.</p>
+<p>Tested with an H66 on firmware 360801 connected to an IVT Greenline
+(Rego 600 controller).</p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>husdata-h66-modbus
+</pre></div>
+</div>
+<p>Add the <code class="docutils literal notranslate"><span class="pre">cli</span></code> extra to get the pymodbus backend and the
+<code class="docutils literal notranslate"><span class="pre">husdata-h66</span></code> command line tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"husdata-h66-modbus[cli]"</span>
+</pre></div>
+</div>
+</section>
+<section id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Link to this heading"></a></h2>
+<p>The full library documentation can be <a class="reference external" href="https://jonnybergdahl.github.io/husdata-h66-modbus/">found
+here</a>.</p>
+</section>
+<section id="enable-modbus-on-the-h66">
+<h2>Enable Modbus on the H66<a class="headerlink" href="#enable-modbus-on-the-h66" title="Link to this heading"></a></h2>
+<p>Modbus TCP is off by default. On the H66 web page, open <strong>Config</strong> &gt;
+<strong>Modbus</strong>, set <code class="docutils literal notranslate"><span class="pre">MODBUS_PORT</span></code> to <code class="docutils literal notranslate"><span class="pre">502</span></code> and restart the H66.
+<code class="docutils literal notranslate"><span class="pre">MODBUS_IP</span></code> can limit which client may connect. The H66 accepts only
+one Modbus client at a time.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">modbus_connection</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModbusTcpParams</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">modbus_connection.pymodbus</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModbusConnection</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">husdata_h66</span><span class="w"> </span><span class="kn">import</span> <span class="n">HusdataH66</span>
+
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">ModbusConnection</span><span class="p">(</span><span class="n">ModbusTcpParams</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s2">"h66.local"</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">device</span> <span class="o">=</span> <span class="n">HusdataH66</span><span class="p">(</span><span class="n">connection</span><span class="o">.</span><span class="n">for_unit</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">await</span> <span class="n">device</span><span class="o">.</span><span class="n">async_update</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"outdoor"</span><span class="p">))</span>  <span class="c1"># 3.5 (°C)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"compressor"</span><span class="p">))</span>  <span class="c1"># True</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">device</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>  <span class="c1"># everything, keyed by register key</span>
+
+        <span class="k">await</span> <span class="n">device</span><span class="o">.</span><span class="n">async_set</span><span class="p">(</span><span class="s2">"room_setpoint"</span><span class="p">,</span> <span class="mf">21.5</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="k">await</span> <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>In Home Assistant, pass the unit from <code class="docutils literal notranslate"><span class="pre">async_get_unit</span></code> instead:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">unit</span> <span class="o">=</span> <span class="n">async_get_unit</span><span class="p">(</span>
+    <span class="n">hass</span><span class="p">,</span> <span class="n">entry</span><span class="p">,</span> <span class="n">ModbusTcpParams</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">CONF_HOST</span><span class="p">]),</span> <span class="n">entry</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">CONF_UNIT_ID</span><span class="p">]</span>
+<span class="p">)</span>
+<span class="n">entry</span><span class="o">.</span><span class="n">runtime_data</span> <span class="o">=</span> <span class="n">HusdataH66</span><span class="p">(</span><span class="n">unit</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">async_update()</span></code> reads all registers in three requests and returns an
+<code class="docutils literal notranslate"><span class="pre">UpdateReport</span></code>. It raises <code class="docutils literal notranslate"><span class="pre">ModbusConnectionError</span></code> or
+<code class="docutils literal notranslate"><span class="pre">ModbusTimeoutError</span></code> when the gateway cannot be reached.</p>
+<p><code class="docutils literal notranslate"><span class="pre">async_set()</span></code> takes the value in the register’s own unit and checks it
+against the register’s range and step. It raises <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> for an
+invalid value and <code class="docutils literal notranslate"><span class="pre">AttributeError</span></code> for a read-only register.
+<code class="docutils literal notranslate"><span class="pre">async_reset_alarm()</span></code> writes 1 to <strong>Alarm reset</strong>.</p>
+<p>From the command line (read-only):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>husdata-h66<span class="w"> </span>h66.local
+</pre></div>
+</div>
+</section>
+<section id="register-map">
+<h2>Register map<a class="headerlink" href="#register-map" title="Link to this heading"></a></h2>
+<p>The H66 numbers its Modbus registers one per parameter, in the order its
+home page lists them. Read-only parameters are INPUT registers, settings
+are HOLDING registers, and every register is a signed or unsigned 16-bit
+value. The addresses depend on the heat pump controller and can move
+after a firmware update or when you add custom registers in the H66.</p>
+<p><code class="docutils literal notranslate"><span class="pre">REGO600_REGISTERS</span></code> is the default map, for a Rego 600 controller on
+firmware 360801. To follow the H66 instead, fetch its home page and
+parse it:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">husdata_h66</span><span class="w"> </span><span class="kn">import</span> <span class="n">HusdataH66</span><span class="p">,</span> <span class="n">parse_firmware_version</span><span class="p">,</span> <span class="n">parse_registers</span>
+
+<span class="n">page</span> <span class="o">=</span> <span class="k">await</span> <span class="p">(</span><span class="k">await</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"http://h66.local/"</span><span class="p">))</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+<span class="n">device</span> <span class="o">=</span> <span class="n">HusdataH66</span><span class="p">(</span><span class="n">unit</span><span class="p">,</span> <span class="n">parse_registers</span><span class="p">(</span><span class="n">page</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">husdata-h66</span> <span class="pre">h66.local</span> <span class="pre">--from-web</span></code> does the same from the command
+line.</p>
+<p>Each parameter has a Husdata variable ID. Its first hex digit gives the
+type and scaling:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>First digit</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>Scale</p></th>
+<th class="head"><p>Unit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Temperature</p></td>
+<td><p>0.1</p></td>
+<td><p>°C</p></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Status</p></td>
+<td><p>1</p></td>
+<td><p>on/off</p></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Number</p></td>
+<td><p>0.1</p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Percent</p></td>
+<td><p>0.1</p></td>
+<td><p>%</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Energy</p></td>
+<td><p>0.1</p></td>
+<td><p>kWh</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Hours</p></td>
+<td><p>1</p></td>
+<td><p>h</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Minutes</p></td>
+<td><p>1</p></td>
+<td><p>min</p></td>
+</tr>
+<tr class="row-odd"><td><p>B</p></td>
+<td><p>Integer</p></td>
+<td><p>1</p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>C</p></td>
+<td><p>Power</p></td>
+<td><p>1</p></td>
+<td><p>W</p></td>
+</tr>
+</tbody>
+</table>
+<p>Temperatures and numbers are signed, the others unsigned. A temperature
+sensor that isn’t connected reads <code class="docutils literal notranslate"><span class="pre">None</span></code> (the H66 shows −48.3 °C).</p>
+<section id="rego-600-default-map">
+<h3>Rego 600 (default map)<a class="headerlink" href="#rego-600-default-map" title="Link to this heading"></a></h3>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Address</p></th>
+<th class="head"><p>Type</p></th>
+<th class="head"><p>ID</p></th>
+<th class="head"><p>Key</p></th>
+<th class="head"><p>Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>0</p></td>
+<td><p>Input</p></td>
+<td><p>0001</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">radiator_return</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>1</p></td>
+<td><p>Input</p></td>
+<td><p>0002</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">radiator_forward</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>2</p></td>
+<td><p>Input</p></td>
+<td><p>0003</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heat_carrier_return</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>3</p></td>
+<td><p>Input</p></td>
+<td><p>0004</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heat_carrier_forward</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>4</p></td>
+<td><p>Input</p></td>
+<td><p>0005</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">brine_in</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>5</p></td>
+<td><p>Input</p></td>
+<td><p>0006</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">brine_out</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>6</p></td>
+<td><p>Input</p></td>
+<td><p>0007</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">outdoor</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>7</p></td>
+<td><p>Input</p></td>
+<td><p>0008</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">indoor</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>8</p></td>
+<td><p>Input</p></td>
+<td><p>0009</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_water_top</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>9</p></td>
+<td><p>Input</p></td>
+<td><p>000A</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_water_mid</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>10</p></td>
+<td><p>Input</p></td>
+<td><p>000B</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_gas</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>11</p></td>
+<td><p>Input</p></td>
+<td><p>3104</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">add_heat_status</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>12</p></td>
+<td><p>Input</p></td>
+<td><p>0107</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heating_setpoint</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>13</p></td>
+<td><p>Input</p></td>
+<td><p>0111</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_water_setpoint</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>14</p></td>
+<td><p>Holding</p></td>
+<td><p>0203</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">room_setpoint</span></code></p></td>
+<td><p>5–29 °C</p></td>
+</tr>
+<tr class="row-odd"><td><p>15</p></td>
+<td><p>Holding</p></td>
+<td><p>2204</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">room_sensor_influence</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>16</p></td>
+<td><p>Holding</p></td>
+<td><p>2205</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heat_curve</span></code></p></td>
+<td><p>0–10</p></td>
+</tr>
+<tr class="row-odd"><td><p>17</p></td>
+<td><p>Holding</p></td>
+<td><p>0207</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">heat_curve_parallel</span></code></p></td>
+<td><p>−10–10 °C</p></td>
+</tr>
+<tr class="row-even"><td><p>18</p></td>
+<td><p>Holding</p></td>
+<td><p>0208</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_water_stop_temperature</span></code></p></td>
+<td><p>20–60 °C</p></td>
+</tr>
+<tr class="row-odd"><td><p>19</p></td>
+<td><p>Holding</p></td>
+<td><p>020B</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">hot_water_difference</span></code></p></td>
+<td><p>2–15 °C</p></td>
+</tr>
+<tr class="row-even"><td><p>20</p></td>
+<td><p>Holding</p></td>
+<td><p>7209</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">extra_hot_water</span></code></p></td>
+<td><p>0–1440 min</p></td>
+</tr>
+<tr class="row-odd"><td><p>21</p></td>
+<td><p>Holding</p></td>
+<td><p>1215</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">electric_heater_allowed</span></code></p></td>
+<td><p>on/off</p></td>
+</tr>
+<tr class="row-even"><td><p>22</p></td>
+<td><p>Holding</p></td>
+<td><p>B21B</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">electric_heater_max_power</span></code></p></td>
+<td><p>1–4</p></td>
+</tr>
+<tr class="row-odd"><td><p>23</p></td>
+<td><p>Holding</p></td>
+<td><p>1233</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">external_control</span></code></p></td>
+<td><p>on/off</p></td>
+</tr>
+<tr class="row-even"><td><p>24</p></td>
+<td><p>Holding</p></td>
+<td><p>020A</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">summer_mode</span></code></p></td>
+<td><p>0–30 °C</p></td>
+</tr>
+<tr class="row-odd"><td><p>25</p></td>
+<td><p>Holding</p></td>
+<td><p>2210</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">holiday_mode</span></code></p></td>
+<td><p>0–30</p></td>
+</tr>
+<tr class="row-even"><td><p>26</p></td>
+<td><p>Holding</p></td>
+<td><p>12F2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">alarm_reset</span></code></p></td>
+<td><p>write 1</p></td>
+</tr>
+<tr class="row-odd"><td><p>27</p></td>
+<td><p>Input</p></td>
+<td><p>1A01</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compressor</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>28</p></td>
+<td><p>Input</p></td>
+<td><p>1A02</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">add_heat_step_1</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>29</p></td>
+<td><p>Input</p></td>
+<td><p>1A03</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">add_heat_step_2</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>30</p></td>
+<td><p>Input</p></td>
+<td><p>1A04</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pump_cold_circuit</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>31</p></td>
+<td><p>Input</p></td>
+<td><p>1A05</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pump_heat_circuit</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>32</p></td>
+<td><p>Input</p></td>
+<td><p>1A06</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">pump_radiator</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>33</p></td>
+<td><p>Input</p></td>
+<td><p>1A07</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">switch_valve_1</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>34</p></td>
+<td><p>Input</p></td>
+<td><p>1A20</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">alarm</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>35</p></td>
+<td><p>Input</p></td>
+<td><p>BA91</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">alarm_code</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>36</p></td>
+<td><p>Input</p></td>
+<td><p>6C55</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compressor_hours_heating</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>37</p></td>
+<td><p>Input</p></td>
+<td><p>6C56</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">compressor_hours_hot_water</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>38</p></td>
+<td><p>Input</p></td>
+<td><p>6C58</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aux_heater_hours_heating</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>39</p></td>
+<td><p>Input</p></td>
+<td><p>6C59</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">aux_heater_hours_hot_water</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-even"><td><p>40</p></td>
+<td><p>Input</p></td>
+<td><p>CFAA</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">power_consumption</span></code></p></td>
+<td></td>
+</tr>
+<tr class="row-odd"><td><p>41</p></td>
+<td><p>Input</p></td>
+<td><p>5FAB</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">accumulated_consumption</span></code></p></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><code class="docutils literal notranslate"><span class="pre">power_consumption</span></code> and <code class="docutils literal notranslate"><span class="pre">accumulated_consumption</span></code> are calculated by
+the H66 from the wattages set for each status variable on its web page.
+<code class="docutils literal notranslate"><span class="pre">accumulated_consumption</span></code> restarts at 0 when the H66 boots.</p>
+<p>Not yet verified: <code class="docutils literal notranslate"><span class="pre">room_sensor_influence</span></code> is read unscaled because the
+H66 web page shows it that way, and the unit and scale of
+<code class="docutils literal notranslate"><span class="pre">holiday_mode</span></code> are unknown.</p>
+</section>
+</section>
+<section id="development">
+<h2>Development<a class="headerlink" href="#development" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>uv<span class="w"> </span>sync
+uv<span class="w"> </span>run<span class="w"> </span>pytest
+uv<span class="w"> </span>run<span class="w"> </span>ruff<span class="w"> </span>check<span class="w"> </span>src<span class="w"> </span>tests
+</pre></div>
+</div>
+<p><code class="docutils literal notranslate"><span class="pre">build.sh</span></code> publishes a release: it converts this README to
+<code class="docutils literal notranslate"><span class="pre">README.rst</span></code>, builds the documentation, copies it to the
+<code class="docutils literal notranslate"><span class="pre">jonnybergdahl.github.io</span></code> repository and pushes it, then builds the
+package and uploads it to PyPI.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>MIT</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api/modules.html">husdata_h66</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/husdata_h66.html">husdata_h66 package</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api/modules.html" class="btn btn-neutral float-right" title="husdata_h66" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
