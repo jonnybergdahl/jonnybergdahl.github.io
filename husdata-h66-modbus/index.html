@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>husdata-h66-modbus documentation &mdash; husdata-h66-modbus 0.1.1 documentation</title>
+  <title>husdata-h66-modbus documentation &mdash; husdata-h66-modbus 0.1.2 documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="_static/sphinx_autodoc_typehints.css?v=057ac668" />
@@ -14,7 +14,7 @@
   
       <script src="_static/jquery.js?v=5d32c60e"></script>
       <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="_static/documentation_options.js?v=a58bc63e"></script>
+      <script src="_static/documentation_options.js?v=92734c54"></script>
       <script src="_static/doctools.js?v=fd6eb6e6"></script>
       <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script src="_static/js/theme.js"></script>
@@ -81,7 +81,7 @@
 <dd class="field-even"><p>2026-11-15</p>
 </dd>
 <dt class="field-odd">Version<span class="colon">:</span></dt>
-<dd class="field-odd"><p>0.1.1</p>
+<dd class="field-odd"><p>0.1.2</p>
 </dd>
 </dl>
 </section>
@@ -534,12 +534,15 @@ description.</p></li>
 Husdata warns it can behave unpredictably on a Rego 600.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">electric_heater_allowed</span></code> takes effect the next time the electric
 heater would start.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">holiday_mode</span></code> is in days. While it is active, set it to 0 before
+<li><p><code class="docutils literal notranslate"><span class="pre">holiday_mode</span></code> is in whole days, stored unscaled (unlike the other
+2xxx numbers, which are ×10). While it is active, set it to 0 before
 setting a new value.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">extra_hot_water</span></code>: on a Rego 600, a value written over Modbus shows
+on the H66 web page for about 20 seconds and is then reset to 0, and
+no hot water production starts. How to set it is still unknown.</p></li>
 </ul>
 <p>Not yet verified: <code class="docutils literal notranslate"><span class="pre">room_sensor_influence</span></code> is read unscaled because the
-H66 web page shows it that way, and <code class="docutils literal notranslate"><span class="pre">holiday_mode</span></code> is assumed to be
-stored ×10 like the other 2xxx numbers.</p>
+H66 web page shows it that way.</p>
 </section>
 <section id="alarm-codes">
 <h3>Alarm codes<a class="headerlink" href="#alarm-codes" title="Link to this heading"></a></h3>
