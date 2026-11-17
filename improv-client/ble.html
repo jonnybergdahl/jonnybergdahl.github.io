@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>BLE transport &mdash; improv-client 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Shared client API" href="client.html" />
+    <link rel="prev" title="Serial transport" href="serial.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            improv-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="serial.html">Serial transport</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">BLE transport</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.DEFAULT_IDLE_DISCONNECT_DELAY"><code class="docutils literal notranslate"><span class="pre">DEFAULT_IDLE_DISCONNECT_DELAY</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.DiscoveredDevice"><code class="docutils literal notranslate"><span class="pre">DiscoveredDevice</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.DiscoveredDevice.address"><code class="docutils literal notranslate"><span class="pre">DiscoveredDevice.address</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.ImprovBleClient"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.address"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.address</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.capabilities"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.capabilities</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.connected"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.connected</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.set_ble_device"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.set_ble_device()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.connect"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.connect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.disconnect"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.disconnect()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.identify"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.identify()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.error"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.error</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.get_device_info"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.get_device_info()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.get_device_name"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.get_device_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.get_hostname"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.get_hostname()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.provision"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.provision()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.register_error_callback"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.register_error_callback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.register_state_callback"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.register_state_callback()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.scan_wifi"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.scan_wifi()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.set_device_name"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.set_device_name()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.set_hostname"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.set_hostname()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.state"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.state</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.ble.ImprovBleClient.wait_for_state"><code class="docutils literal notranslate"><span class="pre">ImprovBleClient.wait_for_state()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.discover"><code class="docutils literal notranslate"><span class="pre">discover()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.find_device"><code class="docutils literal notranslate"><span class="pre">find_device()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.is_improv_advertisement"><code class="docutils literal notranslate"><span class="pre">is_improv_advertisement()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.ble.service_data_from_advertisement"><code class="docutils literal notranslate"><span class="pre">service_data_from_advertisement()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Shared client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">improv-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">BLE transport</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ble.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="ble-transport">
+<h1>BLE transport<a class="headerlink" href="#ble-transport" title="Link to this heading"></a></h1>
+<p>Install with <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">improv-client[ble]</span></code>.</p>
+<p>Find devices with <a class="reference internal" href="#improv_client.ble.discover" title="improv_client.ble.discover"><code class="xref py py-func docutils literal notranslate"><span class="pre">discover()</span></code></a>, or pass a
+<a class="reference external" href="https://bleak.readthedocs.io/en/latest/api/index.html#bleak.backends.device.BLEDevice" title="(in bleak v3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bleak.backends.device.BLEDevice</span></code></a> from your own scanner (for example the
+Home Assistant Bluetooth integration) to <a class="reference internal" href="#improv_client.ble.ImprovBleClient" title="improv_client.ble.ImprovBleClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovBleClient</span></code></a>.</p>
+<p>Devices may start in <a class="reference internal" href="protocol.html#improv_client.protocol.State.AUTHORIZATION_REQUIRED" title="improv_client.protocol.State.AUTHORIZATION_REQUIRED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">AUTHORIZATION_REQUIRED</span></code></a>
+and need a button press before they accept credentials. Wait for that with
+<a class="reference internal" href="client.html#improv_client.client.ImprovClient.wait_for_state" title="improv_client.client.ImprovClient.wait_for_state"><code class="xref py py-meth docutils literal notranslate"><span class="pre">wait_for_state()</span></code></a>.</p>
+<p>Commands that the device’s capabilities don’t include raise
+<a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovNotSupportedError" title="improv_client.exceptions.ImprovNotSupportedError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovNotSupportedError</span></code></a> without being sent.
+The device name commands have no capability bit and are always sent.</p>
+<p id="module-improv_client.ble">Improv Wi-Fi over Bluetooth Low Energy.</p>
+<p>Requires the <code class="docutils literal notranslate"><span class="pre">ble</span></code> extra: <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">improv-client[ble]</span></code>. Built on
+<a class="reference external" href="https://github.com/hbldh/bleak">bleak</a> and
+<a class="reference external" href="https://github.com/Bluetooth-Devices/bleak-retry-connector">bleak-retry-connector</a>.</p>
+<p>The client connects on demand: every command connects first if needed, and the
+connection closes after a period without commands (90 seconds by default). This
+follows the design of
+<a class="reference external" href="https://github.com/home-assistant-libs/py-improv-ble-client">py-improv-ble-client</a>
+(MIT), as do the retrying connector and matching results to commands by command id.</p>
+<p>Example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">improv_client.ble</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImprovBleClient</span><span class="p">,</span> <span class="n">discover</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">improv_client.protocol</span><span class="w"> </span><span class="kn">import</span> <span class="n">State</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="n">devices</span> <span class="o">=</span> <span class="k">await</span> <span class="n">discover</span><span class="p">()</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">devices</span><span class="p">:</span>
+        <span class="k">return</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">ImprovBleClient</span><span class="p">(</span><span class="n">devices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">state</span> <span class="ow">is</span> <span class="n">State</span><span class="o">.</span><span class="n">AUTHORIZATION_REQUIRED</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Press the button on the device&quot;</span><span class="p">)</span>
+            <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">wait_for_state</span><span class="p">(</span><span class="n">State</span><span class="o">.</span><span class="n">AUTHORIZED</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">provision</span><span class="p">(</span><span class="s2">&quot;MyWirelessAP&quot;</span><span class="p">,</span> <span class="s2">&quot;mysecurepassword&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Provisioned, next step:&quot;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.ble.DEFAULT_IDLE_DISCONNECT_DELAY">
+<span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">DEFAULT_IDLE_DISCONNECT_DELAY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">90.0</span></span><a class="headerlink" href="#improv_client.ble.DEFAULT_IDLE_DISCONNECT_DELAY" title="Link to this definition"></a></dt>
+<dd><p>Seconds without commands before the client disconnects.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.ble.DiscoveredDevice">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">DiscoveredDevice</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rssi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">service_data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#DiscoveredDevice"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.DiscoveredDevice" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>An Improv device found by <a class="reference internal" href="#improv_client.ble.discover" title="improv_client.ble.discover"><code class="xref py py-func docutils literal notranslate"><span class="pre">discover()</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> – The bleak device, pass this to <a class="reference internal" href="#improv_client.ble.ImprovBleClient" title="improv_client.ble.ImprovBleClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovBleClient</span></code></a>.</p></li>
+<li><p><strong>name</strong> – Advertised name, if any.</p></li>
+<li><p><strong>rssi</strong> – Signal strength in dBm.</p></li>
+<li><p><strong>service_data</strong> – State and capabilities from the advertisement, if present.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>device</strong> (<a class="reference external" href="https://bleak.readthedocs.io/en/latest/api/index.html#bleak.backends.device.BLEDevice" title="(in bleak v3.1)"><em>bleak.backends.device.BLEDevice</em></a>)</p></li>
+<li><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>rssi</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>service_data</strong> (<a class="reference internal" href="protocol.html#improv_client.protocol.ServiceData" title="improv_client.protocol.ServiceData"><em>ServiceData</em></a><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.DiscoveredDevice.address">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">address</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#improv_client.ble.DiscoveredDevice.address" title="Link to this definition"></a></dt>
+<dd><p>The Bluetooth address (a UUID on macOS).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">ImprovBleClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">idle_disconnect_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">90.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">disconnected_callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#ImprovBleClient"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.ImprovBleClient" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="client.html#improv_client.client.ImprovClient" title="improv_client.client.ImprovClient"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovClient</span></code></a></p>
+<p>Client for an Improv Wi-Fi device over BLE.</p>
+<p>Commands connect automatically, so calling <a class="reference internal" href="#improv_client.ble.ImprovBleClient.connect" title="improv_client.ble.ImprovBleClient.connect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">connect()</span></code></a> first is optional.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device</strong> (<em>BLEDevice</em>) – The device, from <a class="reference internal" href="#improv_client.ble.discover" title="improv_client.ble.discover"><code class="xref py py-func docutils literal notranslate"><span class="pre">discover()</span></code></a>, <a class="reference internal" href="#improv_client.ble.find_device" title="improv_client.ble.find_device"><code class="xref py py-func docutils literal notranslate"><span class="pre">find_device()</span></code></a> or a bleak scanner.</p></li>
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a>) – Default time in seconds to wait for an answer.</p></li>
+<li><p><strong>idle_disconnect_delay</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a><em> | </em><em>None</em>) – Seconds without commands before disconnecting, or
+<code class="docutils literal notranslate"><span class="pre">None</span></code> to stay connected until <a class="reference internal" href="#improv_client.ble.ImprovBleClient.disconnect" title="improv_client.ble.ImprovBleClient.disconnect"><code class="xref py py-meth docutils literal notranslate"><span class="pre">disconnect()</span></code></a>.</p></li>
+<li><p><strong>disconnected_callback</strong> (<em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#improv_client.ble.ImprovBleClient" title="improv_client.ble.ImprovBleClient"><em>ImprovBleClient</em></a><em>]</em><em>, </em><em>None</em><em>] </em><em>| </em><em>None</em>) – Called with the client whenever the connection closes,
+including idle and explicit disconnects.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.address">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">address</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><span class="pre">str</span></a></span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.address" title="Link to this definition"></a></dt>
+<dd><p>The Bluetooth address of the device.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.capabilities">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">capabilities</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="protocol.html#improv_client.protocol.Capabilities" title="improv_client.protocol.Capabilities"><span class="pre">Capabilities</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.capabilities" title="Link to this definition"></a></dt>
+<dd><p>Capabilities read from the device, or <code class="docutils literal notranslate"><span class="pre">None</span></code> before the first connection.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.connected">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">connected</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.connected" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> while connected to the device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.set_ble_device">
+<span class="sig-name descname"><span class="pre">set_ble_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#ImprovBleClient.set_ble_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.ImprovBleClient.set_ble_device" title="Link to this definition"></a></dt>
+<dd><p>Replace the device used for the next connection, e.g. from a newer advertisement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>device</strong> (<a class="reference external" href="https://bleak.readthedocs.io/en/latest/api/index.html#bleak.backends.device.BLEDevice" title="(in bleak v3.1)"><em>bleak.backends.device.BLEDevice</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.connect">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#ImprovBleClient.connect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.ImprovBleClient.connect" title="Link to this definition"></a></dt>
+<dd><p>Connect, read capabilities, state and error, and subscribe to notifications.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovConnectionError" title="improv_client.exceptions.ImprovConnectionError"><strong>ImprovConnectionError</strong></a> – If connecting fails or the device has no Improv service.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.disconnect">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">disconnect</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#ImprovBleClient.disconnect"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.ImprovBleClient.disconnect" title="Link to this definition"></a></dt>
+<dd><p>Disconnect from the device.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.identify">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">identify</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#ImprovBleClient.identify"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.ImprovBleClient.identify" title="Link to this definition"></a></dt>
+<dd><p>Ask the device to identify itself, e.g. by blinking a LED.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovNotSupportedError" title="improv_client.exceptions.ImprovNotSupportedError"><strong>ImprovNotSupportedError</strong></a> – If the device lacks the identify capability.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.error">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">error</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="protocol.html#improv_client.protocol.Error" title="improv_client.protocol.Error"><span class="pre">Error</span></a></span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.error" title="Link to this definition"></a></dt>
+<dd><p>The last error state reported by the device.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.get_device_info">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_device_info</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.get_device_info" title="Link to this definition"></a></dt>
+<dd><p>Request firmware, hardware and device name information.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="protocol.html#improv_client.protocol.DeviceInfo" title="improv_client.protocol.DeviceInfo"><em>DeviceInfo</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.get_device_name">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_device_name</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.get_device_name" title="Link to this definition"></a></dt>
+<dd><p>Request the user-facing device name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.get_hostname">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">get_hostname</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.get_hostname" title="Link to this definition"></a></dt>
+<dd><p>Request the device hostname.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.provision">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">provision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">60.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.provision" title="Link to this definition"></a></dt>
+<dd><p>Send Wi-Fi credentials and wait until the device has connected.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ssid</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Network name.</p></li>
+<li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – Network password, empty for an open network.</p></li>
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a>) – Seconds to wait for the device to connect.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The URL the device wants the user to open next, or <code class="docutils literal notranslate"><span class="pre">None</span></code>.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovDeviceError" title="improv_client.exceptions.ImprovDeviceError"><strong>ImprovDeviceError</strong></a> – With <code class="xref py py-attr docutils literal notranslate"><span class="pre">UNABLE_TO_CONNECT</span></code>
+if the credentials didn’t work, or
+<a class="reference internal" href="protocol.html#improv_client.protocol.Error.NOT_AUTHORIZED" title="improv_client.protocol.Error.NOT_AUTHORIZED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">NOT_AUTHORIZED</span></code></a> on an unauthorized BLE device.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.register_error_callback">
+<span class="sig-name descname"><span class="pre">register_error_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.register_error_callback" title="Link to this definition"></a></dt>
+<dd><p>Call <code class="docutils literal notranslate"><span class="pre">callback</span></code> whenever the device error state changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A function that removes the callback again.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>callback</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.15)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference internal" href="protocol.html#improv_client.protocol.Error" title="improv_client.protocol.Error"><em>Error</em></a><em>]</em><em>, </em><em>None</em><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.15)"><em>Callable</em></a>[[], None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.register_state_callback">
+<span class="sig-name descname"><span class="pre">register_state_callback</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.register_state_callback" title="Link to this definition"></a></dt>
+<dd><p>Call <code class="docutils literal notranslate"><span class="pre">callback</span></code> whenever the device state changes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A function that removes the callback again.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>callback</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.15)"><em>Callable</em></a><em>[</em><em>[</em><a class="reference internal" href="protocol.html#improv_client.protocol.State" title="improv_client.protocol.State"><em>State</em></a><em>]</em><em>, </em><em>None</em><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Callable" title="(in Python v3.15)"><em>Callable</em></a>[[], None]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.scan_wifi">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">scan_wifi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">30.0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.scan_wifi" title="Link to this definition"></a></dt>
+<dd><p>Ask the device to scan for Wi-Fi networks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a>) – Seconds to wait for the scan to finish.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The networks found, in the order the device sent them.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="protocol.html#improv_client.protocol.WifiNetwork" title="improv_client.protocol.WifiNetwork"><em>WifiNetwork</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.set_device_name">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_device_name</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.set_device_name" title="Link to this definition"></a></dt>
+<dd><p>Set the user-facing device name.</p>
+<p>The device must be authorized. If you set both, set the device name before
+the hostname.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The device name reported back by the device.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.set_hostname">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">set_hostname</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hostname</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.set_hostname" title="Link to this definition"></a></dt>
+<dd><p>Set the device hostname.</p>
+<p>The device must be authorized. Hostnames may contain letters, digits and
+hyphens (RFC 1123).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The hostname reported back by the device.</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovDeviceError" title="improv_client.exceptions.ImprovDeviceError"><strong>ImprovDeviceError</strong></a> – With <code class="xref py py-attr docutils literal notranslate"><span class="pre">BAD_HOSTNAME</span></code>
+if the device rejects the hostname.</p>
+</dd>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>hostname</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.state">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">state</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="protocol.html#improv_client.protocol.State" title="improv_client.protocol.State"><span class="pre">State</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/constants.html#None" title="(in Python v3.15)"><span class="pre">None</span></a></span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.state" title="Link to this definition"></a></dt>
+<dd><p>The last state reported by the device, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if none has been seen.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.ble.ImprovBleClient.wait_for_state">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">wait_for_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">states</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#improv_client.ble.ImprovBleClient.wait_for_state" title="Link to this definition"></a></dt>
+<dd><p>Wait until the device reports one of <code class="docutils literal notranslate"><span class="pre">states</span></code>.</p>
+<p>Returns at once if the current state already matches. On BLE, use this to wait
+for the user to authorize the device:
+<code class="docutils literal notranslate"><span class="pre">await</span> <span class="pre">client.wait_for_state(State.AUTHORIZED,</span> <span class="pre">timeout=60)</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a><em> | </em><em>None</em>) – Seconds to wait, or <code class="docutils literal notranslate"><span class="pre">None</span></code> to wait forever.</p></li>
+<li><p><strong>states</strong> (<a class="reference internal" href="protocol.html#improv_client.protocol.State" title="improv_client.protocol.State"><em>State</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The matching state.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovTimeoutError" title="improv_client.exceptions.ImprovTimeoutError"><strong>ImprovTimeoutError</strong></a> – If no matching state arrives in time.</p></li>
+<li><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovConnectionError" title="improv_client.exceptions.ImprovConnectionError"><strong>ImprovConnectionError</strong></a> – If the connection is lost while waiting.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="protocol.html#improv_client.protocol.State" title="improv_client.protocol.State"><em>State</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.ble.discover">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">discover</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">5.0</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">scanner_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#discover"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.discover" title="Link to this definition"></a></dt>
+<dd><p>Scan for Improv devices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a>) – Seconds to scan.</p></li>
+<li><p><strong>scanner_kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Any" title="(in Python v3.15)"><em>Any</em></a>) – Extra arguments for <a class="reference external" href="https://bleak.readthedocs.io/en/latest/api/scanner.html#bleak.BleakScanner" title="(in bleak v3.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">bleak.BleakScanner</span></code></a>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The devices found, strongest signal first.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="#improv_client.ble.DiscoveredDevice" title="improv_client.ble.DiscoveredDevice"><em>DiscoveredDevice</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.ble.find_device">
+<span class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">find_device</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">address</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#find_device"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.find_device" title="Link to this definition"></a></dt>
+<dd><p>Find a device by address (a UUID on macOS), or <code class="docutils literal notranslate"><span class="pre">None</span></code> if not seen in time.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>address</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>timeout</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#float" title="(in Python v3.15)"><em>float</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>BLEDevice | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.ble.is_improv_advertisement">
+<span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">is_improv_advertisement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">advertisement</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#is_improv_advertisement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.is_improv_advertisement" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the advertisement carries the Improv service UUID or service data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>advertisement</strong> (<a class="reference external" href="https://bleak.readthedocs.io/en/latest/backends/index.html#bleak.backends.scanner.AdvertisementData" title="(in bleak v3.1)"><em>bleak.backends.scanner.AdvertisementData</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.ble.service_data_from_advertisement">
+<span class="sig-prename descclassname"><span class="pre">improv_client.ble.</span></span><span class="sig-name descname"><span class="pre">service_data_from_advertisement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">advertisement</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/ble.html#service_data_from_advertisement"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.ble.service_data_from_advertisement" title="Link to this definition"></a></dt>
+<dd><p>Return the parsed Improv service data, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if it’s missing or invalid.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>advertisement</strong> (<a class="reference external" href="https://bleak.readthedocs.io/en/latest/backends/index.html#bleak.backends.scanner.AdvertisementData" title="(in bleak v3.1)"><em>bleak.backends.scanner.AdvertisementData</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="protocol.html#improv_client.protocol.ServiceData" title="improv_client.protocol.ServiceData"><em>ServiceData</em></a> | None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="serial.html" class="btn btn-neutral float-left" title="Serial transport" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="client.html" class="btn btn-neutral float-right" title="Shared client API" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

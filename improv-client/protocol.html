@@ -1,0 +1,920 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Protocol &mdash; improv-client 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Exceptions" href="exceptions.html" />
+    <link rel="prev" title="Shared client API" href="client.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            improv-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="serial.html">Serial transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble.html">BLE transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Shared client API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Protocol</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_CAPABILITIES_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_CAPABILITIES_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_CURRENT_STATE_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_CURRENT_STATE_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_ERROR_STATE_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_ERROR_STATE_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_RPC_COMMAND_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_RPC_COMMAND_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_RPC_RESULT_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_RPC_RESULT_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_SERVICE_DATA_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_SERVICE_DATA_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.BLE_SERVICE_UUID"><code class="docutils literal notranslate"><span class="pre">BLE_SERVICE_UUID</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.SERIAL_HEADER"><code class="docutils literal notranslate"><span class="pre">SERIAL_HEADER</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.SERIAL_VERSION"><code class="docutils literal notranslate"><span class="pre">SERIAL_VERSION</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.Capabilities"><code class="docutils literal notranslate"><span class="pre">Capabilities</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.Command"><code class="docutils literal notranslate"><span class="pre">Command</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.Command.IDENTIFY"><code class="docutils literal notranslate"><span class="pre">Command.IDENTIFY</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.Command.NETWORK_STATE"><code class="docutils literal notranslate"><span class="pre">Command.NETWORK_STATE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.Command.REQUEST_CURRENT_STATE"><code class="docutils literal notranslate"><span class="pre">Command.REQUEST_CURRENT_STATE</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.DeviceInfo"><code class="docutils literal notranslate"><span class="pre">DeviceInfo</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.DeviceInfo.from_strings"><code class="docutils literal notranslate"><span class="pre">DeviceInfo.from_strings()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.Error"><code class="docutils literal notranslate"><span class="pre">Error</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.Error.NOT_AUTHORIZED"><code class="docutils literal notranslate"><span class="pre">Error.NOT_AUTHORIZED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.Error.parse"><code class="docutils literal notranslate"><span class="pre">Error.parse()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.NetworkFlags"><code class="docutils literal notranslate"><span class="pre">NetworkFlags</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.NetworkFlags.ONLINE"><code class="docutils literal notranslate"><span class="pre">NetworkFlags.ONLINE</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.NetworkFlags.WIFI"><code class="docutils literal notranslate"><span class="pre">NetworkFlags.WIFI</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.NetworkState"><code class="docutils literal notranslate"><span class="pre">NetworkState</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.NetworkState.online"><code class="docutils literal notranslate"><span class="pre">NetworkState.online</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.NetworkState.from_strings"><code class="docutils literal notranslate"><span class="pre">NetworkState.from_strings()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.PacketType"><code class="docutils literal notranslate"><span class="pre">PacketType</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.RpcResult"><code class="docutils literal notranslate"><span class="pre">RpcResult</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.SerialPacket"><code class="docutils literal notranslate"><span class="pre">SerialPacket</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.SerialPacketDecoder"><code class="docutils literal notranslate"><span class="pre">SerialPacketDecoder</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.SerialPacketDecoder.reset"><code class="docutils literal notranslate"><span class="pre">SerialPacketDecoder.reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.SerialPacketDecoder.feed"><code class="docutils literal notranslate"><span class="pre">SerialPacketDecoder.feed()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.ServiceData"><code class="docutils literal notranslate"><span class="pre">ServiceData</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.State"><code class="docutils literal notranslate"><span class="pre">State</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.STOPPED"><code class="docutils literal notranslate"><span class="pre">State.STOPPED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.AUTHORIZATION_REQUIRED"><code class="docutils literal notranslate"><span class="pre">State.AUTHORIZATION_REQUIRED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.AUTHORIZED"><code class="docutils literal notranslate"><span class="pre">State.AUTHORIZED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.PROVISIONING"><code class="docutils literal notranslate"><span class="pre">State.PROVISIONING</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.PROVISIONED"><code class="docutils literal notranslate"><span class="pre">State.PROVISIONED</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.State.READY"><code class="docutils literal notranslate"><span class="pre">State.READY</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.WifiNetwork"><code class="docutils literal notranslate"><span class="pre">WifiNetwork</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.WifiNetwork.secured"><code class="docutils literal notranslate"><span class="pre">WifiNetwork.secured</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improv_client.protocol.WifiNetwork.from_strings"><code class="docutils literal notranslate"><span class="pre">WifiNetwork.from_strings()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.checksum"><code class="docutils literal notranslate"><span class="pre">checksum()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.decode_ble_rpc_result"><code class="docutils literal notranslate"><span class="pre">decode_ble_rpc_result()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.decode_rpc_result"><code class="docutils literal notranslate"><span class="pre">decode_rpc_result()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.decode_strings"><code class="docutils literal notranslate"><span class="pre">decode_strings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_ble_rpc_command"><code class="docutils literal notranslate"><span class="pre">encode_ble_rpc_command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_rpc_command"><code class="docutils literal notranslate"><span class="pre">encode_rpc_command()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_serial_packet"><code class="docutils literal notranslate"><span class="pre">encode_serial_packet()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_string"><code class="docutils literal notranslate"><span class="pre">encode_string()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_strings"><code class="docutils literal notranslate"><span class="pre">encode_strings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.encode_wifi_settings"><code class="docutils literal notranslate"><span class="pre">encode_wifi_settings()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.parse_service_data"><code class="docutils literal notranslate"><span class="pre">parse_service_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.parse_state"><code class="docutils literal notranslate"><span class="pre">parse_state()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.protocol.parse_wifi_networks"><code class="docutils literal notranslate"><span class="pre">parse_wifi_networks()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="exceptions.html">Exceptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">improv-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Protocol</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/protocol.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="protocol">
+<h1>Protocol<a class="headerlink" href="#protocol" title="Link to this heading"></a></h1>
+<p>Everything here is transport independent and has no third-party dependencies. The
+clients use it internally; you need it for the enums and result types, or to
+implement another transport.</p>
+<p>Notes the specification leaves implicit:</p>
+<ul class="simple">
+<li><p>The serial checksum is the sum of every frame byte from <code class="docutils literal notranslate"><span class="pre">IMPROV</span></code> through the
+data, keeping the low byte. Clients write a newline after each frame.</p></li>
+<li><p>The RPC payload inside a serial frame has no checksum of its own. On BLE, the
+checksum is appended to the RPC payload.</p></li>
+<li><p>On serial, a Wi-Fi scan returns one result per network, then an empty result.
+On BLE it returns one result with three strings per network.</p></li>
+</ul>
+<p id="module-improv_client.protocol">Transport-independent parts of the Improv Wi-Fi protocol.</p>
+<p>This module has no third-party dependencies. It contains the protocol constants and
+enums, the RPC encoding and decoding shared by serial and BLE, the serial frame codec,
+BLE service data parsing, and the dataclasses returned by the clients.</p>
+<p>Specifications:</p>
+<ul class="simple">
+<li><p>Serial: <a class="reference external" href="https://www.improv-wifi.com/serial/">https://www.improv-wifi.com/serial/</a></p></li>
+<li><p>BLE: <a class="reference external" href="https://www.improv-wifi.com/ble/">https://www.improv-wifi.com/ble/</a></p></li>
+</ul>
+<p>Example, encoding the Wi-Fi settings command from the specification:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="n">encode_rpc_command</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">WIFI_SETTINGS</span><span class="p">,</span>
+<span class="gp">... </span>                             <span class="n">encode_wifi_settings</span><span class="p">(</span><span class="s2">&quot;MyWirelessAP&quot;</span><span class="p">,</span> <span class="s2">&quot;mysecurepassword&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">&#39;01 1e 0c&#39;</span>
+</pre></div>
+</div>
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_CAPABILITIES_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_CAPABILITIES_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268005'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_CAPABILITIES_UUID" title="Link to this definition"></a></dt>
+<dd><p>Capabilities characteristic (read).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_CURRENT_STATE_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_CURRENT_STATE_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268001'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_CURRENT_STATE_UUID" title="Link to this definition"></a></dt>
+<dd><p>Current state characteristic (read, notify).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_ERROR_STATE_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_ERROR_STATE_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268002'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_ERROR_STATE_UUID" title="Link to this definition"></a></dt>
+<dd><p>Error state characteristic (read, notify).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_RPC_COMMAND_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_RPC_COMMAND_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268003'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_RPC_COMMAND_UUID" title="Link to this definition"></a></dt>
+<dd><p>RPC command characteristic (write).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_RPC_RESULT_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_RPC_RESULT_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268004'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_RPC_RESULT_UUID" title="Link to this definition"></a></dt>
+<dd><p>RPC result characteristic (read, notify).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_SERVICE_DATA_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_SERVICE_DATA_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00004677-0000-1000-8000-00805f9b34fb'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_SERVICE_DATA_UUID" title="Link to this definition"></a></dt>
+<dd><p>UUID of the service data in the advertisement (16-bit <code class="docutils literal notranslate"><span class="pre">4677</span></code>).</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.BLE_SERVICE_UUID">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">BLE_SERVICE_UUID</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'00467768-6228-2272-4663-277478268000'</span></span><a class="headerlink" href="#improv_client.protocol.BLE_SERVICE_UUID" title="Link to this definition"></a></dt>
+<dd><p>Improv GATT service.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.SERIAL_HEADER">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">SERIAL_HEADER</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">b'IMPROV'</span></span><a class="headerlink" href="#improv_client.protocol.SERIAL_HEADER" title="Link to this definition"></a></dt>
+<dd><p>Header that starts every serial frame.</p>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="improv_client.protocol.SERIAL_VERSION">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">SERIAL_VERSION</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#improv_client.protocol.SERIAL_VERSION" title="Link to this definition"></a></dt>
+<dd><p>Serial protocol version this library speaks.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.Capabilities">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">Capabilities</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#Capabilities"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.Capabilities" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntFlag" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntFlag</span></code></a></p>
+<p>Capabilities advertised by a BLE device.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.Command">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">Command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#Command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.Command" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
+<p>RPC command identifiers.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.Command.IDENTIFY">
+<span class="sig-name descname"><span class="pre">IDENTIFY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#improv_client.protocol.Command.IDENTIFY" title="Link to this definition"></a></dt>
+<dd><p>Ask the device to identify itself, e.g. by blinking a LED (BLE only).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.Command.NETWORK_STATE">
+<span class="sig-name descname"><span class="pre">NETWORK_STATE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">7</span></span><a class="headerlink" href="#improv_client.protocol.Command.NETWORK_STATE" title="Link to this definition"></a></dt>
+<dd><p>Request the network state (serial only).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.Command.REQUEST_CURRENT_STATE">
+<span class="sig-name descname"><span class="pre">REQUEST_CURRENT_STATE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#improv_client.protocol.Command.REQUEST_CURRENT_STATE" title="Link to this definition"></a></dt>
+<dd><p>Alias of <a class="reference internal" href="#improv_client.protocol.Command.IDENTIFY" title="improv_client.protocol.Command.IDENTIFY"><code class="xref py py-attr docutils literal notranslate"><span class="pre">IDENTIFY</span></code></a>. On serial, command 0x02 requests the current state.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.DeviceInfo">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">DeviceInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firmware_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">firmware_version</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hardware</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">os_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#DeviceInfo"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.DeviceInfo" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Device information returned by <code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.DEVICE_INFO</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>firmware_name</strong> – Firmware name, e.g. <code class="docutils literal notranslate"><span class="pre">ESPHome</span></code>.</p></li>
+<li><p><strong>firmware_version</strong> – Firmware version.</p></li>
+<li><p><strong>hardware</strong> – Hardware chip or variant, e.g. <code class="docutils literal notranslate"><span class="pre">esp32-s3-devkitc-1/esp32-s3</span></code>.</p></li>
+<li><p><strong>device_name</strong> – User-facing device name.</p></li>
+<li><p><strong>os_name</strong> – Operating system name, sent by newer devices (e.g. ESPHome 2025.12
+and later, where <code class="docutils literal notranslate"><span class="pre">firmware_name</span></code> is the project name instead).</p></li>
+<li><p><strong>os_version</strong> – Operating system version, when sent.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>firmware_name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>firmware_version</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>hardware</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>device_name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>os_name</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>)</p></li>
+<li><p><strong>os_version</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.DeviceInfo.from_strings">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#DeviceInfo.from_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.DeviceInfo.from_strings" title="Link to this definition"></a></dt>
+<dd><p>Build from the result strings.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">DeviceInfo</span><span class="o">.</span><span class="n">from_strings</span><span class="p">([</span><span class="s2">&quot;ESPHome&quot;</span><span class="p">,</span> <span class="s2">&quot;2021.11.0&quot;</span><span class="p">,</span> <span class="s2">&quot;esp32&quot;</span><span class="p">,</span> <span class="s2">&quot;Temp&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">os_name</span> <span class="ow">is</span> <span class="kc">None</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If fewer than 4 strings were returned.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>strings</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.15)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.DeviceInfo" title="improv_client.protocol.DeviceInfo"><em>DeviceInfo</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.Error">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">Error</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#Error"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.Error" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
+<p>Error state reported by the device.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.Error.NOT_AUTHORIZED">
+<span class="sig-name descname"><span class="pre">NOT_AUTHORIZED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#improv_client.protocol.Error.NOT_AUTHORIZED" title="Link to this definition"></a></dt>
+<dd><p>Credentials were sent but the device isn’t authorized (BLE only).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.Error.parse">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#Error.parse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.Error.parse" title="Link to this definition"></a></dt>
+<dd><p>Convert a raw error byte, mapping unknown values to <code class="xref py py-attr docutils literal notranslate"><span class="pre">UNKNOWN</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">Error</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;UNABLE_TO_CONNECT&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Error</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="mh">0x42</span><span class="p">)</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;UNKNOWN&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference internal" href="#improv_client.protocol.Error" title="improv_client.protocol.Error"><em>Error</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkFlags">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">NetworkFlags</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#NetworkFlags"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.NetworkFlags" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntFlag" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntFlag</span></code></a></p>
+<p>Flags returned by <a class="reference internal" href="#improv_client.protocol.Command.NETWORK_STATE" title="improv_client.protocol.Command.NETWORK_STATE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.NETWORK_STATE</span></code></a>.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkFlags.ONLINE">
+<span class="sig-name descname"><span class="pre">ONLINE</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#improv_client.protocol.NetworkFlags.ONLINE" title="Link to this definition"></a></dt>
+<dd><p>The device currently has network connectivity.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkFlags.WIFI">
+<span class="sig-name descname"><span class="pre">WIFI</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#improv_client.protocol.NetworkFlags.WIFI" title="Link to this definition"></a></dt>
+<dd><p>The device has a Wi-Fi interface (it may be disabled).</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkState">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">NetworkState</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flags</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">urls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#NetworkState"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.NetworkState" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Network state returned by <a class="reference internal" href="#improv_client.protocol.Command.NETWORK_STATE" title="improv_client.protocol.Command.NETWORK_STATE"><code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.NETWORK_STATE</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flags</strong> – Network interface and connectivity flags.</p></li>
+<li><p><strong>urls</strong> – URLs for the device, only present while online.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>flags</strong> (<a class="reference internal" href="#improv_client.protocol.NetworkFlags" title="improv_client.protocol.NetworkFlags"><em>NetworkFlags</em></a>)</p></li>
+<li><p><strong>urls</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkState.online">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">online</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></span><a class="headerlink" href="#improv_client.protocol.NetworkState.online" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> if the device currently has network connectivity.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.NetworkState.from_strings">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#NetworkState.from_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.NetworkState.from_strings" title="Link to this definition"></a></dt>
+<dd><p>Build from the result strings: flags as a decimal string, then URLs.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">NetworkState</span><span class="o">.</span><span class="n">from_strings</span><span class="p">([</span><span class="s2">&quot;7&quot;</span><span class="p">,</span> <span class="s2">&quot;http://192.168.1.10&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">online</span>
+<span class="go">True</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the flags are missing or not a number.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>strings</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.15)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.NetworkState" title="improv_client.protocol.NetworkState"><em>NetworkState</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.PacketType">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">PacketType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#PacketType"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.PacketType" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
+<p>Serial packet types.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.RpcResult">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">RpcResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#RpcResult"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.RpcResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A decoded RPC result.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> – The command this is a result for. A <a class="reference internal" href="#improv_client.protocol.Command" title="improv_client.protocol.Command"><code class="xref py py-class docutils literal notranslate"><span class="pre">Command</span></code></a> when known.</p></li>
+<li><p><strong>strings</strong> – The strings in the result. May be empty.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>strings</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#tuple" title="(in Python v3.15)"><em>tuple</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>, </em><em>...</em><em>]</em>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.SerialPacket">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">SerialPacket</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#SerialPacket"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.SerialPacket" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A decoded serial frame.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>packet_type</strong> – A <a class="reference internal" href="#improv_client.protocol.PacketType" title="improv_client.protocol.PacketType"><code class="xref py py-class docutils literal notranslate"><span class="pre">PacketType</span></code></a> when known, otherwise the raw byte.</p></li>
+<li><p><strong>data</strong> – The frame data, without header, length and checksum.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>packet_type</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.SerialPacketDecoder">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">SerialPacketDecoder</span></span><a class="reference internal" href="_modules/improv_client/protocol.html#SerialPacketDecoder"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.SerialPacketDecoder" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Incremental decoder that finds Improv frames in a serial byte stream.</p>
+<p>Devices usually log text on the same port, so anything that isn’t a valid frame
+is skipped. Feed it bytes as they arrive; it returns the complete frames found
+so far and keeps any partial frame for the next call.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span> <span class="o">=</span> <span class="n">SerialPacketDecoder</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">encode_serial_packet</span><span class="p">(</span><span class="n">PacketType</span><span class="o">.</span><span class="n">CURRENT_STATE</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x02</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;[I][log]: hello</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">frame</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+<span class="go">[]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">decoder</span><span class="o">.</span><span class="n">feed</span><span class="p">(</span><span class="n">frame</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="go">[SerialPacket(packet_type=&lt;PacketType.CURRENT_STATE: 1&gt;, data=b&#39;\x02&#39;)]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.SerialPacketDecoder.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#SerialPacketDecoder.reset"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.SerialPacketDecoder.reset" title="Link to this definition"></a></dt>
+<dd><p>Drop any buffered data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.SerialPacketDecoder.feed">
+<span class="sig-name descname"><span class="pre">feed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#SerialPacketDecoder.feed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.SerialPacketDecoder.feed" title="Link to this definition"></a></dt>
+<dd><p>Add received bytes and return the complete frames found.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="#improv_client.protocol.SerialPacket" title="improv_client.protocol.SerialPacket"><em>SerialPacket</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.ServiceData">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">ServiceData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">state</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">capabilities</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#ServiceData"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.ServiceData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Improv service data from a BLE advertisement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>state</strong> – Current provisioning state.</p></li>
+<li><p><strong>capabilities</strong> – Supported optional commands.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>state</strong> (<a class="reference internal" href="#improv_client.protocol.State" title="improv_client.protocol.State"><em>State</em></a>)</p></li>
+<li><p><strong>capabilities</strong> (<a class="reference internal" href="#improv_client.protocol.Capabilities" title="improv_client.protocol.Capabilities"><em>Capabilities</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.State">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">State</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#State"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.State" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.IntEnum" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">IntEnum</span></code></a></p>
+<p>Current provisioning state of the device.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.STOPPED">
+<span class="sig-name descname"><span class="pre">STOPPED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></span><a class="headerlink" href="#improv_client.protocol.State.STOPPED" title="Link to this definition"></a></dt>
+<dd><p>Provisioning is unavailable, for example because Wi-Fi is turned off (serial only).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.AUTHORIZATION_REQUIRED">
+<span class="sig-name descname"><span class="pre">AUTHORIZATION_REQUIRED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></span><a class="headerlink" href="#improv_client.protocol.State.AUTHORIZATION_REQUIRED" title="Link to this definition"></a></dt>
+<dd><p>Waiting for authorization through physical interaction (BLE only).</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.AUTHORIZED">
+<span class="sig-name descname"><span class="pre">AUTHORIZED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#improv_client.protocol.State.AUTHORIZED" title="Link to this definition"></a></dt>
+<dd><p>Ready to accept credentials.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.PROVISIONING">
+<span class="sig-name descname"><span class="pre">PROVISIONING</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></span><a class="headerlink" href="#improv_client.protocol.State.PROVISIONING" title="Link to this definition"></a></dt>
+<dd><p>Credentials received, trying to connect.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.PROVISIONED">
+<span class="sig-name descname"><span class="pre">PROVISIONED</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></span><a class="headerlink" href="#improv_client.protocol.State.PROVISIONED" title="Link to this definition"></a></dt>
+<dd><p>Connected to the network.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="improv_client.protocol.State.READY">
+<span class="sig-name descname"><span class="pre">READY</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></span><a class="headerlink" href="#improv_client.protocol.State.READY" title="Link to this definition"></a></dt>
+<dd><p>Alias of <a class="reference internal" href="#improv_client.protocol.State.AUTHORIZED" title="improv_client.protocol.State.AUTHORIZED"><code class="xref py py-attr docutils literal notranslate"><span class="pre">AUTHORIZED</span></code></a>, the name the serial specification uses.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="improv_client.protocol.WifiNetwork">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">WifiNetwork</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rssi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">auth</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#WifiNetwork"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.WifiNetwork" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/functions.html#object" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A network found by <code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.SCAN_WIFI</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ssid</strong> – Network name.</p></li>
+<li><p><strong>rssi</strong> – Signal strength in dBm.</p></li>
+<li><p><strong>auth</strong> – Authentication as reported by the device. Serial devices send <code class="docutils literal notranslate"><span class="pre">YES</span></code>
+or <code class="docutils literal notranslate"><span class="pre">NO</span></code>; BLE devices send a type such as <code class="docutils literal notranslate"><span class="pre">WPA2</span></code> or <code class="docutils literal notranslate"><span class="pre">WPA/WPA2</span></code>, or <code class="docutils literal notranslate"><span class="pre">NO</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>ssid</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>rssi</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>auth</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="improv_client.protocol.WifiNetwork.secured">
+<span class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">secured</span></span><span class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><span class="pre">bool</span></a></span><a class="headerlink" href="#improv_client.protocol.WifiNetwork.secured" title="Link to this definition"></a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">True</span></code> unless the device reported the network as open (<code class="docutils literal notranslate"><span class="pre">NO</span></code>).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="improv_client.protocol.WifiNetwork.from_strings">
+<span class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></span><span class="sig-name descname"><span class="pre">from_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#WifiNetwork.from_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.WifiNetwork.from_strings" title="Link to this definition"></a></dt>
+<dd><p>Build from SSID, RSSI and auth strings.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">WifiNetwork</span><span class="o">.</span><span class="n">from_strings</span><span class="p">([</span><span class="s2">&quot;MyWirelessNetwork&quot;</span><span class="p">,</span> <span class="s2">&quot;-60&quot;</span><span class="p">,</span> <span class="s2">&quot;YES&quot;</span><span class="p">])</span>
+<span class="go">WifiNetwork(ssid=&#39;MyWirelessNetwork&#39;, rssi=-60, auth=&#39;YES&#39;)</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If there are fewer than 3 strings or the RSSI isn’t a number.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>strings</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.15)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.WifiNetwork" title="improv_client.protocol.WifiNetwork"><em>WifiNetwork</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.checksum">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#checksum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.checksum" title="Link to this definition"></a></dt>
+<dd><p>Return the Improv checksum: the sum of all bytes, keeping only the low byte.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">checksum</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]))</span>
+<span class="go">3</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">checksum</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mh">0xff</span><span class="p">,</span> <span class="mh">0x02</span><span class="p">]))</span>
+<span class="go">1</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.decode_ble_rpc_result">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">decode_ble_rpc_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#decode_ble_rpc_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.decode_ble_rpc_result" title="Link to this definition"></a></dt>
+<dd><p>Decode an RPC result read from the BLE RPC result characteristic.</p>
+<p>The last byte is a checksum over everything before it.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the checksum doesn’t match or the payload is truncated.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>payload</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.RpcResult" title="improv_client.protocol.RpcResult"><em>RpcResult</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.decode_rpc_result">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">decode_rpc_result</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#decode_rpc_result"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.decode_rpc_result" title="Link to this definition"></a></dt>
+<dd><p>Decode an RPC result without a checksum, as carried in a serial frame.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">decode_rpc_result</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mh">0x05</span><span class="p">,</span> <span class="mh">0x04</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">])</span> <span class="o">+</span> <span class="sa">b</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="go">RpcResult(command=&lt;Command.HOSTNAME: 5&gt;, strings=(&#39;abc&#39;,))</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the payload is truncated or malformed.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>payload</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.RpcResult" title="improv_client.protocol.RpcResult"><em>RpcResult</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.decode_strings">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">decode_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#decode_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.decode_strings" title="Link to this definition"></a></dt>
+<dd><p>Decode a sequence of length-prefixed UTF-8 strings.</p>
+<p>Invalid UTF-8 is replaced rather than rejected, since device names come from
+firmware we don’t control.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">decode_strings</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x03</span><span class="s2">abc</span><span class="se">\x00\x01</span><span class="s2">d&quot;</span><span class="p">)</span>
+<span class="go">[&#39;abc&#39;, &#39;&#39;, &#39;d&#39;]</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If a length prefix runs past the end of the data.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_ble_rpc_command">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_ble_rpc_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_ble_rpc_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_ble_rpc_command" title="Link to this definition"></a></dt>
+<dd><p>Encode an RPC command for BLE, with the checksum appended.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_ble_rpc_command</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">DEVICE_INFO</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">&#39;03 00 03&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_rpc_command">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_rpc_command</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">command</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">b''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_rpc_command"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_rpc_command" title="Link to this definition"></a></dt>
+<dd><p>Encode an RPC command: command, data length, data.</p>
+<p>This is the payload used inside a serial frame. Use
+<a class="reference internal" href="#improv_client.protocol.encode_ble_rpc_command" title="improv_client.protocol.encode_ble_rpc_command"><code class="xref py py-func docutils literal notranslate"><span class="pre">encode_ble_rpc_command()</span></code></a> for BLE, which adds a checksum.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_rpc_command</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">DEVICE_INFO</span><span class="p">)</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">&#39;03 00&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_serial_packet">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_serial_packet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">packet_type</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_serial_packet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_serial_packet" title="Link to this definition"></a></dt>
+<dd><p>Encode a serial frame: <code class="docutils literal notranslate"><span class="pre">IMPROV</span></code>, version, type, length, data, checksum.</p>
+<p>The checksum covers every byte from the header through the data. Clients write a
+newline after the frame; that isn’t part of the frame and isn’t added here.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_serial_packet</span><span class="p">(</span><span class="n">PacketType</span><span class="o">.</span><span class="n">RPC_COMMAND</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">([</span><span class="mh">0x03</span><span class="p">,</span> <span class="mh">0x00</span><span class="p">]))</span><span class="o">.</span><span class="n">hex</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+<span class="go">&#39;49 4d 50 52 4f 56 01 03 02 03 00 e6&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>packet_type</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p></li>
+<li><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_string">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_string</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_string"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_string" title="Link to this definition"></a></dt>
+<dd><p>Encode a string as UTF-8 with a one byte length prefix.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_string</span><span class="p">(</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
+<span class="go">b&#39;\x03abc&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#ValueError" title="(in Python v3.15)"><strong>ValueError</strong></a> – If the encoded string is longer than 255 bytes.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_strings">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_strings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">values</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_strings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_strings" title="Link to this definition"></a></dt>
+<dd><p>Encode a sequence of length-prefixed strings.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>values</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Iterable" title="(in Python v3.15)"><em>Iterable</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.encode_wifi_settings">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">encode_wifi_settings</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ssid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">password</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#encode_wifi_settings"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.encode_wifi_settings" title="Link to this definition"></a></dt>
+<dd><p>Encode the data part of <code class="xref py py-attr docutils literal notranslate"><span class="pre">Command.WIFI_SETTINGS</span></code>.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">encode_wifi_settings</span><span class="p">(</span><span class="s2">&quot;ab&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">)</span>
+<span class="go">b&#39;\x02ab\x01c&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ssid</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+<li><p><strong>password</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)">bytes</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.parse_service_data">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">parse_service_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#parse_service_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.parse_service_data" title="Link to this definition"></a></dt>
+<dd><p>Parse the Improv service data (UUID <code class="docutils literal notranslate"><span class="pre">4677</span></code>) from a BLE advertisement.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parse_service_data</span><span class="p">(</span><span class="nb">bytes</span><span class="p">([</span><span class="mh">0x02</span><span class="p">,</span> <span class="mh">0x03</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span><span class="o">.</span><span class="n">state</span><span class="o">.</span><span class="n">name</span>
+<span class="go">&#39;AUTHORIZED&#39;</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the data is too short or the state is unknown.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#bytes" title="(in Python v3.15)"><em>bytes</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.ServiceData" title="improv_client.protocol.ServiceData"><em>ServiceData</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.parse_state">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">parse_state</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#parse_state"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.parse_state" title="Link to this definition"></a></dt>
+<dd><p>Convert a raw state byte to a <a class="reference internal" href="#improv_client.protocol.State" title="improv_client.protocol.State"><code class="xref py py-class docutils literal notranslate"><span class="pre">State</span></code></a>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the value isn’t a known state.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>value</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#improv_client.protocol.State" title="improv_client.protocol.State"><em>State</em></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="improv_client.protocol.parse_wifi_networks">
+<span class="sig-prename descclassname"><span class="pre">improv_client.protocol.</span></span><span class="sig-name descname"><span class="pre">parse_wifi_networks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">strings</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/protocol.html#parse_wifi_networks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.protocol.parse_wifi_networks" title="Link to this definition"></a></dt>
+<dd><p>Parse a BLE scan result: SSID, RSSI and auth repeated for each network.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="exceptions.html#improv_client.exceptions.ImprovProtocolError" title="improv_client.exceptions.ImprovProtocolError"><strong>ImprovProtocolError</strong></a> – If the number of strings isn’t a multiple of 3.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>strings</strong> (<a class="reference external" href="https://docs.python.org/3/library/collections.abc.html#collections.abc.Sequence" title="(in Python v3.15)"><em>Sequence</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>]</em>)</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="#improv_client.protocol.WifiNetwork" title="improv_client.protocol.WifiNetwork"><em>WifiNetwork</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="client.html" class="btn btn-neutral float-left" title="Shared client API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="exceptions.html" class="btn btn-neutral float-right" title="Exceptions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

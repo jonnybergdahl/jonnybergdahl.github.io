@@ -1,0 +1,782 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>improv_client.protocol &mdash; improv-client 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            improv-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../serial.html">Serial transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ble.html">BLE transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client.html">Shared client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">Exceptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">improv-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">improv_client.protocol</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for improv_client.protocol</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Transport-independent parts of the Improv Wi-Fi protocol.</span>
+
+<span class="sd">This module has no third-party dependencies. It contains the protocol constants and</span>
+<span class="sd">enums, the RPC encoding and decoding shared by serial and BLE, the serial frame codec,</span>
+<span class="sd">BLE service data parsing, and the dataclasses returned by the clients.</span>
+
+<span class="sd">Specifications:</span>
+
+<span class="sd">- Serial: https://www.improv-wifi.com/serial/</span>
+<span class="sd">- BLE: https://www.improv-wifi.com/ble/</span>
+
+<span class="sd">Example, encoding the Wi-Fi settings command from the specification:</span>
+
+<span class="sd">&gt;&gt;&gt; payload = encode_rpc_command(Command.WIFI_SETTINGS,</span>
+<span class="sd">...                              encode_wifi_settings(&quot;MyWirelessAP&quot;, &quot;mysecurepassword&quot;))</span>
+<span class="sd">&gt;&gt;&gt; payload[:3].hex(&quot; &quot;)</span>
+<span class="sd">&#39;01 1e 0c&#39;</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">enum</span><span class="w"> </span><span class="kn">import</span> <span class="n">IntEnum</span><span class="p">,</span> <span class="n">IntFlag</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ImprovProtocolError</span>
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;BLE_CAPABILITIES_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_CURRENT_STATE_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_ERROR_STATE_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_RPC_COMMAND_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_RPC_RESULT_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_SERVICE_DATA_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;BLE_SERVICE_UUID&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SERIAL_HEADER&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SERIAL_VERSION&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Capabilities&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Command&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;DeviceInfo&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Error&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NetworkFlags&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;NetworkState&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;PacketType&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;RpcResult&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SerialPacket&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;SerialPacketDecoder&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;ServiceData&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;State&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;WifiNetwork&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;checksum&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;decode_ble_rpc_result&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;decode_rpc_result&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;decode_strings&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_ble_rpc_command&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_rpc_command&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_serial_packet&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_string&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_strings&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;encode_wifi_settings&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parse_service_data&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parse_state&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;parse_wifi_networks&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="c1">#: Header that starts every serial frame.</span>
+<span class="n">SERIAL_HEADER</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;IMPROV&quot;</span>
+<span class="c1">#: Serial protocol version this library speaks.</span>
+<span class="n">SERIAL_VERSION</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="c1">#: Improv GATT service.</span>
+<span class="n">BLE_SERVICE_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268000&quot;</span>
+<span class="c1">#: Current state characteristic (read, notify).</span>
+<span class="n">BLE_CURRENT_STATE_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268001&quot;</span>
+<span class="c1">#: Error state characteristic (read, notify).</span>
+<span class="n">BLE_ERROR_STATE_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268002&quot;</span>
+<span class="c1">#: RPC command characteristic (write).</span>
+<span class="n">BLE_RPC_COMMAND_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268003&quot;</span>
+<span class="c1">#: RPC result characteristic (read, notify).</span>
+<span class="n">BLE_RPC_RESULT_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268004&quot;</span>
+<span class="c1">#: Capabilities characteristic (read).</span>
+<span class="n">BLE_CAPABILITIES_UUID</span> <span class="o">=</span> <span class="s2">&quot;00467768-6228-2272-4663-277478268005&quot;</span>
+<span class="c1">#: UUID of the service data in the advertisement (16-bit ``4677``).</span>
+<span class="n">BLE_SERVICE_DATA_UUID</span> <span class="o">=</span> <span class="s2">&quot;00004677-0000-1000-8000-00805f9b34fb&quot;</span>
+
+<span class="n">_MAX_FIELD_LENGTH</span> <span class="o">=</span> <span class="mi">255</span>
+
+
+<div class="viewcode-block" id="State">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.State">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">State</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Current provisioning state of the device.&quot;&quot;&quot;</span>
+
+    <span class="c1">#: Provisioning is unavailable, for example because Wi-Fi is turned off (serial only).</span>
+    <span class="n">STOPPED</span> <span class="o">=</span> <span class="mh">0x00</span>
+    <span class="c1">#: Waiting for authorization through physical interaction (BLE only).</span>
+    <span class="n">AUTHORIZATION_REQUIRED</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="c1">#: Ready to accept credentials.</span>
+    <span class="n">AUTHORIZED</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="c1">#: Credentials received, trying to connect.</span>
+    <span class="n">PROVISIONING</span> <span class="o">=</span> <span class="mh">0x03</span>
+    <span class="c1">#: Connected to the network.</span>
+    <span class="n">PROVISIONED</span> <span class="o">=</span> <span class="mh">0x04</span>
+    <span class="c1">#: Alias of :attr:`AUTHORIZED`, the name the serial specification uses.</span>
+    <span class="n">READY</span> <span class="o">=</span> <span class="mh">0x02</span></div>
+
+
+
+<div class="viewcode-block" id="Error">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.Error">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Error</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Error state reported by the device.&quot;&quot;&quot;</span>
+
+    <span class="n">NONE</span> <span class="o">=</span> <span class="mh">0x00</span>
+    <span class="n">INVALID_RPC_PACKET</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="n">UNKNOWN_RPC_COMMAND</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="n">UNABLE_TO_CONNECT</span> <span class="o">=</span> <span class="mh">0x03</span>
+    <span class="c1">#: Credentials were sent but the device isn&#39;t authorized (BLE only).</span>
+    <span class="n">NOT_AUTHORIZED</span> <span class="o">=</span> <span class="mh">0x04</span>
+    <span class="n">BAD_HOSTNAME</span> <span class="o">=</span> <span class="mh">0x05</span>
+    <span class="n">UNKNOWN</span> <span class="o">=</span> <span class="mh">0xFF</span>
+
+<div class="viewcode-block" id="Error.parse">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.Error.parse">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Error</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert a raw error byte, mapping unknown values to :attr:`UNKNOWN`.</span>
+
+<span class="sd">        &gt;&gt;&gt; Error.parse(3).name</span>
+<span class="sd">        &#39;UNABLE_TO_CONNECT&#39;</span>
+<span class="sd">        &gt;&gt;&gt; Error.parse(0x42).name</span>
+<span class="sd">        &#39;UNKNOWN&#39;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">UNKNOWN</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="Command">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.Command">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Command</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;RPC command identifiers.&quot;&quot;&quot;</span>
+
+    <span class="n">WIFI_SETTINGS</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="c1">#: Ask the device to identify itself, e.g. by blinking a LED (BLE only).</span>
+    <span class="n">IDENTIFY</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="n">DEVICE_INFO</span> <span class="o">=</span> <span class="mh">0x03</span>
+    <span class="n">SCAN_WIFI</span> <span class="o">=</span> <span class="mh">0x04</span>
+    <span class="n">HOSTNAME</span> <span class="o">=</span> <span class="mh">0x05</span>
+    <span class="n">DEVICE_NAME</span> <span class="o">=</span> <span class="mh">0x06</span>
+    <span class="c1">#: Request the network state (serial only).</span>
+    <span class="n">NETWORK_STATE</span> <span class="o">=</span> <span class="mh">0x07</span>
+    <span class="c1">#: Alias of :attr:`IDENTIFY`. On serial, command 0x02 requests the current state.</span>
+    <span class="n">REQUEST_CURRENT_STATE</span> <span class="o">=</span> <span class="mh">0x02</span></div>
+
+
+
+<div class="viewcode-block" id="Capabilities">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.Capabilities">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Capabilities</span><span class="p">(</span><span class="n">IntFlag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Capabilities advertised by a BLE device.&quot;&quot;&quot;</span>
+
+    <span class="n">IDENTIFY</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="n">DEVICE_INFO</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="n">SCAN_WIFI</span> <span class="o">=</span> <span class="mh">0x04</span>
+    <span class="n">HOSTNAME</span> <span class="o">=</span> <span class="mh">0x08</span></div>
+
+
+
+<div class="viewcode-block" id="NetworkFlags">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.NetworkFlags">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">NetworkFlags</span><span class="p">(</span><span class="n">IntFlag</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Flags returned by :attr:`Command.NETWORK_STATE`.&quot;&quot;&quot;</span>
+
+    <span class="c1">#: The device currently has network connectivity.</span>
+    <span class="n">ONLINE</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="c1">#: The device has a Wi-Fi interface (it may be disabled).</span>
+    <span class="n">WIFI</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="n">ETHERNET</span> <span class="o">=</span> <span class="mh">0x04</span>
+    <span class="n">THREAD</span> <span class="o">=</span> <span class="mh">0x08</span>
+    <span class="n">CELLULAR</span> <span class="o">=</span> <span class="mh">0x10</span></div>
+
+
+
+<div class="viewcode-block" id="PacketType">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.PacketType">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PacketType</span><span class="p">(</span><span class="n">IntEnum</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Serial packet types.&quot;&quot;&quot;</span>
+
+    <span class="n">CURRENT_STATE</span> <span class="o">=</span> <span class="mh">0x01</span>
+    <span class="n">ERROR_STATE</span> <span class="o">=</span> <span class="mh">0x02</span>
+    <span class="n">RPC_COMMAND</span> <span class="o">=</span> <span class="mh">0x03</span>
+    <span class="n">RPC_RESULT</span> <span class="o">=</span> <span class="mh">0x04</span></div>
+
+
+
+<div class="viewcode-block" id="parse_state">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.parse_state">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_state</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Convert a raw state byte to a :class:`State`.</span>
+
+<span class="sd">    :raises ImprovProtocolError: If the value isn&#39;t a known state.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">State</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unknown state 0x</span><span class="si">{</span><span class="n">value</span><span class="si">:</span><span class="s2">02x</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span></div>
+
+
+
+<div class="viewcode-block" id="checksum">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.checksum">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">checksum</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return the Improv checksum: the sum of all bytes, keeping only the low byte.</span>
+
+<span class="sd">    &gt;&gt;&gt; checksum(bytes([0x03, 0x00]))</span>
+<span class="sd">    3</span>
+<span class="sd">    &gt;&gt;&gt; checksum(bytes([0xff, 0x02]))</span>
+<span class="sd">    1</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_length</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">,</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAX_FIELD_LENGTH</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes, the maximum is </span><span class="si">{</span><span class="n">_MAX_FIELD_LENGTH</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="encode_string">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_string">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_string</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode a string as UTF-8 with a one byte length prefix.</span>
+
+<span class="sd">    &gt;&gt;&gt; encode_string(&quot;abc&quot;)</span>
+<span class="sd">    b&#39;\\x03abc&#39;</span>
+
+<span class="sd">    :raises ValueError: If the encoded string is longer than 255 bytes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="n">_check_length</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;String&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span> <span class="o">+</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="encode_strings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_strings">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_strings</span><span class="p">(</span><span class="n">values</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">str</span> <span class="o">|</span> <span class="nb">bytes</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode a sequence of length-prefixed strings.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">encode_string</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="decode_strings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.decode_strings">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">decode_strings</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decode a sequence of length-prefixed UTF-8 strings.</span>
+
+<span class="sd">    Invalid UTF-8 is replaced rather than rejected, since device names come from</span>
+<span class="sd">    firmware we don&#39;t control.</span>
+
+<span class="sd">    &gt;&gt;&gt; decode_strings(b&quot;\\x03abc\\x00\\x01d&quot;)</span>
+<span class="sd">    [&#39;abc&#39;, &#39;&#39;, &#39;d&#39;]</span>
+
+<span class="sd">    :raises ImprovProtocolError: If a length prefix runs past the end of the data.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">strings</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">length</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="n">length</span>
+        <span class="k">if</span> <span class="n">end</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;String at offset </span><span class="si">{</span><span class="n">index</span><span class="si">}</span><span class="s2"> needs </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> bytes, only </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">start</span><span class="si">}</span><span class="s2"> left&quot;</span>
+            <span class="p">)</span>
+        <span class="n">strings</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">start</span><span class="p">:</span><span class="n">end</span><span class="p">]</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;replace&quot;</span><span class="p">))</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">end</span>
+    <span class="k">return</span> <span class="n">strings</span></div>
+
+
+
+<div class="viewcode-block" id="encode_wifi_settings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_wifi_settings">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_wifi_settings</span><span class="p">(</span><span class="n">ssid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode the data part of :attr:`Command.WIFI_SETTINGS`.</span>
+
+<span class="sd">    &gt;&gt;&gt; encode_wifi_settings(&quot;ab&quot;, &quot;c&quot;)</span>
+<span class="sd">    b&#39;\\x02ab\\x01c&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">encode_strings</span><span class="p">((</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="encode_rpc_command">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_rpc_command">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_rpc_command</span><span class="p">(</span><span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode an RPC command: command, data length, data.</span>
+
+<span class="sd">    This is the payload used inside a serial frame. Use</span>
+<span class="sd">    :func:`encode_ble_rpc_command` for BLE, which adds a checksum.</span>
+
+<span class="sd">    &gt;&gt;&gt; encode_rpc_command(Command.DEVICE_INFO).hex(&quot; &quot;)</span>
+<span class="sd">    &#39;03 00&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">_check_length</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;RPC data&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">command</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span> <span class="o">+</span> <span class="n">data</span></div>
+
+
+
+<div class="viewcode-block" id="encode_ble_rpc_command">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_ble_rpc_command">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_ble_rpc_command</span><span class="p">(</span><span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode an RPC command for BLE, with the checksum appended.</span>
+
+<span class="sd">    &gt;&gt;&gt; encode_ble_rpc_command(Command.DEVICE_INFO).hex(&quot; &quot;)</span>
+<span class="sd">    &#39;03 00 03&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="n">encode_rpc_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">payload</span> <span class="o">+</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">checksum</span><span class="p">(</span><span class="n">payload</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="RpcResult">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.RpcResult">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RpcResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A decoded RPC result.</span>
+
+<span class="sd">    :ivar command: The command this is a result for. A :class:`Command` when known.</span>
+<span class="sd">    :ivar strings: The strings in the result. May be empty.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">command</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">strings</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_command</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Command</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">value</span>
+
+
+<div class="viewcode-block" id="decode_rpc_result">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.decode_rpc_result">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">decode_rpc_result</span><span class="p">(</span><span class="n">payload</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RpcResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decode an RPC result without a checksum, as carried in a serial frame.</span>
+
+<span class="sd">    &gt;&gt;&gt; decode_rpc_result(bytes([0x05, 0x04, 0x03]) + b&quot;abc&quot;)</span>
+<span class="sd">    RpcResult(command=&lt;Command.HOSTNAME: 5&gt;, strings=(&#39;abc&#39;,))</span>
+
+<span class="sd">    :raises ImprovProtocolError: If the payload is truncated or malformed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;RPC result too short (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&quot;</span><span class="p">)</span>
+    <span class="n">length</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">length</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;RPC result says </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> data bytes, only </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">2</span><span class="si">}</span><span class="s2"> received&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">RpcResult</span><span class="p">(</span><span class="n">_command</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">decode_strings</span><span class="p">(</span><span class="n">payload</span><span class="p">[</span><span class="mi">2</span> <span class="p">:</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">length</span><span class="p">])))</span></div>
+
+
+
+<div class="viewcode-block" id="decode_ble_rpc_result">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.decode_ble_rpc_result">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">decode_ble_rpc_result</span><span class="p">(</span><span class="n">payload</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">RpcResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Decode an RPC result read from the BLE RPC result characteristic.</span>
+
+<span class="sd">    The last byte is a checksum over everything before it.</span>
+
+<span class="sd">    :raises ImprovProtocolError: If the checksum doesn&#39;t match or the payload is truncated.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">payload</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BLE RPC result too short (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&quot;</span><span class="p">)</span>
+    <span class="n">body</span><span class="p">,</span> <span class="n">received</span> <span class="o">=</span> <span class="n">payload</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">payload</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">checksum</span><span class="p">(</span><span class="n">body</span><span class="p">)</span> <span class="o">!=</span> <span class="n">received</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;BLE RPC result checksum mismatch (got 0x</span><span class="si">{</span><span class="n">received</span><span class="si">:</span><span class="s2">02x</span><span class="si">}</span><span class="s2">, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;expected 0x</span><span class="si">{</span><span class="n">checksum</span><span class="p">(</span><span class="n">body</span><span class="p">)</span><span class="si">:</span><span class="s2">02x</span><span class="si">}</span><span class="s2">)&quot;</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">decode_rpc_result</span><span class="p">(</span><span class="n">body</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># --- Serial framing ---------------------------------------------------------------</span>
+
+
+<div class="viewcode-block" id="SerialPacket">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.SerialPacket">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SerialPacket</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A decoded serial frame.</span>
+
+<span class="sd">    :ivar packet_type: A :class:`PacketType` when known, otherwise the raw byte.</span>
+<span class="sd">    :ivar data: The frame data, without header, length and checksum.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">packet_type</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span></div>
+
+
+
+<div class="viewcode-block" id="encode_serial_packet">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.encode_serial_packet">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">encode_serial_packet</span><span class="p">(</span><span class="n">packet_type</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Encode a serial frame: ``IMPROV``, version, type, length, data, checksum.</span>
+
+<span class="sd">    The checksum covers every byte from the header through the data. Clients write a</span>
+<span class="sd">    newline after the frame; that isn&#39;t part of the frame and isn&#39;t added here.</span>
+
+<span class="sd">    &gt;&gt;&gt; encode_serial_packet(PacketType.RPC_COMMAND, bytes([0x03, 0x00])).hex(&quot; &quot;)</span>
+<span class="sd">    &#39;49 4d 50 52 4f 56 01 03 02 03 00 e6&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">_check_length</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;Serial packet data&quot;</span><span class="p">)</span>
+    <span class="n">frame</span> <span class="o">=</span> <span class="n">SERIAL_HEADER</span> <span class="o">+</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">SERIAL_VERSION</span><span class="p">,</span> <span class="n">packet_type</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)])</span> <span class="o">+</span> <span class="n">data</span>
+    <span class="k">return</span> <span class="n">frame</span> <span class="o">+</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">checksum</span><span class="p">(</span><span class="n">frame</span><span class="p">)])</span></div>
+
+
+
+<div class="viewcode-block" id="SerialPacketDecoder">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.SerialPacketDecoder">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">SerialPacketDecoder</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Incremental decoder that finds Improv frames in a serial byte stream.</span>
+
+<span class="sd">    Devices usually log text on the same port, so anything that isn&#39;t a valid frame</span>
+<span class="sd">    is skipped. Feed it bytes as they arrive; it returns the complete frames found</span>
+<span class="sd">    so far and keeps any partial frame for the next call.</span>
+
+<span class="sd">    &gt;&gt;&gt; decoder = SerialPacketDecoder()</span>
+<span class="sd">    &gt;&gt;&gt; frame = encode_serial_packet(PacketType.CURRENT_STATE, b&quot;\\x02&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; decoder.feed(b&quot;[I][log]: hello\\n&quot; + frame[:5])</span>
+<span class="sd">    []</span>
+<span class="sd">    &gt;&gt;&gt; decoder.feed(frame[5:] + b&quot;\\n&quot;)</span>
+<span class="sd">    [SerialPacket(packet_type=&lt;PacketType.CURRENT_STATE: 1&gt;, data=b&#39;\\x02&#39;)]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">_PREFIX_LENGTH</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">SERIAL_HEADER</span><span class="p">)</span> <span class="o">+</span> <span class="mi">3</span>  <span class="c1"># header, version, type, length</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span> <span class="o">=</span> <span class="nb">bytearray</span><span class="p">()</span>
+
+<div class="viewcode-block" id="SerialPacketDecoder.reset">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.SerialPacketDecoder.reset">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Drop any buffered data.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="SerialPacketDecoder.feed">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.SerialPacketDecoder.feed">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">feed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">SerialPacket</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Add received bytes and return the complete frames found.&quot;&quot;&quot;</span>
+        <span class="n">buffer</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_buffer</span>
+        <span class="n">buffer</span> <span class="o">+=</span> <span class="n">data</span>
+        <span class="n">packets</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">SerialPacket</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">start</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">SERIAL_HEADER</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="c1"># Keep a tail that could be the start of a header split across reads.</span>
+                <span class="n">keep</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">SERIAL_HEADER</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">keep</span><span class="p">:</span>
+                    <span class="k">del</span> <span class="n">buffer</span><span class="p">[:</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">-</span> <span class="n">keep</span><span class="p">]</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">start</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">buffer</span><span class="p">[:</span><span class="n">start</span><span class="p">]</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_PREFIX_LENGTH</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">buffer</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">SERIAL_HEADER</span><span class="p">)]</span> <span class="o">!=</span> <span class="n">SERIAL_VERSION</span><span class="p">:</span>
+                <span class="k">del</span> <span class="n">buffer</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">continue</span>
+            <span class="n">length</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_PREFIX_LENGTH</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_PREFIX_LENGTH</span> <span class="o">+</span> <span class="n">length</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">buffer</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="k">if</span> <span class="n">buffer</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">!=</span> <span class="n">checksum</span><span class="p">(</span><span class="n">buffer</span><span class="p">[:</span><span class="n">end</span><span class="p">]):</span>
+                <span class="c1"># Not a real frame (or a corrupted one); resync after this header.</span>
+                <span class="k">del</span> <span class="n">buffer</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span>
+                <span class="k">continue</span>
+            <span class="n">packet_type</span> <span class="o">=</span> <span class="n">buffer</span><span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">SERIAL_HEADER</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">packet_type</span> <span class="o">=</span> <span class="n">PacketType</span><span class="p">(</span><span class="n">packet_type</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="n">packets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">SerialPacket</span><span class="p">(</span><span class="n">packet_type</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">(</span><span class="n">buffer</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_PREFIX_LENGTH</span> <span class="p">:</span> <span class="n">end</span><span class="p">])))</span>
+            <span class="k">del</span> <span class="n">buffer</span><span class="p">[:</span> <span class="n">end</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">packets</span></div>
+</div>
+
+
+
+<span class="c1"># --- Results ----------------------------------------------------------------------</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_require</span><span class="p">(</span><span class="n">strings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">count</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2"> needs at least </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> strings, got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="DeviceInfo">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.DeviceInfo">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">DeviceInfo</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Device information returned by :attr:`Command.DEVICE_INFO`.</span>
+
+<span class="sd">    :ivar firmware_name: Firmware name, e.g. ``ESPHome``.</span>
+<span class="sd">    :ivar firmware_version: Firmware version.</span>
+<span class="sd">    :ivar hardware: Hardware chip or variant, e.g. ``esp32-s3-devkitc-1/esp32-s3``.</span>
+<span class="sd">    :ivar device_name: User-facing device name.</span>
+<span class="sd">    :ivar os_name: Operating system name, sent by newer devices (e.g. ESPHome 2025.12</span>
+<span class="sd">        and later, where ``firmware_name`` is the project name instead).</span>
+<span class="sd">    :ivar os_version: Operating system version, when sent.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">firmware_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">firmware_version</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">hardware</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">device_name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">os_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">os_version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+<div class="viewcode-block" id="DeviceInfo.from_strings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.DeviceInfo.from_strings">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_strings</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">strings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">DeviceInfo</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build from the result strings.</span>
+
+<span class="sd">        &gt;&gt;&gt; DeviceInfo.from_strings([&quot;ESPHome&quot;, &quot;2021.11.0&quot;, &quot;esp32&quot;, &quot;Temp&quot;]).os_name is None</span>
+<span class="sd">        True</span>
+
+<span class="sd">        :raises ImprovProtocolError: If fewer than 4 strings were returned.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_require</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s2">&quot;Device info&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span>
+            <span class="n">firmware_name</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+            <span class="n">firmware_version</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">hardware</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+            <span class="n">device_name</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+            <span class="n">os_name</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">4</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">os_version</span><span class="o">=</span><span class="n">strings</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">5</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="WifiNetwork">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.WifiNetwork">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">WifiNetwork</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A network found by :attr:`Command.SCAN_WIFI`.</span>
+
+<span class="sd">    :ivar ssid: Network name.</span>
+<span class="sd">    :ivar rssi: Signal strength in dBm.</span>
+<span class="sd">    :ivar auth: Authentication as reported by the device. Serial devices send ``YES``</span>
+<span class="sd">        or ``NO``; BLE devices send a type such as ``WPA2`` or ``WPA/WPA2``, or ``NO``.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">ssid</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">rssi</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">auth</span><span class="p">:</span> <span class="nb">str</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">secured</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;``True`` unless the device reported the network as open (``NO``).&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;NO&quot;</span>
+
+<div class="viewcode-block" id="WifiNetwork.from_strings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.WifiNetwork.from_strings">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_strings</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">strings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">WifiNetwork</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build from SSID, RSSI and auth strings.</span>
+
+<span class="sd">        &gt;&gt;&gt; WifiNetwork.from_strings([&quot;MyWirelessNetwork&quot;, &quot;-60&quot;, &quot;YES&quot;])</span>
+<span class="sd">        WifiNetwork(ssid=&#39;MyWirelessNetwork&#39;, rssi=-60, auth=&#39;YES&#39;)</span>
+
+<span class="sd">        :raises ImprovProtocolError: If there are fewer than 3 strings or the RSSI isn&#39;t a number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_require</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Wi-Fi network&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">rssi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid RSSI </span><span class="si">{</span><span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">rssi</span><span class="p">,</span> <span class="n">strings</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="parse_wifi_networks">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.parse_wifi_networks">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_wifi_networks</span><span class="p">(</span><span class="n">strings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">WifiNetwork</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse a BLE scan result: SSID, RSSI and auth repeated for each network.</span>
+
+<span class="sd">    :raises ImprovProtocolError: If the number of strings isn&#39;t a multiple of 3.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span> <span class="o">%</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Scan result has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span><span class="si">}</span><span class="s2"> strings, not a multiple of 3&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">WifiNetwork</span><span class="o">.</span><span class="n">from_strings</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">strings</span><span class="p">),</span> <span class="mi">3</span><span class="p">)]</span></div>
+
+
+
+<div class="viewcode-block" id="NetworkState">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.NetworkState">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NetworkState</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Network state returned by :attr:`Command.NETWORK_STATE`.</span>
+
+<span class="sd">    :ivar flags: Network interface and connectivity flags.</span>
+<span class="sd">    :ivar urls: URLs for the device, only present while online.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">flags</span><span class="p">:</span> <span class="n">NetworkFlags</span>
+    <span class="n">urls</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">()</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">online</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;``True`` if the device currently has network connectivity.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">NetworkFlags</span><span class="o">.</span><span class="n">ONLINE</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">flags</span>
+
+<div class="viewcode-block" id="NetworkState.from_strings">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.NetworkState.from_strings">[docs]</a>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_strings</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">strings</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">NetworkState</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Build from the result strings: flags as a decimal string, then URLs.</span>
+
+<span class="sd">        &gt;&gt;&gt; NetworkState.from_strings([&quot;7&quot;, &quot;http://192.168.1.10&quot;]).online</span>
+<span class="sd">        True</span>
+
+<span class="sd">        :raises ImprovProtocolError: If the flags are missing or not a number.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">_require</span><span class="p">(</span><span class="n">strings</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Network state&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">flags</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Invalid network flags </span><span class="si">{</span><span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">!r}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">NetworkFlags</span><span class="p">(</span><span class="n">flags</span> <span class="o">&amp;</span> <span class="mh">0xFF</span><span class="p">),</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">url</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">strings</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="k">if</span> <span class="n">url</span><span class="p">))</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="ServiceData">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.ServiceData">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ServiceData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Improv service data from a BLE advertisement.</span>
+
+<span class="sd">    :ivar state: Current provisioning state.</span>
+<span class="sd">    :ivar capabilities: Supported optional commands.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">state</span><span class="p">:</span> <span class="n">State</span>
+    <span class="n">capabilities</span><span class="p">:</span> <span class="n">Capabilities</span></div>
+
+
+
+<div class="viewcode-block" id="parse_service_data">
+<a class="viewcode-back" href="../../protocol.html#improv_client.protocol.parse_service_data">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">parse_service_data</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ServiceData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Parse the Improv service data (UUID ``4677``) from a BLE advertisement.</span>
+
+<span class="sd">    &gt;&gt;&gt; parse_service_data(bytes([0x02, 0x03, 0, 0, 0, 0])).state.name</span>
+<span class="sd">    &#39;AUTHORIZED&#39;</span>
+
+<span class="sd">    :raises ImprovProtocolError: If the data is too short or the state is unknown.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Service data too short (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes)&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">ServiceData</span><span class="p">(</span><span class="n">parse_state</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">Capabilities</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

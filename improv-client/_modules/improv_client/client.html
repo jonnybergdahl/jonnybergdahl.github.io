@@ -1,0 +1,551 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>improv_client.client &mdash; improv-client 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=8d563738"></script>
+      <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            improv-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../serial.html">Serial transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ble.html">BLE transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../client.html">Shared client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../protocol.html">Protocol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../exceptions.html">Exceptions</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">improv-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">improv_client.client</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for improv_client.client</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;Shared client logic for the serial and BLE transports.</span>
+
+<span class="sd">:class:`ImprovClient` holds the API both transports have in common. Use</span>
+<span class="sd">:class:`~improv_client.serial.ImprovSerialClient` or</span>
+<span class="sd">:class:`~improv_client.ble.ImprovBleClient` to talk to a device.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">TracebackType</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ImprovConnectionError</span><span class="p">,</span>
+    <span class="n">ImprovDeviceError</span><span class="p">,</span>
+    <span class="n">ImprovError</span><span class="p">,</span>
+    <span class="n">ImprovNotSupportedError</span><span class="p">,</span>
+    <span class="n">ImprovProtocolError</span><span class="p">,</span>
+    <span class="n">ImprovTimeoutError</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.protocol</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Command</span><span class="p">,</span>
+    <span class="n">DeviceInfo</span><span class="p">,</span>
+    <span class="n">Error</span><span class="p">,</span>
+    <span class="n">RpcResult</span><span class="p">,</span>
+    <span class="n">State</span><span class="p">,</span>
+    <span class="n">WifiNetwork</span><span class="p">,</span>
+    <span class="n">encode_wifi_settings</span><span class="p">,</span>
+    <span class="n">parse_wifi_networks</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">_LOGGER</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="c1">#: Default time to wait for an answer, in seconds.</span>
+<span class="n">DEFAULT_TIMEOUT</span> <span class="o">=</span> <span class="mf">10.0</span>
+<span class="c1">#: Default time to wait for provisioning to finish, in seconds.</span>
+<span class="n">DEFAULT_PROVISION_TIMEOUT</span> <span class="o">=</span> <span class="mf">60.0</span>
+<span class="c1">#: Default time to wait for a Wi-Fi scan, in seconds.</span>
+<span class="n">DEFAULT_SCAN_TIMEOUT</span> <span class="o">=</span> <span class="mf">30.0</span>
+
+<span class="n">StateCallback</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">State</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+<span class="n">ErrorCallback</span> <span class="o">=</span> <span class="n">Callable</span><span class="p">[[</span><span class="n">Error</span><span class="p">],</span> <span class="kc">None</span><span class="p">]</span>
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">_PendingRpc</span><span class="p">:</span>
+    <span class="n">command</span><span class="p">:</span> <span class="nb">int</span>
+    <span class="n">future</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span>
+    <span class="n">multiple</span><span class="p">:</span> <span class="nb">bool</span>
+    <span class="n">results</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">list</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="ImprovClient">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">ImprovClient</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Base class with the API shared by all transports.</span>
+
+<span class="sd">    Only one command runs at a time; concurrent calls wait for each other.</span>
+<span class="sd">    The client can be used as an async context manager, which connects on entry and</span>
+<span class="sd">    disconnects on exit.</span>
+
+<span class="sd">    :param timeout: Default time in seconds to wait for an answer.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1">#: Serial sends one RPC result per network and ends with an empty one.</span>
+    <span class="c1">#: BLE sends all networks in a single result.</span>
+    <span class="n">_scan_multiple_results</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">DEFAULT_TIMEOUT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="o">=</span> <span class="n">timeout</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span><span class="p">:</span> <span class="n">State</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_error</span> <span class="o">=</span> <span class="n">Error</span><span class="o">.</span><span class="n">NONE</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_operation_lock</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_pending</span><span class="p">:</span> <span class="n">_PendingRpc</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_request</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">frozenset</span><span class="p">[</span><span class="n">State</span><span class="p">],</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="n">State</span><span class="p">]]]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">StateCallback</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_error_callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">ErrorCallback</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># --- Connection ---------------------------------------------------------------</span>
+
+    <span class="nd">@property</span>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">connected</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;``True`` while connected to the device.&quot;&quot;&quot;</span>
+
+<div class="viewcode-block" id="ImprovClient.connect">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.connect">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">connect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Connect to the device.</span>
+
+<span class="sd">        :raises ImprovConnectionError: If the connection fails.</span>
+<span class="sd">        &quot;&quot;&quot;</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.disconnect">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.disconnect">[docs]</a>
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">disconnect</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Disconnect from the device. Does nothing if not connected.&quot;&quot;&quot;</span></div>
+
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aenter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImprovClient</span><span class="p">:</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="fm">__aexit__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">exc_type</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="ne">BaseException</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">exc</span><span class="p">:</span> <span class="ne">BaseException</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tb</span><span class="p">:</span> <span class="n">TracebackType</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">disconnect</span><span class="p">()</span>
+
+    <span class="c1"># --- State --------------------------------------------------------------------</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">state</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The last state reported by the device, or ``None`` if none has been seen.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">error</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Error</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;The last error state reported by the device.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error</span>
+
+<div class="viewcode-block" id="ImprovClient.register_state_callback">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.register_state_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_state_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">StateCallback</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call ``callback`` whenever the device state changes.</span>
+
+<span class="sd">        :return: A function that removes the callback again.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state_callbacks</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.register_error_callback">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.register_error_callback">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">register_error_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">ErrorCallback</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">[[],</span> <span class="kc">None</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Call ``callback`` whenever the device error state changes.</span>
+
+<span class="sd">        :return: A function that removes the callback again.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_error_callbacks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+        <span class="k">return</span> <span class="k">lambda</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_remove</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_error_callbacks</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_remove</span><span class="p">(</span><span class="n">callbacks</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">callback</span> <span class="ow">in</span> <span class="n">callbacks</span><span class="p">:</span>
+            <span class="n">callbacks</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+
+<div class="viewcode-block" id="ImprovClient.wait_for_state">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.wait_for_state">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">wait_for_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">states</span><span class="p">:</span> <span class="n">State</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wait until the device reports one of ``states``.</span>
+
+<span class="sd">        Returns at once if the current state already matches. On BLE, use this to wait</span>
+<span class="sd">        for the user to authorize the device:</span>
+<span class="sd">        ``await client.wait_for_state(State.AUTHORIZED, timeout=60)``.</span>
+
+<span class="sd">        :param timeout: Seconds to wait, or ``None`` to wait forever.</span>
+<span class="sd">        :return: The matching state.</span>
+<span class="sd">        :raises ImprovTimeoutError: If no matching state arrives in time.</span>
+<span class="sd">        :raises ImprovConnectionError: If the connection is lost while waiting.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">states</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Pass at least one state&quot;</span><span class="p">)</span>
+        <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_before_operation</span><span class="p">()</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
+                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+            <span class="n">future</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+            <span class="n">entry</span> <span class="o">=</span> <span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">states</span><span class="p">),</span> <span class="n">future</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">timeout</span><span class="p">,</span> <span class="s2">&quot;state &quot;</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">states</span><span class="p">))</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">entry</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+        <span class="k">finally</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_after_operation</span><span class="p">()</span></div>
+
+
+    <span class="c1"># --- Commands -----------------------------------------------------------------</span>
+
+<div class="viewcode-block" id="ImprovClient.provision">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.provision">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">provision</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">ssid</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">DEFAULT_PROVISION_TIMEOUT</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send Wi-Fi credentials and wait until the device has connected.</span>
+
+<span class="sd">        :param ssid: Network name.</span>
+<span class="sd">        :param password: Network password, empty for an open network.</span>
+<span class="sd">        :param timeout: Seconds to wait for the device to connect.</span>
+<span class="sd">        :return: The URL the device wants the user to open next, or ``None``.</span>
+<span class="sd">        :raises ImprovDeviceError: With :attr:`~improv_client.protocol.Error.UNABLE_TO_CONNECT`</span>
+<span class="sd">            if the credentials didn&#39;t work, or</span>
+<span class="sd">            :attr:`~improv_client.protocol.Error.NOT_AUTHORIZED` on an unauthorized BLE device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span>
+            <span class="n">Command</span><span class="o">.</span><span class="n">WIFI_SETTINGS</span><span class="p">,</span> <span class="n">encode_wifi_settings</span><span class="p">(</span><span class="n">ssid</span><span class="p">,</span> <span class="n">password</span><span class="p">),</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span>
+        <span class="p">)</span>
+        <span class="n">strings</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="n">strings</span> <span class="ow">and</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">else</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.get_device_info">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.get_device_info">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_device_info</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">DeviceInfo</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request firmware, hardware and device name information.&quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">DEVICE_INFO</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">DeviceInfo</span><span class="o">.</span><span class="n">from_strings</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.scan_wifi">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.scan_wifi">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">scan_wifi</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="n">DEFAULT_SCAN_TIMEOUT</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">WifiNetwork</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Ask the device to scan for Wi-Fi networks.</span>
+
+<span class="sd">        :param timeout: Seconds to wait for the scan to finish.</span>
+<span class="sd">        :return: The networks found, in the order the device sent them.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span>
+            <span class="n">Command</span><span class="o">.</span><span class="n">SCAN_WIFI</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">,</span> <span class="n">multiple</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_scan_multiple_results</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_scan_multiple_results</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">WifiNetwork</span><span class="o">.</span><span class="n">from_strings</span><span class="p">(</span><span class="n">strings</span><span class="p">)</span> <span class="k">for</span> <span class="n">strings</span> <span class="ow">in</span> <span class="n">results</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">parse_wifi_networks</span><span class="p">(</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.get_hostname">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.get_hostname">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_hostname</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request the device hostname.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_string</span><span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">HOSTNAME</span><span class="p">),</span> <span class="s2">&quot;Hostname&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.set_hostname">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.set_hostname">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">set_hostname</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hostname</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the device hostname.</span>
+
+<span class="sd">        The device must be authorized. Hostnames may contain letters, digits and</span>
+<span class="sd">        hyphens (RFC 1123).</span>
+
+<span class="sd">        :return: The hostname reported back by the device.</span>
+<span class="sd">        :raises ImprovDeviceError: With :attr:`~improv_client.protocol.Error.BAD_HOSTNAME`</span>
+<span class="sd">            if the device rejects the hostname.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_value</span><span class="p">(</span><span class="n">hostname</span><span class="p">,</span> <span class="s2">&quot;Hostname&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_string</span><span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">HOSTNAME</span><span class="p">,</span> <span class="n">data</span><span class="p">),</span> <span class="s2">&quot;Hostname&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.get_device_name">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.get_device_name">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_device_name</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Request the user-facing device name.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_string</span><span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">DEVICE_NAME</span><span class="p">),</span> <span class="s2">&quot;Device name&quot;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ImprovClient.set_device_name">
+<a class="viewcode-back" href="../../client.html#improv_client.client.ImprovClient.set_device_name">[docs]</a>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">set_device_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Set the user-facing device name.</span>
+
+<span class="sd">        The device must be authorized. If you set both, set the device name before</span>
+<span class="sd">        the hostname.</span>
+
+<span class="sd">        :return: The device name reported back by the device.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_encode_value</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="s2">&quot;Device name&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_string</span><span class="p">(</span><span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rpc</span><span class="p">(</span><span class="n">Command</span><span class="o">.</span><span class="n">DEVICE_NAME</span><span class="p">,</span> <span class="n">data</span><span class="p">),</span> <span class="s2">&quot;Device name&quot;</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_encode_value</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span><span class="p">:</span>
+        <span class="c1"># An empty value would turn the set into a get.</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2"> can&#39;t be empty&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">255</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2"> is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes, the maximum is 255&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_first_string</span><span class="p">(</span><span class="n">results</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]],</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">strings</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">strings</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImprovProtocolError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2"> result is empty&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">strings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># --- Transport hooks ----------------------------------------------------------</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_send_rpc_command</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Write an RPC command to the device.&quot;&quot;&quot;</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_before_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called before each operation, e.g. to connect or check the connection.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_after_operation</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Called after each operation, e.g. to start an idle timer.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_supported</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Raise if ``command`` can&#39;t be sent right now. Called after connecting.&quot;&quot;&quot;</span>
+
+    <span class="c1"># --- RPC machinery ------------------------------------------------------------</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_rpc</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">bytes</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">multiple</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a command and wait for its result.</span>
+
+<span class="sd">        :param multiple: Collect results until an empty one arrives (serial scan).</span>
+<span class="sd">        :return: The strings of each result received.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operation_lock</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_before_operation</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_check_supported</span><span class="p">(</span><span class="n">command</span><span class="p">)</span>
+                <span class="n">future</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]]]</span>
+                <span class="n">future</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_pending</span> <span class="o">=</span> <span class="n">_PendingRpc</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">future</span><span class="p">,</span> <span class="n">multiple</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_rpc_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait</span><span class="p">(</span>
+                        <span class="n">future</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">),</span> <span class="sa">f</span><span class="s2">&quot;result of </span><span class="si">{</span><span class="n">_name</span><span class="p">(</span><span class="n">command</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+                    <span class="p">)</span>
+                <span class="k">finally</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_pending</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_after_operation</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_request_next_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">State</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Send a command and wait for the next state report (serial 0x02).&quot;&quot;&quot;</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_operation_lock</span><span class="p">:</span>
+            <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_before_operation</span><span class="p">()</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">future</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">get_running_loop</span><span class="p">()</span><span class="o">.</span><span class="n">create_future</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_state_request</span> <span class="o">=</span> <span class="n">future</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_send_rpc_command</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="k">await</span> <span class="bp">self</span><span class="o">.</span><span class="n">_wait</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">),</span> <span class="s2">&quot;current state&quot;</span><span class="p">)</span>
+                <span class="k">finally</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_state_request</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="k">finally</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_after_operation</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_wait</span><span class="p">(</span><span class="n">future</span><span class="p">:</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Future</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">what</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Wait for ``future``; ``timeout=None`` waits forever.&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">wait_for</span><span class="p">(</span><span class="n">future</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TimeoutError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ImprovTimeoutError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Timed out waiting for </span><span class="si">{</span><span class="n">what</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_timeout</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span> <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">timeout</span>
+
+    <span class="c1"># --- Called by the transports when data arrives ------------------------------</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_state</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">State</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">state</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_state</span> <span class="o">=</span> <span class="n">state</span>
+        <span class="n">_LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;State: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">state</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_request</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">states</span><span class="p">,</span> <span class="n">future</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">future</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+                <span class="n">future</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">changed</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state_callbacks</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_run_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">state</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">changed</span> <span class="o">=</span> <span class="n">error</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_error</span> <span class="o">=</span> <span class="n">error</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">Error</span><span class="o">.</span><span class="n">NONE</span><span class="p">:</span>
+            <span class="n">_LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Error state: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">error</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_fail_pending</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_exception_for</span><span class="p">(</span><span class="n">error</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">changed</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_error_callbacks</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_run_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">,</span> <span class="n">error</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_rpc_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">result</span><span class="p">:</span> <span class="n">RpcResult</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">_LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;RPC result for </span><span class="si">%s</span><span class="s2">: </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">_name</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">command</span><span class="p">),</span> <span class="n">result</span><span class="o">.</span><span class="n">strings</span><span class="p">)</span>
+        <span class="n">pending</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pending</span>
+        <span class="k">if</span> <span class="n">pending</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">pending</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">done</span><span class="p">()</span> <span class="ow">or</span> <span class="n">result</span><span class="o">.</span><span class="n">command</span> <span class="o">!=</span> <span class="n">pending</span><span class="o">.</span><span class="n">command</span><span class="p">:</span>
+            <span class="n">_LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s2">&quot;Ignoring RPC result nobody is waiting for&quot;</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">pending</span><span class="o">.</span><span class="n">multiple</span><span class="p">:</span>
+            <span class="n">pending</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">set_result</span><span class="p">([</span><span class="n">result</span><span class="o">.</span><span class="n">strings</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">result</span><span class="o">.</span><span class="n">strings</span><span class="p">:</span>
+            <span class="n">pending</span><span class="o">.</span><span class="n">results</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">strings</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">pending</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">set_result</span><span class="p">(</span><span class="n">pending</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_connection_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="ne">BaseException</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Connection to the device was lost&quot;</span>
+        <span class="k">if</span> <span class="n">exc</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">message</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">&quot;: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">error</span> <span class="o">=</span> <span class="n">ImprovConnectionError</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_fail_pending</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">_states</span><span class="p">,</span> <span class="n">future</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_state_waiters</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">future</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+                <span class="n">future</span><span class="o">.</span><span class="n">set_exception</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_fail_pending</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc</span><span class="p">:</span> <span class="n">ImprovError</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">pending</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pending</span>
+        <span class="k">if</span> <span class="n">pending</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">pending</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="n">pending</span><span class="o">.</span><span class="n">future</span><span class="o">.</span><span class="n">set_exception</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+        <span class="n">request</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_state_request</span>
+        <span class="k">if</span> <span class="n">request</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">request</span><span class="o">.</span><span class="n">done</span><span class="p">():</span>
+            <span class="n">request</span><span class="o">.</span><span class="n">set_exception</span><span class="p">(</span><span class="n">exc</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_exception_for</span><span class="p">(</span><span class="n">error</span><span class="p">:</span> <span class="n">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ImprovError</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">error</span> <span class="ow">is</span> <span class="n">Error</span><span class="o">.</span><span class="n">UNKNOWN_RPC_COMMAND</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">ImprovNotSupportedError</span><span class="p">(</span><span class="s2">&quot;The device doesn&#39;t support this command&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">ImprovDeviceError</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_run_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">callback</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>  <span class="c1"># noqa: BLE001 - a broken callback mustn&#39;t break the client</span>
+            <span class="n">_LOGGER</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="s2">&quot;Error in callback </span><span class="si">%r</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_name</span><span class="p">(</span><span class="n">command</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">command</span><span class="o">.</span><span class="n">name</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">command</span><span class="p">,</span> <span class="n">Command</span><span class="p">)</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">&quot;command 0x</span><span class="si">{</span><span class="n">command</span><span class="si">:</span><span class="s2">02x</span><span class="si">}</span><span class="s2">&quot;</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

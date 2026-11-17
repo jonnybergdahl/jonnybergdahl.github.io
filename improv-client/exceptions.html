@@ -1,0 +1,181 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exceptions &mdash; improv-client 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Protocol" href="protocol.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            improv-client
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="serial.html">Serial transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ble.html">BLE transport</a></li>
+<li class="toctree-l1"><a class="reference internal" href="client.html">Shared client API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="protocol.html">Protocol</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Exceptions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovError"><code class="docutils literal notranslate"><span class="pre">ImprovError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovProtocolError"><code class="docutils literal notranslate"><span class="pre">ImprovProtocolError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovConnectionError"><code class="docutils literal notranslate"><span class="pre">ImprovConnectionError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovTimeoutError"><code class="docutils literal notranslate"><span class="pre">ImprovTimeoutError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovNotSupportedError"><code class="docutils literal notranslate"><span class="pre">ImprovNotSupportedError</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#improv_client.exceptions.ImprovDeviceError"><code class="docutils literal notranslate"><span class="pre">ImprovDeviceError</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">improv-client</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Exceptions</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/exceptions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-improv_client.exceptions">
+<span id="exceptions"></span><h1>Exceptions<a class="headerlink" href="#module-improv_client.exceptions" title="Link to this heading"></a></h1>
+<p>Exceptions raised by improv-client.</p>
+<p>Every exception derives from <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a>, so a single <code class="docutils literal notranslate"><span class="pre">except</span> <span class="pre">ImprovError</span></code>
+catches anything the library raises on purpose.</p>
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovError</span></span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#Exception" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">Exception</span></code></a></p>
+<p>Base class for all improv-client errors.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovProtocolError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovProtocolError</span></span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovProtocolError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovProtocolError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a></p>
+<p>Data received from the device could not be parsed.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovConnectionError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovConnectionError</span></span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovConnectionError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovConnectionError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a></p>
+<p>Connecting to the device failed, or the connection was lost.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovTimeoutError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovTimeoutError</span></span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovTimeoutError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovTimeoutError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a>, <a class="reference external" href="https://docs.python.org/3/builtins/exceptions.html#TimeoutError" title="(in Python v3.15)"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeoutError</span></code></a></p>
+<p>The device did not answer in time.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovNotSupportedError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovNotSupportedError</span></span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovNotSupportedError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovNotSupportedError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a></p>
+<p>The device does not support the requested command.</p>
+<p>Raised before sending when the BLE capabilities say the command isn’t
+supported, and when the device answers with
+<code class="xref py py-attr docutils literal notranslate"><span class="pre">UNKNOWN_RPC_COMMAND</span></code>.</p>
+</dd></dl>
+
+<dl class="py exception">
+<dt class="sig sig-object py" id="improv_client.exceptions.ImprovDeviceError">
+<span class="property"><span class="k"><span class="pre">exception</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">improv_client.exceptions.</span></span><span class="sig-name descname"><span class="pre">ImprovDeviceError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">error</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">message</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/improv_client/exceptions.html#ImprovDeviceError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#improv_client.exceptions.ImprovDeviceError" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#improv_client.exceptions.ImprovError" title="improv_client.exceptions.ImprovError"><code class="xref py py-class docutils literal notranslate"><span class="pre">ImprovError</span></code></a></p>
+<p>The device reported an error state.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>error</strong> (<a class="reference internal" href="protocol.html#improv_client.protocol.Error" title="improv_client.protocol.Error"><em>improv_client.protocol.Error</em></a>) – The error code reported by the device.</p>
+</dd>
+<dt class="field-even">Parameters<span class="colon">:</span></dt>
+<dd class="field-even"><ul class="simple">
+<li><p><strong>error</strong> (<a class="reference internal" href="protocol.html#improv_client.protocol.Error" title="improv_client.protocol.Error"><em>Error</em></a>)</p></li>
+<li><p><strong>message</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>)</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="protocol.html" class="btn btn-neutral float-left" title="Protocol" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023-2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
