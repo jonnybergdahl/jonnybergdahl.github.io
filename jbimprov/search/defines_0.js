@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['jbimprov_5fble_5fcapabilities_5fuuid_0',['JBIMPROV_BLE_CAPABILITIES_UUID',['../_j_b_improv_b_l_e_8h.html#ac8fa459b8a6d86109b8708b8669d9c20',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5ferror_5fuuid_1',['JBIMPROV_BLE_ERROR_UUID',['../_j_b_improv_b_l_e_8h.html#a0e9f61919ff0b8902cb00d10de5dedf9',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5frpc_5fcommand_5fuuid_2',['JBIMPROV_BLE_RPC_COMMAND_UUID',['../_j_b_improv_b_l_e_8h.html#a832898beaa4b89ddf0f098f242743f82',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5frpc_5fresult_5fuuid_3',['JBIMPROV_BLE_RPC_RESULT_UUID',['../_j_b_improv_b_l_e_8h.html#a717df63ef30bea58bce202be69f76d82',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5fservice_5fdata_5fuuid_4',['JBIMPROV_BLE_SERVICE_DATA_UUID',['../_j_b_improv_b_l_e_8h.html#a92626846b47cfecf39d115f57a7c15fe',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5fservice_5fuuid_5',['JBIMPROV_BLE_SERVICE_UUID',['../_j_b_improv_b_l_e_8h.html#af29f2dea843a18ec26a40447328e36c9',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fble_5fstate_5fuuid_6',['JBIMPROV_BLE_STATE_UUID',['../_j_b_improv_b_l_e_8h.html#a8885fffc81d793e0f40c41a1cc5f3c67',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fdefault_5fauthorization_5ftimeout_7',['JBIMPROV_DEFAULT_AUTHORIZATION_TIMEOUT',['../_j_b_improv_b_l_e_8h.html#a36938618746674e25a2888393c00e1c0',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fdefault_5fconnect_5ftimeout_8',['JBIMPROV_DEFAULT_CONNECT_TIMEOUT',['../_j_b_improv_8h.html#a1746ec61a17b92b1346f12b5815613e8',1,'JBImprov.h']]],
+  ['jbimprov_5fhas_5fble_9',['JBIMPROV_HAS_BLE',['../_j_b_improv_b_l_e_8h.html#a0f5f824eb37789c9875e5e4b2e7f3655',1,'JBImprovBLE.h']]],
+  ['jbimprov_5fhas_5fdefault_5fwifi_10',['JBIMPROV_HAS_DEFAULT_WIFI',['../_j_b_improv_wi_fi_8h.html#a9d4d39959ba54119b0bfb7fe4d80e559',1,'JBImprovWiFi.h']]],
+  ['jbimprov_5fmax_5fdata_5flength_11',['JBIMPROV_MAX_DATA_LENGTH',['../_j_b_improv_protocol_8h.html#a4e9cf211a51b8d5d6f86d98601ff57f3',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fdevice_5fname_5flength_12',['JBIMPROV_MAX_DEVICE_NAME_LENGTH',['../_j_b_improv_protocol_8h.html#a835119318fd96203c9002cc5cff6af3b',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fhostname_5flength_13',['JBIMPROV_MAX_HOSTNAME_LENGTH',['../_j_b_improv_protocol_8h.html#a06fdacccead4cc8046b8377d3bf0de1e',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fpassword_5flength_14',['JBIMPROV_MAX_PASSWORD_LENGTH',['../_j_b_improv_protocol_8h.html#a356fc495bfb8469d4baf49c14d8d2c4d',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fresult_5flength_15',['JBIMPROV_MAX_RESULT_LENGTH',['../_j_b_improv_protocol_8h.html#ab9d65e9bebaa8bf8d1aacc3527caaec1',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fscan_5fresults_16',['JBIMPROV_MAX_SCAN_RESULTS',['../_j_b_improv_8h.html#a92c501605ee1207447e1921e0d918d9d',1,'JBImprov.h']]],
+  ['jbimprov_5fmax_5fserial_5fframe_5flength_17',['JBIMPROV_MAX_SERIAL_FRAME_LENGTH',['../_j_b_improv_protocol_8h.html#af33e0e9d59492ed7fb5f109e20441141',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5fssid_5flength_18',['JBIMPROV_MAX_SSID_LENGTH',['../_j_b_improv_protocol_8h.html#a91c5d5581630b6fcd57d1d5457596f5f',1,'JBImprovProtocol.h']]],
+  ['jbimprov_5fmax_5ftransports_19',['JBIMPROV_MAX_TRANSPORTS',['../_j_b_improv_8h.html#aa7e0f89d2d990a03128454e9e25f4628',1,'JBImprov.h']]],
+  ['jbimprov_5fscan_5ffailed_20',['JBIMPROV_SCAN_FAILED',['../_j_b_improv_wi_fi_8h.html#a9f185149afc2e503cda982360fb99129',1,'JBImprovWiFi.h']]],
+  ['jbimprov_5fscan_5frunning_21',['JBIMPROV_SCAN_RUNNING',['../_j_b_improv_wi_fi_8h.html#a900d52dabbd6c4590493f6394758cd85',1,'JBImprovWiFi.h']]],
+  ['jbimprov_5fserial_5fversion_22',['JBIMPROV_SERIAL_VERSION',['../_j_b_improv_protocol_8h.html#a48267cb2c5d9ba85597b797155b19bce',1,'JBImprovProtocol.h']]]
+];

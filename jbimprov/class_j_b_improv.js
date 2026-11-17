@@ -1,0 +1,27 @@
+var class_j_b_improv =
+[
+    [ "JBImprov", "class_j_b_improv.html#a6f425c56583f3f0ad85f79f59dcfea61", null ],
+    [ "JBImprov", "class_j_b_improv.html#aa5fcba827c568ebe524130dad04495f3", null ],
+    [ "addTransport", "class_j_b_improv.html#a482e986a1e2a0bec6135aafc89056753", null ],
+    [ "begin", "class_j_b_improv.html#a2791e9bd5fa0ddddd4193b63a16653d6", null ],
+    [ "capabilities", "class_j_b_improv.html#a1cc7acc63dab5a2a3ceb5ffd35cdfdc5", null ],
+    [ "deviceName", "class_j_b_improv.html#adb089ef160eaa2bc999f4a014b09beb9", null ],
+    [ "firmwareName", "class_j_b_improv.html#aae3b5c4232007c4be3c6d91bd3d7b0ac", null ],
+    [ "firmwareVersion", "class_j_b_improv.html#a494af9d0e5427a3aa9c09105ebeb63f5", null ],
+    [ "hostname", "class_j_b_improv.html#abadaa03a8885ac192352b1e10b48d56a", null ],
+    [ "isProvisioned", "class_j_b_improv.html#a553e29c509823b3168223603f13ebe86", null ],
+    [ "loop", "class_j_b_improv.html#a3655912ca2412cea36c7cd866c5ab523", null ],
+    [ "onDeviceNameChanged", "class_j_b_improv.html#a3023f41a414f5d2327371de03f3f04f8", null ],
+    [ "onHostnameChanged", "class_j_b_improv.html#aeda8a0b507eec8d9ddd9e908953b8341", null ],
+    [ "onIdentify", "class_j_b_improv.html#a7baaab85894d64e65d2d77ec30dd1699", null ],
+    [ "onProvisioned", "class_j_b_improv.html#a82f8edd7727b2739b443ca271b865fcb", null ],
+    [ "onStateChanged", "class_j_b_improv.html#aa645a1447c9dbecbc962e747e90a41b5", null ],
+    [ "redirectUrl", "class_j_b_improv.html#a22589327229f7a705ec43f6d65aba307", null ],
+    [ "setConnectTimeout", "class_j_b_improv.html#a27abc17a38f889943cd2269b26d5528c", null ],
+    [ "setDeviceName", "class_j_b_improv.html#a798d54bc2218a355515cf5c42aa31c1f", null ],
+    [ "setFirmware", "class_j_b_improv.html#a8e3be4312287e23d745af814d6dd0bb5", null ],
+    [ "setHardware", "class_j_b_improv.html#aea35cdaccb01e37cf63d1a351d1d72f3", null ],
+    [ "setHostname", "class_j_b_improv.html#ab38e2ba8387de35fb8d1289c3d8227a1", null ],
+    [ "setRedirectUrl", "class_j_b_improv.html#a5ee3bd807d18997e790b0a34c7417392", null ],
+    [ "state", "class_j_b_improv.html#a37451cdfc9ba203816f0e0cd6a2646d8", null ]
+];
