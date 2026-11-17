@@ -11,6 +11,7 @@
 ## Documentation for my Arduino libraries
 
  - [JBHaMqttDiscovery documentation](jbhamqttdiscovery/)
+ - [JBImprov documentation](jbimprov/)
  - [JBLogger documentation](jblogger/)
  - [JBWopr documentation](jbwopr/)
 
