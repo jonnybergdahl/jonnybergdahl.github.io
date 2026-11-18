@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -114,20 +115,47 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:a5fb8c67a28eedee3b7293a84041d70b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MQTT server and credentials.  <br /></td></tr>
 <tr class="memitem:a138c43b05565c2c8f944b6c6f4caa019" id="r_a138c43b05565c2c8f944b6c6f4caa019"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a138c43b05565c2c8f944b6c6f4caa019">setServer</a> (const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;) override</td></tr>
 <tr class="memdesc:a138c43b05565c2c8f944b6c6f4caa019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set MQTT server and credentials (std::string version).  <br /></td></tr>
+<tr class="memitem:aa39ad33b3b713e88c5fc7a644b397ee9" id="r_aa39ad33b3b713e88c5fc7a644b397ee9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa39ad33b3b713e88c5fc7a644b397ee9">connect</a> (const char *clientId=nullptr) override</td></tr>
+<tr class="memitem:a5486a5280bcc9001f1cacc96cd859cee" id="r_a5486a5280bcc9001f1cacc96cd859cee"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee">tick</a> () override</td></tr>
+<tr class="memdesc:a5486a5280bcc9001f1cacc96cd859cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run automatic reconnect. Called from <a class="el" href="class_ha_discovery.html#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">HaDiscovery::tick()</a>.  <br /></td></tr>
 <tr class="memitem:a8a044f396762fcbadcc19e7d9311aaf1" id="r_a8a044f396762fcbadcc19e7d9311aaf1"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a8a044f396762fcbadcc19e7d9311aaf1">connected</a> () const override</td></tr>
 <tr class="memitem:a249101bba2589ce7cb8b35b376a1bee7" id="r_a249101bba2589ce7cb8b35b376a1bee7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a249101bba2589ce7cb8b35b376a1bee7">publish</a> (const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</td></tr>
+<tr class="memitem:af799535f3c067fe07071925b441cb4b4" id="r_af799535f3c067fe07071925b441cb4b4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af799535f3c067fe07071925b441cb4b4">subscribe</a> (const char *topic, uint8_t qos=0) override</td></tr>
+<tr class="memitem:adfdbf051cfa94d1aabdcdd2ab25e36e0" id="r_adfdbf051cfa94d1aabdcdd2ab25e36e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adfdbf051cfa94d1aabdcdd2ab25e36e0">setOnMessage</a> (<a class="el" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> cb_, void *ctx_) override</td></tr>
+<tr class="memitem:a1bae8b6bc6aab19abe10730812ef7a81" id="r_a1bae8b6bc6aab19abe10730812ef7a81"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1bae8b6bc6aab19abe10730812ef7a81">setWill</a> (const char *topic, const char *payload, bool retained=true, uint8_t qos=1) override</td></tr>
 <tr class="memitem:acc1587a8b4e24474900935a87d7eb170" id="r_acc1587a8b4e24474900935a87d7eb170"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc1587a8b4e24474900935a87d7eb170">setOnConnect</a> (void(*cb_)(void *), void *ctx_) override</td></tr>
 <tr class="inherit_header pub_methods_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
-<tr class="memitem:ab2a4155a62a28aec5c7bb060e004e9f4 inherit pub_methods_class_mqtt_transport" id="r_ab2a4155a62a28aec5c7bb060e004e9f4"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4">tick</a> ()</td></tr>
-<tr class="memdesc:ab2a4155a62a28aec5c7bb060e004e9f4 inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic processing hook (optional).  <br /></td></tr>
+<tr class="memitem:a18a2077e00a7902ec2669f822d1ff4b5 inherit pub_methods_class_mqtt_transport" id="r_a18a2077e00a7902ec2669f822d1ff4b5"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#a18a2077e00a7902ec2669f822d1ff4b5">setAutoReconnect</a> (bool enabled, uint32_t minDelayMs=1000, uint32_t maxDelayMs=60000)</td></tr>
+<tr class="memdesc:a18a2077e00a7902ec2669f822d1ff4b5 inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turn automatic reconnect on or off, and set its delays.  <br /></td></tr>
+<tr class="memitem:aa7e632e88e9e037a28d2bbee6f41cc21 inherit pub_methods_class_mqtt_transport" id="r_aa7e632e88e9e037a28d2bbee6f41cc21"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#aa7e632e88e9e037a28d2bbee6f41cc21">reconnectNow</a> ()</td></tr>
+<tr class="memdesc:aa7e632e88e9e037a28d2bbee6f41cc21 inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to reconnect on the next <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4" title="Periodic processing hook, called from HaDiscovery::tick().">tick()</a>, without waiting for the backoff delay.  <br /></td></tr>
 <tr class="memitem:a3b50717c5593263cce3e727a55489d9c inherit pub_methods_class_mqtt_transport" id="r_a3b50717c5593263cce3e727a55489d9c"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#a3b50717c5593263cce3e727a55489d9c">setLogger</a> (<a class="el" href="class_j_b_logger.html">JBLogger</a> *logger)</td></tr>
 <tr class="memdesc:a3b50717c5593263cce3e727a55489d9c inherit pub_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the logger for this transport.  <br /></td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-attribs" class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:a845273c32d6a59736630f66d1e9e8094" id="r_a845273c32d6a59736630f66d1e9e8094"><td class="memItemLeft"><a id="a845273c32d6a59736630f66d1e9e8094" name="a845273c32d6a59736630f66d1e9e8094"></a>
+static constexpr uint32_t&#160;</td><td class="memItemRight"><b>CONNECT_TIMEOUT_MS</b> = 15000</td></tr>
+<tr class="memdesc:a845273c32d6a59736630f66d1e9e8094"><td class="mdescLeft">&#160;</td><td class="mdescRight">How long a connect attempt may take before <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> gives up on it. <br /></td></tr>
+<tr class="memitem:a4c208edc74470c76aed60c21ba7664a4" id="r_a4c208edc74470c76aed60c21ba7664a4"><td class="memItemLeft"><a id="a4c208edc74470c76aed60c21ba7664a4" name="a4c208edc74470c76aed60c21ba7664a4"></a>
+static constexpr uint32_t&#160;</td><td class="memItemRight"><b>STALE_ATTEMPT_MS</b> = 2000</td></tr>
+<tr class="memdesc:a4c208edc74470c76aed60c21ba7664a4"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="class_mqtt_transport.html#aa7e632e88e9e037a28d2bbee6f41cc21" title="Try to reconnect on the next tick(), without waiting for the backoff delay.">reconnectNow()</a> drops a pending attempt only if it's older than this. <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-inherited" class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pub_types_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_types_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Types inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
+<tr class="memitem:a1fb9b2f2bd19092d932111ea50491796 inherit pub_types_class_mqtt_transport" id="r_a1fb9b2f2bd19092d932111ea50491796"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> = void (*)(void* ctx, const char* topic, const uint8_t* payload, size_t len)</td></tr>
+<tr class="memdesc:a1fb9b2f2bd19092d932111ea50491796 inherit pub_types_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Callback for incoming messages.  <br /></td></tr>
+<tr class="inherit_header pro_methods_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_methods_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Member Functions inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
+<tr class="memitem:a2ee31afa96657f26ccb503435105d572 inherit pro_methods_class_mqtt_transport" id="r_a2ee31afa96657f26ccb503435105d572"><td class="memItemLeft">
+bool&#160;</td><td class="memItemRight"><b>takeReconnectRequest</b> ()</td></tr>
+<tr class="memdesc:a2ee31afa96657f26ccb503435105d572 inherit pro_methods_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return and clear a pending <a class="el" href="class_mqtt_transport.html#aa7e632e88e9e037a28d2bbee6f41cc21" title="Try to reconnect on the next tick(), without waiting for the backoff delay.">reconnectNow()</a> request. Called from <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4" title="Periodic processing hook, called from HaDiscovery::tick().">tick()</a>. <br /></td></tr>
 <tr class="inherit_header pro_attribs_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pro_attribs_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Protected Attributes inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
 <tr class="memitem:abb9896c90a5eeaa2f7df3fa879a4c1d4 inherit pro_attribs_class_mqtt_transport" id="r_abb9896c90a5eeaa2f7df3fa879a4c1d4"><td class="memItemLeft">
 <a class="el" href="class_j_b_logger.html">JBLogger</a> *&#160;</td><td class="memItemRight"><b>log</b> = nullptr</td></tr>
+<tr class="memitem:a054452362dec7ace8a2e0eabd86b5ddd inherit pro_attribs_class_mqtt_transport" id="r_a054452362dec7ace8a2e0eabd86b5ddd"><td class="memItemLeft">
+<a class="el" href="struct_reconnect_backoff.html">ReconnectBackoff</a>&#160;</td><td class="memItemRight"><b>reconnect</b></td></tr>
+<tr class="memdesc:a054452362dec7ace8a2e0eabd86b5ddd inherit pro_attribs_class_mqtt_transport"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reconnect timing, used by <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4" title="Periodic processing hook, called from HaDiscovery::tick().">tick()</a> in the transports. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>MQTT transport adapter for AsyncMqttClient. </p>
@@ -137,7 +165,11 @@ Additional Inherited Members</h2></td></tr>
 <li>Proper QoS support</li>
 <li>Native connection callbacks</li>
 </ul>
-<p>This transport provides the most reliable behavior for Home Assistant discovery and availability handling. </p>
+<p>This transport provides the most reliable behavior for Home Assistant discovery and availability handling.</p>
+<p>AsyncMqttClient keeps pointers to the host, client id, credentials and will instead of copying them. This transport keeps its own copies, so callers don't need to keep those strings alive.</p>
+<p>Incoming messages split over several TCP packets are ignored. Discovery command payloads are short, so this doesn't happen in practice.</p>
+<p>After the first <a class="el" href="#aa39ad33b3b713e88c5fc7a644b397ee9">connect()</a>, <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> reconnects when the connection drops (see <a class="el" href="class_mqtt_transport.html#a18a2077e00a7902ec2669f822d1ff4b5" title="Turn automatic reconnect on or off, and set its delays.">setAutoReconnect()</a>). Turn this off if your firmware already reconnects with its own timer, as many AsyncMqttClient sketches do.</p>
+<p>AsyncMqttClient ignores a TCP connect that fails right away (e.g. while Wi-Fi is down): no callback fires and the client stays in its connecting state, ignoring further <a class="el" href="#aa39ad33b3b713e88c5fc7a644b397ee9">connect()</a> calls. <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> therefore gives up on an attempt after CONNECT_TIMEOUT_MS, resets the client and tries again later. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae9fe1f16870cb6bfabeb43d84a12a629" name="ae9fe1f16870cb6bfabeb43d84a12a629"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae9fe1f16870cb6bfabeb43d84a12a629">&#9670;&#160;</a></span>AsyncMqttClientTransport()</h2>
@@ -165,7 +197,7 @@ Additional Inherited Members</h2></td></tr>
 <p>Construct an AsyncMqttClient transport adapter. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">client</td><td>Reference to an already configured AsyncMqttClient instance </td></tr>
+    <tr><td class="paramname">client</td><td>Reference to an AsyncMqttClient instance </td></tr>
   </table>
   </dd>
 </dl>
@@ -173,6 +205,42 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
+<a id="aa39ad33b3b713e88c5fc7a644b397ee9" name="aa39ad33b3b713e88c5fc7a644b397ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa39ad33b3b713e88c5fc7a644b397ee9">&#9670;&#160;</a></span>connect()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AsyncMqttClientTransport::connect </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>clientId</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Connect to the MQTT server set with <a class="el" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282" title="Set MQTT server and credentials.">setServer()</a>.Uses the credentials from <a class="el" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282" title="Set MQTT server and credentials.">setServer()</a> and the Last Will from <a class="el" href="class_mqtt_transport.html#a5635c3c827281b5e0506e76e084b204f" title="Set the Last Will the broker publishes if the connection drops.">setWill()</a>. For asynchronous transports this only starts the connection; the onConnect callback fires when it's established.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clientId</td><td>MQTT client id. Required by synchronous transports. Asynchronous transports generate one if nullptr. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the connection was established (sync) or started (async)</dd></dl>
+</p>
+<p>Starts the connection and returns right away. The onConnect callback fires when the connection is established. If it fails, <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> keeps trying (see <a class="el" href="class_mqtt_transport.html#a18a2077e00a7902ec2669f822d1ff4b5" title="Turn automatic reconnect on or off, and set its delays.">setAutoReconnect()</a>). </p>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#a409f2341fa77f298f079ca9991d035ab">MqttTransport</a>.</p>
+
+</div>
+</div>
 <a id="a8a044f396762fcbadcc19e7d9311aaf1" name="a8a044f396762fcbadcc19e7d9311aaf1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8a044f396762fcbadcc19e7d9311aaf1">&#9670;&#160;</a></span>connected()</h2>
 
@@ -287,16 +355,57 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p>Register a callback invoked when the MQTT connection is established.For asynchronous transports, this is wired directly to the MQTT client's onConnect handler.For synchronous transports, this callback is invoked when a rising-edge connection transition is detected via <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4" title="Periodic processing hook (optional).">tick()</a>.<dl class="params"><dt>Parameters</dt><dd>
+<p>Register a callback invoked when the MQTT connection is established.For asynchronous transports, this is wired directly to the MQTT client's onConnect handler.For synchronous transports, this callback is invoked when a rising-edge connection transition is detected via <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4" title="Periodic processing hook, called from HaDiscovery::tick().">tick()</a>.<dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cb</td><td>Callback function </td></tr>
     <tr><td class="paramname">ctx</td><td>User context pointer passed back to the callback</td></tr>
   </table>
   </dd>
 </dl>
- </p>
+</p>
+<p>Call this only once; AsyncMqttClient adds new handlers on every call. </p>
 
 <p>Implements <a class="el" href="class_mqtt_transport.html#a567d76c233d37aebb8e1cdccfbe16d1d">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="adfdbf051cfa94d1aabdcdd2ab25e36e0" name="adfdbf051cfa94d1aabdcdd2ab25e36e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfdbf051cfa94d1aabdcdd2ab25e36e0">&#9670;&#160;</a></span>setOnMessage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::setOnMessage </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a></td>          <td class="paramname"><span class="paramname"><em>cb_</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>ctx_</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Register a callback for incoming messages on subscribed topics.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">cb</td><td>Callback function </td></tr>
+    <tr><td class="paramname">ctx</td><td>User context pointer passed back to the callback</td></tr>
+  </table>
+  </dd>
+</dl>
+</p>
+<p>Call this only once; AsyncMqttClient adds a new handler on every call. </p>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#ae421ab28f927053aaf9bc5fcf497c34e">MqttTransport</a>.</p>
 
 </div>
 </div>
@@ -338,12 +447,13 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Set MQTT server and credentials. </p>
+<p>All strings are copied.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">host</td><td>MQTT host/IP </td></tr>
     <tr><td class="paramname">port</td><td>MQTT port </td></tr>
-    <tr><td class="paramname">user</td><td>MQTT username </td></tr>
-    <tr><td class="paramname">pass</td><td>MQTT password </td></tr>
+    <tr><td class="paramname">user</td><td>MQTT username (optional) </td></tr>
+    <tr><td class="paramname">pass</td><td>MQTT password (optional) </td></tr>
   </table>
   </dd>
 </dl>
@@ -394,13 +504,133 @@ Additional Inherited Members</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">host</td><td>MQTT host/IP </td></tr>
     <tr><td class="paramname">port</td><td>MQTT port </td></tr>
-    <tr><td class="paramname">user</td><td>MQTT username </td></tr>
-    <tr><td class="paramname">pass</td><td>MQTT password </td></tr>
+    <tr><td class="paramname">user</td><td>MQTT username (empty for none) </td></tr>
+    <tr><td class="paramname">pass</td><td>MQTT password (empty for none) </td></tr>
   </table>
   </dd>
 </dl>
 
 <p>Implements <a class="el" href="class_mqtt_transport.html#ad38dc3536fc19fe6fb7ae6616a569a73">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="a1bae8b6bc6aab19abe10730812ef7a81" name="a1bae8b6bc6aab19abe10730812ef7a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1bae8b6bc6aab19abe10730812ef7a81">&#9670;&#160;</a></span>setWill()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::setWill </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Set the Last Will the broker publishes if the connection drops.Must be called before <a class="el" href="class_mqtt_transport.html#a409f2341fa77f298f079ca9991d035ab" title="Connect to the MQTT server set with setServer().">connect()</a>.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>Will topic </td></tr>
+    <tr><td class="paramname">payload</td><td>Will payload (e.g. "offline") </td></tr>
+    <tr><td class="paramname">retained</td><td>Retain flag for the will message </td></tr>
+    <tr><td class="paramname">qos</td><td>QoS level for the will message</td></tr>
+  </table>
+  </dd>
+</dl>
+ </p>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#a5635c3c827281b5e0506e76e084b204f">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="af799535f3c067fe07071925b441cb4b4" name="af799535f3c067fe07071925b441cb4b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af799535f3c067fe07071925b441cb4b4">&#9670;&#160;</a></span>subscribe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool AsyncMqttClientTransport::subscribe </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>topic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Subscribe to a topic.Subscriptions don't survive a reconnect with a clean session, so subscribe again from the onConnect callback.<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>MQTT topic (null-terminated string) </td></tr>
+    <tr><td class="paramname">qos</td><td>Requested QoS level (0 or 1) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the subscribe request was accepted, false otherwise</dd></dl>
+ </p>
+
+<p>Implements <a class="el" href="class_mqtt_transport.html#a72cd96262f1667669940748312c54452">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="a5486a5280bcc9001f1cacc96cd859cee" name="a5486a5280bcc9001f1cacc96cd859cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5486a5280bcc9001f1cacc96cd859cee">&#9670;&#160;</a></span>tick()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::tick </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel override">override</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Run automatic reconnect. Called from <a class="el" href="class_ha_discovery.html#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">HaDiscovery::tick()</a>. </p>
+
+<p>Reimplemented from <a class="el" href="class_mqtt_transport.html#ab2a4155a62a28aec5c7bb060e004e9f4">MqttTransport</a>.</p>
 
 </div>
 </div>

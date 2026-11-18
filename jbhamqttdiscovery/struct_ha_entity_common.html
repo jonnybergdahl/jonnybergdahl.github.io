@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -102,9 +103,8 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:ac6a8357d59a5ae52ba528a7e451081c9" id="r_ac6a8357d59a5ae52ba528a7e451081c9"><td class="memItemLeft"><a id="ac6a8357d59a5ae52ba528a7e451081c9" name="ac6a8357d59a5ae52ba528a7e451081c9"></a>
 const char *&#160;</td><td class="memItemRight"><b>object_id</b> = nullptr</td></tr>
 <tr class="memdesc:ac6a8357d59a5ae52ba528a7e451081c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable per-entity object_id (e.g. "temperature", "relay1"). <br /></td></tr>
-<tr class="memitem:a0a92ac4c8e277a2eb29cf55b9f5c074b" id="r_a0a92ac4c8e277a2eb29cf55b9f5c074b"><td class="memItemLeft"><a id="a0a92ac4c8e277a2eb29cf55b9f5c074b" name="a0a92ac4c8e277a2eb29cf55b9f5c074b"></a>
-const char *&#160;</td><td class="memItemRight"><b>name</b> = nullptr</td></tr>
-<tr class="memdesc:a0a92ac4c8e277a2eb29cf55b9f5c074b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Human-friendly entity name shown in Home Assistant. <br /></td></tr>
+<tr class="memitem:a0a92ac4c8e277a2eb29cf55b9f5c074b" id="r_a0a92ac4c8e277a2eb29cf55b9f5c074b"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a0a92ac4c8e277a2eb29cf55b9f5c074b">name</a> = nullptr</td></tr>
+<tr class="memdesc:a0a92ac4c8e277a2eb29cf55b9f5c074b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entity name shown in Home Assistant, without the device name.  <br /></td></tr>
 <tr class="memitem:a46044ac9ede41be94ce8e548cd3e0bc8" id="r_a46044ac9ede41be94ce8e548cd3e0bc8"><td class="memItemLeft"><a id="a46044ac9ede41be94ce8e548cd3e0bc8" name="a46044ac9ede41be94ce8e548cd3e0bc8"></a>
 const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 <tr class="memdesc:a46044ac9ede41be94ce8e548cd3e0bc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional icon (e.g. "mdi:thermometer"). <br /></td></tr>
@@ -112,6 +112,12 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 <tr class="memdesc:a8d712b172a452a94e3d414072fcd8cf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional override for state_topic.  <br /></td></tr>
 <tr class="memitem:ae724e72c975bf66762db7598d061ec71" id="r_ae724e72c975bf66762db7598d061ec71"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#ae724e72c975bf66762db7598d061ec71">availability_topic_override</a> = nullptr</td></tr>
 <tr class="memdesc:ae724e72c975bf66762db7598d061ec71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional override for availability topic.  <br /></td></tr>
+<tr class="memitem:a136300f8010e0fb3ef76674df68af654" id="r_a136300f8010e0fb3ef76674df68af654"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a136300f8010e0fb3ef76674df68af654">entity_id</a> = nullptr</td></tr>
+<tr class="memdesc:a136300f8010e0fb3ef76674df68af654"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional entity ID Home Assistant should use, without the domain.  <br /></td></tr>
+<tr class="memitem:ad3b595487ccbaf0f3e070a069664a8ca" id="r_ad3b595487ccbaf0f3e070a069664a8ca"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ad3b595487ccbaf0f3e070a069664a8ca">use_device_name</a> = false</td></tr>
+<tr class="memdesc:ad3b595487ccbaf0f3e070a069664a8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark this entity as the device's main feature.  <br /></td></tr>
+<tr class="memitem:a83c81c2ccd1b406dfda178d8c1412d32" id="r_a83c81c2ccd1b406dfda178d8c1412d32"><td class="memItemLeft"><a class="el" href="group__hadiscovery.html#gae0eea601fbd393c74f36e6647748e4cb">HaEntityCategory</a>&#160;</td><td class="memItemRight"><a class="el" href="#a83c81c2ccd1b406dfda178d8c1412d32">entity_category</a> = <a class="el" href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754">HaEntityCategory::None</a></td></tr>
+<tr class="memdesc:a83c81c2ccd1b406dfda178d8c1412d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where Home Assistant shows the entity (sent as <span class="tt">ent_cat</span>).  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common options shared by multiple entity types. </p>
@@ -129,7 +135,59 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 </div><div class="memdoc">
 
 <p>Optional override for availability topic. </p>
-<p>If nullptr, the default is used: <span class="tt">&lt;baseTopicPrefix&gt;/&lt;node_id&gt;/status</span>. </p>
+<p>If nullptr, the default is used: <span class="tt">&lt;baseTopicPrefix&gt;/&lt;node_id&gt;/status</span>.</p>
+<dl class="section note"><dt>Note</dt><dd>The MQTT Last Will only covers the default availability topic. </dd></dl>
+
+</div>
+</div>
+<a id="a83c81c2ccd1b406dfda178d8c1412d32" name="a83c81c2ccd1b406dfda178d8c1412d32"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c81c2ccd1b406dfda178d8c1412d32">&#9670;&#160;</a></span>entity_category</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="group__hadiscovery.html#gae0eea601fbd393c74f36e6647748e4cb">HaEntityCategory</a> HaEntityCommon::entity_category = <a class="el" href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754">HaEntityCategory::None</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Where Home Assistant shows the entity (sent as <span class="tt">ent_cat</span>). </p>
+<p>Home Assistant doesn't allow <span class="tt">Config</span> on read-only entities (sensor, binary_sensor); the library leaves it out there and logs a warning. </p>
+
+</div>
+</div>
+<a id="a136300f8010e0fb3ef76674df68af654" name="a136300f8010e0fb3ef76674df68af654"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a136300f8010e0fb3ef76674df68af654">&#9670;&#160;</a></span>entity_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaEntityCommon::entity_id = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional entity ID Home Assistant should use, without the domain. </p>
+<p>Sent as <span class="tt">def_ent_id</span> with the domain added, so "office_temperature" on a sensor becomes <span class="tt">sensor.office_temperature</span>. Use lowercase letters, digits and underscores; uppercase letters are lowercased and other characters replaced with <span class="tt">_</span>. Home Assistant only uses it when it first creates the entity. If nullptr, Home Assistant makes one up from the device and entity names. </p>
+
+</div>
+</div>
+<a id="a0a92ac4c8e277a2eb29cf55b9f5c074b" name="a0a92ac4c8e277a2eb29cf55b9f5c074b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a92ac4c8e277a2eb29cf55b9f5c074b">&#9670;&#160;</a></span>name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaEntityCommon::name = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Entity name shown in Home Assistant, without the device name. </p>
+<p>Home Assistant puts the device name in front, so "Temperature" on device "Office Node" shows as "Office Node Temperature". If nullptr, object_id is used. </p>
 
 </div>
 </div>
@@ -147,6 +205,23 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 
 <p>Optional override for state_topic. </p>
 <p>If nullptr, the default topic scheme is used: <span class="tt">&lt;baseTopicPrefix&gt;/&lt;node_id&gt;/&lt;<a class="el" href="#ac6a8357d59a5ae52ba528a7e451081c9" title="Stable per-entity object_id (e.g. &quot;temperature&quot;, &quot;relay1&quot;).">object_id</a>&gt;/state</span>. </p>
+
+</div>
+</div>
+<a id="ad3b595487ccbaf0f3e070a069664a8ca" name="ad3b595487ccbaf0f3e070a069664a8ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3b595487ccbaf0f3e070a069664a8ca">&#9670;&#160;</a></span>use_device_name</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaEntityCommon::use_device_name = false</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Mark this entity as the device's main feature. </p>
+<p>Sends <span class="tt">"<a class="el" href="#a0a92ac4c8e277a2eb29cf55b9f5c074b" title="Entity name shown in Home Assistant, without the device name.">name</a>": null</span>, so the entity is shown with just the device name. The name field is ignored when this is true. </p>
 
 </div>
 </div>

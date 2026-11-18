@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['command_5ftopic_5foverride_0',['command_topic_override',['../struct_ha_switch_config.html#a0c58386dd1c66f30c5bd7ba228861417',1,'HaSwitchConfig::command_topic_override'],['../struct_ha_button_config.html#a12f3eb27d68dfa9090b10f3eeaa29b08',1,'HaButtonConfig::command_topic_override']]]
+  ['brightness_0',['brightness',['../struct_ha_light_command.html#a5c03fbe44070fb77bbba1ba8b4f620c6',1,'HaLightCommand::brightness'],['../struct_ha_light_state.html#a2df366e0aa2533ddb30e54645334286e',1,'HaLightState::brightness']]],
+  ['brightness_5fscale_1',['brightness_scale',['../struct_ha_light_config.html#ae947e8ffaf61859c4d39a8b5ff92c137',1,'HaLightConfig']]]
 ];

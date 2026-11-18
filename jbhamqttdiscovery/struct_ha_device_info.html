@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -99,9 +100,8 @@ $(function(){initNavTree('struct_ha_device_info.html','','struct_ha_device_info-
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a48663b5690090c982e5a075bd96cd1ee" id="r_a48663b5690090c982e5a075bd96cd1ee"><td class="memItemLeft"><a id="a48663b5690090c982e5a075bd96cd1ee" name="a48663b5690090c982e5a075bd96cd1ee"></a>
-const char *&#160;</td><td class="memItemRight"><b>node_id</b> = nullptr</td></tr>
-<tr class="memdesc:a48663b5690090c982e5a075bd96cd1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable node identifier used in topics and unique_id (e.g. "esp32_kitchen_01"). <br /></td></tr>
+<tr class="memitem:a48663b5690090c982e5a075bd96cd1ee" id="r_a48663b5690090c982e5a075bd96cd1ee"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a48663b5690090c982e5a075bd96cd1ee">node_id</a> = nullptr</td></tr>
+<tr class="memdesc:a48663b5690090c982e5a075bd96cd1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable node identifier used in topics and unique_id (e.g. "esp32_kitchen_01").  <br /></td></tr>
 <tr class="memitem:a514245d9bbeee329965fc382dd21190c" id="r_a514245d9bbeee329965fc382dd21190c"><td class="memItemLeft"><a id="a514245d9bbeee329965fc382dd21190c" name="a514245d9bbeee329965fc382dd21190c"></a>
 const char *&#160;</td><td class="memItemRight"><b>name</b> = nullptr</td></tr>
 <tr class="memdesc:a514245d9bbeee329965fc382dd21190c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Device name shown in Home Assistant device registry. <br /></td></tr>
@@ -116,10 +116,29 @@ const char *&#160;</td><td class="memItemRight"><b>sw_version</b> = nullptr</td>
 <tr class="memdesc:aabb26f4c3f7f8be95c46e3449b5430ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Software version string. <br /></td></tr>
 <tr class="memitem:a94887bf66bc586fac73b7ca20da22e8e" id="r_a94887bf66bc586fac73b7ca20da22e8e"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a94887bf66bc586fac73b7ca20da22e8e">identifiers</a> = nullptr</td></tr>
 <tr class="memdesc:a94887bf66bc586fac73b7ca20da22e8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stable device identifier string (e.g. MAC address).  <br /></td></tr>
+<tr class="memitem:a6eb72c5eb97d269718a2a665a53ccc17" id="r_a6eb72c5eb97d269718a2a665a53ccc17"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a6eb72c5eb97d269718a2a665a53ccc17">configuration_url</a> = nullptr</td></tr>
+<tr class="memdesc:a6eb72c5eb97d269718a2a665a53ccc17"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional URL for the device's web interface, e.g. "http://192.168.1.50/".  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Home Assistant device information for the "dev" block in MQTT Discovery payloads. </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a id="a6eb72c5eb97d269718a2a665a53ccc17" name="a6eb72c5eb97d269718a2a665a53ccc17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6eb72c5eb97d269718a2a665a53ccc17">&#9670;&#160;</a></span>configuration_url</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaDeviceInfo::configuration_url = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional URL for the device's web interface, e.g. "http://192.168.1.50/". </p>
+<p>Home Assistant shows it as a "Visit" link on the device page. Sent as <span class="tt">dev.cu</span> (<span class="tt"><a class="el" href="#a6eb72c5eb97d269718a2a665a53ccc17" title="Optional URL for the device&#39;s web interface, e.g. &quot;http://192.168.1.50/&quot;.">configuration_url</a></span>). Must be an http(s) URL, or a <span class="tt">homeassistant://</span> path. </p>
+
+</div>
+</div>
 <a id="a94887bf66bc586fac73b7ca20da22e8e" name="a94887bf66bc586fac73b7ca20da22e8e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a94887bf66bc586fac73b7ca20da22e8e">&#9670;&#160;</a></span>identifiers</h2>
 
@@ -134,6 +153,23 @@ const char *&#160;</td><td class="memItemRight"><b>sw_version</b> = nullptr</td>
 
 <p>Stable device identifier string (e.g. MAC address). </p>
 <p>This maps to the Home Assistant <span class="tt">dev.ids</span> field. It should be stable across reboots/flashes to avoid device duplication. </p>
+
+</div>
+</div>
+<a id="a48663b5690090c982e5a075bd96cd1ee" name="a48663b5690090c982e5a075bd96cd1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48663b5690090c982e5a075bd96cd1ee">&#9670;&#160;</a></span>node_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaDeviceInfo::node_id = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Stable node identifier used in topics and unique_id (e.g. "esp32_kitchen_01"). </p>
+<p>Only letters, digits, <span class="tt">_</span> and <span class="tt">-</span> are allowed, since it's part of the discovery topic. </p>
 
 </div>
 </div>

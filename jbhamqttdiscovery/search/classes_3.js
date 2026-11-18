@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['mqtttransport_0',['MqttTransport',['../class_mqtt_transport.html',1,'']]]
+  ['jblogger_0',['JBLogger',['../class_j_b_logger.html',1,'']]]
 ];

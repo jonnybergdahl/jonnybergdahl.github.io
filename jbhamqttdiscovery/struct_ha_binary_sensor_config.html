@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -110,6 +111,9 @@ const char *&#160;</td><td class="memItemRight"><b>payload_on</b> = nullptr</td>
 <tr class="memitem:ac4e2f772f85b344db6f24c72a9c66148" id="r_ac4e2f772f85b344db6f24c72a9c66148"><td class="memItemLeft"><a id="ac4e2f772f85b344db6f24c72a9c66148" name="ac4e2f772f85b344db6f24c72a9c66148"></a>
 const char *&#160;</td><td class="memItemRight"><b>payload_off</b> = nullptr</td></tr>
 <tr class="memdesc:ac4e2f772f85b344db6f24c72a9c66148"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional payload representing OFF state (default "OFF" if nullptr). <br /></td></tr>
+<tr class="memitem:a86fba12da95506a661313d641f59cfd7" id="r_a86fba12da95506a661313d641f59cfd7"><td class="memItemLeft"><a id="a86fba12da95506a661313d641f59cfd7" name="a86fba12da95506a661313d641f59cfd7"></a>
+uint32_t&#160;</td><td class="memItemRight"><b>expire_after</b> = 0</td></tr>
+<tr class="memdesc:a86fba12da95506a661313d641f59cfd7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Seconds without a state update before Home Assistant shows the sensor as unavailable (sent as <span class="tt">exp_aft</span>). 0 = never expires. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration for a Home Assistant MQTT Discovery binary_sensor. </p>

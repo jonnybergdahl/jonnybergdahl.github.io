@@ -26,17 +26,39 @@ var NAVTREE =
 [
   [ "JBHaMqttDiscovery", "index.html", [
     [ "What is this library?", "index.html#autotoc_md1", null ],
-    [ "Usage", "index.html#autotoc_md2", [
-      [ "Dependencies", "index.html#autotoc_md3", null ],
-      [ "PubSubClient (polling required)", "index.html#autotoc_md4", null ],
-      [ "AsyncMqttClient (event-driven, no polling required)", "index.html#autotoc_md5", null ]
+    [ "Installation", "index.html#autotoc_md2", [
+      [ "Arduino IDE", "index.html#autotoc_md3", null ],
+      [ "PlatformIO", "index.html#autotoc_md4", null ]
     ] ],
-    [ "Entity usage", "index.html#autotoc_md6", [
-      [ "Sensor", "index.html#autotoc_md7", null ],
-      [ "Switch", "index.html#autotoc_md8", null ],
-      [ "Binary sensor", "index.html#autotoc_md9", null ],
-      [ "Button", "index.html#autotoc_md10", null ]
+    [ "Usage", "index.html#autotoc_md5", [
+      [ "Dependencies", "index.html#autotoc_md6", null ],
+      [ "PubSubClient (polling required)", "index.html#autotoc_md7", null ],
+      [ "Which MQTT client?", "index.html#autotoc_md8", null ],
+      [ "Running without a computer", "index.html#autotoc_md9", null ],
+      [ "Arduino String", "index.html#autotoc_md10", null ],
+      [ "espMqttClient (recommended)", "index.html#autotoc_md11", null ],
+      [ "AsyncMqttClient (event-driven, no polling required)", "index.html#autotoc_md12", null ]
     ] ],
+    [ "How discovery is published", "index.html#autotoc_md13", null ],
+    [ "Availability and Last Will", "index.html#autotoc_md14", null ],
+    [ "Reconnects and Home Assistant restarts", "index.html#autotoc_md15", null ],
+    [ "Commands from Home Assistant", "index.html#autotoc_md16", null ],
+    [ "Device info", "index.html#autotoc_md17", null ],
+    [ "Entity names and IDs", "index.html#autotoc_md18", null ],
+    [ "Entity category and expiry", "index.html#autotoc_md19", null ],
+    [ "Origin", "index.html#autotoc_md20", null ],
+    [ "Entity usage", "index.html#autotoc_md21", [
+      [ "Sensor", "index.html#autotoc_md22", null ],
+      [ "Switch", "index.html#autotoc_md23", null ],
+      [ "Binary sensor", "index.html#autotoc_md24", null ],
+      [ "Button", "index.html#autotoc_md25", null ],
+      [ "Number", "index.html#autotoc_md26", null ],
+      [ "Select", "index.html#autotoc_md27", null ],
+      [ "Text", "index.html#autotoc_md28", null ],
+      [ "Light", "index.html#autotoc_md29", null ],
+      [ "Cover", "index.html#autotoc_md30", null ]
+    ] ],
+    [ "Removing entities", "index.html#autotoc_md31", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -45,7 +67,8 @@ var NAVTREE =
       [ "Class Members", "functions.html", [
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [

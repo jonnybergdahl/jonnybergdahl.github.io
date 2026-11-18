@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['hadiscovery_0',['HaDiscovery',['../class_ha_discovery.html#ad2d04f2099f9435f2b76e7bb1bdac2b7',1,'HaDiscovery']]]
+  ['failed_0',['failed',['../struct_reconnect_backoff.html#a4cbc263f005a07fa130ab373fde02eb9',1,'ReconnectBackoff']]]
 ];

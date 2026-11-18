@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -109,19 +110,216 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery binary_sensor.  <a href="struct_ha_binary_sensor_config.html#details">More...</a><br /></td></tr>
 <tr class="memitem:HaButtonConfig" id="r_HaButtonConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_button_config.html">HaButtonConfig</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery button.  <a href="struct_ha_button_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaNumberConfig" id="r_HaNumberConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_number_config.html">HaNumberConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery number.  <a href="struct_ha_number_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaSelectConfig" id="r_HaSelectConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_select_config.html">HaSelectConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery select.  <a href="struct_ha_select_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaTextConfig" id="r_HaTextConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_text_config.html">HaTextConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery text.  <a href="struct_ha_text_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaLightConfig" id="r_HaLightConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_light_config.html">HaLightConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery light.  <a href="struct_ha_light_config.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaLightCommand" id="r_HaLightCommand"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_light_command.html">HaLightCommand</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A light command from Home Assistant, decoded by <a class="el" href="class_ha_discovery.html#a384b61ae1ef8578f86a1590e0900e663" title="Decode a light command from the onCommand() handler.">HaDiscovery::parseLightCommand()</a>.  <a href="struct_ha_light_command.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaLightState" id="r_HaLightState"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_light_state.html">HaLightState</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The state of a light, for <a class="el" href="class_ha_discovery.html#ab9bccaae99d6bf07132be28050af5c4d" title="Publish a light state as JSON, e.g. {&quot;state&quot;:&quot;ON&quot;,&quot;brightness&quot;:128,&quot;color_mode&quot;:&quot;brightness&quot;}...">HaDiscovery::publishStateLight()</a>.  <a href="struct_ha_light_state.html#details">More...</a><br /></td></tr>
+<tr class="memitem:HaCoverConfig" id="r_HaCoverConfig"><td class="memItemLeft">struct &#160;</td><td class="memItemRight"><a class="el" href="struct_ha_cover_config.html">HaCoverConfig</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Configuration for a Home Assistant MQTT Discovery cover (blinds, garage door, ...).  <a href="struct_ha_cover_config.html#details">More...</a><br /></td></tr>
 <tr class="memitem:HaDiscovery" id="r_HaDiscovery"><td class="memItemLeft">class &#160;</td><td class="memItemRight"><a class="el" href="class_ha_discovery.html">HaDiscovery</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Home Assistant MQTT Discovery publisher (transport-agnostic).  <a href="class_ha_discovery.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Home Assistant MQTT device discovery publisher (transport-agnostic).  <a href="class_ha_discovery.html#details">More...</a><br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-typedef-members" class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:ga5b25f27c75b29222a5656d10c667504b" id="r_ga5b25f27c75b29222a5656d10c667504b"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ga5b25f27c75b29222a5656d10c667504b">HaCommandCallback</a> = std::function&lt;void(const char* object_id, const char* payload)&gt;</td></tr>
+<tr class="memdesc:ga5b25f27c75b29222a5656d10c667504b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for commands sent by Home Assistant (switch, button, number, select, text, light, cover).  <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:gae0eea601fbd393c74f36e6647748e4cb" id="r_gae0eea601fbd393c74f36e6647748e4cb"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#gae0eea601fbd393c74f36e6647748e4cb">HaEntityCategory</a> : uint8_t { <a class="el" href="#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754">HaEntityCategory::None</a>
+, <a class="el" href="#ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e">HaEntityCategory::Config</a>
+, <a class="el" href="#ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85">HaEntityCategory::Diagnostic</a>
+ }</td></tr>
+<tr class="memdesc:gae0eea601fbd393c74f36e6647748e4cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Entity category, which decides where Home Assistant shows an entity.  <a href="#gae0eea601fbd393c74f36e6647748e4cb">More...</a><br /></td></tr>
+<tr class="memitem:gad73b5e86dca79ec1e59ed6b5dbdeafe3" id="r_gad73b5e86dca79ec1e59ed6b5dbdeafe3"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#gad73b5e86dca79ec1e59ed6b5dbdeafe3">HaNumberMode</a> : uint8_t { <a class="el" href="#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a06b9281e396db002010bde1de57262eb">HaNumberMode::Auto</a>
+, <a class="el" href="#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a3cfce651e667ab85486dd42a8185f98a">HaNumberMode::Box</a>
+, <a class="el" href="#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561">HaNumberMode::Slider</a>
+ }</td></tr>
+<tr class="memdesc:gad73b5e86dca79ec1e59ed6b5dbdeafe3"><td class="mdescLeft">&#160;</td><td class="mdescRight">How Home Assistant shows a number entity.  <a href="#gad73b5e86dca79ec1e59ed6b5dbdeafe3">More...</a><br /></td></tr>
+<tr class="memitem:gae281013e6187c451ffbd79bce5dde512" id="r_gae281013e6187c451ffbd79bce5dde512"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#gae281013e6187c451ffbd79bce5dde512">HaTextMode</a> : uint8_t { <a class="el" href="#ggae281013e6187c451ffbd79bce5dde512a9dffbf69ffba8bc38bc4e01abf4b1675">HaTextMode::Text</a>
+, <a class="el" href="#ggae281013e6187c451ffbd79bce5dde512adc647eb65e6711e155375218212b3964">HaTextMode::Password</a>
+ }</td></tr>
+<tr class="memdesc:gae281013e6187c451ffbd79bce5dde512"><td class="mdescLeft">&#160;</td><td class="mdescRight">How Home Assistant shows a text entity.  <a href="#gae281013e6187c451ffbd79bce5dde512">More...</a><br /></td></tr>
+<tr class="memitem:ga8d27500770ea5af3edd2ab7d0fa4f533" id="r_ga8d27500770ea5af3edd2ab7d0fa4f533"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#ga8d27500770ea5af3edd2ab7d0fa4f533">HaLightColorMode</a> : uint8_t { <a class="el" href="#gga8d27500770ea5af3edd2ab7d0fa4f533ab456f74540e23a21eb8dddc98de528b7">HaLightColorMode::OnOff</a>
+, <a class="el" href="#gga8d27500770ea5af3edd2ab7d0fa4f533ab25323f99788ce64617f018b8a9f5f70">HaLightColorMode::Brightness</a>
+, <a class="el" href="#gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f">HaLightColorMode::ColorTemp</a>
+, <a class="el" href="#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3">HaLightColorMode::Rgb</a>
+ }</td></tr>
+<tr class="memdesc:ga8d27500770ea5af3edd2ab7d0fa4f533"><td class="mdescLeft">&#160;</td><td class="mdescRight">What a light supports.  <a href="#ga8d27500770ea5af3edd2ab7d0fa4f533">More...</a><br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Publish Home Assistant MQTT Discovery config payloads via an abstract MQTT transport. </p>
-<p>This module generates Home Assistant MQTT Discovery topics and JSON payloads and publishes them using a transport adapter (e.g. PubSubClient or AsyncMqttClient).</p>
+<p>This module builds a Home Assistant MQTT device discovery payload and publishes it using a transport adapter (PubSubClient, espMqttClient or AsyncMqttClient).</p>
 <p>Key behaviors:</p><ul>
-<li>Publishes retained Discovery config messages</li>
-<li>Publishes availability ("online"/"offline")</li>
+<li>Publishes one retained device discovery payload with all entities as components, to <span class="tt">&lt;discovery_prefix&gt;/device/&lt;node_id&gt;/config</span></li>
+<li>Publishes availability ("online"/"offline") and sets "offline" as the MQTT Last Will</li>
+<li>Subscribes to switch and button command topics and passes commands to a handler</li>
+<li>Remembers the entities and last states, and sends them again on every connect and when Home Assistant comes back online (birth message on <span class="tt">&lt;discovery_prefix&gt;/status</span>)</li>
 <li>Provides default topic conventions with per-entity overrides</li>
-<li>Supports removal of entities by publishing an empty retained config payload </li>
+<li>Removes single entities or the whole device </li>
 </ul>
-</div></div><!-- contents -->
+</div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
+<a id="ga5b25f27c75b29222a5656d10c667504b" name="ga5b25f27c75b29222a5656d10c667504b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga5b25f27c75b29222a5656d10c667504b">&#9670;&#160;</a></span>HaCommandCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga5b25f27c75b29222a5656d10c667504b">HaCommandCallback</a> = std::function&lt;void(const char* object_id, const char* payload)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler for commands sent by Home Assistant (switch, button, number, select, text, light, cover). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object_id</td><td>The entity's object_id </td></tr>
+    <tr><td class="paramname">payload</td><td>The command payload, null-terminated (e.g. "ON", "OFF", "PRESS") </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a name="doc-enum-members" id="doc-enum-members"></a><h2 id="header-doc-enum-members" class="groupheader">Enumeration Type Documentation</h2>
+<a id="gae0eea601fbd393c74f36e6647748e4cb" name="gae0eea601fbd393c74f36e6647748e4cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae0eea601fbd393c74f36e6647748e4cb">&#9670;&#160;</a></span>HaEntityCategory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gae0eea601fbd393c74f36e6647748e4cb">HaEntityCategory</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Entity category, which decides where Home Assistant shows an entity. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754" name="ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754"></a>None&#160;</td><td class="fielddoc"><p>A normal entity (default). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e" name="ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e"></a>Config&#160;</td><td class="fielddoc"><p>A setting that changes the device, shown under "Configuration". Not for sensors. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85" name="ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85"></a>Diagnostic&#160;</td><td class="fielddoc"><p>Read-only device info (e.g. RSSI, uptime), shown under "Diagnostic". </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="ga8d27500770ea5af3edd2ab7d0fa4f533" name="ga8d27500770ea5af3edd2ab7d0fa4f533"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga8d27500770ea5af3edd2ab7d0fa4f533">&#9670;&#160;</a></span>HaLightColorMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ga8d27500770ea5af3edd2ab7d0fa4f533">HaLightColorMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>What a light supports. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533ab456f74540e23a21eb8dddc98de528b7" name="gga8d27500770ea5af3edd2ab7d0fa4f533ab456f74540e23a21eb8dddc98de528b7"></a>OnOff&#160;</td><td class="fielddoc"><p>On and off only. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533ab25323f99788ce64617f018b8a9f5f70" name="gga8d27500770ea5af3edd2ab7d0fa4f533ab25323f99788ce64617f018b8a9f5f70"></a>Brightness&#160;</td><td class="fielddoc"><p>On, off and brightness (default). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f" name="gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f"></a>ColorTemp&#160;</td><td class="fielddoc"><p>Brightness and color temperature (in kelvin). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3" name="gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3"></a>Rgb&#160;</td><td class="fielddoc"><p>Brightness and RGB color. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gad73b5e86dca79ec1e59ed6b5dbdeafe3" name="gad73b5e86dca79ec1e59ed6b5dbdeafe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gad73b5e86dca79ec1e59ed6b5dbdeafe3">&#9670;&#160;</a></span>HaNumberMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gad73b5e86dca79ec1e59ed6b5dbdeafe3">HaNumberMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>How Home Assistant shows a number entity. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a06b9281e396db002010bde1de57262eb" name="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a06b9281e396db002010bde1de57262eb"></a>Auto&#160;</td><td class="fielddoc"><p>Home Assistant decides (default). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a3cfce651e667ab85486dd42a8185f98a" name="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a3cfce651e667ab85486dd42a8185f98a"></a>Box&#160;</td><td class="fielddoc"><p>An input box. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561" name="ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561"></a>Slider&#160;</td><td class="fielddoc"><p>A slider. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gae281013e6187c451ffbd79bce5dde512" name="gae281013e6187c451ffbd79bce5dde512"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gae281013e6187c451ffbd79bce5dde512">&#9670;&#160;</a></span>HaTextMode</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gae281013e6187c451ffbd79bce5dde512">HaTextMode</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>How Home Assistant shows a text entity. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggae281013e6187c451ffbd79bce5dde512a9dffbf69ffba8bc38bc4e01abf4b1675" name="ggae281013e6187c451ffbd79bce5dde512a9dffbf69ffba8bc38bc4e01abf4b1675"></a>Text&#160;</td><td class="fielddoc"><p>Plain text (default). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggae281013e6187c451ffbd79bce5dde512adc647eb65e6711e155375218212b3964" name="ggae281013e6187c451ffbd79bce5dde512adc647eb65e6711e155375218212b3964"></a>Password&#160;</td><td class="fielddoc"><p>Hidden input. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

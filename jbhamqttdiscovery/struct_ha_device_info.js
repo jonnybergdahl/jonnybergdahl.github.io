@@ -1,5 +1,6 @@
 var struct_ha_device_info =
 [
+    [ "configuration_url", "struct_ha_device_info.html#a6eb72c5eb97d269718a2a665a53ccc17", null ],
     [ "identifiers", "struct_ha_device_info.html#a94887bf66bc586fac73b7ca20da22e8e", null ],
     [ "manufacturer", "struct_ha_device_info.html#a5e62669c9f6b0c2f2ec5b11264c2d5e6", null ],
     [ "model", "struct_ha_device_info.html#a6f83bdce4b4d8364bfc7fefd48fb798d", null ],

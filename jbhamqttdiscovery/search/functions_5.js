@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['info_0',['info',['../class_j_b_logger.html#a4b50b75e21c5cfb911f3eb117ef9d587',1,'JBLogger']]]
+  ['hadiscovery_0',['HaDiscovery',['../class_ha_discovery.html#a8925e15b89ac7b203c10c2d4684c9026',1,'HaDiscovery']]]
 ];

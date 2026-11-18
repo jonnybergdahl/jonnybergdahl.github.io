@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -95,18 +96,20 @@ $(function(){initNavTree('class_j_b_logger.html','','class_j_b_logger-members');
 <p>Minimal logger interface used when jblogger.h is missing.  
  <a href="#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="_mqtt_transport_8h_source.html">MqttTransport.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="_j_b_logger_dummy_8h_source.html">JBLoggerDummy.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a609ba6b225702d03c1a733b7c3d1240b" id="r_a609ba6b225702d03c1a733b7c3d1240b"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a609ba6b225702d03c1a733b7c3d1240b">JBLogger</a> (const char *moduleName)</td></tr>
-<tr class="memdesc:a609ba6b225702d03c1a733b7c3d1240b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:a36e62d4c22329d81d2e2ab768056bce7" id="r_a36e62d4c22329d81d2e2ab768056bce7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a36e62d4c22329d81d2e2ab768056bce7">JBLogger</a> (const char *moduleName, LogLevel level=LogLevel::LOG_LEVEL_TRACE)</td></tr>
+<tr class="memdesc:a36e62d4c22329d81d2e2ab768056bce7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <br /></td></tr>
+<tr class="memitem:a3e6a0b973de7590d15b8716ad0e335e1" id="r_a3e6a0b973de7590d15b8716ad0e335e1"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a3e6a0b973de7590d15b8716ad0e335e1">trace</a> (const char *format,...)</td></tr>
+<tr class="memdesc:a3e6a0b973de7590d15b8716ad0e335e1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a trace message.  <br /></td></tr>
 <tr class="memitem:aae1af82fe965eea3a9b69d9119874db3" id="r_aae1af82fe965eea3a9b69d9119874db3"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aae1af82fe965eea3a9b69d9119874db3">debug</a> (const char *format,...)</td></tr>
 <tr class="memdesc:aae1af82fe965eea3a9b69d9119874db3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a debug message.  <br /></td></tr>
 <tr class="memitem:a4b50b75e21c5cfb911f3eb117ef9d587" id="r_a4b50b75e21c5cfb911f3eb117ef9d587"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a4b50b75e21c5cfb911f3eb117ef9d587">info</a> (const char *format,...)</td></tr>
 <tr class="memdesc:a4b50b75e21c5cfb911f3eb117ef9d587"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log an info message.  <br /></td></tr>
-<tr class="memitem:aa876b65e205ddcaadfcfddaedffa70ca" id="r_aa876b65e205ddcaadfcfddaedffa70ca"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#aa876b65e205ddcaadfcfddaedffa70ca">warn</a> (const char *format,...)</td></tr>
-<tr class="memdesc:aa876b65e205ddcaadfcfddaedffa70ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a warning message.  <br /></td></tr>
+<tr class="memitem:a345b0ff6246245e6a3272f5e3981b367" id="r_a345b0ff6246245e6a3272f5e3981b367"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a345b0ff6246245e6a3272f5e3981b367">warning</a> (const char *format,...)</td></tr>
+<tr class="memdesc:a345b0ff6246245e6a3272f5e3981b367"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log a warning message.  <br /></td></tr>
 <tr class="memitem:ae1344b0edfda8d66d1c3b5252dad045c" id="r_ae1344b0edfda8d66d1c3b5252dad045c"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#ae1344b0edfda8d66d1c3b5252dad045c">error</a> (const char *format,...)</td></tr>
 <tr class="memdesc:ae1344b0edfda8d66d1c3b5252dad045c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log an error message.  <br /></td></tr>
 <tr class="memitem:a2b0ba3c7c3e20645702645a6ddbfbab9" id="r_a2b0ba3c7c3e20645702645a6ddbfbab9"><td class="memItemLeft">virtual void&#160;</td><td class="memItemRight"><a class="el" href="#a2b0ba3c7c3e20645702645a6ddbfbab9">setLogLevel</a> (LogLevel level)</td></tr>
@@ -115,8 +118,8 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Minimal logger interface used when jblogger.h is missing. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a609ba6b225702d03c1a733b7c3d1240b" name="a609ba6b225702d03c1a733b7c3d1240b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a609ba6b225702d03c1a733b7c3d1240b">&#9670;&#160;</a></span>JBLogger()</h2>
+<a id="a36e62d4c22329d81d2e2ab768056bce7" name="a36e62d4c22329d81d2e2ab768056bce7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a36e62d4c22329d81d2e2ab768056bce7">&#9670;&#160;</a></span>JBLogger()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -127,8 +130,12 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">JBLogger::JBLogger </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>moduleName</em></span></td><td>)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>moduleName</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">LogLevel</td>          <td class="paramname"><span class="paramname"><em>level</em></span><span class="paramdefsep"> = </span><span class="paramdefval">LogLevel::LOG_LEVEL_TRACE</span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -293,8 +300,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa876b65e205ddcaadfcfddaedffa70ca" name="aa876b65e205ddcaadfcfddaedffa70ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa876b65e205ddcaadfcfddaedffa70ca">&#9670;&#160;</a></span>warn()</h2>
+<a id="a3e6a0b973de7590d15b8716ad0e335e1" name="a3e6a0b973de7590d15b8716ad0e335e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6a0b973de7590d15b8716ad0e335e1">&#9670;&#160;</a></span>trace()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -303,7 +310,44 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual void JBLogger::warn </td>
+          <td class="memname">virtual void JBLogger::trace </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"></td>          <td class="paramname"><span class="paramname"><em>...</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel virtual">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Log a trace message. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">format</td><td>Format string. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a345b0ff6246245e6a3272f5e3981b367" name="a345b0ff6246245e6a3272f5e3981b367"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a345b0ff6246245e6a3272f5e3981b367">&#9670;&#160;</a></span>warning()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void JBLogger::warning </td>
           <td>(</td>
           <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>format</em></span>, </td>
         </tr>
@@ -331,7 +375,7 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li>src/transport/<a class="el" href="_mqtt_transport_8h_source.html">MqttTransport.h</a></li>
+<li>src/<a class="el" href="_j_b_logger_dummy_8h_source.html">JBLoggerDummy.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

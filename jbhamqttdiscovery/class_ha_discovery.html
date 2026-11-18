@@ -26,8 +26,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
    </div>
+   <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
  </tr>
  </tbody>
@@ -92,50 +93,75 @@ $(function(){initNavTree('class_ha_discovery.html','','class_ha_discovery-member
 </div><!--header-->
 <div class="contents">
 
-<p>Home Assistant MQTT Discovery publisher (transport-agnostic).  
+<p>Home Assistant MQTT device discovery publisher (transport-agnostic).  
  <a href="#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_ha_discovery_8h_source.html">HaDiscovery.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-methods" class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad2d04f2099f9435f2b76e7bb1bdac2b7" id="r_ad2d04f2099f9435f2b76e7bb1bdac2b7"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#ad2d04f2099f9435f2b76e7bb1bdac2b7">HaDiscovery</a> (<a class="el" href="class_mqtt_transport.html">MqttTransport</a> &amp;transport, const char *discovery_prefix=&quot;homeassistant&quot;, const char *base_topic_prefix=&quot;devices&quot;)</td></tr>
-<tr class="memdesc:ad2d04f2099f9435f2b76e7bb1bdac2b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a Home Assistant MQTT Discovery publisher.  <br /></td></tr>
+<tr class="memitem:a8925e15b89ac7b203c10c2d4684c9026" id="r_a8925e15b89ac7b203c10c2d4684c9026"><td class="memItemLeft">&#160;</td><td class="memItemRight"><a class="el" href="#a8925e15b89ac7b203c10c2d4684c9026">HaDiscovery</a> (<a class="el" href="class_mqtt_transport.html">MqttTransport</a> &amp;transport, const char *discovery_prefix=&quot;homeassistant&quot;, const char *base_topic_prefix=&quot;devices&quot;, LogLevel log_level=LogLevel::LOG_LEVEL_INFO)</td></tr>
+<tr class="memdesc:a8925e15b89ac7b203c10c2d4684c9026"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a Home Assistant MQTT Discovery publisher.  <br /></td></tr>
 <tr class="memitem:a4613640966a1eefb154485dfa9a3bf05" id="r_a4613640966a1eefb154485dfa9a3bf05"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a4613640966a1eefb154485dfa9a3bf05">setLogLevel</a> (LogLevel level)</td></tr>
 <tr class="memdesc:a4613640966a1eefb154485dfa9a3bf05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the minimum log level for the internal logger.  <br /></td></tr>
 <tr class="memitem:aaef9ba1e9f8e90165aa8269b68183077" id="r_aaef9ba1e9f8e90165aa8269b68183077"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077">setDevice</a> (const <a class="el" href="struct_ha_device_info.html">HaDeviceInfo</a> &amp;dev)</td></tr>
-<tr class="memdesc:aaef9ba1e9f8e90165aa8269b68183077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the device information used in <span class="tt">dev</span> object of Discovery payloads.  <br /></td></tr>
+<tr class="memdesc:aaef9ba1e9f8e90165aa8269b68183077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the device information used in the <span class="tt">dev</span> object of the discovery payload.  <br /></td></tr>
+<tr class="memitem:aa9a1e0ef31ec6debb78023b72b17d414" id="r_aa9a1e0ef31ec6debb78023b72b17d414"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414">onCommand</a> (<a class="el" href="group__hadiscovery.html#ga5b25f27c75b29222a5656d10c667504b">HaCommandCallback</a> cb)</td></tr>
+<tr class="memdesc:aa9a1e0ef31ec6debb78023b72b17d414"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the handler for commands from Home Assistant.  <br /></td></tr>
+<tr class="memitem:a024d96453e0c4aa56c42d84ada44b4fd" id="r_a024d96453e0c4aa56c42d84ada44b4fd"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a024d96453e0c4aa56c42d84ada44b4fd">setOrigin</a> (const char *name, const char *sw_version=nullptr, const char *url=nullptr)</td></tr>
+<tr class="memdesc:a024d96453e0c4aa56c42d84ada44b4fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the origin (<span class="tt">o</span>) sent in the discovery payload.  <br /></td></tr>
 <tr class="memitem:aa80e3bed2024a918e1f2a05417cd6fe7" id="r_aa80e3bed2024a918e1f2a05417cd6fe7"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7">tick</a> ()</td></tr>
-<tr class="memdesc:aa80e3bed2024a918e1f2a05417cd6fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic processing hook.  <br /></td></tr>
+<tr class="memdesc:aa80e3bed2024a918e1f2a05417cd6fe7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Periodic processing hook. Call this from loop().  <br /></td></tr>
+<tr class="memitem:a7a849c25589edd10bc2cafee103f69a3" id="r_a7a849c25589edd10bc2cafee103f69a3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a7a849c25589edd10bc2cafee103f69a3">setRepublishDelay</a> (uint32_t maxDelayMs)</td></tr>
+<tr class="memdesc:a7a849c25589edd10bc2cafee103f69a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the maximum random delay before re-publishing after Home Assistant comes online.  <br /></td></tr>
+<tr class="memitem:a306b5c5caa7edc32ed799490950b96d1" id="r_a306b5c5caa7edc32ed799490950b96d1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a306b5c5caa7edc32ed799490950b96d1">republishAll</a> ()</td></tr>
+<tr class="memdesc:a306b5c5caa7edc32ed799490950b96d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish the device payload, availability "online" and the last states now.  <br /></td></tr>
 <tr class="memitem:a468522b9e70234a48d7d5c610273987b" id="r_a468522b9e70234a48d7d5c610273987b"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a468522b9e70234a48d7d5c610273987b">publishAvailabilityOnline</a> (bool retained=true, uint8_t qos=1)</td></tr>
 <tr class="memdesc:a468522b9e70234a48d7d5c610273987b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish "online" availability payload to the availability topic (retained by default).  <br /></td></tr>
 <tr class="memitem:a65651d2d9bf340a9102abb4f68a3bf89" id="r_a65651d2d9bf340a9102abb4f68a3bf89"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a65651d2d9bf340a9102abb4f68a3bf89">publishAvailabilityOffline</a> (bool retained=true, uint8_t qos=1)</td></tr>
 <tr class="memdesc:a65651d2d9bf340a9102abb4f68a3bf89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish "offline" availability payload to the availability topic (retained by default).  <br /></td></tr>
-<tr class="memitem:ab5b58031c78207007c38c517305676e3" id="r_ab5b58031c78207007c38c517305676e3"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab5b58031c78207007c38c517305676e3">publishSensorDiscovery</a> (const <a class="el" href="struct_ha_sensor_config.html">HaSensorConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
-<tr class="memdesc:ab5b58031c78207007c38c517305676e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a sensor Discovery config (retained by default).  <br /></td></tr>
-<tr class="memitem:a280b24f3fc678223d44aa3c4b857a726" id="r_a280b24f3fc678223d44aa3c4b857a726"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a280b24f3fc678223d44aa3c4b857a726">publishSwitchDiscovery</a> (const <a class="el" href="struct_ha_switch_config.html">HaSwitchConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
-<tr class="memdesc:a280b24f3fc678223d44aa3c4b857a726"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a switch Discovery config (retained by default).  <br /></td></tr>
-<tr class="memitem:affb1dc69237094bb902e4bbd78d53c55" id="r_affb1dc69237094bb902e4bbd78d53c55"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#affb1dc69237094bb902e4bbd78d53c55">publishBinarySensorDiscovery</a> (const <a class="el" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
-<tr class="memdesc:affb1dc69237094bb902e4bbd78d53c55"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a binary_sensor Discovery config (retained by default).  <br /></td></tr>
-<tr class="memitem:a440e497e8a54b3f02a61050efd1faf27" id="r_a440e497e8a54b3f02a61050efd1faf27"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a440e497e8a54b3f02a61050efd1faf27">publishButtonDiscovery</a> (const <a class="el" href="struct_ha_button_config.html">HaButtonConfig</a> &amp;cfg, bool retained=true, uint8_t qos=1)</td></tr>
-<tr class="memdesc:a440e497e8a54b3f02a61050efd1faf27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a button Discovery config (retained by default).  <br /></td></tr>
-<tr class="memitem:a9818a9054781af08f9892f943bf54efd" id="r_a9818a9054781af08f9892f943bf54efd"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a9818a9054781af08f9892f943bf54efd">removeEntity</a> (const char *component, const char *object_id, uint8_t qos=1)</td></tr>
-<tr class="memdesc:a9818a9054781af08f9892f943bf54efd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove an entity from Home Assistant by clearing its retained config topic.  <br /></td></tr>
+<tr class="memitem:a51035668613581d3b783bcdcad88fcfb" id="r_a51035668613581d3b783bcdcad88fcfb"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a51035668613581d3b783bcdcad88fcfb">publishSensorDiscovery</a> (const <a class="el" href="struct_ha_sensor_config.html">HaSensorConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a51035668613581d3b783bcdcad88fcfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a sensor. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:a0f16238e77dab03d2e1bd5af1453ef99" id="r_a0f16238e77dab03d2e1bd5af1453ef99"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a0f16238e77dab03d2e1bd5af1453ef99">publishSwitchDiscovery</a> (const <a class="el" href="struct_ha_switch_config.html">HaSwitchConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a0f16238e77dab03d2e1bd5af1453ef99"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a switch. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:af7aad3450b15aaaa7b364a51979eeaf9" id="r_af7aad3450b15aaaa7b364a51979eeaf9"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af7aad3450b15aaaa7b364a51979eeaf9">publishBinarySensorDiscovery</a> (const <a class="el" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:af7aad3450b15aaaa7b364a51979eeaf9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a binary_sensor. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:aa01c2f74b347cf140e47019b4d364544" id="r_aa01c2f74b347cf140e47019b4d364544"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aa01c2f74b347cf140e47019b4d364544">publishButtonDiscovery</a> (const <a class="el" href="struct_ha_button_config.html">HaButtonConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:aa01c2f74b347cf140e47019b4d364544"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a button. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:ac64f66a051af67ea1f641ccf8e56b87b" id="r_ac64f66a051af67ea1f641ccf8e56b87b"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac64f66a051af67ea1f641ccf8e56b87b">publishNumberDiscovery</a> (const <a class="el" href="struct_ha_number_config.html">HaNumberConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ac64f66a051af67ea1f641ccf8e56b87b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a number. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:ac3c11e7a5940016181110aa8f5d5cf1f" id="r_ac3c11e7a5940016181110aa8f5d5cf1f"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac3c11e7a5940016181110aa8f5d5cf1f">publishSelectDiscovery</a> (const <a class="el" href="struct_ha_select_config.html">HaSelectConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ac3c11e7a5940016181110aa8f5d5cf1f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a select. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:a09d003c4c8affba551d688e66c47d207" id="r_a09d003c4c8affba551d688e66c47d207"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a09d003c4c8affba551d688e66c47d207">publishTextDiscovery</a> (const <a class="el" href="struct_ha_text_config.html">HaTextConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:a09d003c4c8affba551d688e66c47d207"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a text. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:ae02394bfe44e8d4954e08e5f1dae9d04" id="r_ae02394bfe44e8d4954e08e5f1dae9d04"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae02394bfe44e8d4954e08e5f1dae9d04">publishLightDiscovery</a> (const <a class="el" href="struct_ha_light_config.html">HaLightConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ae02394bfe44e8d4954e08e5f1dae9d04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a light (JSON schema). The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:ae3f4b371cd9457d73616a8ee03bbc407" id="r_ae3f4b371cd9457d73616a8ee03bbc407"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ae3f4b371cd9457d73616a8ee03bbc407">publishCoverDiscovery</a> (const <a class="el" href="struct_ha_cover_config.html">HaCoverConfig</a> &amp;cfg)</td></tr>
+<tr class="memdesc:ae3f4b371cd9457d73616a8ee03bbc407"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add or update a cover. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>.  <br /></td></tr>
+<tr class="memitem:abea9837a88d3e9972535710f54cb6d19" id="r_abea9837a88d3e9972535710f54cb6d19"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#abea9837a88d3e9972535710f54cb6d19">removeEntity</a> (const char *component, const char *object_id)</td></tr>
+<tr class="memdesc:abea9837a88d3e9972535710f54cb6d19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove one entity from the device.  <br /></td></tr>
+<tr class="memitem:aab6d384733be033f63e2a99892da0722" id="r_aab6d384733be033f63e2a99892da0722"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#aab6d384733be033f63e2a99892da0722">removeDevice</a> ()</td></tr>
+<tr class="memdesc:aab6d384733be033f63e2a99892da0722"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the device and all its entities from Home Assistant.  <br /></td></tr>
 <tr class="memitem:a688175a0406684265eec23a9a85ada4c" id="r_a688175a0406684265eec23a9a85ada4c"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a688175a0406684265eec23a9a85ada4c">publishState</a> (const char *object_id, const char *payload, bool retained=false, uint8_t qos=0)</td></tr>
 <tr class="memdesc:a688175a0406684265eec23a9a85ada4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish an entity state payload using default state topic for object_id.  <br /></td></tr>
 <tr class="memitem:ac873ceadd104279e6afb2874550124ad" id="r_ac873ceadd104279e6afb2874550124ad"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ac873ceadd104279e6afb2874550124ad">publishStateSwitch</a> (const char *object_id, bool on, bool retained=false, uint8_t qos=0)</td></tr>
 <tr class="memdesc:ac873ceadd104279e6afb2874550124ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a switch state ("ON"/"OFF") using default state topic.  <br /></td></tr>
-<tr class="memitem:af283bf445934a4402c6a6e34f48dc8fe" id="r_af283bf445934a4402c6a6e34f48dc8fe"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af283bf445934a4402c6a6e34f48dc8fe">pressButton</a> (const char *object_id, const char *payload=nullptr, bool retained=false, uint8_t qos=0)</td></tr>
-<tr class="memdesc:af283bf445934a4402c6a6e34f48dc8fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a button "press" command to the default command topic.  <br /></td></tr>
-<tr class="memitem:a069011732a93ee1c9cd806bd9e030b0b" id="r_a069011732a93ee1c9cd806bd9e030b0b"><td class="memItemLeft"><a id="a069011732a93ee1c9cd806bd9e030b0b" name="a069011732a93ee1c9cd806bd9e030b0b"></a>
-bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const std::string &amp;object_id, uint8_t qos=1)</td></tr>
-<tr class="memdesc:a069011732a93ee1c9cd806bd9e030b0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string. <br /></td></tr>
-<tr class="memitem:a97a6ca950d5b04ec9fa0b90f8faa4296" id="r_a97a6ca950d5b04ec9fa0b90f8faa4296"><td class="memItemLeft"><a id="a97a6ca950d5b04ec9fa0b90f8faa4296" name="a97a6ca950d5b04ec9fa0b90f8faa4296"></a>
-bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const char *component, const std::string &amp;object_id, uint8_t qos=1)</td></tr>
-<tr class="memdesc:a97a6ca950d5b04ec9fa0b90f8faa4296"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for object_id. <br /></td></tr>
-<tr class="memitem:ace635c69eb2848d8bf046c912e82b944" id="r_ace635c69eb2848d8bf046c912e82b944"><td class="memItemLeft"><a id="ace635c69eb2848d8bf046c912e82b944" name="ace635c69eb2848d8bf046c912e82b944"></a>
-bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const char *object_id, uint8_t qos=1)</td></tr>
-<tr class="memdesc:ace635c69eb2848d8bf046c912e82b944"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for component. <br /></td></tr>
+<tr class="memitem:a5684459d1d6fa39d46e6720d94d9d3c0" id="r_a5684459d1d6fa39d46e6720d94d9d3c0"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5684459d1d6fa39d46e6720d94d9d3c0">publishStateNumber</a> (const char *object_id, double value, uint8_t decimals=2, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:a5684459d1d6fa39d46e6720d94d9d3c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a number state, e.g. 21.5 with decimals = 1 -&gt; "21.5".  <br /></td></tr>
+<tr class="memitem:ab9bccaae99d6bf07132be28050af5c4d" id="r_ab9bccaae99d6bf07132be28050af5c4d"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#ab9bccaae99d6bf07132be28050af5c4d">publishStateLight</a> (const char *object_id, const <a class="el" href="struct_ha_light_state.html">HaLightState</a> &amp;state, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:ab9bccaae99d6bf07132be28050af5c4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a light state as JSON, e.g. <span class="tt">{"state":"ON","brightness":128,"color_mode":"brightness"}</span>.  <br /></td></tr>
+<tr class="memitem:adc934d5ae5450ca7fcf25e92e258b615" id="r_adc934d5ae5450ca7fcf25e92e258b615"><td class="memItemLeft"><a id="adc934d5ae5450ca7fcf25e92e258b615" name="adc934d5ae5450ca7fcf25e92e258b615"></a>
+bool&#160;</td><td class="memItemRight"><b>publishStatePosition</b> (const char *object_id, int position, bool retained=false, uint8_t qos=0)</td></tr>
+<tr class="memdesc:adc934d5ae5450ca7fcf25e92e258b615"><td class="mdescLeft">&#160;</td><td class="mdescRight">Publish a cover position (0..100) to <span class="tt">&lt;base&gt;/&lt;node_id&gt;/&lt;object_id&gt;/position</span>. <br /></td></tr>
+<tr class="memitem:a6518cc5d69386d28ddc6d539652130ab" id="r_a6518cc5d69386d28ddc6d539652130ab"><td class="memItemLeft"><a id="a6518cc5d69386d28ddc6d539652130ab" name="a6518cc5d69386d28ddc6d539652130ab"></a>
+bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const std::string &amp;object_id)</td></tr>
+<tr class="memdesc:a6518cc5d69386d28ddc6d539652130ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string. <br /></td></tr>
+<tr class="memitem:a71db8e471f422f6942171aafda67c9f3" id="r_a71db8e471f422f6942171aafda67c9f3"><td class="memItemLeft"><a id="a71db8e471f422f6942171aafda67c9f3" name="a71db8e471f422f6942171aafda67c9f3"></a>
+bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const char *component, const std::string &amp;object_id)</td></tr>
+<tr class="memdesc:a71db8e471f422f6942171aafda67c9f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for object_id. <br /></td></tr>
+<tr class="memitem:a6c68e16cfd5e7d3545ceb63559a87e91" id="r_a6c68e16cfd5e7d3545ceb63559a87e91"><td class="memItemLeft"><a id="a6c68e16cfd5e7d3545ceb63559a87e91" name="a6c68e16cfd5e7d3545ceb63559a87e91"></a>
+bool&#160;</td><td class="memItemRight"><b>removeEntity</b> (const std::string &amp;component, const char *object_id)</td></tr>
+<tr class="memdesc:a6c68e16cfd5e7d3545ceb63559a87e91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of removeEntity using std::string for component. <br /></td></tr>
 <tr class="memitem:adb16d4ee3480097061e8804a79e074d4" id="r_adb16d4ee3480097061e8804a79e074d4"><td class="memItemLeft"><a id="adb16d4ee3480097061e8804a79e074d4" name="adb16d4ee3480097061e8804a79e074d4"></a>
 bool&#160;</td><td class="memItemRight"><b>publishState</b> (const std::string &amp;object_id, const std::string &amp;payload, bool retained=false, uint8_t qos=0)</td></tr>
 <tr class="memdesc:adb16d4ee3480097061e8804a79e074d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishState using std::string. <br /></td></tr>
@@ -148,28 +174,27 @@ bool&#160;</td><td class="memItemRight"><b>publishState</b> (const char *object_
 <tr class="memitem:a5847966b07948a9e4b9491a24d53a0d5" id="r_a5847966b07948a9e4b9491a24d53a0d5"><td class="memItemLeft"><a id="a5847966b07948a9e4b9491a24d53a0d5" name="a5847966b07948a9e4b9491a24d53a0d5"></a>
 bool&#160;</td><td class="memItemRight"><b>publishStateSwitch</b> (const std::string &amp;object_id, bool on, bool retained=false, uint8_t qos=0)</td></tr>
 <tr class="memdesc:a5847966b07948a9e4b9491a24d53a0d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of publishStateSwitch using std::string for object_id. <br /></td></tr>
-<tr class="memitem:a6bc6baba4bbe654c337f132739d65af8" id="r_a6bc6baba4bbe654c337f132739d65af8"><td class="memItemLeft"><a id="a6bc6baba4bbe654c337f132739d65af8" name="a6bc6baba4bbe654c337f132739d65af8"></a>
-bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, const std::string &amp;payload, bool retained=false, uint8_t qos=0)</td></tr>
-<tr class="memdesc:a6bc6baba4bbe654c337f132739d65af8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string. <br /></td></tr>
-<tr class="memitem:a3f7f59a981a864bd71fe1464ff29697a" id="r_a3f7f59a981a864bd71fe1464ff29697a"><td class="memItemLeft"><a id="a3f7f59a981a864bd71fe1464ff29697a" name="a3f7f59a981a864bd71fe1464ff29697a"></a>
-bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, const char *payload, bool retained=false, uint8_t qos=0)</td></tr>
-<tr class="memdesc:a3f7f59a981a864bd71fe1464ff29697a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string for object_id. <br /></td></tr>
-<tr class="memitem:a3e0a90b3820a55499e6cc3dca7c17775" id="r_a3e0a90b3820a55499e6cc3dca7c17775"><td class="memItemLeft"><a id="a3e0a90b3820a55499e6cc3dca7c17775" name="a3e0a90b3820a55499e6cc3dca7c17775"></a>
-bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &amp;object_id, bool retained=false, uint8_t qos=0)</td></tr>
-<tr class="memdesc:a3e0a90b3820a55499e6cc3dca7c17775"><td class="mdescLeft">&#160;</td><td class="mdescRight">Overload of pressButton using std::string for object_id (no payload). <br /></td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-static-methods" class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a384b61ae1ef8578f86a1590e0900e663" id="r_a384b61ae1ef8578f86a1590e0900e663"><td class="memItemLeft">static bool&#160;</td><td class="memItemRight"><a class="el" href="#a384b61ae1ef8578f86a1590e0900e663">parseLightCommand</a> (const char *payload, <a class="el" href="struct_ha_light_command.html">HaLightCommand</a> &amp;out)</td></tr>
+<tr class="memdesc:a384b61ae1ef8578f86a1590e0900e663"><td class="mdescLeft">&#160;</td><td class="mdescRight">Decode a light command from the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Home Assistant MQTT Discovery publisher (transport-agnostic). </p>
+<div class="textblock"><p>Home Assistant MQTT device discovery publisher (transport-agnostic). </p>
 <p>Typical usage:</p><ul>
 <li>Construct with a <a class="el" href="class_mqtt_transport.html" title="Abstract MQTT transport interface.">MqttTransport</a> implementation</li>
-<li>Provide device info via <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in dev object of Discovery payloads.">setDevice()</a></li>
-<li>Publish discovery configs (retained)</li>
-<li>Publish states as needed</li>
+<li>Provide device info via <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a>, before connecting (this sets the Last Will)</li>
+<li>Register a command handler with <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> if you have switches or buttons</li>
+<li>Connect through the transport</li>
+<li>Add entities with the publish*Discovery() methods</li>
+<li>Call <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a> from loop(), and publish states as needed</li>
 </ul>
-<p>For async transports, onConnect is invoked automatically. For sync transports, call <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook.">tick()</a> periodically to detect reconnection transitions. </p>
+<p>The publish*Discovery() methods add or update an entity. The device payload with all entities is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>, so adding several entities in setup() sends one message. States published before that are sent right after it.</p>
+<p>Everything is kept in RAM so it can be sent again after a reconnect or a Home Assistant restart: about 150–250 bytes per entity. The device payload (about 400 bytes plus that per entity) is built from it only while it's being published. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="ad2d04f2099f9435f2b76e7bb1bdac2b7" name="ad2d04f2099f9435f2b76e7bb1bdac2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2d04f2099f9435f2b76e7bb1bdac2b7">&#9670;&#160;</a></span>HaDiscovery()</h2>
+<a id="a8925e15b89ac7b203c10c2d4684c9026" name="a8925e15b89ac7b203c10c2d4684c9026"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8925e15b89ac7b203c10c2d4684c9026">&#9670;&#160;</a></span>HaDiscovery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -187,7 +212,12 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>base_topic_prefix</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;devices&quot;</span>&#160;)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>base_topic_prefix</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;devices&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">LogLevel</td>          <td class="paramname"><span class="paramname"><em>log_level</em></span><span class="paramdefsep"> = </span><span class="paramdefval">LogLevel::LOG_LEVEL_INFO</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -198,6 +228,7 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
     <tr><td class="paramname"><a class="el" href="group__transport.html" title="Transport adapters for different MQTT client libraries.">MQTT Transports</a></td><td>MQTT transport adapter </td></tr>
     <tr><td class="paramname">discovery_prefix</td><td>Home Assistant discovery prefix (default "homeassistant") </td></tr>
     <tr><td class="paramname">base_topic_prefix</td><td>Base topic prefix for device topics (default "devices") </td></tr>
+    <tr><td class="paramname">log_level</td><td>Log level for the internal logger (default LOG_LEVEL_INFO) </td></tr>
   </table>
   </dd>
 </dl>
@@ -205,46 +236,69 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 </div>
 </div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Member Function Documentation</h2>
-<a id="af283bf445934a4402c6a6e34f48dc8fe" name="af283bf445934a4402c6a6e34f48dc8fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af283bf445934a4402c6a6e34f48dc8fe">&#9670;&#160;</a></span>pressButton()</h2>
+<a id="aa9a1e0ef31ec6debb78023b72b17d414" name="aa9a1e0ef31ec6debb78023b72b17d414"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9a1e0ef31ec6debb78023b72b17d414">&#9670;&#160;</a></span>onCommand()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool HaDiscovery::pressButton </td>
+          <td class="memname">void HaDiscovery::onCommand </td>
           <td>(</td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="group__hadiscovery.html#ga5b25f27c75b29222a5656d10c667504b">HaCommandCallback</a></td>          <td class="paramname"><span class="paramname"><em>cb</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>payload</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Publish a button "press" command to the default command topic. </p>
+<p>Set the handler for commands from Home Assistant. </p>
+<p>It's called when a message arrives on the command topic of an entity that takes commands: switch, button, number, select, text, light or cover. After acting on it, publish the new state (<a class="el" href="#ac873ceadd104279e6afb2874550124ad" title="Publish a switch state (&quot;ON&quot;/&quot;OFF&quot;) using default state topic.">publishStateSwitch()</a>, <a class="el" href="#a5684459d1d6fa39d46e6720d94d9d3c0" title="Publish a number state, e.g. 21.5 with decimals = 1 -&gt; &quot;21.5&quot;.">publishStateNumber()</a>, <a class="el" href="#ab9bccaae99d6bf07132be28050af5c4d" title="Publish a light state as JSON, e.g. {&quot;state&quot;:&quot;ON&quot;,&quot;brightness&quot;:128,&quot;color_mode&quot;:&quot;brightness&quot;}...">publishStateLight()</a>, <a class="el" href="#a688175a0406684265eec23a9a85ada4c" title="Publish an entity state payload using default state topic for object_id.">publishState()</a> or <a class="el" href="#adc934d5ae5450ca7fcf25e92e258b615" title="Publish a cover position (0..100) to &lt;base&gt;/&lt;node_id&gt;/&lt;object_id&gt;/position.">publishStatePosition()</a>).</p>
+<p>Commands are queued when they arrive and the handler is called from <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>, so it always runs in loop(), also with AsyncMqttClient.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">object_id</td><td>Entity object_id </td></tr>
-    <tr><td class="paramname">payload</td><td>Payload string to publish (if nullptr uses default "PRESS") </td></tr>
-    <tr><td class="paramname">retained</td><td>Retain flag (usually false) </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (usually 0 or 1) </td></tr>
+    <tr><td class="paramname">cb</td><td>Command handler </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="a384b61ae1ef8578f86a1590e0900e663" name="a384b61ae1ef8578f86a1590e0900e663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a384b61ae1ef8578f86a1590e0900e663">&#9670;&#160;</a></span>parseLightCommand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::parseLightCommand </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>payload</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="struct_ha_light_command.html">HaLightCommand</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>out</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Decode a light command from the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">payload</td><td>The JSON payload, e.g. <span class="tt">{"state":"ON","brightness":128}</span> </td></tr>
+    <tr><td class="paramname">out</td><td>The decoded command; only the parts that were sent are set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>false if the payload isn't valid JSON </dd></dl>
 
 </div>
 </div>
@@ -308,8 +362,8 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 
 </div>
 </div>
-<a id="affb1dc69237094bb902e4bbd78d53c55" name="affb1dc69237094bb902e4bbd78d53c55"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#affb1dc69237094bb902e4bbd78d53c55">&#9670;&#160;</a></span>publishBinarySensorDiscovery()</h2>
+<a id="af7aad3450b15aaaa7b364a51979eeaf9" name="af7aad3450b15aaaa7b364a51979eeaf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7aad3450b15aaaa7b364a51979eeaf9">&#9670;&#160;</a></span>publishBinarySensorDiscovery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -317,36 +371,25 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="memname">bool HaDiscovery::publishBinarySensorDiscovery </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Publish a binary_sensor Discovery config (retained by default). </p>
+<p>Add or update a binary_sensor. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cfg</td><td>Binary sensor configuration </td></tr>
-    <tr><td class="paramname">retained</td><td>Retain flag (recommended true) </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 for discovery if supported) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or the config couldn't be built </dd></dl>
 
 </div>
 </div>
-<a id="a440e497e8a54b3f02a61050efd1faf27" name="a440e497e8a54b3f02a61050efd1faf27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a440e497e8a54b3f02a61050efd1faf27">&#9670;&#160;</a></span>publishButtonDiscovery()</h2>
+<a id="aa01c2f74b347cf140e47019b4d364544" name="aa01c2f74b347cf140e47019b4d364544"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa01c2f74b347cf140e47019b4d364544">&#9670;&#160;</a></span>publishButtonDiscovery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -354,36 +397,108 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="memname">bool HaDiscovery::publishButtonDiscovery </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ha_button_config.html">HaButtonConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="struct_ha_button_config.html">HaButtonConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Publish a button Discovery config (retained by default). </p>
+<p>Add or update a button. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>Presses are passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cfg</td><td>Button configuration </td></tr>
-    <tr><td class="paramname">retained</td><td>Retain flag (recommended true) </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 for discovery if supported) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or the config couldn't be built </dd></dl>
 
 </div>
 </div>
-<a id="ab5b58031c78207007c38c517305676e3" name="ab5b58031c78207007c38c517305676e3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5b58031c78207007c38c517305676e3">&#9670;&#160;</a></span>publishSensorDiscovery()</h2>
+<a id="ae3f4b371cd9457d73616a8ee03bbc407" name="ae3f4b371cd9457d73616a8ee03bbc407"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3f4b371cd9457d73616a8ee03bbc407">&#9670;&#160;</a></span>publishCoverDiscovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishCoverDiscovery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ha_cover_config.html">HaCoverConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a cover. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>Open/close/stop and position commands are passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler. </p>
+
+</div>
+</div>
+<a id="ae02394bfe44e8d4954e08e5f1dae9d04" name="ae02394bfe44e8d4954e08e5f1dae9d04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae02394bfe44e8d4954e08e5f1dae9d04">&#9670;&#160;</a></span>publishLightDiscovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishLightDiscovery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ha_light_config.html">HaLightConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a light (JSON schema). The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>Commands are passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler as JSON; see <a class="el" href="#a384b61ae1ef8578f86a1590e0900e663" title="Decode a light command from the onCommand() handler.">parseLightCommand()</a>. </p>
+
+</div>
+</div>
+<a id="ac64f66a051af67ea1f641ccf8e56b87b" name="ac64f66a051af67ea1f641ccf8e56b87b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac64f66a051af67ea1f641ccf8e56b87b">&#9670;&#160;</a></span>publishNumberDiscovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishNumberDiscovery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ha_number_config.html">HaNumberConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a number. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>New values are passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler as text.</p>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or min &gt; max </dd></dl>
+
+</div>
+</div>
+<a id="ac3c11e7a5940016181110aa8f5d5cf1f" name="ac3c11e7a5940016181110aa8f5d5cf1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac3c11e7a5940016181110aa8f5d5cf1f">&#9670;&#160;</a></span>publishSelectDiscovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishSelectDiscovery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ha_select_config.html">HaSelectConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a select. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>The chosen option is passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler.</p>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or there are no options </dd></dl>
+
+</div>
+</div>
+<a id="a51035668613581d3b783bcdcad88fcfb" name="a51035668613581d3b783bcdcad88fcfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51035668613581d3b783bcdcad88fcfb">&#9670;&#160;</a></span>publishSensorDiscovery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -391,31 +506,20 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="memname">bool HaDiscovery::publishSensorDiscovery </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ha_sensor_config.html">HaSensorConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="struct_ha_sensor_config.html">HaSensorConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Publish a sensor Discovery config (retained by default). </p>
+<p>Add or update a sensor. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cfg</td><td>Sensor configuration </td></tr>
-    <tr><td class="paramname">retained</td><td>Retain flag (recommended true) </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 for discovery if supported) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or the config couldn't be built </dd></dl>
 
 </div>
 </div>
@@ -449,6 +553,7 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 </div><div class="memdoc">
 
 <p>Publish an entity state payload using default state topic for object_id. </p>
+<p>The last payload per entity is stored and sent again on connect and after a Home Assistant restart. While disconnected, or while the device payload is waiting to be published, it is only stored, and this returns true.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">object_id</td><td>Entity object_id </td></tr>
@@ -459,6 +564,86 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+
+</div>
+</div>
+<a id="ab9bccaae99d6bf07132be28050af5c4d" name="ab9bccaae99d6bf07132be28050af5c4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9bccaae99d6bf07132be28050af5c4d">&#9670;&#160;</a></span>publishStateLight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishStateLight </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="struct_ha_light_state.html">HaLightState</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>state</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish a light state as JSON, e.g. <span class="tt">{"state":"ON","brightness":128,"color_mode":"brightness"}</span>. </p>
+<p>The color_mode is set from what's included: color, then color temperature, then brightness, otherwise onoff. </p>
+
+</div>
+</div>
+<a id="a5684459d1d6fa39d46e6720d94d9d3c0" name="a5684459d1d6fa39d46e6720d94d9d3c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5684459d1d6fa39d46e6720d94d9d3c0">&#9670;&#160;</a></span>publishStateNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishStateNumber </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>decimals</em></span><span class="paramdefsep"> = </span><span class="paramdefval">2</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish a number state, e.g. 21.5 with decimals = 1 -&gt; "21.5". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">object_id</td><td>Entity object_id </td></tr>
+    <tr><td class="paramname">value</td><td>The value </td></tr>
+    <tr><td class="paramname">decimals</td><td>Digits after the decimal point (default 2) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -505,8 +690,8 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 
 </div>
 </div>
-<a id="a280b24f3fc678223d44aa3c4b857a726" name="a280b24f3fc678223d44aa3c4b857a726"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a280b24f3fc678223d44aa3c4b857a726">&#9670;&#160;</a></span>publishSwitchDiscovery()</h2>
+<a id="a0f16238e77dab03d2e1bd5af1453ef99" name="a0f16238e77dab03d2e1bd5af1453ef99"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f16238e77dab03d2e1bd5af1453ef99">&#9670;&#160;</a></span>publishSwitchDiscovery()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -514,36 +699,68 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="memname">bool HaDiscovery::publishSwitchDiscovery </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_ha_switch_config.html">HaSwitchConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="struct_ha_switch_config.html">HaSwitchConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>retained</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Publish a switch Discovery config (retained by default). </p>
+<p>Add or update a switch. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>Commands for it are passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">cfg</td><td>Switch configuration </td></tr>
-    <tr><td class="paramname">retained</td><td>Retain flag (recommended true) </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 for discovery if supported) </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or the config couldn't be built </dd></dl>
 
 </div>
 </div>
-<a id="a9818a9054781af08f9892f943bf54efd" name="a9818a9054781af08f9892f943bf54efd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9818a9054781af08f9892f943bf54efd">&#9670;&#160;</a></span>removeEntity()</h2>
+<a id="a09d003c4c8affba551d688e66c47d207" name="a09d003c4c8affba551d688e66c47d207"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09d003c4c8affba551d688e66c47d207">&#9670;&#160;</a></span>publishTextDiscovery()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::publishTextDiscovery </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="struct_ha_text_config.html">HaTextConfig</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>cfg</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add or update a text. The device payload is published from the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>. </p>
+<p>The new text is passed to the <a class="el" href="#aa9a1e0ef31ec6debb78023b72b17d414" title="Set the handler for commands from Home Assistant.">onCommand()</a> handler.</p>
+<dl class="section return"><dt>Returns</dt><dd>false if <a class="el" href="#aaef9ba1e9f8e90165aa8269b68183077" title="Set the device information used in the dev object of the discovery payload.">setDevice()</a> wasn't called, object_id is missing, or min_length &gt; max_length </dd></dl>
+
+</div>
+</div>
+<a id="aab6d384733be033f63e2a99892da0722" name="aab6d384733be033f63e2a99892da0722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab6d384733be033f63e2a99892da0722">&#9670;&#160;</a></span>removeDevice()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool HaDiscovery::removeDevice </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Remove the device and all its entities from Home Assistant. </p>
+<p>Publishes an empty retained payload to the device discovery topic right away (if connected), and forgets all entities and states.</p>
+<dl class="section return"><dt>Returns</dt><dd>true if the publish was accepted by the transport </dd></dl>
+
+</div>
+</div>
+<a id="abea9837a88d3e9972535710f54cb6d19" name="abea9837a88d3e9972535710f54cb6d19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abea9837a88d3e9972535710f54cb6d19">&#9670;&#160;</a></span>removeEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -556,27 +773,41 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>qos</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span>&#160;)</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>object_id</em></span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Remove an entity from Home Assistant by clearing its retained config topic. </p>
-<p>Home Assistant removes the entity when the Discovery config topic is published with an empty payload and retain=true.</p>
+<p>Remove one entity from the device. </p>
+<p>From the next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>, the device payload is published twice: once with the entity as a removal stub (<span class="tt">{"p": "&lt;component&gt;"}</span>), then without it. Commands for a removed entity are no longer passed to the command handler, and its stored state is dropped. Removing the last entity also clears the device discovery topic.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">component</td><td>Component name (e.g. "sensor", "switch") </td></tr>
-    <tr><td class="paramname">object_id</td><td>Entity object_id used in the config topic </td></tr>
-    <tr><td class="paramname">qos</td><td>QoS level (recommended 1 if supported) </td></tr>
+    <tr><td class="paramname">object_id</td><td>Entity object_id </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>true if publish was accepted by transport, false otherwise </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>true if the entity was found </dd></dl>
+
+</div>
+</div>
+<a id="a306b5c5caa7edc32ed799490950b96d1" name="a306b5c5caa7edc32ed799490950b96d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a306b5c5caa7edc32ed799490950b96d1">&#9670;&#160;</a></span>republishAll()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HaDiscovery::republishAll </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Publish the device payload, availability "online" and the last states now. </p>
+<p>This happens automatically on every connect, after entity changes and after a Home Assistant birth message. Does nothing while disconnected. </p>
 
 </div>
 </div>
@@ -595,11 +826,12 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
       </table>
 </div><div class="memdoc">
 
-<p>Set the device information used in <span class="tt">dev</span> object of Discovery payloads. </p>
-<p>This must be called before publishing discovery configs if you want correct device registry behavior.</p>
+<p>Set the device information used in the <span class="tt">dev</span> object of the discovery payload. </p>
+<p>Call this before adding entities. The strings are copied, so the pointers in <code class="param">dev</code> only need to be valid during this call.</p>
+<p>This also sets the MQTT Last Will to "offline" on the default availability topic, so call it before connecting.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">dev</td><td>Device info struct (pointers must remain valid) </td></tr>
+    <tr><td class="paramname">dev</td><td>Device info struct </td></tr>
   </table>
   </dd>
 </dl>
@@ -631,6 +863,69 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
 
 </div>
 </div>
+<a id="a024d96453e0c4aa56c42d84ada44b4fd" name="a024d96453e0c4aa56c42d84ada44b4fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a024d96453e0c4aa56c42d84ada44b4fd">&#9670;&#160;</a></span>setOrigin()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HaDiscovery::setOrigin </td>
+          <td>(</td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>name</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>sw_version</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const char *</td>          <td class="paramname"><span class="paramname"><em>url</em></span><span class="paramdefsep"> = </span><span class="paramdefval">nullptr</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the origin (<span class="tt">o</span>) sent in the discovery payload. </p>
+<p>Home Assistant logs it when entities are discovered, and shows it in the MQTT device info. It defaults to this library's name, version and URL. Set it to your firmware's name, version and URL instead if you like.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">name</td><td>Name of the software publishing discovery (required) </td></tr>
+    <tr><td class="paramname">sw_version</td><td>Software version (optional) </td></tr>
+    <tr><td class="paramname">url</td><td>Support URL (optional) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a7a849c25589edd10bc2cafee103f69a3" name="a7a849c25589edd10bc2cafee103f69a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a849c25589edd10bc2cafee103f69a3">&#9670;&#160;</a></span>setRepublishDelay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void HaDiscovery::setRepublishDelay </td>
+          <td>(</td>
+          <td class="paramtype">uint32_t</td>          <td class="paramname"><span class="paramname"><em>maxDelayMs</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Set the maximum random delay before re-publishing after Home Assistant comes online. </p>
+<p>Home Assistant recommends a random delay so many devices don't publish at once.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxDelayMs</td><td>Maximum delay in milliseconds (default 5000, 0 = next <a class="el" href="#aa80e3bed2024a918e1f2a05417cd6fe7" title="Periodic processing hook. Call this from loop().">tick()</a>) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="aa80e3bed2024a918e1f2a05417cd6fe7" name="aa80e3bed2024a918e1f2a05417cd6fe7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aa80e3bed2024a918e1f2a05417cd6fe7">&#9670;&#160;</a></span>tick()</h2>
 
@@ -646,8 +941,12 @@ bool&#160;</td><td class="memItemRight"><b>pressButton</b> (const std::string &a
       </table>
 </div><div class="memdoc">
 
-<p>Periodic processing hook. </p>
-<p>For synchronous MQTT clients (e.g. PubSubClient), call this from loop(). For asynchronous clients, this is typically not required but harmless. </p>
+<p>Periodic processing hook. Call this from loop(). </p>
+<p>It drives the transport (connection changes and reconnect), handles queued commands and birth messages, and does all publishing:</p><ul>
+<li>after a connect: subscribes, then publishes the device payload, "online" and the stored states</li>
+<li>after entities were added or removed: publishes the device payload and the stored states</li>
+<li>after a Home Assistant birth message and a random delay: publishes everything again </li>
+</ul>
 
 </div>
 </div>

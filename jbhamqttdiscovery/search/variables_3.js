@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['icon_0',['icon',['../struct_ha_entity_common.html#a46044ac9ede41be94ce8e548cd3e0bc8',1,'HaEntityCommon']]],
-  ['identifiers_1',['identifiers',['../struct_ha_device_info.html#a94887bf66bc586fac73b7ca20da22e8e',1,'HaDeviceInfo']]]
+  ['default_5fbuffer_5fsize_0',['DEFAULT_BUFFER_SIZE',['../class_pub_sub_client_transport.html#a1ef9b214dc6da9dd851a158944f4558d',1,'PubSubClientTransport']]],
+  ['device_5fclass_1',['device_class',['../struct_ha_sensor_config.html#afa2ae7b78edc6936b4a7fb0f34a87f2a',1,'HaSensorConfig::device_class'],['../struct_ha_binary_sensor_config.html#aaa4cdfccda53eea2a1fc7606967fbf3b',1,'HaBinarySensorConfig::device_class'],['../struct_ha_number_config.html#abedb34a617a901127f68e3ecd90b3985',1,'HaNumberConfig::device_class'],['../struct_ha_cover_config.html#a2bc387d990c457e957d3edc66e3f8b4c',1,'HaCoverConfig::device_class']]]
 ];

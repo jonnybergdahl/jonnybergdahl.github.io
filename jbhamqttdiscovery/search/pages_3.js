@@ -1,5 +1,7 @@
 var searchData=
 [
-  ['entity_20usage_0',['Entity usage',['../index.html#autotoc_md6',1,'']]],
-  ['event_20driven_20no_20polling_20required_1',['AsyncMqttClient (event-driven, no polling required)',['../index.html#autotoc_md5',1,'']]]
+  ['dependencies_0',['Dependencies',['../index.html#autotoc_md6',1,'']]],
+  ['device_20info_1',['Device info',['../index.html#autotoc_md17',1,'']]],
+  ['discovery_20is_20published_2',['How discovery is published',['../index.html#autotoc_md13',1,'']]],
+  ['driven_20no_20polling_20required_3',['AsyncMqttClient (event-driven, no polling required)',['../index.html#autotoc_md12',1,'']]]
 ];

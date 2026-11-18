@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['required_0',['required',['../index.html#autotoc_md5',1,'AsyncMqttClient (event-driven, no polling required)'],['../index.html#autotoc_md4',1,'PubSubClient (polling required)']]]
+  ['last_20will_0',['Availability and Last Will',['../index.html#autotoc_md14',1,'']]],
+  ['library_1',['What is this library?',['../index.html#autotoc_md1',1,'']]],
+  ['light_2',['Light',['../index.html#autotoc_md29',1,'']]]
 ];

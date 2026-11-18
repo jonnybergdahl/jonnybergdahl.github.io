@@ -1,6 +1,19 @@
 var searchData=
 [
-  ['name_0',['name',['../struct_ha_device_info.html#a514245d9bbeee329965fc382dd21190c',1,'HaDeviceInfo::name'],['../struct_ha_entity_common.html#a0a92ac4c8e277a2eb29cf55b9f5c074b',1,'HaEntityCommon::name']]],
-  ['no_20polling_20required_1',['AsyncMqttClient (event-driven, no polling required)',['../index.html#autotoc_md5',1,'']]],
-  ['node_5fid_2',['node_id',['../struct_ha_device_info.html#a48663b5690090c982e5a075bd96cd1ee',1,'HaDeviceInfo']]]
+  ['manufacturer_0',['manufacturer',['../struct_ha_device_info.html#a5e62669c9f6b0c2f2ec5b11264c2d5e6',1,'HaDeviceInfo']]],
+  ['max_1',['max',['../struct_ha_number_config.html#a48b2c66480d1bbabf2c910d764487cf1',1,'HaNumberConfig']]],
+  ['max_5fkelvin_2',['max_kelvin',['../struct_ha_light_config.html#a213d2e003bacf9e64612789432c4b625',1,'HaLightConfig']]],
+  ['max_5flength_3',['max_length',['../struct_ha_text_config.html#ae6b616029d70e1208a16f4f8862f36e8',1,'HaTextConfig']]],
+  ['maxdelayms_4',['maxDelayMs',['../struct_reconnect_backoff.html#aa276990c420b711f703bae0f0f6bac4d',1,'ReconnectBackoff']]],
+  ['messagecallback_5',['MessageCallback',['../class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796',1,'MqttTransport']]],
+  ['min_6',['min',['../struct_ha_number_config.html#ac0da10b72072db864e2c4bb5b0aee620',1,'HaNumberConfig']]],
+  ['min_5fkelvin_7',['min_kelvin',['../struct_ha_light_config.html#a581fa1f9004f281f8ad855d7e94319a1',1,'HaLightConfig']]],
+  ['min_5flength_8',['min_length',['../struct_ha_text_config.html#aa7269f7ccc42462068b6bb3db21748b7',1,'HaTextConfig']]],
+  ['mindelayms_9',['minDelayMs',['../struct_reconnect_backoff.html#a9420eea7632c0579f0567cd0dbfeb8fc',1,'ReconnectBackoff']]],
+  ['mode_10',['mode',['../struct_ha_number_config.html#acf5d46918bde1ba0e315beb45a77844d',1,'HaNumberConfig::mode'],['../struct_ha_text_config.html#afad928d5769c5122fe4bedbfb150322b',1,'HaTextConfig::mode']]],
+  ['model_11',['model',['../struct_ha_device_info.html#a6f83bdce4b4d8364bfc7fefd48fb798d',1,'HaDeviceInfo']]],
+  ['mqtt_20client_12',['Which MQTT client?',['../index.html#autotoc_md8',1,'']]],
+  ['mqtt_20discovery_13',['Home Assistant MQTT Discovery',['../group__hadiscovery.html',1,'']]],
+  ['mqtt_20transports_14',['MQTT Transports',['../group__transport.html',1,'']]],
+  ['mqtttransport_15',['MqttTransport',['../class_mqtt_transport.html',1,'']]]
 ];
