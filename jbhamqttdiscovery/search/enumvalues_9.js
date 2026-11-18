@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['text_0',['Text',['../group__hadiscovery.html#ggae281013e6187c451ffbd79bce5dde512a9dffbf69ffba8bc38bc4e01abf4b1675',1,'HaDiscovery.h']]]
+  ['rgb_0',['Rgb',['../group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3',1,'HaDiscovery.h']]]
 ];

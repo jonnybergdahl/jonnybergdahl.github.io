@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -120,6 +120,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a38898dee048163c1ec235fdee24882ce" id="r_a38898dee048163c1ec235fdee24882ce"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a38898dee048163c1ec235fdee24882ce">publish</a> (const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</td></tr>
 <tr class="memitem:a5eb36a79df99bb8bda4df53a213137dc" id="r_a5eb36a79df99bb8bda4df53a213137dc"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a5eb36a79df99bb8bda4df53a213137dc">subscribe</a> (const char *topic, uint8_t qos=0) override</td></tr>
 <tr class="memitem:af3e8560e430b48a77e28f5e834933bf1" id="r_af3e8560e430b48a77e28f5e834933bf1"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#af3e8560e430b48a77e28f5e834933bf1">setOnMessage</a> (<a class="el" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> cb_, void *ctx_) override</td></tr>
+<tr class="memitem:a11c3ce87e5e169c2fe8e14912ba6525e" id="r_a11c3ce87e5e169c2fe8e14912ba6525e"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a11c3ce87e5e169c2fe8e14912ba6525e">setMaxMessageSize</a> (size_t maxSize)</td></tr>
+<tr class="memdesc:a11c3ce87e5e169c2fe8e14912ba6525e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the largest incoming message that is put together from parts.  <br /></td></tr>
 <tr class="memitem:a5b31822a1a006ea7e824dec5894ad0c4" id="r_a5b31822a1a006ea7e824dec5894ad0c4"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a5b31822a1a006ea7e824dec5894ad0c4">setWill</a> (const char *topic, const char *payload, bool retained=true, uint8_t qos=1) override</td></tr>
 <tr class="memitem:ac10e1f456242a381347e30d150527217" id="r_ac10e1f456242a381347e30d150527217"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#ac10e1f456242a381347e30d150527217">setOnConnect</a> (void(*cb_)(void *), void *ctx_) override</td></tr>
 <tr class="memitem:a6370e8ccafd45f5df591c3132ab64c12" id="r_a6370e8ccafd45f5df591c3132ab64c12"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a6370e8ccafd45f5df591c3132ab64c12">tick</a> () override</td></tr>
@@ -169,7 +171,7 @@ class EspMqttClientTransport&lt; Client &gt;</div><p>MQTT transport adapter for 
 <div class="line"> </div>
 <div class="line">espMqttClient mqtt;</div>
 <div class="line"><a class="code hl_function" href="#a11d85b71610bd3bb362943d95b46df75">EspMqttClientTransport&lt;espMqttClient&gt;</a> transport(mqtt);</div>
-<div class="ttc" id="aclass_esp_mqtt_client_transport_html_a11d85b71610bd3bb362943d95b46df75"><div class="ttname"><a href="#a11d85b71610bd3bb362943d95b46df75">EspMqttClientTransport::EspMqttClientTransport</a></div><div class="ttdeci">EspMqttClientTransport(Client &amp;client, bool callLoop=DEFAULT_CALL_LOOP)</div><div class="ttdoc">Construct an espMqttClient transport adapter.</div><div class="ttdef"><b>Definition</b> EspMqttClientTransport.h:73</div></div>
+<div class="ttc" id="aclass_esp_mqtt_client_transport_html_a11d85b71610bd3bb362943d95b46df75"><div class="ttname"><a href="#a11d85b71610bd3bb362943d95b46df75">EspMqttClientTransport::EspMqttClientTransport</a></div><div class="ttdeci">EspMqttClientTransport(Client &amp;client, bool callLoop=DEFAULT_CALL_LOOP)</div><div class="ttdoc">Construct an espMqttClient transport adapter.</div><div class="ttdef"><b>Definition</b> EspMqttClientTransport.h:81</div></div>
 </div><!-- fragment --><p>Who runs the client's loop():</p><ul>
 <li>espMqttClient on ESP8266: nobody else, so <a class="el" href="#a6370e8ccafd45f5df591c3132ab64c12" title="Run the client&#39;s loop() (if callLoop) and automatic reconnect.">tick()</a> calls it (callLoop = true, the default there).</li>
 <li>espMqttClient on ESP32: its own task by default, so <a class="el" href="#a6370e8ccafd45f5df591c3132ab64c12" title="Run the client&#39;s loop() (if callLoop) and automatic reconnect.">tick()</a> must not (callLoop = false, the default there). If you create it with <span class="tt">espMqttClientTypes::UseInternalTask::NO</span>, pass callLoop = true.</li>
@@ -177,6 +179,8 @@ class EspMqttClientTransport&lt; Client &gt;</div><p>MQTT transport adapter for 
 </ul>
 <p>espMqttClient keeps pointers to the host, client id, credentials and will instead of copying them. This transport keeps its own copies, so callers don't need to keep those strings alive.</p>
 <p>The transport takes over the client's onConnect, onDisconnect and onMessage callbacks (espMqttClient keeps only one of each by default).</p>
+<p>espMqttClient refuses to publish while the largest free block of heap is below EMC_MIN_FREE_MEMORY (16 KB by default). On ESP8266 that's often all the time, so build with a lower value, e.g. <span class="tt">-D EMC_MIN_FREE_MEMORY=4096</span>.</p>
+<p>espMqttClient hands over longer incoming messages in parts. The transport puts them together up to <a class="el" href="#a11c3ce87e5e169c2fe8e14912ba6525e" title="Set the largest incoming message that is put together from parts.">setMaxMessageSize()</a> bytes (4096 by default) and drops larger ones.</p>
 <p>After the first <a class="el" href="#a908038965753e9045c43ac37d9382f5f">connect()</a>, <a class="el" href="#a6370e8ccafd45f5df591c3132ab64c12" title="Run the client&#39;s loop() (if callLoop) and automatic reconnect.">tick()</a> reconnects when the connection drops (see <a class="el" href="class_mqtt_transport.html#a18a2077e00a7902ec2669f822d1ff4b5" title="Turn automatic reconnect on or off, and set its delays.">setAutoReconnect()</a>).</p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
@@ -356,6 +360,42 @@ template&lt;class Client&gt; </div>
 
 </div>
 </div>
+<a id="a11c3ce87e5e169c2fe8e14912ba6525e" name="a11c3ce87e5e169c2fe8e14912ba6525e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11c3ce87e5e169c2fe8e14912ba6525e">&#9670;&#160;</a></span>setMaxMessageSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class Client&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="class_esp_mqtt_client_transport.html">EspMqttClientTransport</a>&lt; Client &gt;::setMaxMessageSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the largest incoming message that is put together from parts. </p>
+<p>espMqttClient hands over longer messages in parts; larger ones are dropped.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxSize</td><td>Size in bytes (default 4096) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="ac10e1f456242a381347e30d150527217" name="ac10e1f456242a381347e30d150527217"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ac10e1f456242a381347e30d150527217">&#9670;&#160;</a></span>setOnConnect()</h2>
 
@@ -433,7 +473,7 @@ template&lt;class Client&gt; </div>
   </dd>
 </dl>
 </p>
-<p>Messages split into several parts are ignored. Discovery command payloads are short. </p>
+<p>Messages handed over in parts are put together first (see <a class="el" href="#a11c3ce87e5e169c2fe8e14912ba6525e" title="Set the largest incoming message that is put together from parts.">setMaxMessageSize()</a>). </p>
 
 <p>Implements <a class="el" href="class_mqtt_transport.html#ae421ab28f927053aaf9bc5fcf497c34e">MqttTransport</a>.</p>
 

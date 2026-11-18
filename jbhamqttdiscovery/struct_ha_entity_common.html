@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -118,6 +118,10 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 <tr class="memdesc:ad3b595487ccbaf0f3e070a069664a8ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mark this entity as the device's main feature.  <br /></td></tr>
 <tr class="memitem:a83c81c2ccd1b406dfda178d8c1412d32" id="r_a83c81c2ccd1b406dfda178d8c1412d32"><td class="memItemLeft"><a class="el" href="group__hadiscovery.html#gae0eea601fbd393c74f36e6647748e4cb">HaEntityCategory</a>&#160;</td><td class="memItemRight"><a class="el" href="#a83c81c2ccd1b406dfda178d8c1412d32">entity_category</a> = <a class="el" href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754">HaEntityCategory::None</a></td></tr>
 <tr class="memdesc:a83c81c2ccd1b406dfda178d8c1412d32"><td class="mdescLeft">&#160;</td><td class="mdescRight">Where Home Assistant shows the entity (sent as <span class="tt">ent_cat</span>).  <br /></td></tr>
+<tr class="memitem:a6b26da6d20b31c01bd62a4a7587c6edb" id="r_a6b26da6d20b31c01bd62a4a7587c6edb"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a6b26da6d20b31c01bd62a4a7587c6edb">value_template</a> = nullptr</td></tr>
+<tr class="memdesc:a6b26da6d20b31c01bd62a4a7587c6edb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional template that picks the state out of the state payload (sent as <span class="tt">val_tpl</span>).  <br /></td></tr>
+<tr class="memitem:a99a184996e1654b0cd4948dc5a20146d" id="r_a99a184996e1654b0cd4948dc5a20146d"><td class="memItemLeft">const char *&#160;</td><td class="memItemRight"><a class="el" href="#a99a184996e1654b0cd4948dc5a20146d">unique_id</a> = nullptr</td></tr>
+<tr class="memdesc:a99a184996e1654b0cd4948dc5a20146d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Optional unique_id for Home Assistant. If nullptr, <span class="tt">&lt;node_id&gt;_&lt;<a class="el" href="#ac6a8357d59a5ae52ba528a7e451081c9" title="Stable per-entity object_id (e.g. &quot;temperature&quot;, &quot;relay1&quot;).">object_id</a>&gt;</span> is used.  <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Common options shared by multiple entity types. </p>
@@ -208,6 +212,23 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 
 </div>
 </div>
+<a id="a99a184996e1654b0cd4948dc5a20146d" name="a99a184996e1654b0cd4948dc5a20146d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99a184996e1654b0cd4948dc5a20146d">&#9670;&#160;</a></span>unique_id</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaEntityCommon::unique_id = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional unique_id for Home Assistant. If nullptr, <span class="tt">&lt;node_id&gt;_&lt;<a class="el" href="#ac6a8357d59a5ae52ba528a7e451081c9" title="Stable per-entity object_id (e.g. &quot;temperature&quot;, &quot;relay1&quot;).">object_id</a>&gt;</span> is used. </p>
+<p>Home Assistant identifies an entity by its unique_id. Set this to keep the unique_id an entity already has, e.g. when moving from other discovery code to this library, so Home Assistant keeps the entity, its history and its settings. </p>
+
+</div>
+</div>
 <a id="ad3b595487ccbaf0f3e070a069664a8ca" name="ad3b595487ccbaf0f3e070a069664a8ca"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad3b595487ccbaf0f3e070a069664a8ca">&#9670;&#160;</a></span>use_device_name</h2>
 
@@ -222,6 +243,23 @@ const char *&#160;</td><td class="memItemRight"><b>icon</b> = nullptr</td></tr>
 
 <p>Mark this entity as the device's main feature. </p>
 <p>Sends <span class="tt">"<a class="el" href="#a0a92ac4c8e277a2eb29cf55b9f5c074b" title="Entity name shown in Home Assistant, without the device name.">name</a>": null</span>, so the entity is shown with just the device name. The name field is ignored when this is true. </p>
+
+</div>
+</div>
+<a id="a6b26da6d20b31c01bd62a4a7587c6edb" name="a6b26da6d20b31c01bd62a4a7587c6edb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b26da6d20b31c01bd62a4a7587c6edb">&#9670;&#160;</a></span>value_template</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const char* HaEntityCommon::value_template = nullptr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Optional template that picks the state out of the state payload (sent as <span class="tt">val_tpl</span>). </p>
+<p>Use it when several entities share one JSON state topic, e.g. <span class="tt">"{{ value_json.temperature }}"</span> together with state_topic_override. For a light with <a class="el" href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67" title="Home Assistant&#39;s &quot;default&quot; schema: separate topics for state, brightness, color and color temperature...">HaLightSchema::Default</a> it's sent as <span class="tt">stat_val_tpl</span> and applies to the on/off state only. It's left out for buttons and JSON schema lights, which have no use for it. </p>
 
 </div>
 </div>

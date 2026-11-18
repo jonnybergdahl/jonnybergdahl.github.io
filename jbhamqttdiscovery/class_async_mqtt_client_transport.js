@@ -4,6 +4,7 @@ var class_async_mqtt_client_transport =
     [ "connect", "class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9", null ],
     [ "connected", "class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1", null ],
     [ "publish", "class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7", null ],
+    [ "setMaxMessageSize", "class_async_mqtt_client_transport.html#a9cfe58846ee3428131612c36a29e60c3", null ],
     [ "setOnConnect", "class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170", null ],
     [ "setOnMessage", "class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0", null ],
     [ "setServer", "class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2", null ],

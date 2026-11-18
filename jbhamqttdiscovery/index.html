@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -113,12 +113,12 @@ Arduino IDE</h2>
 PlatformIO</h2>
 <p>Add the library and one MQTT client to <span class="tt">platformio.ini</span>:</p>
 <div class="fragment"><div class="line">lib_deps =</div>
-<div class="line">    jonnybergdahl/JBHaMqttDiscovery@^1.0.0</div>
+<div class="line">    jonnybergdahl/JBHaMqttDiscovery@^1.1.0</div>
 <div class="line">    bertmelis/espMqttClient</div>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>The library isn't in the PlatformIO registry yet. Until it is, install it straight from GitHub instead:</p>
 <div class="fragment"><div class="line">lib_deps =</div>
-<div class="line">    https://github.com/jonnybergdahl/Arduino_JBHaMqttDiscovery.git#v1.0.0</div>
+<div class="line">    https://github.com/jonnybergdahl/Arduino_JBHaMqttDiscovery.git#1.1.0</div>
 <div class="line">    bertmelis/espMqttClient</div>
 </div><!-- fragment --> </blockquote>
 <p>The examples are in <span class="tt">examples/</span> and under <b>File</b> &gt; <b>Examples</b> &gt; <b>JBHaMqttDiscovery</b> in the Arduino IDE.</p>
@@ -178,10 +178,10 @@ PubSubClient (polling required)</h2>
 <div class="line">  mqtt.loop(); <span class="comment">// REQUIRED</span></div>
 <div class="line">  ha.tick();   <span class="comment">// REQUIRED: publishes discovery, handles commands, reconnects</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_ha_discovery_html"><div class="ttname"><a href="class_ha_discovery.html">HaDiscovery</a></div><div class="ttdoc">Home Assistant MQTT device discovery publisher (transport-agnostic).</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:461</div></div>
+<div class="ttc" id="aclass_ha_discovery_html"><div class="ttname"><a href="class_ha_discovery.html">HaDiscovery</a></div><div class="ttdoc">Home Assistant MQTT device discovery publisher (transport-agnostic).</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:528</div></div>
 <div class="ttc" id="aclass_pub_sub_client_transport_html"><div class="ttname"><a href="class_pub_sub_client_transport.html">PubSubClientTransport</a></div><div class="ttdoc">MQTT transport adapter for PubSubClient.</div><div class="ttdef"><b>Definition</b> PubSubClientTransport.h:28</div></div>
-<div class="ttc" id="astruct_ha_sensor_config_html"><div class="ttname"><a href="struct_ha_sensor_config.html">HaSensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:159</div></div>
-<div class="ttc" id="astruct_ha_switch_config_html"><div class="ttname"><a href="struct_ha_switch_config.html">HaSwitchConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery switch.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:181</div></div>
+<div class="ttc" id="astruct_ha_sensor_config_html"><div class="ttname"><a href="struct_ha_sensor_config.html">HaSensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:179</div></div>
+<div class="ttc" id="astruct_ha_switch_config_html"><div class="ttname"><a href="struct_ha_switch_config.html">HaSwitchConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery switch.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:201</div></div>
 </div><!-- fragment --><blockquote class="doxtable">
 <p>PubSubClient's default 256 byte buffer is too small for the discovery payload, which is about 400 bytes plus 150–250 bytes per entity. <span class="tt"><a class="el" href="class_pub_sub_client_transport.html" title="MQTT transport adapter for PubSubClient.">PubSubClientTransport</a></span> raises it to 2048 bytes in <span class="tt">setServer()</span>, and grows it further if a publish needs more. Pass a different minimum as the second constructor argument, e.g. <span class="tt"><a class="el" href="class_pub_sub_client_transport.html" title="MQTT transport adapter for PubSubClient.">PubSubClientTransport</a> <a class="el" href="group__transport.html" title="Transport adapters for different MQTT client libraries.">MQTT Transports</a>;</span>. </p>
 </blockquote>
@@ -234,7 +234,7 @@ espMqttClient (recommended)</h2>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">  ha.tick(); <span class="comment">// REQUIRED: runs the client, publishes discovery, handles commands, reconnects</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_esp_mqtt_client_transport_html"><div class="ttname"><a href="class_esp_mqtt_client_transport.html">EspMqttClientTransport</a></div><div class="ttdoc">MQTT transport adapter for espMqttClient (https://github.com/bertmelis/espMqttClient).</div><div class="ttdef"><b>Definition</b> EspMqttClientTransport.h:47</div></div>
+<div class="ttc" id="aclass_esp_mqtt_client_transport_html"><div class="ttname"><a href="class_esp_mqtt_client_transport.html">EspMqttClientTransport</a></div><div class="ttdoc">MQTT transport adapter for espMqttClient (https://github.com/bertmelis/espMqttClient).</div><div class="ttdef"><b>Definition</b> EspMqttClientTransport.h:55</div></div>
 </div><!-- fragment --><p><span class="tt"><a class="el" href="class_esp_mqtt_client_transport.html" title="MQTT transport adapter for espMqttClient (https://github.com/bertmelis/espMqttClient).">EspMqttClientTransport</a></span> works with <span class="tt">espMqttClient</span>, <span class="tt">espMqttClientSecure</span> (TLS) and <span class="tt">espMqttClientAsync</span>; pass the class as the template parameter. Who runs the client's <span class="tt">loop()</span> depends on the client:</p>
 <ul>
 <li><span class="tt">espMqttClient</span> on <b>ESP8266</b>: <span class="tt">ha.tick()</span> does. That's the default there.</li>
@@ -242,7 +242,7 @@ espMqttClient (recommended)</h2>
 <li><span class="tt">espMqttClientAsync</span>: its network callbacks do. On ESP8266, use <span class="tt"><a class="el" href="class_esp_mqtt_client_transport.html" title="MQTT transport adapter for espMqttClient (https://github.com/bertmelis/espMqttClient).">EspMqttClientTransport</a>&lt;espMqttClientAsync&gt; <a class="el" href="group__transport.html" title="Transport adapters for different MQTT client libraries.">MQTT Transports</a>;</span>.</li>
 </ul>
 <blockquote class="doxtable">
-<p>The transport takes over espMqttClient's <span class="tt">onConnect</span>, <span class="tt">onDisconnect</span> and <span class="tt">onMessage</span> callbacks. espMqttClient refuses to publish when free heap drops below 16 KB (<span class="tt">EMC_MIN_FREE_MEMORY</span>); the transport logs it as a failed publish. </p>
+<p>The transport takes over espMqttClient's <span class="tt">onConnect</span>, <span class="tt">onDisconnect</span> and <span class="tt">onMessage</span> callbacks. espMqttClient refuses to publish while the largest free block of heap is below <span class="tt">EMC_MIN_FREE_MEMORY</span> (16 KB by default); the transport logs it as a failed publish. An ESP8266 seldom has 16 KB in one block, so lower it with a build flag, for example <span class="tt">-D EMC_MIN_FREE_MEMORY=4096</span> in <span class="tt">build_flags</span> in PlatformIO. Keep the largest free block bigger than the device payload, which is sent in one piece. </p>
 </blockquote>
 <h2 class="doxsection"><a class="anchor" id="autotoc_md12"></a>
 AsyncMqttClient (event-driven, no polling required)</h2>
@@ -290,7 +290,7 @@ AsyncMqttClient (event-driven, no polling required)</h2>
 <div class="line"><span class="keywordtype">void</span> loop() {</div>
 <div class="line">  ha.tick(); <span class="comment">// REQUIRED: publishes discovery, handles commands, reconnects</span></div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html"><div class="ttname"><a href="class_async_mqtt_client_transport.html">AsyncMqttClientTransport</a></div><div class="ttdoc">MQTT transport adapter for AsyncMqttClient.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:40</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html"><div class="ttname"><a href="class_async_mqtt_client_transport.html">AsyncMqttClientTransport</a></div><div class="ttdoc">MQTT transport adapter for AsyncMqttClient.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:41</div></div>
 </div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md13"></a>
 How discovery is published</h1>
 <p>The library uses Home Assistant's device discovery: one retained payload on <span class="tt">homeassistant/device/&lt;node_id&gt;/config</span>, with the device info (<span class="tt">dev</span>), the origin (<span class="tt">o</span>), the shared availability topic and every entity as a component (<span class="tt">cmps</span>).</p>
@@ -321,6 +321,7 @@ Reconnects and Home Assistant restarts</h1>
 </ul>
 <p>Entities and states published while disconnected are kept and sent when the connection comes up. So you can publish them in <span class="tt">setup()</span> right after <span class="tt">connect()</span>, even with AsyncMqttClient, which connects in the background.</p>
 <p>Call <span class="tt">ha.republishAll()</span> to send everything again yourself.</p>
+<p>If the MQTT client doesn't accept the device payload or <span class="tt">online</span> (for example when it's short of memory), the library tries again from <span class="tt">ha.tick()</span> after 1 second, doubling up to 30 seconds, and holds the states until it gets through.</p>
 <blockquote class="doxtable">
 <p>Each entity is kept in RAM (about 150–250 bytes each). With PubSubClient the transport's buffer also grows to fit the whole device payload (about 3.7 KB for 14 entities). On an ESP8266 that's about 6 KB of heap for 14 entities; keep an eye on free heap if you add many more. </p>
 </blockquote>
@@ -343,7 +344,15 @@ Commands from Home Assistant</h1>
 <div class="line">  ha.onCommand(onCommand);</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Commands are queued when they arrive and the handler is called from <span class="tt">ha.tick()</span>, so it always runs in <span class="tt">loop()</span>, with both MQTT clients.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md17"></a>
+Raw messages and your own topics</h2>
+<p>If your firmware already handles its own MQTT commands, or listens on topics that don't belong to an entity, use <span class="tt">onMessage()</span>. It gets the topic and the payload as they arrived, for entity commands (before <span class="tt">onCommand()</span>) and for topics added with <span class="tt">subscribe()</span>:</p>
+<div class="fragment"><div class="line">ha.subscribe(<span class="stringliteral">&quot;myfirmware/office/ota/#&quot;</span>);   <span class="comment">// subscribed again after every reconnect</span></div>
+<div class="line">ha.onMessage([](<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, <span class="keyword">const</span> <span class="keywordtype">char</span>* payload) {</div>
+<div class="line">  handleMyMessage(topic, payload);</div>
+<div class="line">});</div>
+</div><!-- fragment --><p>The transport takes over the MQTT client's message callback, so subscribe through <span class="tt">ha.subscribe()</span>, not the client. Don't let a subscription overlap the entities' command topics: some brokers then deliver a message once per matching subscription.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
 Device info</h1>
 <p><span class="tt">setDevice()</span> takes the device details Home Assistant shows on the device page:</p>
 <div class="fragment"><div class="line">ha.setDevice({</div>
@@ -356,7 +365,7 @@ Device info</h1>
 <div class="line">  .configuration_url = <span class="stringliteral">&quot;http://192.168.1.50/&quot;</span>  <span class="comment">// optional &quot;Visit&quot; link</span></div>
 <div class="line">});</div>
 </div><!-- fragment --><p><span class="tt">configuration_url</span> adds a <b>Visit</b> link on the device page, e.g. to the device's own web interface. It must be an <span class="tt"><a href="http://">http://</a></span> or <span class="tt"><a href="https://">https://</a></span> URL, or a <span class="tt">homeassistant://</span> path. The strings are copied, so they can be local variables.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md18"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
 Entity names and IDs</h1>
 <p>Home Assistant shows entities with the device name in front. So give entities short names without the device name: <span class="tt">"Temperature"</span> on device <span class="tt">"Office Node"</span> shows as <b>Office Node Temperature</b>.</p>
 <ul>
@@ -372,7 +381,20 @@ Entity names and IDs</h1>
 <div class="line">  .unit_of_measurement=<span class="stringliteral">&quot;°C&quot;</span>,</div>
 <div class="line">  .device_class=<span class="stringliteral">&quot;temperature&quot;</span></div>
 <div class="line">};</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md19"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+Shared state topics and unique IDs</h2>
+<p>Several entities can read their state from one JSON message. Point them at the same topic with <span class="tt">state_topic_override</span>, pick the value with <span class="tt">value_template</span>, and publish the JSON with <span class="tt">publishStateTopic()</span>:</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_sensor_config.html">HaSensorConfig</a> rssi{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;rssi&quot;</span>, .name=<span class="stringliteral">&quot;RSSI&quot;</span>,</div>
+<div class="line">              .state_topic_override=<span class="stringliteral">&quot;office/diagnostics&quot;</span>,</div>
+<div class="line">              .value_template=<span class="stringliteral">&quot;{{ value_json.rssi }}&quot;</span> }</div>
+<div class="line">};</div>
+<div class="line">ha.publishSensorDiscovery(rssi);</div>
+<div class="line"> </div>
+<div class="line">ha.publishStateTopic(<span class="stringliteral">&quot;office/diagnostics&quot;</span>, <span class="stringliteral">&quot;{\&quot;rssi\&quot;:-52,\&quot;ram\&quot;:201728}&quot;</span>);</div>
+</div><!-- fragment --><p>Like <span class="tt">publishState()</span>, <span class="tt">publishStateTopic()</span> keeps the last payload and sends it again on connect and after a Home Assistant restart. <span class="tt">publishState()</span> also uses the entity's <span class="tt">state_topic_override</span> when it has one.</p>
+<p>The unique ID is <span class="tt">&lt;node_id&gt;_&lt;object_id&gt;</span>. Set <span class="tt">.unique_id</span> to keep the unique ID an entity already has, e.g. when moving to this library from other discovery code; see Moving from single-component discovery.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
 Entity category and expiry</h1>
 <ul>
 <li><span class="tt">.entity_category = <a class="el" href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85" title="Read-only device info (e.g. RSSI, uptime), shown under &quot;Diagnostic&quot;.">HaEntityCategory::Diagnostic</a></span> shows read-only device info (signal strength, uptime, free memory) under <b>Diagnostic</b> on the device page instead of with the main controls.</li>
@@ -388,14 +410,14 @@ Entity category and expiry</h1>
 <div class="line">  .device_class=<span class="stringliteral">&quot;signal_strength&quot;</span>,</div>
 <div class="line">  .expire_after=120</div>
 <div class="line">};</div>
-<div class="ttc" id="agroup__hadiscovery_html_ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85"><div class="ttname"><a href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85">HaEntityCategory::Diagnostic</a></div><div class="ttdeci">@ Diagnostic</div><div class="ttdoc">Read-only device info (e.g. RSSI, uptime), shown under &quot;Diagnostic&quot;.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:89</div></div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md20"></a>
+<div class="ttc" id="agroup__hadiscovery_html_ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85"><div class="ttname"><a href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba7f84beab04579bef70043ca0cc72fb85">HaEntityCategory::Diagnostic</a></div><div class="ttdeci">@ Diagnostic</div><div class="ttdoc">Read-only device info (e.g. RSSI, uptime), shown under &quot;Diagnostic&quot;.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:90</div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
 Origin</h1>
 <p>The discovery payload includes an origin block (<span class="tt">o</span>) with this library's name, version and URL. Home Assistant logs it when entities are discovered, which helps when tracking down where an entity came from. To send your firmware's details instead, call:</p>
 <div class="fragment"><div class="line">ha.setOrigin(<span class="stringliteral">&quot;MyFirmware&quot;</span>, <span class="stringliteral">&quot;2.1.0&quot;</span>, <span class="stringliteral">&quot;https://example.com/support&quot;</span>);</div>
-</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md21"></a>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
 Entity usage</h1>
-<h2 class="doxsection"><a class="anchor" id="autotoc_md22"></a>
+<h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
 Sensor</h2>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_sensor_config.html">HaSensorConfig</a> temp{</div>
 <div class="line">  .common = { .object_id=<span class="stringliteral">&quot;temperature&quot;</span>, .name=<span class="stringliteral">&quot;Temperature&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:thermometer&quot;</span> },</div>
@@ -407,7 +429,7 @@ Sensor</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// later:</span></div>
 <div class="line">ha.publishState(<span class="stringliteral">&quot;temperature&quot;</span>, <span class="stringliteral">&quot;22.5&quot;</span>);</div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md23"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
 Switch</h2>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_switch_config.html">HaSwitchConfig</a> relay{</div>
 <div class="line">  .common = { .object_id=<span class="stringliteral">&quot;relay1&quot;</span>, .name=<span class="stringliteral">&quot;Light&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:lightbulb&quot;</span> }</div>
@@ -417,7 +439,7 @@ Switch</h2>
 <div class="line"><span class="comment">// &quot;ON&quot;/&quot;OFF&quot; commands arrive in the onCommand() handler.</span></div>
 <div class="line"><span class="comment">// Report the state:</span></div>
 <div class="line">ha.publishStateSwitch(<span class="stringliteral">&quot;relay1&quot;</span>, <span class="keyword">true</span>); <span class="comment">// ON</span></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md24"></a>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
 Binary sensor</h2>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a> motion{</div>
 <div class="line">  .common = { .object_id=<span class="stringliteral">&quot;motion&quot;</span>, .name=<span class="stringliteral">&quot;Motion&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:motion-sensor&quot;</span> },</div>
@@ -427,8 +449,8 @@ Binary sensor</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// later:</span></div>
 <div class="line">ha.publishState(<span class="stringliteral">&quot;motion&quot;</span>, <span class="stringliteral">&quot;ON&quot;</span>);</div>
-<div class="ttc" id="astruct_ha_binary_sensor_config_html"><div class="ttname"><a href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery binary_sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:202</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md25"></a>
+<div class="ttc" id="astruct_ha_binary_sensor_config_html"><div class="ttname"><a href="struct_ha_binary_sensor_config.html">HaBinarySensorConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery binary_sensor.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:222</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
 Button</h2>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_button_config.html">HaButtonConfig</a> restart{</div>
 <div class="line">  .common = { .object_id=<span class="stringliteral">&quot;restart&quot;</span>, .name=<span class="stringliteral">&quot;Restart&quot;</span>, .icon=<span class="stringliteral">&quot;mdi:restart&quot;</span> },</div>
@@ -437,8 +459,8 @@ Button</h2>
 <div class="line">ha.publishButtonDiscovery(restart);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// Presses arrive in the onCommand() handler with the &quot;PRESS&quot; payload.</span></div>
-<div class="ttc" id="astruct_ha_button_config_html"><div class="ttname"><a href="struct_ha_button_config.html">HaButtonConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery button.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:227</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md26"></a>
+<div class="ttc" id="astruct_ha_button_config_html"><div class="ttname"><a href="struct_ha_button_config.html">HaButtonConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery button.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:247</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
 Number</h2>
 <p>A value that can be set from Home Assistant, shown as a slider or an input box.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_number_config.html">HaNumberConfig</a> interval{</div>
@@ -451,10 +473,10 @@ Number</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// The new value arrives in onCommand() as text, e.g. &quot;60&quot;. Report it back:</span></div>
 <div class="line">ha.publishStateNumber(<span class="stringliteral">&quot;interval&quot;</span>, 60, 0);</div>
-<div class="ttc" id="agroup__hadiscovery_html_ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561"><div class="ttname"><a href="group__hadiscovery.html#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561">HaNumberMode::Slider</a></div><div class="ttdeci">@ Slider</div><div class="ttdoc">A slider.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:250</div></div>
-<div class="ttc" id="agroup__hadiscovery_html_ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e"><div class="ttname"><a href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e">HaEntityCategory::Config</a></div><div class="ttdeci">@ Config</div><div class="ttdoc">A setting that changes the device, shown under &quot;Configuration&quot;. Not for sensors.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:88</div></div>
-<div class="ttc" id="astruct_ha_number_config_html"><div class="ttname"><a href="struct_ha_number_config.html">HaNumberConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery number.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:259</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md27"></a>
+<div class="ttc" id="agroup__hadiscovery_html_ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561"><div class="ttname"><a href="group__hadiscovery.html#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a2d9b9a764fb0be4be10e1b2fce63f561">HaNumberMode::Slider</a></div><div class="ttdeci">@ Slider</div><div class="ttdoc">A slider.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:270</div></div>
+<div class="ttc" id="agroup__hadiscovery_html_ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e"><div class="ttname"><a href="group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e">HaEntityCategory::Config</a></div><div class="ttdeci">@ Config</div><div class="ttdoc">A setting that changes the device, shown under &quot;Configuration&quot;. Not for sensors.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:89</div></div>
+<div class="ttc" id="astruct_ha_number_config_html"><div class="ttname"><a href="struct_ha_number_config.html">HaNumberConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery number.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:279</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
 Select</h2>
 <p>A choice from a fixed list.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_select_config.html">HaSelectConfig</a> mode{</div>
@@ -465,8 +487,8 @@ Select</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// The chosen option arrives in onCommand(), e.g. &quot;Eco&quot;. Report it back:</span></div>
 <div class="line">ha.publishState(<span class="stringliteral">&quot;mode&quot;</span>, <span class="stringliteral">&quot;Eco&quot;</span>);</div>
-<div class="ttc" id="astruct_ha_select_config_html"><div class="ttname"><a href="struct_ha_select_config.html">HaSelectConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery select.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:290</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md28"></a>
+<div class="ttc" id="astruct_ha_select_config_html"><div class="ttname"><a href="struct_ha_select_config.html">HaSelectConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery select.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:310</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
 Text</h2>
 <p>A string that can be set from Home Assistant.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_text_config.html">HaTextConfig</a> message{</div>
@@ -477,10 +499,10 @@ Text</h2>
 <div class="line"> </div>
 <div class="line"><span class="comment">// The new text arrives in onCommand(). Report it back:</span></div>
 <div class="line">ha.publishState(<span class="stringliteral">&quot;message&quot;</span>, <span class="stringliteral">&quot;Hello&quot;</span>);</div>
-<div class="ttc" id="astruct_ha_text_config_html"><div class="ttname"><a href="struct_ha_text_config.html">HaTextConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery text.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:314</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md29"></a>
+<div class="ttc" id="astruct_ha_text_config_html"><div class="ttname"><a href="struct_ha_text_config.html">HaTextConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery text.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:334</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
 Light</h2>
-<p>Uses Home Assistant's JSON schema, so all light commands arrive on one topic as JSON. <span class="tt">color_mode</span> is <span class="tt">OnOff</span>, <span class="tt">Brightness</span> (default), <span class="tt">ColorTemp</span> (kelvin) or <span class="tt">Rgb</span>.</p>
+<p>Uses Home Assistant's JSON schema by default, so all light commands arrive on one topic as JSON. <span class="tt">color_mode</span> is <span class="tt">OnOff</span>, <span class="tt">Brightness</span> (default), <span class="tt">ColorTemp</span> (kelvin) or <span class="tt">Rgb</span>.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_light_config.html">HaLightConfig</a> lamp{</div>
 <div class="line">  .common = { .object_id=<span class="stringliteral">&quot;lamp&quot;</span>, .name=<span class="stringliteral">&quot;Lamp&quot;</span> },</div>
 <div class="line">  .color_mode=<a class="code hl_enumvalue" href="group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3">HaLightColorMode::Rgb</a></div>
@@ -503,19 +525,26 @@ Light</h2>
 <div class="line">    }</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aclass_ha_discovery_html_a384b61ae1ef8578f86a1590e0900e663"><div class="ttname"><a href="class_ha_discovery.html#a384b61ae1ef8578f86a1590e0900e663">HaDiscovery::parseLightCommand</a></div><div class="ttdeci">static bool parseLightCommand(const char *payload, HaLightCommand &amp;out)</div><div class="ttdoc">Decode a light command from the onCommand() handler.</div><div class="ttdef"><b>Definition</b> HaDiscovery.cpp:1036</div></div>
-<div class="ttc" id="agroup__hadiscovery_html_gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3"><div class="ttname"><a href="group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3">HaLightColorMode::Rgb</a></div><div class="ttdeci">@ Rgb</div><div class="ttdoc">Brightness and RGB color.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:340</div></div>
-<div class="ttc" id="astruct_ha_light_command_html"><div class="ttname"><a href="struct_ha_light_command.html">HaLightCommand</a></div><div class="ttdoc">A light command from Home Assistant, decoded by HaDiscovery::parseLightCommand().</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:374</div></div>
-<div class="ttc" id="astruct_ha_light_command_html_a3267beebb2c9266881a7b34643c4f3ef"><div class="ttname"><a href="struct_ha_light_command.html#a3267beebb2c9266881a7b34643c4f3ef">HaLightCommand::on</a></div><div class="ttdeci">bool on</div><div class="ttdoc">true for &quot;ON&quot;</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:376</div></div>
-<div class="ttc" id="astruct_ha_light_command_html_a549a6484ef1dcbd2d09b9b2078451515"><div class="ttname"><a href="struct_ha_light_command.html#a549a6484ef1dcbd2d09b9b2078451515">HaLightCommand::has_brightness</a></div><div class="ttdeci">bool has_brightness</div><div class="ttdoc">brightness was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:377</div></div>
-<div class="ttc" id="astruct_ha_light_command_html_a5c03fbe44070fb77bbba1ba8b4f620c6"><div class="ttname"><a href="struct_ha_light_command.html#a5c03fbe44070fb77bbba1ba8b4f620c6">HaLightCommand::brightness</a></div><div class="ttdeci">uint16_t brightness</div><div class="ttdoc">0..brightness_scale</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:378</div></div>
-<div class="ttc" id="astruct_ha_light_command_html_af4e1ddbb1301a43135e597a8a59e3172"><div class="ttname"><a href="struct_ha_light_command.html#af4e1ddbb1301a43135e597a8a59e3172">HaLightCommand::has_state</a></div><div class="ttdeci">bool has_state</div><div class="ttdoc">state was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:375</div></div>
-<div class="ttc" id="astruct_ha_light_command_html_afd58b395d755280265542cebe4b71b70"><div class="ttname"><a href="struct_ha_light_command.html#afd58b395d755280265542cebe4b71b70">HaLightCommand::has_color</a></div><div class="ttdeci">bool has_color</div><div class="ttdoc">color was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:381</div></div>
-<div class="ttc" id="astruct_ha_light_config_html"><div class="ttname"><a href="struct_ha_light_config.html">HaLightConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery light.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:350</div></div>
-<div class="ttc" id="astruct_ha_light_state_html"><div class="ttname"><a href="struct_ha_light_state.html">HaLightState</a></div><div class="ttdoc">The state of a light, for HaDiscovery::publishStateLight().</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:390</div></div>
-<div class="ttc" id="astruct_ha_light_state_html_a2df366e0aa2533ddb30e54645334286e"><div class="ttname"><a href="struct_ha_light_state.html#a2df366e0aa2533ddb30e54645334286e">HaLightState::brightness</a></div><div class="ttdeci">int brightness</div><div class="ttdoc">Brightness (0..brightness_scale), or -1 to leave it out.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:393</div></div>
-<div class="ttc" id="astruct_ha_light_state_html_a8ede418aed47090a88babfb1624aef5a"><div class="ttname"><a href="struct_ha_light_state.html#a8ede418aed47090a88babfb1624aef5a">HaLightState::r</a></div><div class="ttdeci">int r</div><div class="ttdoc">RGB color, or -1 in r to leave it out.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:397</div></div>
-</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md30"></a>
+<div class="ttc" id="aclass_ha_discovery_html_a384b61ae1ef8578f86a1590e0900e663"><div class="ttname"><a href="class_ha_discovery.html#a384b61ae1ef8578f86a1590e0900e663">HaDiscovery::parseLightCommand</a></div><div class="ttdeci">static bool parseLightCommand(const char *payload, HaLightCommand &amp;out)</div><div class="ttdoc">Decode a light command from the onCommand() handler.</div><div class="ttdef"><b>Definition</b> HaDiscovery.cpp:1606</div></div>
+<div class="ttc" id="agroup__hadiscovery_html_gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3"><div class="ttname"><a href="group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3">HaLightColorMode::Rgb</a></div><div class="ttdeci">@ Rgb</div><div class="ttdoc">Brightness and RGB color.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:360</div></div>
+<div class="ttc" id="astruct_ha_light_command_html"><div class="ttname"><a href="struct_ha_light_command.html">HaLightCommand</a></div><div class="ttdoc">A light command from Home Assistant, decoded by HaDiscovery::parseLightCommand().</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:433</div></div>
+<div class="ttc" id="astruct_ha_light_command_html_a3267beebb2c9266881a7b34643c4f3ef"><div class="ttname"><a href="struct_ha_light_command.html#a3267beebb2c9266881a7b34643c4f3ef">HaLightCommand::on</a></div><div class="ttdeci">bool on</div><div class="ttdoc">true for &quot;ON&quot;</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:435</div></div>
+<div class="ttc" id="astruct_ha_light_command_html_a549a6484ef1dcbd2d09b9b2078451515"><div class="ttname"><a href="struct_ha_light_command.html#a549a6484ef1dcbd2d09b9b2078451515">HaLightCommand::has_brightness</a></div><div class="ttdeci">bool has_brightness</div><div class="ttdoc">brightness was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:436</div></div>
+<div class="ttc" id="astruct_ha_light_command_html_a5c03fbe44070fb77bbba1ba8b4f620c6"><div class="ttname"><a href="struct_ha_light_command.html#a5c03fbe44070fb77bbba1ba8b4f620c6">HaLightCommand::brightness</a></div><div class="ttdeci">uint16_t brightness</div><div class="ttdoc">0..brightness_scale</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:437</div></div>
+<div class="ttc" id="astruct_ha_light_command_html_af4e1ddbb1301a43135e597a8a59e3172"><div class="ttname"><a href="struct_ha_light_command.html#af4e1ddbb1301a43135e597a8a59e3172">HaLightCommand::has_state</a></div><div class="ttdeci">bool has_state</div><div class="ttdoc">state was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:434</div></div>
+<div class="ttc" id="astruct_ha_light_command_html_afd58b395d755280265542cebe4b71b70"><div class="ttname"><a href="struct_ha_light_command.html#afd58b395d755280265542cebe4b71b70">HaLightCommand::has_color</a></div><div class="ttdeci">bool has_color</div><div class="ttdoc">color was sent</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:440</div></div>
+<div class="ttc" id="astruct_ha_light_config_html"><div class="ttname"><a href="struct_ha_light_config.html">HaLightConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery light.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:388</div></div>
+<div class="ttc" id="astruct_ha_light_state_html"><div class="ttname"><a href="struct_ha_light_state.html">HaLightState</a></div><div class="ttdoc">The state of a light, for HaDiscovery::publishStateLight().</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:449</div></div>
+<div class="ttc" id="astruct_ha_light_state_html_a2df366e0aa2533ddb30e54645334286e"><div class="ttname"><a href="struct_ha_light_state.html#a2df366e0aa2533ddb30e54645334286e">HaLightState::brightness</a></div><div class="ttdeci">int brightness</div><div class="ttdoc">Brightness (0..brightness_scale), or -1 to leave it out.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:452</div></div>
+<div class="ttc" id="astruct_ha_light_state_html_a8ede418aed47090a88babfb1624aef5a"><div class="ttname"><a href="struct_ha_light_state.html#a8ede418aed47090a88babfb1624aef5a">HaLightState::r</a></div><div class="ttdeci">int r</div><div class="ttdoc">RGB color, or -1 in r to leave it out.</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:456</div></div>
+</div><!-- fragment --><p>With <span class="tt">.schema = <a class="el" href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67" title="Home Assistant&#39;s &quot;default&quot; schema: separate topics for state, brightness, color and color temperature...">HaLightSchema::Default</a></span>, the light uses Home Assistant's default schema instead, with separate topics: <span class="tt">.../state</span> and <span class="tt">.../set</span> for on/off, <span class="tt">.../brightness</span> and <span class="tt">.../brightness/set</span>, <span class="tt">.../rgb</span> and <span class="tt">.../rgb/set</span> (<span class="tt">r,g,b</span>), and <span class="tt">.../color_temp</span> and <span class="tt">.../color_temp/set</span> (kelvin). Use it when the firmware already has those topics; each one can be changed with the <span class="tt">*_topic_override</span> fields. The library turns the commands into the same JSON as above, so <span class="tt">parseLightCommand()</span> and <span class="tt">publishStateLight()</span> work the same way.</p>
+<div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_light_config.html">HaLightConfig</a> display{</div>
+<div class="line">  .common = { .object_id=<span class="stringliteral">&quot;display&quot;</span>, .name=<span class="stringliteral">&quot;Display&quot;</span> },</div>
+<div class="line">  .brightness_scale=100,</div>
+<div class="line">  .schema=<a class="code hl_enumvalue" href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67">HaLightSchema::Default</a></div>
+<div class="line">};</div>
+<div class="ttc" id="agroup__hadiscovery_html_ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67"><div class="ttname"><a href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67">HaLightSchema::Default</a></div><div class="ttdeci">@ Default</div><div class="ttdoc">Home Assistant&#39;s &quot;default&quot; schema: separate topics for state, brightness, color and color temperature...</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:368</div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="autotoc_md32"></a>
 Cover</h2>
 <p>Blinds, shutters, garage doors and so on.</p>
 <div class="fragment"><div class="line"><a class="code hl_struct" href="struct_ha_cover_config.html">HaCoverConfig</a> blind{</div>
@@ -529,9 +558,9 @@ Cover</h2>
 <div class="line"><span class="comment">// Report the state (&quot;open&quot;, &quot;opening&quot;, &quot;closed&quot;, &quot;closing&quot; or &quot;stopped&quot;) and position:</span></div>
 <div class="line">ha.publishState(<span class="stringliteral">&quot;blind&quot;</span>, <span class="stringliteral">&quot;opening&quot;</span>);</div>
 <div class="line">ha.publishStatePosition(<span class="stringliteral">&quot;blind&quot;</span>, 40);</div>
-<div class="ttc" id="astruct_ha_cover_config_html"><div class="ttname"><a href="struct_ha_cover_config.html">HaCoverConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery cover (blinds, garage door, ...).</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:408</div></div>
+<div class="ttc" id="astruct_ha_cover_config_html"><div class="ttname"><a href="struct_ha_cover_config.html">HaCoverConfig</a></div><div class="ttdoc">Configuration for a Home Assistant MQTT Discovery cover (blinds, garage door, ...).</div><div class="ttdef"><b>Definition</b> HaDiscovery.h:467</div></div>
 </div><!-- fragment --><p>Set <span class="tt">.payload_stop = ""</span> for a cover that can't stop.</p>
-<h1 class="doxsection"><a class="anchor" id="autotoc_md31"></a>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md33"></a>
 Removing entities</h1>
 <div class="fragment"><div class="line">ha.removeEntity(<span class="stringliteral">&quot;sensor&quot;</span>, <span class="stringliteral">&quot;temperature&quot;</span>); <span class="comment">// one entity</span></div>
 <div class="line">ha.removeDevice();                        <span class="comment">// the device and all its entities</span></div>
@@ -540,6 +569,41 @@ Removing entities</h1>
 <blockquote class="doxtable">
 <p>Deleting an MQTT entity in Home Assistant doesn't stop the device from announcing it, so it comes back. Remove it in the firmware instead. </p>
 </blockquote>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md34"></a>
+Other availability topic</h1>
+<p>Availability is on <span class="tt">&lt;base&gt;/&lt;node_id&gt;/status</span> by default. To use another topic, e.g. one your firmware already has, call <span class="tt">setAvailabilityTopic()</span> before connecting:</p>
+<div class="fragment"><div class="line">ha.setAvailabilityTopic(<span class="stringliteral">&quot;myfirmware/office/availability&quot;</span>);</div>
+</div><!-- fragment --><p>It's used for the Last Will, for <span class="tt">online</span>/<span class="tt">offline</span> and in the device payload.</p>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md35"></a>
+Moving from single-component discovery</h1>
+<p>Older firmware often publishes one discovery message per entity, on <span class="tt">homeassistant/&lt;component&gt;/&lt;node_id&gt;/&lt;object_id&gt;/config</span>. If those are still retained on the broker, Home Assistant keeps those entities, and ignores entities in the device payload with the same unique ID.</p>
+<p>Call <span class="tt">ha.migrateEntityDiscovery()</span> before connecting, and give the entities the unique IDs they had (<span class="tt">.unique_id</span>). After every connect, the library then waits for the retained messages on <span class="tt">homeassistant/+/&lt;node_id&gt;/+/config</span>, and follows Home Assistant's migration steps for each one. To know when they're all in, it also publishes a message to <span class="tt">&lt;base&gt;/&lt;node_id&gt;/migration_sync</span>, which it subscribes to as well. The broker sends that back after the retained messages. This usually takes well under a second; the library gives up waiting after 10 seconds.</p>
+<ol type="1">
+<li>Publishes <span class="tt">{"migrate_discovery": true}</span> to the old topic. Home Assistant unloads the entity, but keeps its settings.</li>
+<li>Publishes the device payload, which loads the entity again.</li>
+<li>Clears the old topic 5 seconds later.</li>
+</ol>
+<p>The entities keep their entity IDs, history and settings. Once the old topics are cleared, nothing more happens, so it's fine to leave it on; the only cost is the short wait after each connect.</p>
+<p>Only old configs whose unique ID matches an entity in the device payload are migrated, so add the entities before connecting. The others are left alone, with a warning in the log: Home Assistant then shows the old entity next to the new one, which you can fix by correcting <span class="tt">.unique_id</span>. Migrating them would unload the old entity with nothing to load it again.</p>
+<blockquote class="doxtable">
+<p>Check the unique IDs against the old firmware before flashing a real device, e.g. the <span class="tt">uniq_id</span> in the old discovery payloads on the broker. </p>
+</blockquote>
+<h1 class="doxsection"><a class="anchor" id="autotoc_md36"></a>
+Using a client your firmware already connects</h1>
+<p>With PubSubClient, the library can work with a client your firmware already sets up, connects and reconnects itself, e.g. when adding the library to existing firmware:</p>
+<div class="fragment"><div class="line"><a class="code hl_class" href="class_pub_sub_client_transport.html">PubSubClientTransport</a> transport(mqtt);   <span class="comment">// mqtt: your PubSubClient</span></div>
+<div class="line"><a class="code hl_class" href="class_ha_discovery.html">HaDiscovery</a> ha(transport, <span class="stringliteral">&quot;homeassistant&quot;</span>, <span class="stringliteral">&quot;myfirmware&quot;</span>);</div>
+<div class="line"> </div>
+<div class="line">transport.setAutoReconnect(<span class="keyword">false</span>);                   <span class="comment">// your firmware reconnects</span></div>
+<div class="line">ha.setAvailabilityTopic(<span class="stringliteral">&quot;myfirmware/office/status&quot;</span>); <span class="comment">// the topic of your Last Will</span></div>
+<div class="line">ha.setDevice({ ... });</div>
+<div class="line">ha.onMessage(myMessageHandler);                      <span class="comment">// the transport takes over the client&#39;s callback</span></div>
+</div><!-- fragment --><p>Then call <span class="tt">mqtt.loop()</span> and <span class="tt">ha.tick()</span> from <span class="tt">loop()</span>; <span class="tt">tick()</span> notices when your firmware has connected. Since the transport's <span class="tt">setServer()</span> and <span class="tt">connect()</span> aren't used:</p>
+<ul>
+<li>The Last Will set by <span class="tt">setDevice()</span> isn't sent. Connect with your own will on the same topic as <span class="tt">setAvailabilityTopic()</span>, with the payload <span class="tt">offline</span>, retained.</li>
+<li>The buffer isn't raised to 2048 bytes up front. It still grows when a publish needs more, but incoming messages must fit the size your firmware set with <span class="tt">mqtt.setBufferSize()</span>.</li>
+<li>Subscribe through <span class="tt">ha.subscribe()</span>, not the client, so the subscriptions come back after a reconnect. </li>
+</ul>
 </div></div><!-- PageDoc -->
 <a href="doxygen_crawl.html"></a>
 </div><!-- contents -->

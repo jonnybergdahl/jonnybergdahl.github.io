@@ -15,6 +15,7 @@ var hierarchy =
     [ "HaSwitchConfig", "struct_ha_switch_config.html", null ],
     [ "HaTextConfig", "struct_ha_text_config.html", null ],
     [ "JBLogger", "class_j_b_logger.html", null ],
+    [ "MessageAssembler", "class_message_assembler.html", null ],
     [ "MqttTransport", "class_mqtt_transport.html", [
       [ "AsyncMqttClientTransport", "class_async_mqtt_client_transport.html", null ],
       [ "EspMqttClientTransport< Client >", "class_esp_mqtt_client_transport.html", null ],

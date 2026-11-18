@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['oncommand_0',['onCommand',['../class_ha_discovery.html#aa9a1e0ef31ec6debb78023b72b17d414',1,'HaDiscovery']]]
+  ['maxsize_0',['maxSize',['../class_message_assembler.html#a8d2a1486508a1a170b8622bd807cd447',1,'MessageAssembler']]],
+  ['migrateentitydiscovery_1',['migrateEntityDiscovery',['../class_ha_discovery.html#a8dd75e95967c44f035f756ebb7ce2daa',1,'HaDiscovery']]]
 ];

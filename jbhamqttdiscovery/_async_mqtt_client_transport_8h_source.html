@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -94,253 +94,284 @@ $(function(){initNavTree('_async_mqtt_client_transport_8h_source.html','',''); }
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;MqttTransport.h&quot;</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;AsyncMqttClient.h&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span></div>
-<div class="foldopen" id="foldopen00040" data-start="{" data-end="};">
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html">   40</a></span><span class="keyword">class </span><a class="code hl_function" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mqtt_transport.html">MqttTransport</a> {</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>  <span class="comment">// Keep the base class overloads (Arduino String) visible next to the overrides</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282">MqttTransport::setServer</a>;</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a409f2341fa77f298f079ca9991d035ab">MqttTransport::connect</a>;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a72cd96262f1667669940748312c54452">MqttTransport::subscribe</a>;</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce">MqttTransport::publish</a>;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">   49</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">CONNECT_TIMEOUT_MS</a> = 15000;</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span></div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">   52</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">STALE_ATTEMPT_MS</a> = 2000;</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span></div>
-<div class="foldopen" id="foldopen00059" data-start="{" data-end="}">
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">   59</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport</a>(AsyncMqttClient&amp; client)</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    : client(client) {}</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;MessageAssembler.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;AsyncMqttClient.h&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html">   41</a></span><span class="keyword">class </span><a class="code hl_function" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport</a> : <span class="keyword">public</span> <a class="code hl_class" href="class_mqtt_transport.html">MqttTransport</a> {</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>  <span class="comment">// Keep the base class overloads (Arduino String) visible next to the overrides</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a718cbc203227983f8140680bcb50a282">MqttTransport::setServer</a>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a409f2341fa77f298f079ca9991d035ab">MqttTransport::connect</a>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#a72cd96262f1667669940748312c54452">MqttTransport::subscribe</a>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>  <span class="keyword">using </span><a class="code hl_function" href="class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce">MqttTransport::publish</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">   50</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">CONNECT_TIMEOUT_MS</a> = 15000;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">   53</a></span>  <span class="keyword">static</span> <span class="keyword">constexpr</span> uint32_t <a class="code hl_variable" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">STALE_ATTEMPT_MS</a> = 2000;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">   60</a></span>  <span class="keyword">explicit</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport</a>(AsyncMqttClient&amp; client)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    : client(client) {}</div>
 </div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span></div>
-<div class="foldopen" id="foldopen00072" data-start="{" data-end="}">
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">   72</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">setServer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* host, uint16_t port, <span class="keyword">const</span> <span class="keywordtype">char</span>* user = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <span class="keywordtype">char</span>* pass = <span class="keyword">nullptr</span>)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">setServer</a>(std::string(host ? host : <span class="stringliteral">&quot;&quot;</span>), port,</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>              std::string(user ? user : <span class="stringliteral">&quot;&quot;</span>), std::string(pass ? pass : <span class="stringliteral">&quot;&quot;</span>));</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>  }</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span></div>
+<div class="foldopen" id="foldopen00073" data-start="{" data-end="}">
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">   73</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">setServer</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* host, uint16_t port, <span class="keyword">const</span> <span class="keywordtype">char</span>* user = <span class="keyword">nullptr</span>, <span class="keyword">const</span> <span class="keywordtype">char</span>* pass = <span class="keyword">nullptr</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">setServer</a>(std::string(host ? host : <span class="stringliteral">&quot;&quot;</span>), port,</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>              std::string(user ? user : <span class="stringliteral">&quot;&quot;</span>), std::string(pass ? pass : <span class="stringliteral">&quot;&quot;</span>));</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>  }</div>
 </div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span></div>
-<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">   85</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">setServer</a>(<span class="keyword">const</span> std::string&amp; host, uint16_t port, <span class="keyword">const</span> std::string&amp; user = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; pass = <span class="stringliteral">&quot;&quot;</span>)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    hostStr = host;</div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    userStr = user;</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    passStr = pass;</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    client.setServer(hostStr.c_str(), port);</div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">if</span> (!userStr.empty()) {</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>      client.setCredentials(userStr.c_str(), passStr.empty() ? <span class="keyword">nullptr</span> : passStr.c_str());</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    }</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>  }</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span></div>
+<div class="foldopen" id="foldopen00086" data-start="{" data-end="}">
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">   86</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">setServer</a>(<span class="keyword">const</span> std::string&amp; host, uint16_t port, <span class="keyword">const</span> std::string&amp; user = <span class="stringliteral">&quot;&quot;</span>, <span class="keyword">const</span> std::string&amp; pass = <span class="stringliteral">&quot;&quot;</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    hostStr = host;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    userStr = user;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    passStr = pass;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    client.setServer(hostStr.c_str(), port);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keywordflow">if</span> (!userStr.empty()) {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>      client.setCredentials(userStr.c_str(), passStr.empty() ? <span class="keyword">nullptr</span> : passStr.c_str());</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>    }</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>  }</div>
 </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span></div>
-<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">  102</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">connect</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* clientId = <span class="keyword">nullptr</span>)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    <span class="keywordflow">if</span> (clientId &amp;&amp; *clientId &amp;&amp; clientId != clientIdStr.c_str()) {</div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>      clientIdStr = clientId;</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      client.setClientId(clientIdStr.c_str());</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    }</div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    started = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <a class="code hl_function" href="class_mqtt_transport.html#a2ee31afa96657f26ccb503435105d572">takeReconnectRequest</a>();  <span class="comment">// this is the attempt a pending request asked for</span></div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    startAttempt();</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>  }</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span></div>
+<div class="foldopen" id="foldopen00103" data-start="{" data-end="}">
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">  103</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">connect</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* clientId = <span class="keyword">nullptr</span>)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">if</span> (clientId &amp;&amp; *clientId &amp;&amp; clientId != clientIdStr.c_str()) {</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>      clientIdStr = clientId;</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>      client.setClientId(clientIdStr.c_str());</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    }</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    started = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <a class="code hl_function" href="class_mqtt_transport.html#a2ee31afa96657f26ccb503435105d572">takeReconnectRequest</a>();  <span class="comment">// this is the attempt a pending request asked for</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    startAttempt();</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>  }</div>
 </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span></div>
-<div class="foldopen" id="foldopen00116" data-start="{" data-end="}">
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">  116</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">tick</a>()<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span> (!started) {</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>      <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    }</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    uint32_t now = millis();</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordflow">if</span> (disconnectEvent) {</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>      disconnectEvent = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      <span class="keywordflow">if</span> (droppedSession) {</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async connection lost&quot;</span>);</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.reset(now);   <span class="comment">// try again right away</span></div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!attemptFailed) {</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>        <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async connect FAILED&quot;</span>);</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        attemptFailed = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.failed(now);  <span class="comment">// wait before the next attempt</span></div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>      }</div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    }</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_mqtt_transport.html#a2ee31afa96657f26ccb503435105d572">takeReconnectRequest</a>() &amp;&amp; !isConnected) {</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>      <span class="keywordflow">if</span> (connecting &amp;&amp; <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(now - attemptStartedAt) &gt;= <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">STALE_ATTEMPT_MS</a>)) {</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="comment">// An attempt started while the network was down may never call back,</span></div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// so drop it instead of waiting for the timeout. A fresh one is left alone.</span></div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="keywordflow">if</span> (log) log-&gt;info(<span class="stringliteral">&quot;Async reconnect requested, dropping the current attempt&quot;</span>);</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        connecting = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        attemptFailed = <span class="keyword">true</span>;  <span class="comment">// a late onDisconnect for it isn&#39;t a new failure</span></div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        client.disconnect(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>      }</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.reset(now);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="keywordflow">if</span> (connecting &amp;&amp; <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(now - attemptStartedAt) &gt;= <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">CONNECT_TIMEOUT_MS</a>)) {</div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>      <span class="comment">// No onConnect or onDisconnect came: reset the client so connect() works again</span></div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async connect timed out, resetting the client&quot;</span>);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      connecting = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      client.disconnect(<span class="keyword">true</span>);</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>      <span class="keywordflow">if</span> (!attemptFailed) {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        attemptFailed = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.failed(now);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>      }</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    }</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keywordflow">if</span> (!isConnected &amp;&amp; !connecting &amp;&amp; <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.due(now)) {</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>      <span class="keywordflow">if</span> (log) log-&gt;info(<span class="stringliteral">&quot;Async reconnecting&quot;</span>);</div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      startAttempt();</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    }</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>  }</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span></div>
+<div class="foldopen" id="foldopen00117" data-start="{" data-end="}">
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">  117</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">tick</a>()<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keywordflow">if</span> (!started) {</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>      <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    }</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    uint32_t now = millis();</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">if</span> (disconnectEvent) {</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>      disconnectEvent = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>      <span class="keywordflow">if</span> (droppedSession) {</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async connection lost&quot;</span>);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.reset(now);   <span class="comment">// try again right away</span></div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>      } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (!attemptFailed) {</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async connect FAILED&quot;</span>);</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        attemptFailed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.failed(now);  <span class="comment">// wait before the next attempt</span></div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>      }</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>    }</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="class_mqtt_transport.html#a2ee31afa96657f26ccb503435105d572">takeReconnectRequest</a>() &amp;&amp; !isConnected) {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>      <span class="keywordflow">if</span> (connecting &amp;&amp; <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(now - attemptStartedAt) &gt;= <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">STALE_ATTEMPT_MS</a>)) {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="comment">// An attempt started while the network was down may never call back,</span></div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        <span class="comment">// so drop it instead of waiting for the timeout. A fresh one is left alone.</span></div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>        <span class="keywordflow">if</span> (log) log-&gt;info(<span class="stringliteral">&quot;Async reconnect requested, dropping the current attempt&quot;</span>);</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>        connecting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        attemptFailed = <span class="keyword">true</span>;  <span class="comment">// a late onDisconnect for it isn&#39;t a new failure</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        client.disconnect(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>      }</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>      <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.reset(now);</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    <span class="keywordflow">if</span> (connecting &amp;&amp; <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(now - attemptStartedAt) &gt;= <span class="keyword">static_cast&lt;</span>int32_t<span class="keyword">&gt;</span>(<a class="code hl_variable" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">CONNECT_TIMEOUT_MS</a>)) {</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>      <span class="comment">// No onConnect or onDisconnect came: reset the client so connect() works again</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async connect timed out, resetting the client&quot;</span>);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>      connecting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>      client.disconnect(<span class="keyword">true</span>);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>      <span class="keywordflow">if</span> (!attemptFailed) {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        attemptFailed = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>        <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.failed(now);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>      }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    }</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">if</span> (!isConnected &amp;&amp; !connecting &amp;&amp; <a class="code hl_variable" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">reconnect</a>.due(now)) {</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>      <span class="keywordflow">if</span> (log) log-&gt;info(<span class="stringliteral">&quot;Async reconnecting&quot;</span>);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>      startAttempt();</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    }</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>  }</div>
 </div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span></div>
-<div class="foldopen" id="foldopen00166" data-start="{" data-end="}">
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">  166</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">connected</a>()<span class="keyword"> const override </span>{</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="keywordflow">return</span> isConnected;</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>  }</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span></div>
+<div class="foldopen" id="foldopen00167" data-start="{" data-end="}">
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">  167</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">connected</a>()<span class="keyword"> const override </span>{</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordflow">return</span> isConnected;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>  }</div>
 </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span></div>
-<div class="foldopen" id="foldopen00173" data-start="{" data-end="}">
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">  173</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">publish</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic,</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>               <span class="keyword">const</span> uint8_t* payload,</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>               <span class="keywordtype">size_t</span> len,</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>               <span class="keywordtype">bool</span> retained,</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>               uint8_t qos)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="keywordflow">if</span> (!isConnected) {</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>      <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async publish skipped (disconnected) topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    }</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* p = payload ? <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(payload) : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">size_t</span> l = payload ? len : 0;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async publish topic=%s len=%u retained=%d qos=%u&quot;</span>, topic,</div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>                        (<span class="keywordtype">unsigned</span>)l, retained ? 1 : 0, (<span class="keywordtype">unsigned</span>)qos);</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="comment">// Returns the packet id (1 for QoS 0), or 0 on failure</span></div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    uint16_t pid = client.publish(topic, qos, retained, p, l);</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    <span class="keywordflow">if</span> (pid == 0) {</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async publish FAILED topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    }</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async publish OK topic=%s pid=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)pid);</div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>  }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span></div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">  174</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">publish</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>               <span class="keyword">const</span> uint8_t* payload,</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>               <span class="keywordtype">size_t</span> len,</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>               <span class="keywordtype">bool</span> retained,</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>               uint8_t qos)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (!isConnected) {</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>      <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async publish skipped (disconnected) topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keyword">const</span> <span class="keywordtype">char</span>* p = payload ? <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(payload) : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordtype">size_t</span> l = payload ? len : 0;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async publish topic=%s len=%u retained=%d qos=%u&quot;</span>, topic,</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>                        (<span class="keywordtype">unsigned</span>)l, retained ? 1 : 0, (<span class="keywordtype">unsigned</span>)qos);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="comment">// Returns the packet id (1 for QoS 0), or 0 on failure</span></div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    uint16_t pid = client.publish(topic, qos, retained, p, l);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <span class="keywordflow">if</span> (pid == 0) {</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async publish FAILED topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    }</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async publish OK topic=%s pid=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)pid);</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>  }</div>
 </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span></div>
-<div class="foldopen" id="foldopen00202" data-start="{" data-end="}">
-<div class="line"><a id="l00202" name="l00202"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">  202</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">subscribe</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, uint8_t qos = 0)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">if</span> (!isConnected) {</div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>      <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async subscribe skipped (disconnected) topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    }</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    uint16_t pid = client.subscribe(topic, qos);</div>
-<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">if</span> (pid == 0) {</div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async subscribe FAILED topic=%s&quot;</span>, topic);</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>    }</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async subscribe OK topic=%s pid=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)pid);</div>
-<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>  }</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span></div>
+<div class="foldopen" id="foldopen00203" data-start="{" data-end="}">
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">  203</a></span>  <span class="keywordtype">bool</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">subscribe</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, uint8_t qos = 0)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    <span class="keywordflow">if</span> (!isConnected) {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>      <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async subscribe skipped (disconnected) topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>    }</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    uint16_t pid = client.subscribe(topic, qos);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keywordflow">if</span> (pid == 0) {</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>      <span class="keywordflow">if</span> (log) log-&gt;error(<span class="stringliteral">&quot;Async subscribe FAILED topic=%s&quot;</span>, topic);</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span>      <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    }</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async subscribe OK topic=%s pid=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)pid);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>  }</div>
 </div>
-<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span></div>
-<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">  221</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">setOnMessage</a>(<a class="code hl_typedef" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> cb_, <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    msgCb = cb_;</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    msgCtx = ctx_;</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    client.onMessage([<span class="keyword">this</span>](<span class="keywordtype">char</span>* topic, <span class="keywordtype">char</span>* payload, AsyncMqttClientMessageProperties <span class="comment">/*properties*/</span>,</div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>                            <span class="keywordtype">size_t</span> len, <span class="keywordtype">size_t</span> index, <span class="keywordtype">size_t</span> total) {</div>
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>      <span class="keywordflow">if</span> (index != 0 || len != total) {</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async message on %s split into parts (%u of %u bytes), ignored&quot;</span>,</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>                              topic, (<span class="keywordtype">unsigned</span>)len, (<span class="keywordtype">unsigned</span>)total);</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>      }</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>      <span class="keywordflow">if</span> (log) log-&gt;debug(<span class="stringliteral">&quot;Async message topic=%s len=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)len);</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      <span class="keywordflow">if</span> (msgCb) {</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        msgCb(msgCtx, topic, <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint8_t*<span class="keyword">&gt;</span>(payload), len);</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>      }</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>    });</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>  }</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span></div>
+<div class="foldopen" id="foldopen00222" data-start="{" data-end="}">
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">  222</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">setOnMessage</a>(<a class="code hl_typedef" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> cb_, <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    msgCb = cb_;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    msgCtx = ctx_;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span> </div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    client.onMessage([<span class="keyword">this</span>](<span class="keywordtype">char</span>* topic, <span class="keywordtype">char</span>* payload, AsyncMqttClientMessageProperties <span class="comment">/*properties*/</span>,</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>                            <span class="keywordtype">size_t</span> len, <span class="keywordtype">size_t</span> index, <span class="keywordtype">size_t</span> total) {</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>      <span class="keyword">const</span> uint8_t* data = <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint8_t*<span class="keyword">&gt;</span>(payload);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>      <span class="keywordflow">if</span> (index == 0 &amp;&amp; len == total) {</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        deliver(topic, data, len);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>      }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>      <span class="keywordflow">switch</span> (assembler.add(topic, data, len, index, total)) {</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52aae94f80b3ce82062a5dd7815daa04f9d">MessageAssembler::Result::Complete</a>:</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>          deliver(assembler.topic().c_str(), <span class="keyword">reinterpret_cast&lt;</span><span class="keyword">const </span>uint8_t*<span class="keyword">&gt;</span>(assembler.payload().data()),</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>                  assembler.payload().size());</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>          assembler.release();</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52a853d33bc5e409941bed899b913647310">MessageAssembler::Result::TooLarge</a>:</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>          <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async message on %s is %u bytes, more than %u, ignored&quot;</span>,</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>                                topic, (<span class="keywordtype">unsigned</span>)total, (<span class="keywordtype">unsigned</span>)assembler.maxSize());</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52ac98dbc22f49f1b4a644307551924f8da">MessageAssembler::Result::Broken</a>:</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>          <span class="keywordflow">if</span> (log) log-&gt;warning(<span class="stringliteral">&quot;Async message on %s arrived out of order, ignored&quot;</span>, topic);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">default</span>:</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>          <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>      }</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    });</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>  }</div>
 </div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span></div>
-<div class="foldopen" id="foldopen00242" data-start="{" data-end="}">
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">  242</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">setWill</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, <span class="keyword">const</span> <span class="keywordtype">char</span>* payload, <span class="keywordtype">bool</span> retained = <span class="keyword">true</span>, uint8_t qos = 1)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    willTopicStr = topic ? topic : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    willPayloadStr = payload ? payload : <span class="stringliteral">&quot;&quot;</span>;</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    client.setWill(willTopicStr.c_str(), qos, retained, willPayloadStr.c_str(), willPayloadStr.size());</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>  }</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span></div>
+<div class="foldopen" id="foldopen00259" data-start="{" data-end="}">
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a9cfe58846ee3428131612c36a29e60c3">  259</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a9cfe58846ee3428131612c36a29e60c3">setMaxMessageSize</a>(<span class="keywordtype">size_t</span> maxSize) {</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>    assembler.setMaxSize(maxSize);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>  }</div>
 </div>
-<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span></div>
-<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
-<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">  253</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">setOnConnect</a>(<span class="keywordtype">void</span> (*cb_)(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    cb = cb_;</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    ctx = ctx_;</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>    <span class="comment">// These run in the network task; tick() acts on the flags from loop()</span></div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>    client.onConnect([<span class="keyword">this</span>](<span class="keywordtype">bool</span> <span class="comment">/*sessionPresent*/</span>) {</div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>      isConnected = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>      connecting = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>      <span class="keywordflow">if</span> (cb) {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        cb(ctx);</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>      }</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    });</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    client.onDisconnect([<span class="keyword">this</span>](AsyncMqttClientDisconnectReason <span class="comment">/*reason*/</span>) {</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>      droppedSession = isConnected;</div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>      isConnected = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>      connecting = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>      disconnectEvent = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    });</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>  }</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span></div>
+<div class="foldopen" id="foldopen00266" data-start="{" data-end="}">
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">  266</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">setWill</a>(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, <span class="keyword">const</span> <span class="keywordtype">char</span>* payload, <span class="keywordtype">bool</span> retained = <span class="keyword">true</span>, uint8_t qos = 1)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    willTopicStr = topic ? topic : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>    willPayloadStr = payload ? payload : <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>    client.setWill(willTopicStr.c_str(), qos, retained, willPayloadStr.c_str(), willPayloadStr.size());</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>  }</div>
 </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span> </div>
-<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>  <span class="keywordtype">void</span> startAttempt() {</div>
-<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    <span class="keywordflow">if</span> (log) log-&gt;<a class="code hl_function" href="class_j_b_logger.html#a4b50b75e21c5cfb911f3eb117ef9d587">info</a>(<span class="stringliteral">&quot;Async connecting&quot;</span>);</div>
-<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    attemptStartedAt = millis();</div>
-<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    attemptFailed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    connecting = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    client.connect();</div>
-<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>  }</div>
-<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span> </div>
-<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>  AsyncMqttClient&amp; client;</div>
-<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>  std::string hostStr;</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>  std::string userStr;</div>
-<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>  std::string passStr;</div>
-<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>  std::string clientIdStr;</div>
-<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>  std::string willTopicStr;</div>
-<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>  std::string willPayloadStr;</div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> isConnected = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> connecting = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> disconnectEvent = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> droppedSession = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>  <span class="keywordtype">bool</span> started = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>  <span class="keywordtype">bool</span> attemptFailed = <span class="keyword">false</span>;</div>
-<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>  uint32_t attemptStartedAt = 0;</div>
-<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>  void (*cb)(<span class="keywordtype">void</span>*) = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>  <span class="keywordtype">void</span>* ctx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>  <a class="code hl_typedef" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> msgCb = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>  <span class="keywordtype">void</span>* msgCtx = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>};</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span></div>
+<div class="foldopen" id="foldopen00277" data-start="{" data-end="}">
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno"><a class="line" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">  277</a></span>  <span class="keywordtype">void</span> <a class="code hl_function" href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">setOnConnect</a>(<span class="keywordtype">void</span> (*cb_)(<span class="keywordtype">void</span>*), <span class="keywordtype">void</span>* ctx_)<span class="keyword"> override </span>{</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    cb = cb_;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    ctx = ctx_;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    <span class="comment">// These run in the network task; tick() acts on the flags from loop()</span></div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    client.onConnect([<span class="keyword">this</span>](<span class="keywordtype">bool</span> <span class="comment">/*sessionPresent*/</span>) {</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>      isConnected = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>      connecting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>      <span class="keywordflow">if</span> (cb) {</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        cb(ctx);</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>      }</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>    });</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span> </div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    client.onDisconnect([<span class="keyword">this</span>](AsyncMqttClientDisconnectReason <span class="comment">/*reason*/</span>) {</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>      droppedSession = isConnected;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>      isConnected = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>      connecting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>      disconnectEvent = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    });</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>  }</div>
 </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a138c43b05565c2c8f944b6c6f4caa019"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">AsyncMqttClientTransport::setServer</a></div><div class="ttdeci">void setServer(const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;) override</div><div class="ttdoc">Set MQTT server and credentials (std::string version).</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:85</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a1bae8b6bc6aab19abe10730812ef7a81"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">AsyncMqttClientTransport::setWill</a></div><div class="ttdeci">void setWill(const char *topic, const char *payload, bool retained=true, uint8_t qos=1) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:242</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a249101bba2589ce7cb8b35b376a1bee7"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">AsyncMqttClientTransport::publish</a></div><div class="ttdeci">bool publish(const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:173</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a4c208edc74470c76aed60c21ba7664a4"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">AsyncMqttClientTransport::STALE_ATTEMPT_MS</a></div><div class="ttdeci">static constexpr uint32_t STALE_ATTEMPT_MS</div><div class="ttdoc">reconnectNow() drops a pending attempt only if it&#39;s older than this.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:52</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a5486a5280bcc9001f1cacc96cd859cee"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">AsyncMqttClientTransport::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdoc">Run automatic reconnect. Called from HaDiscovery::tick().</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:116</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a5fb8c67a28eedee3b7293a84041d70b2"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">AsyncMqttClientTransport::setServer</a></div><div class="ttdeci">void setServer(const char *host, uint16_t port, const char *user=nullptr, const char *pass=nullptr) override</div><div class="ttdoc">Set MQTT server and credentials.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:72</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a845273c32d6a59736630f66d1e9e8094"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">AsyncMqttClientTransport::CONNECT_TIMEOUT_MS</a></div><div class="ttdeci">static constexpr uint32_t CONNECT_TIMEOUT_MS</div><div class="ttdoc">How long a connect attempt may take before tick() gives up on it.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:49</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_a8a044f396762fcbadcc19e7d9311aaf1"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">AsyncMqttClientTransport::connected</a></div><div class="ttdeci">bool connected() const override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:166</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_aa39ad33b3b713e88c5fc7a644b397ee9"><div class="ttname"><a href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">AsyncMqttClientTransport::connect</a></div><div class="ttdeci">bool connect(const char *clientId=nullptr) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:102</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_acc1587a8b4e24474900935a87d7eb170"><div class="ttname"><a href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">AsyncMqttClientTransport::setOnConnect</a></div><div class="ttdeci">void setOnConnect(void(*cb_)(void *), void *ctx_) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:253</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_adfdbf051cfa94d1aabdcdd2ab25e36e0"><div class="ttname"><a href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">AsyncMqttClientTransport::setOnMessage</a></div><div class="ttdeci">void setOnMessage(MessageCallback cb_, void *ctx_) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:221</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_ae9fe1f16870cb6bfabeb43d84a12a629"><div class="ttname"><a href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport::AsyncMqttClientTransport</a></div><div class="ttdeci">AsyncMqttClientTransport(AsyncMqttClient &amp;client)</div><div class="ttdoc">Construct an AsyncMqttClient transport adapter.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:59</div></div>
-<div class="ttc" id="aclass_async_mqtt_client_transport_html_af799535f3c067fe07071925b441cb4b4"><div class="ttname"><a href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">AsyncMqttClientTransport::subscribe</a></div><div class="ttdeci">bool subscribe(const char *topic, uint8_t qos=0) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:202</div></div>
-<div class="ttc" id="aclass_j_b_logger_html_a4b50b75e21c5cfb911f3eb117ef9d587"><div class="ttname"><a href="class_j_b_logger.html#a4b50b75e21c5cfb911f3eb117ef9d587">JBLogger::info</a></div><div class="ttdeci">virtual void info(const char *format,...)</div><div class="ttdoc">Log an info message.</div><div class="ttdef"><b>Definition</b> JBLoggerDummy.h:29</div></div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span> </div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>  <span class="keywordtype">void</span> deliver(<span class="keyword">const</span> <span class="keywordtype">char</span>* topic, <span class="keyword">const</span> uint8_t* payload, <span class="keywordtype">size_t</span> len) {</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    <span class="keywordflow">if</span> (log) log-&gt;<a class="code hl_function" href="class_j_b_logger.html#aae1af82fe965eea3a9b69d9119874db3">debug</a>(<span class="stringliteral">&quot;Async message topic=%s len=%u&quot;</span>, topic, (<span class="keywordtype">unsigned</span>)len);</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    <span class="keywordflow">if</span> (msgCb) {</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>      msgCb(msgCtx, topic, payload, len);</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>  }</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>  <span class="keywordtype">void</span> startAttempt() {</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    <span class="keywordflow">if</span> (log) log-&gt;info(<span class="stringliteral">&quot;Async connecting&quot;</span>);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    attemptStartedAt = millis();</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    attemptFailed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    connecting = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    client.connect();</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>  }</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>  AsyncMqttClient&amp; client;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>  std::string hostStr;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>  std::string userStr;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>  std::string passStr;</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>  std::string clientIdStr;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>  std::string willTopicStr;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>  std::string willPayloadStr;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> isConnected = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> connecting = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> disconnectEvent = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>  <span class="keyword">volatile</span> <span class="keywordtype">bool</span> droppedSession = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>  <span class="keywordtype">bool</span> started = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>  <span class="keywordtype">bool</span> attemptFailed = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>  uint32_t attemptStartedAt = 0;</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>  void (*cb)(<span class="keywordtype">void</span>*) = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span>  <span class="keywordtype">void</span>* ctx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>  <a class="code hl_typedef" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> msgCb = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>  MessageAssembler assembler;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>  <span class="keywordtype">void</span>* msgCtx = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>};</div>
+</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a138c43b05565c2c8f944b6c6f4caa019"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a138c43b05565c2c8f944b6c6f4caa019">AsyncMqttClientTransport::setServer</a></div><div class="ttdeci">void setServer(const std::string &amp;host, uint16_t port, const std::string &amp;user=&quot;&quot;, const std::string &amp;pass=&quot;&quot;) override</div><div class="ttdoc">Set MQTT server and credentials (std::string version).</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:86</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a1bae8b6bc6aab19abe10730812ef7a81"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a1bae8b6bc6aab19abe10730812ef7a81">AsyncMqttClientTransport::setWill</a></div><div class="ttdeci">void setWill(const char *topic, const char *payload, bool retained=true, uint8_t qos=1) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:266</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a249101bba2589ce7cb8b35b376a1bee7"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a249101bba2589ce7cb8b35b376a1bee7">AsyncMqttClientTransport::publish</a></div><div class="ttdeci">bool publish(const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:174</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a4c208edc74470c76aed60c21ba7664a4"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">AsyncMqttClientTransport::STALE_ATTEMPT_MS</a></div><div class="ttdeci">static constexpr uint32_t STALE_ATTEMPT_MS</div><div class="ttdoc">reconnectNow() drops a pending attempt only if it&#39;s older than this.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:53</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a5486a5280bcc9001f1cacc96cd859cee"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a5486a5280bcc9001f1cacc96cd859cee">AsyncMqttClientTransport::tick</a></div><div class="ttdeci">void tick() override</div><div class="ttdoc">Run automatic reconnect. Called from HaDiscovery::tick().</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:117</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a5fb8c67a28eedee3b7293a84041d70b2"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a5fb8c67a28eedee3b7293a84041d70b2">AsyncMqttClientTransport::setServer</a></div><div class="ttdeci">void setServer(const char *host, uint16_t port, const char *user=nullptr, const char *pass=nullptr) override</div><div class="ttdoc">Set MQTT server and credentials.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:73</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a845273c32d6a59736630f66d1e9e8094"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">AsyncMqttClientTransport::CONNECT_TIMEOUT_MS</a></div><div class="ttdeci">static constexpr uint32_t CONNECT_TIMEOUT_MS</div><div class="ttdoc">How long a connect attempt may take before tick() gives up on it.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:50</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a8a044f396762fcbadcc19e7d9311aaf1"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a8a044f396762fcbadcc19e7d9311aaf1">AsyncMqttClientTransport::connected</a></div><div class="ttdeci">bool connected() const override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:167</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_a9cfe58846ee3428131612c36a29e60c3"><div class="ttname"><a href="class_async_mqtt_client_transport.html#a9cfe58846ee3428131612c36a29e60c3">AsyncMqttClientTransport::setMaxMessageSize</a></div><div class="ttdeci">void setMaxMessageSize(size_t maxSize)</div><div class="ttdoc">Set the largest incoming message that is put together from parts.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:259</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_aa39ad33b3b713e88c5fc7a644b397ee9"><div class="ttname"><a href="class_async_mqtt_client_transport.html#aa39ad33b3b713e88c5fc7a644b397ee9">AsyncMqttClientTransport::connect</a></div><div class="ttdeci">bool connect(const char *clientId=nullptr) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:103</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_acc1587a8b4e24474900935a87d7eb170"><div class="ttname"><a href="class_async_mqtt_client_transport.html#acc1587a8b4e24474900935a87d7eb170">AsyncMqttClientTransport::setOnConnect</a></div><div class="ttdeci">void setOnConnect(void(*cb_)(void *), void *ctx_) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:277</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_adfdbf051cfa94d1aabdcdd2ab25e36e0"><div class="ttname"><a href="class_async_mqtt_client_transport.html#adfdbf051cfa94d1aabdcdd2ab25e36e0">AsyncMqttClientTransport::setOnMessage</a></div><div class="ttdeci">void setOnMessage(MessageCallback cb_, void *ctx_) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:222</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_ae9fe1f16870cb6bfabeb43d84a12a629"><div class="ttname"><a href="class_async_mqtt_client_transport.html#ae9fe1f16870cb6bfabeb43d84a12a629">AsyncMqttClientTransport::AsyncMqttClientTransport</a></div><div class="ttdeci">AsyncMqttClientTransport(AsyncMqttClient &amp;client)</div><div class="ttdoc">Construct an AsyncMqttClient transport adapter.</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:60</div></div>
+<div class="ttc" id="aclass_async_mqtt_client_transport_html_af799535f3c067fe07071925b441cb4b4"><div class="ttname"><a href="class_async_mqtt_client_transport.html#af799535f3c067fe07071925b441cb4b4">AsyncMqttClientTransport::subscribe</a></div><div class="ttdeci">bool subscribe(const char *topic, uint8_t qos=0) override</div><div class="ttdef"><b>Definition</b> AsyncMqttClientTransport.h:203</div></div>
+<div class="ttc" id="aclass_j_b_logger_html_aae1af82fe965eea3a9b69d9119874db3"><div class="ttname"><a href="class_j_b_logger.html#aae1af82fe965eea3a9b69d9119874db3">JBLogger::debug</a></div><div class="ttdeci">virtual void debug(const char *format,...)</div><div class="ttdoc">Log a debug message.</div><div class="ttdef"><b>Definition</b> JBLoggerDummy.h:27</div></div>
+<div class="ttc" id="aclass_message_assembler_html_a4496739dd4816fe2d3e9e6a8eacb8d52a853d33bc5e409941bed899b913647310"><div class="ttname"><a href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52a853d33bc5e409941bed899b913647310">MessageAssembler::Result::TooLarge</a></div><div class="ttdeci">@ TooLarge</div><div class="ttdoc">First part of a message larger than the limit; the rest is ignored.</div><div class="ttdef"><b>Definition</b> MessageAssembler.h:25</div></div>
+<div class="ttc" id="aclass_message_assembler_html_a4496739dd4816fe2d3e9e6a8eacb8d52aae94f80b3ce82062a5dd7815daa04f9d"><div class="ttname"><a href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52aae94f80b3ce82062a5dd7815daa04f9d">MessageAssembler::Result::Complete</a></div><div class="ttdeci">@ Complete</div><div class="ttdoc">A whole message is ready in topic() and payload(); call release() after use.</div><div class="ttdef"><b>Definition</b> MessageAssembler.h:23</div></div>
+<div class="ttc" id="aclass_message_assembler_html_a4496739dd4816fe2d3e9e6a8eacb8d52ac98dbc22f49f1b4a644307551924f8da"><div class="ttname"><a href="class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52ac98dbc22f49f1b4a644307551924f8da">MessageAssembler::Result::Broken</a></div><div class="ttdeci">@ Broken</div><div class="ttdoc">Part out of order or for another topic; the message was dropped.</div><div class="ttdef"><b>Definition</b> MessageAssembler.h:27</div></div>
 <div class="ttc" id="aclass_mqtt_transport_html"><div class="ttname"><a href="class_mqtt_transport.html">MqttTransport</a></div><div class="ttdoc">Abstract MQTT transport interface.</div><div class="ttdef"><b>Definition</b> MqttTransport.h:81</div></div>
 <div class="ttc" id="aclass_mqtt_transport_html_a054452362dec7ace8a2e0eabd86b5ddd"><div class="ttname"><a href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">MqttTransport::reconnect</a></div><div class="ttdeci">ReconnectBackoff reconnect</div><div class="ttdoc">Reconnect timing, used by tick() in the transports.</div><div class="ttdef"><b>Definition</b> MqttTransport.h:275</div></div>
 <div class="ttc" id="aclass_mqtt_transport_html_a1fb9b2f2bd19092d932111ea50491796"><div class="ttname"><a href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MqttTransport::MessageCallback</a></div><div class="ttdeci">void(*)(void *ctx, const char *topic, const uint8_t *payload, size_t len) MessageCallback</div><div class="ttdoc">Callback for incoming messages.</div><div class="ttdef"><b>Definition</b> MqttTransport.h:91</div></div>

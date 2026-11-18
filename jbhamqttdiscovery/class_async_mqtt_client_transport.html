@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -122,6 +122,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a249101bba2589ce7cb8b35b376a1bee7" id="r_a249101bba2589ce7cb8b35b376a1bee7"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#a249101bba2589ce7cb8b35b376a1bee7">publish</a> (const char *topic, const uint8_t *payload, size_t len, bool retained, uint8_t qos) override</td></tr>
 <tr class="memitem:af799535f3c067fe07071925b441cb4b4" id="r_af799535f3c067fe07071925b441cb4b4"><td class="memItemLeft">bool&#160;</td><td class="memItemRight"><a class="el" href="#af799535f3c067fe07071925b441cb4b4">subscribe</a> (const char *topic, uint8_t qos=0) override</td></tr>
 <tr class="memitem:adfdbf051cfa94d1aabdcdd2ab25e36e0" id="r_adfdbf051cfa94d1aabdcdd2ab25e36e0"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#adfdbf051cfa94d1aabdcdd2ab25e36e0">setOnMessage</a> (<a class="el" href="class_mqtt_transport.html#a1fb9b2f2bd19092d932111ea50491796">MessageCallback</a> cb_, void *ctx_) override</td></tr>
+<tr class="memitem:a9cfe58846ee3428131612c36a29e60c3" id="r_a9cfe58846ee3428131612c36a29e60c3"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a9cfe58846ee3428131612c36a29e60c3">setMaxMessageSize</a> (size_t maxSize)</td></tr>
+<tr class="memdesc:a9cfe58846ee3428131612c36a29e60c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the largest incoming message that is put together from parts.  <br /></td></tr>
 <tr class="memitem:a1bae8b6bc6aab19abe10730812ef7a81" id="r_a1bae8b6bc6aab19abe10730812ef7a81"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#a1bae8b6bc6aab19abe10730812ef7a81">setWill</a> (const char *topic, const char *payload, bool retained=true, uint8_t qos=1) override</td></tr>
 <tr class="memitem:acc1587a8b4e24474900935a87d7eb170" id="r_acc1587a8b4e24474900935a87d7eb170"><td class="memItemLeft">void&#160;</td><td class="memItemRight"><a class="el" href="#acc1587a8b4e24474900935a87d7eb170">setOnConnect</a> (void(*cb_)(void *), void *ctx_) override</td></tr>
 <tr class="inherit_header pub_methods_class_mqtt_transport"><td colspan="2" onclick="javascript:dynsection.toggleInherit('pub_methods_class_mqtt_transport')"><span class="dynarrow"><span class="arrowhead closed"></span></span>Public Member Functions inherited from <a class="el" href="class_mqtt_transport.html">MqttTransport</a></td></tr>
@@ -167,7 +169,7 @@ bool&#160;</td><td class="memItemRight"><b>takeReconnectRequest</b> ()</td></tr>
 </ul>
 <p>This transport provides the most reliable behavior for Home Assistant discovery and availability handling.</p>
 <p>AsyncMqttClient keeps pointers to the host, client id, credentials and will instead of copying them. This transport keeps its own copies, so callers don't need to keep those strings alive.</p>
-<p>Incoming messages split over several TCP packets are ignored. Discovery command payloads are short, so this doesn't happen in practice.</p>
+<p>AsyncMqttClient hands over longer incoming messages in parts. The transport puts them together up to <a class="el" href="#a9cfe58846ee3428131612c36a29e60c3" title="Set the largest incoming message that is put together from parts.">setMaxMessageSize()</a> bytes (4096 by default) and drops larger ones.</p>
 <p>After the first <a class="el" href="#aa39ad33b3b713e88c5fc7a644b397ee9">connect()</a>, <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> reconnects when the connection drops (see <a class="el" href="class_mqtt_transport.html#a18a2077e00a7902ec2669f822d1ff4b5" title="Turn automatic reconnect on or off, and set its delays.">setAutoReconnect()</a>). Turn this off if your firmware already reconnects with its own timer, as many AsyncMqttClient sketches do.</p>
 <p>AsyncMqttClient ignores a TCP connect that fails right away (e.g. while Wi-Fi is down): no callback fires and the client stays in its connecting state, ignoring further <a class="el" href="#aa39ad33b3b713e88c5fc7a644b397ee9">connect()</a> calls. <a class="el" href="#a5486a5280bcc9001f1cacc96cd859cee" title="Run automatic reconnect. Called from HaDiscovery::tick().">tick()</a> therefore gives up on an attempt after CONNECT_TIMEOUT_MS, resets the client and tries again later. </p>
 </div><a name="doc-constructors" id="doc-constructors"></a><h2 id="header-doc-constructors" class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -326,6 +328,40 @@ bool&#160;</td><td class="memItemRight"><b>takeReconnectRequest</b> ()</td></tr>
  </p>
 
 <p>Implements <a class="el" href="class_mqtt_transport.html#ac348de3b3e28bec87e93d3ae3ce6e1ce">MqttTransport</a>.</p>
+
+</div>
+</div>
+<a id="a9cfe58846ee3428131612c36a29e60c3" name="a9cfe58846ee3428131612c36a29e60c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9cfe58846ee3428131612c36a29e60c3">&#9670;&#160;</a></span>setMaxMessageSize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void AsyncMqttClientTransport::setMaxMessageSize </td>
+          <td>(</td>
+          <td class="paramtype">size_t</td>          <td class="paramname"><span class="paramname"><em>maxSize</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Set the largest incoming message that is put together from parts. </p>
+<p>AsyncMqttClient hands over longer messages in parts; larger ones are dropped.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">maxSize</td><td>Size in bytes (default 4096) </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

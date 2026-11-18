@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -131,6 +131,8 @@ Classes</h2></td></tr>
 Typedefs</h2></td></tr>
 <tr class="memitem:ga5b25f27c75b29222a5656d10c667504b" id="r_ga5b25f27c75b29222a5656d10c667504b"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ga5b25f27c75b29222a5656d10c667504b">HaCommandCallback</a> = std::function&lt;void(const char* object_id, const char* payload)&gt;</td></tr>
 <tr class="memdesc:ga5b25f27c75b29222a5656d10c667504b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for commands sent by Home Assistant (switch, button, number, select, text, light, cover).  <br /></td></tr>
+<tr class="memitem:ga7f72aceeda7a3f99d7027503eaa9f928" id="r_ga7f72aceeda7a3f99d7027503eaa9f928"><td class="memItemLeft">using&#160;</td><td class="memItemRight"><a class="el" href="#ga7f72aceeda7a3f99d7027503eaa9f928">HaMessageCallback</a> = std::function&lt;void(const char* topic, const char* payload)&gt;</td></tr>
+<tr class="memdesc:ga7f72aceeda7a3f99d7027503eaa9f928"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handler for incoming MQTT messages, with the topic they arrived on.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-enum-members" class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -154,6 +156,10 @@ Enumerations</h2></td></tr>
 , <a class="el" href="#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3">HaLightColorMode::Rgb</a>
  }</td></tr>
 <tr class="memdesc:ga8d27500770ea5af3edd2ab7d0fa4f533"><td class="mdescLeft">&#160;</td><td class="mdescRight">What a light supports.  <a href="#ga8d27500770ea5af3edd2ab7d0fa4f533">More...</a><br /></td></tr>
+<tr class="memitem:gafc8231f78c65464b623641c186f3d4fc" id="r_gafc8231f78c65464b623641c186f3d4fc"><td class="memItemLeft">enum class &#160;</td><td class="memItemRight"><a class="el" href="#gafc8231f78c65464b623641c186f3d4fc">HaLightSchema</a> : uint8_t { <a class="el" href="#ggafc8231f78c65464b623641c186f3d4fcaeed8d85b888a6c015834240885ee6333">HaLightSchema::Json</a>
+, <a class="el" href="#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67">HaLightSchema::Default</a>
+ }</td></tr>
+<tr class="memdesc:gafc8231f78c65464b623641c186f3d4fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">How a light talks MQTT.  <a href="#gafc8231f78c65464b623641c186f3d4fc">More...</a><br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Publish Home Assistant MQTT Discovery config payloads via an abstract MQTT transport. </p>
@@ -164,7 +170,8 @@ Enumerations</h2></td></tr>
 <li>Subscribes to switch and button command topics and passes commands to a handler</li>
 <li>Remembers the entities and last states, and sends them again on every connect and when Home Assistant comes back online (birth message on <span class="tt">&lt;discovery_prefix&gt;/status</span>)</li>
 <li>Provides default topic conventions with per-entity overrides</li>
-<li>Removes single entities or the whole device </li>
+<li>Removes single entities or the whole device</li>
+<li>Can take over entities from older single-component discovery topics </li>
 </ul>
 </div><a name="doc-typedef-members" id="doc-typedef-members"></a><h2 id="header-doc-typedef-members" class="groupheader">Typedef Documentation</h2>
 <a id="ga5b25f27c75b29222a5656d10c667504b" name="ga5b25f27c75b29222a5656d10c667504b"></a>
@@ -184,6 +191,29 @@ Enumerations</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">object_id</td><td>The entity's object_id </td></tr>
     <tr><td class="paramname">payload</td><td>The command payload, null-terminated (e.g. "ON", "OFF", "PRESS") </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ga7f72aceeda7a3f99d7027503eaa9f928" name="ga7f72aceeda7a3f99d7027503eaa9f928"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga7f72aceeda7a3f99d7027503eaa9f928">&#9670;&#160;</a></span>HaMessageCallback</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="#ga7f72aceeda7a3f99d7027503eaa9f928">HaMessageCallback</a> = std::function&lt;void(const char* topic, const char* payload)&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Handler for incoming MQTT messages, with the topic they arrived on. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">topic</td><td>The topic </td></tr>
+    <tr><td class="paramname">payload</td><td>The payload, null-terminated </td></tr>
   </table>
   </dd>
 </dl>
@@ -252,6 +282,36 @@ Enumerations</h2></td></tr>
 <tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f" name="gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f"></a>ColorTemp&#160;</td><td class="fielddoc"><p>Brightness and color temperature (in kelvin). </p>
 </td></tr>
 <tr><td class="fieldname"><a id="gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3" name="gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3"></a>Rgb&#160;</td><td class="fielddoc"><p>Brightness and RGB color. </p>
+</td></tr>
+</table>
+
+</div>
+</div>
+<a id="gafc8231f78c65464b623641c186f3d4fc" name="gafc8231f78c65464b623641c186f3d4fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gafc8231f78c65464b623641c186f3d4fc">&#9670;&#160;</a></span>HaLightSchema</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#gafc8231f78c65464b623641c186f3d4fc">HaLightSchema</a> : uint8_t</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>How a light talks MQTT. </p>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ggafc8231f78c65464b623641c186f3d4fcaeed8d85b888a6c015834240885ee6333" name="ggafc8231f78c65464b623641c186f3d4fcaeed8d85b888a6c015834240885ee6333"></a>Json&#160;</td><td class="fielddoc"><p>One command and one state topic with JSON payloads (default). </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67" name="ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67"></a>Default&#160;</td><td class="fielddoc"><p>Home Assistant's "default" schema: separate topics for state, brightness, color and color temperature. </p>
 </td></tr>
 </table>
 

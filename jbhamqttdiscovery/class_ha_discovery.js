@@ -1,9 +1,11 @@
 var class_ha_discovery =
 [
     [ "HaDiscovery", "class_ha_discovery.html#a8925e15b89ac7b203c10c2d4684c9026", null ],
+    [ "migrateEntityDiscovery", "class_ha_discovery.html#a8dd75e95967c44f035f756ebb7ce2daa", null ],
     [ "onCommand", "class_ha_discovery.html#aa9a1e0ef31ec6debb78023b72b17d414", null ],
+    [ "onMessage", "class_ha_discovery.html#ac71780ff2822d12ca69d681c88897d0b", null ],
     [ "publishAvailabilityOffline", "class_ha_discovery.html#a65651d2d9bf340a9102abb4f68a3bf89", null ],
-    [ "publishAvailabilityOnline", "class_ha_discovery.html#a468522b9e70234a48d7d5c610273987b", null ],
+    [ "publishAvailabilityOnline", "class_ha_discovery.html#ad4305eb5feef5d530a698b770a868ec3", null ],
     [ "publishBinarySensorDiscovery", "class_ha_discovery.html#af7aad3450b15aaaa7b364a51979eeaf9", null ],
     [ "publishButtonDiscovery", "class_ha_discovery.html#aa01c2f74b347cf140e47019b4d364544", null ],
     [ "publishCoverDiscovery", "class_ha_discovery.html#ae3f4b371cd9457d73616a8ee03bbc407", null ],
@@ -20,6 +22,8 @@ var class_ha_discovery =
     [ "publishStatePosition", "class_ha_discovery.html#adc934d5ae5450ca7fcf25e92e258b615", null ],
     [ "publishStateSwitch", "class_ha_discovery.html#ac873ceadd104279e6afb2874550124ad", null ],
     [ "publishStateSwitch", "class_ha_discovery.html#a5847966b07948a9e4b9491a24d53a0d5", null ],
+    [ "publishStateTopic", "class_ha_discovery.html#a193df68bf46d4f0ee08cf1796beb5761", null ],
+    [ "publishStateTopic", "class_ha_discovery.html#ab229b108f0189a30ea7afdd37066ce49", null ],
     [ "publishSwitchDiscovery", "class_ha_discovery.html#a0f16238e77dab03d2e1bd5af1453ef99", null ],
     [ "publishTextDiscovery", "class_ha_discovery.html#a09d003c4c8affba551d688e66c47d207", null ],
     [ "removeDevice", "class_ha_discovery.html#aab6d384733be033f63e2a99892da0722", null ],
@@ -28,9 +32,13 @@ var class_ha_discovery =
     [ "removeEntity", "class_ha_discovery.html#a6c68e16cfd5e7d3545ceb63559a87e91", null ],
     [ "removeEntity", "class_ha_discovery.html#a6518cc5d69386d28ddc6d539652130ab", null ],
     [ "republishAll", "class_ha_discovery.html#a306b5c5caa7edc32ed799490950b96d1", null ],
+    [ "setAvailabilityTopic", "class_ha_discovery.html#a26411c0714997fd891ca3fe9288dabcb", null ],
+    [ "setAvailabilityTopic", "class_ha_discovery.html#af2af7e7f6b48a9925f65867dfa2f6417", null ],
     [ "setDevice", "class_ha_discovery.html#aaef9ba1e9f8e90165aa8269b68183077", null ],
     [ "setLogLevel", "class_ha_discovery.html#a4613640966a1eefb154485dfa9a3bf05", null ],
     [ "setOrigin", "class_ha_discovery.html#a024d96453e0c4aa56c42d84ada44b4fd", null ],
     [ "setRepublishDelay", "class_ha_discovery.html#a7a849c25589edd10bc2cafee103f69a3", null ],
+    [ "subscribe", "class_ha_discovery.html#ab8e98d2a382fdcb6ff920ee33843d3c6", null ],
+    [ "subscribe", "class_ha_discovery.html#ac9c1189b239d9227ab4384865e415eea", null ],
     [ "tick", "class_ha_discovery.html#aa80e3bed2024a918e1f2a05417cd6fe7", null ]
 ];

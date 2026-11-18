@@ -42,23 +42,30 @@ var NAVTREE =
     [ "How discovery is published", "index.html#autotoc_md13", null ],
     [ "Availability and Last Will", "index.html#autotoc_md14", null ],
     [ "Reconnects and Home Assistant restarts", "index.html#autotoc_md15", null ],
-    [ "Commands from Home Assistant", "index.html#autotoc_md16", null ],
-    [ "Device info", "index.html#autotoc_md17", null ],
-    [ "Entity names and IDs", "index.html#autotoc_md18", null ],
-    [ "Entity category and expiry", "index.html#autotoc_md19", null ],
-    [ "Origin", "index.html#autotoc_md20", null ],
-    [ "Entity usage", "index.html#autotoc_md21", [
-      [ "Sensor", "index.html#autotoc_md22", null ],
-      [ "Switch", "index.html#autotoc_md23", null ],
-      [ "Binary sensor", "index.html#autotoc_md24", null ],
-      [ "Button", "index.html#autotoc_md25", null ],
-      [ "Number", "index.html#autotoc_md26", null ],
-      [ "Select", "index.html#autotoc_md27", null ],
-      [ "Text", "index.html#autotoc_md28", null ],
-      [ "Light", "index.html#autotoc_md29", null ],
-      [ "Cover", "index.html#autotoc_md30", null ]
+    [ "Commands from Home Assistant", "index.html#autotoc_md16", [
+      [ "Raw messages and your own topics", "index.html#autotoc_md17", null ]
     ] ],
-    [ "Removing entities", "index.html#autotoc_md31", null ],
+    [ "Device info", "index.html#autotoc_md18", null ],
+    [ "Entity names and IDs", "index.html#autotoc_md19", [
+      [ "Shared state topics and unique IDs", "index.html#autotoc_md20", null ]
+    ] ],
+    [ "Entity category and expiry", "index.html#autotoc_md21", null ],
+    [ "Origin", "index.html#autotoc_md22", null ],
+    [ "Entity usage", "index.html#autotoc_md23", [
+      [ "Sensor", "index.html#autotoc_md24", null ],
+      [ "Switch", "index.html#autotoc_md25", null ],
+      [ "Binary sensor", "index.html#autotoc_md26", null ],
+      [ "Button", "index.html#autotoc_md27", null ],
+      [ "Number", "index.html#autotoc_md28", null ],
+      [ "Select", "index.html#autotoc_md29", null ],
+      [ "Text", "index.html#autotoc_md30", null ],
+      [ "Light", "index.html#autotoc_md31", null ],
+      [ "Cover", "index.html#autotoc_md32", null ]
+    ] ],
+    [ "Removing entities", "index.html#autotoc_md33", null ],
+    [ "Other availability topic", "index.html#autotoc_md34", null ],
+    [ "Moving from single-component discovery", "index.html#autotoc_md35", null ],
+    [ "Using a client your firmware already connects", "index.html#autotoc_md36", null ],
     [ "Topics", "topics.html", "topics" ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -68,7 +75,8 @@ var NAVTREE =
         [ "All", "functions.html", null ],
         [ "Functions", "functions_func.html", null ],
         [ "Variables", "functions_vars.html", null ],
-        [ "Typedefs", "functions_type.html", null ]
+        [ "Typedefs", "functions_type.html", null ],
+        [ "Enumerations", "functions_enum.html", null ]
       ] ]
     ] ],
     [ "Files", "files.html", [
@@ -79,7 +87,8 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_async_mqtt_client_transport_8h_source.html"
+"_async_mqtt_client_transport_8h_source.html",
+"struct_ha_light_config.html#af29fd3bc7c5764cc27122434a0cf231b"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

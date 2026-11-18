@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['none_0',['None',['../group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754',1,'HaDiscovery.h']]]
+  ['ignored_0',['Ignored',['../class_message_assembler.html#a4496739dd4816fe2d3e9e6a8eacb8d52ad96143ba1b15645919cea00ec9d1be62',1,'MessageAssembler']]]
 ];

@@ -17,7 +17,9 @@ var group__hadiscovery =
       [ "name", "struct_ha_entity_common.html#a0a92ac4c8e277a2eb29cf55b9f5c074b", null ],
       [ "object_id", "struct_ha_entity_common.html#ac6a8357d59a5ae52ba528a7e451081c9", null ],
       [ "state_topic_override", "struct_ha_entity_common.html#a8d712b172a452a94e3d414072fcd8cf9", null ],
-      [ "use_device_name", "struct_ha_entity_common.html#ad3b595487ccbaf0f3e070a069664a8ca", null ]
+      [ "unique_id", "struct_ha_entity_common.html#a99a184996e1654b0cd4948dc5a20146d", null ],
+      [ "use_device_name", "struct_ha_entity_common.html#ad3b595487ccbaf0f3e070a069664a8ca", null ],
+      [ "value_template", "struct_ha_entity_common.html#a6b26da6d20b31c01bd62a4a7587c6edb", null ]
     ] ],
     [ "HaSensorConfig", "struct_ha_sensor_config.html", [
       [ "device_class", "struct_ha_sensor_config.html#afa2ae7b78edc6936b4a7fb0f34a87f2a", null ],
@@ -61,11 +63,18 @@ var group__hadiscovery =
       [ "pattern", "struct_ha_text_config.html#a1fcd699843bf26fe2f383d6a09b9e1a2", null ]
     ] ],
     [ "HaLightConfig", "struct_ha_light_config.html", [
+      [ "brightness_command_topic_override", "struct_ha_light_config.html#afb81a9d2b1a88f218aaaee5c85838bb7", null ],
       [ "brightness_scale", "struct_ha_light_config.html#ae947e8ffaf61859c4d39a8b5ff92c137", null ],
+      [ "brightness_state_topic_override", "struct_ha_light_config.html#aa15a8a3c801bfe0c2ae0c7fe63f3c70d", null ],
       [ "color_mode", "struct_ha_light_config.html#a50767b6dfe07676318ca708cbb5d143a", null ],
+      [ "color_temp_command_topic_override", "struct_ha_light_config.html#af29fd3bc7c5764cc27122434a0cf231b", null ],
+      [ "color_temp_state_topic_override", "struct_ha_light_config.html#a84263ed93a0683ea6412121a96791065", null ],
       [ "command_topic_override", "struct_ha_light_config.html#a0776e060442600bc78977435b2fdca5e", null ],
       [ "max_kelvin", "struct_ha_light_config.html#a213d2e003bacf9e64612789432c4b625", null ],
-      [ "min_kelvin", "struct_ha_light_config.html#a581fa1f9004f281f8ad855d7e94319a1", null ]
+      [ "min_kelvin", "struct_ha_light_config.html#a581fa1f9004f281f8ad855d7e94319a1", null ],
+      [ "rgb_command_topic_override", "struct_ha_light_config.html#a731aea6003f63b828e6b34a394c2d753", null ],
+      [ "rgb_state_topic_override", "struct_ha_light_config.html#a3b6913c0fb445c422cf24bfa45815782", null ],
+      [ "schema", "struct_ha_light_config.html#afef4125d12bdf6d8e860a60f848f809e", null ]
     ] ],
     [ "HaLightCommand", "struct_ha_light_command.html", [
       [ "brightness", "struct_ha_light_command.html#a5c03fbe44070fb77bbba1ba8b4f620c6", null ],
@@ -92,9 +101,11 @@ var group__hadiscovery =
     ] ],
     [ "HaDiscovery", "class_ha_discovery.html", [
       [ "HaDiscovery", "class_ha_discovery.html#a8925e15b89ac7b203c10c2d4684c9026", null ],
+      [ "migrateEntityDiscovery", "class_ha_discovery.html#a8dd75e95967c44f035f756ebb7ce2daa", null ],
       [ "onCommand", "class_ha_discovery.html#aa9a1e0ef31ec6debb78023b72b17d414", null ],
+      [ "onMessage", "class_ha_discovery.html#ac71780ff2822d12ca69d681c88897d0b", null ],
       [ "publishAvailabilityOffline", "class_ha_discovery.html#a65651d2d9bf340a9102abb4f68a3bf89", null ],
-      [ "publishAvailabilityOnline", "class_ha_discovery.html#a468522b9e70234a48d7d5c610273987b", null ],
+      [ "publishAvailabilityOnline", "class_ha_discovery.html#ad4305eb5feef5d530a698b770a868ec3", null ],
       [ "publishBinarySensorDiscovery", "class_ha_discovery.html#af7aad3450b15aaaa7b364a51979eeaf9", null ],
       [ "publishButtonDiscovery", "class_ha_discovery.html#aa01c2f74b347cf140e47019b4d364544", null ],
       [ "publishCoverDiscovery", "class_ha_discovery.html#ae3f4b371cd9457d73616a8ee03bbc407", null ],
@@ -111,6 +122,8 @@ var group__hadiscovery =
       [ "publishStatePosition", "class_ha_discovery.html#adc934d5ae5450ca7fcf25e92e258b615", null ],
       [ "publishStateSwitch", "class_ha_discovery.html#ac873ceadd104279e6afb2874550124ad", null ],
       [ "publishStateSwitch", "class_ha_discovery.html#a5847966b07948a9e4b9491a24d53a0d5", null ],
+      [ "publishStateTopic", "class_ha_discovery.html#a193df68bf46d4f0ee08cf1796beb5761", null ],
+      [ "publishStateTopic", "class_ha_discovery.html#ab229b108f0189a30ea7afdd37066ce49", null ],
       [ "publishSwitchDiscovery", "class_ha_discovery.html#a0f16238e77dab03d2e1bd5af1453ef99", null ],
       [ "publishTextDiscovery", "class_ha_discovery.html#a09d003c4c8affba551d688e66c47d207", null ],
       [ "removeDevice", "class_ha_discovery.html#aab6d384733be033f63e2a99892da0722", null ],
@@ -119,13 +132,18 @@ var group__hadiscovery =
       [ "removeEntity", "class_ha_discovery.html#a6c68e16cfd5e7d3545ceb63559a87e91", null ],
       [ "removeEntity", "class_ha_discovery.html#a6518cc5d69386d28ddc6d539652130ab", null ],
       [ "republishAll", "class_ha_discovery.html#a306b5c5caa7edc32ed799490950b96d1", null ],
+      [ "setAvailabilityTopic", "class_ha_discovery.html#a26411c0714997fd891ca3fe9288dabcb", null ],
+      [ "setAvailabilityTopic", "class_ha_discovery.html#af2af7e7f6b48a9925f65867dfa2f6417", null ],
       [ "setDevice", "class_ha_discovery.html#aaef9ba1e9f8e90165aa8269b68183077", null ],
       [ "setLogLevel", "class_ha_discovery.html#a4613640966a1eefb154485dfa9a3bf05", null ],
       [ "setOrigin", "class_ha_discovery.html#a024d96453e0c4aa56c42d84ada44b4fd", null ],
       [ "setRepublishDelay", "class_ha_discovery.html#a7a849c25589edd10bc2cafee103f69a3", null ],
+      [ "subscribe", "class_ha_discovery.html#ab8e98d2a382fdcb6ff920ee33843d3c6", null ],
+      [ "subscribe", "class_ha_discovery.html#ac9c1189b239d9227ab4384865e415eea", null ],
       [ "tick", "class_ha_discovery.html#aa80e3bed2024a918e1f2a05417cd6fe7", null ]
     ] ],
     [ "HaCommandCallback", "group__hadiscovery.html#ga5b25f27c75b29222a5656d10c667504b", null ],
+    [ "HaMessageCallback", "group__hadiscovery.html#ga7f72aceeda7a3f99d7027503eaa9f928", null ],
     [ "HaEntityCategory", "group__hadiscovery.html#gae0eea601fbd393c74f36e6647748e4cb", [
       [ "HaEntityCategory::None", "group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cba6adf97f83acf6453d4a6a4b1070f3754", null ],
       [ "HaEntityCategory::Config", "group__hadiscovery.html#ggae0eea601fbd393c74f36e6647748e4cbafa535ffb25e1fd20341652f9be21e06e", null ],
@@ -136,6 +154,10 @@ var group__hadiscovery =
       [ "HaLightColorMode::Brightness", "group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533ab25323f99788ce64617f018b8a9f5f70", null ],
       [ "HaLightColorMode::ColorTemp", "group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533a8893cfc5b382d7738a63bce809dc122f", null ],
       [ "HaLightColorMode::Rgb", "group__hadiscovery.html#gga8d27500770ea5af3edd2ab7d0fa4f533aabe0e112dd5f40f1de00eccbf99798a3", null ]
+    ] ],
+    [ "HaLightSchema", "group__hadiscovery.html#gafc8231f78c65464b623641c186f3d4fc", [
+      [ "HaLightSchema::Json", "group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fcaeed8d85b888a6c015834240885ee6333", null ],
+      [ "HaLightSchema::Default", "group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67", null ]
     ] ],
     [ "HaNumberMode", "group__hadiscovery.html#gad73b5e86dca79ec1e59ed6b5dbdeafe3", [
       [ "HaNumberMode::Auto", "group__hadiscovery.html#ggad73b5e86dca79ec1e59ed6b5dbdeafe3a06b9281e396db002010bde1de57262eb", null ],

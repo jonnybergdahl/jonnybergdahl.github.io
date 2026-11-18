@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -117,10 +117,38 @@ uint16_t&#160;</td><td class="memItemRight"><b>min_kelvin</b> = 2000</td></tr>
 <tr class="memitem:a213d2e003bacf9e64612789432c4b625" id="r_a213d2e003bacf9e64612789432c4b625"><td class="memItemLeft"><a id="a213d2e003bacf9e64612789432c4b625" name="a213d2e003bacf9e64612789432c4b625"></a>
 uint16_t&#160;</td><td class="memItemRight"><b>max_kelvin</b> = 6500</td></tr>
 <tr class="memdesc:a213d2e003bacf9e64612789432c4b625"><td class="mdescLeft">&#160;</td><td class="mdescRight">Coldest color temperature in kelvin, for ColorTemp (default 6500). <br /></td></tr>
+<tr class="memitem:afef4125d12bdf6d8e860a60f848f809e" id="r_afef4125d12bdf6d8e860a60f848f809e"><td class="memItemLeft"><a id="afef4125d12bdf6d8e860a60f848f809e" name="afef4125d12bdf6d8e860a60f848f809e"></a>
+<a class="el" href="group__hadiscovery.html#gafc8231f78c65464b623641c186f3d4fc">HaLightSchema</a>&#160;</td><td class="memItemRight"><b>schema</b> = <a class="el" href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fcaeed8d85b888a6c015834240885ee6333">HaLightSchema::Json</a></td></tr>
+<tr class="memdesc:afef4125d12bdf6d8e860a60f848f809e"><td class="mdescLeft">&#160;</td><td class="mdescRight">JSON (default) or Home Assistant's default schema with separate topics. <br /></td></tr>
+<tr class="memitem:aa15a8a3c801bfe0c2ae0c7fe63f3c70d" id="r_aa15a8a3c801bfe0c2ae0c7fe63f3c70d"><td class="memItemLeft"><a id="aa15a8a3c801bfe0c2ae0c7fe63f3c70d" name="aa15a8a3c801bfe0c2ae0c7fe63f3c70d"></a>
+const char *&#160;</td><td class="memItemRight"><b>brightness_state_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:aa15a8a3c801bfe0c2ae0c7fe63f3c70d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the brightness state topic. <br /></td></tr>
+<tr class="memitem:afb81a9d2b1a88f218aaaee5c85838bb7" id="r_afb81a9d2b1a88f218aaaee5c85838bb7"><td class="memItemLeft"><a id="afb81a9d2b1a88f218aaaee5c85838bb7" name="afb81a9d2b1a88f218aaaee5c85838bb7"></a>
+const char *&#160;</td><td class="memItemRight"><b>brightness_command_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:afb81a9d2b1a88f218aaaee5c85838bb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the brightness command topic. <br /></td></tr>
+<tr class="memitem:a3b6913c0fb445c422cf24bfa45815782" id="r_a3b6913c0fb445c422cf24bfa45815782"><td class="memItemLeft"><a id="a3b6913c0fb445c422cf24bfa45815782" name="a3b6913c0fb445c422cf24bfa45815782"></a>
+const char *&#160;</td><td class="memItemRight"><b>rgb_state_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:a3b6913c0fb445c422cf24bfa45815782"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the RGB state topic. <br /></td></tr>
+<tr class="memitem:a731aea6003f63b828e6b34a394c2d753" id="r_a731aea6003f63b828e6b34a394c2d753"><td class="memItemLeft"><a id="a731aea6003f63b828e6b34a394c2d753" name="a731aea6003f63b828e6b34a394c2d753"></a>
+const char *&#160;</td><td class="memItemRight"><b>rgb_command_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:a731aea6003f63b828e6b34a394c2d753"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the RGB command topic. <br /></td></tr>
+<tr class="memitem:a84263ed93a0683ea6412121a96791065" id="r_a84263ed93a0683ea6412121a96791065"><td class="memItemLeft"><a id="a84263ed93a0683ea6412121a96791065" name="a84263ed93a0683ea6412121a96791065"></a>
+const char *&#160;</td><td class="memItemRight"><b>color_temp_state_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:a84263ed93a0683ea6412121a96791065"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the color temperature state topic. <br /></td></tr>
+<tr class="memitem:af29fd3bc7c5764cc27122434a0cf231b" id="r_af29fd3bc7c5764cc27122434a0cf231b"><td class="memItemLeft"><a id="af29fd3bc7c5764cc27122434a0cf231b" name="af29fd3bc7c5764cc27122434a0cf231b"></a>
+const char *&#160;</td><td class="memItemRight"><b>color_temp_command_topic_override</b> = nullptr</td></tr>
+<tr class="memdesc:af29fd3bc7c5764cc27122434a0cf231b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default schema: optional override for the color temperature command topic. <br /></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Configuration for a Home Assistant MQTT Discovery light. </p>
-<p>Uses Home Assistant's JSON schema: commands arrive in the onCommand() handler as JSON, e.g. <span class="tt">{"state":"ON","brightness":128}</span>. Decode them with <a class="el" href="class_ha_discovery.html#a384b61ae1ef8578f86a1590e0900e663" title="Decode a light command from the onCommand() handler.">HaDiscovery::parseLightCommand()</a> and report the state with <a class="el" href="class_ha_discovery.html#ab9bccaae99d6bf07132be28050af5c4d" title="Publish a light state as JSON, e.g. {&quot;state&quot;:&quot;ON&quot;,&quot;brightness&quot;:128,&quot;color_mode&quot;:&quot;brightness&quot;}...">HaDiscovery::publishStateLight()</a>. </p>
+<p>With the JSON schema (the default), commands arrive in the onCommand() handler as JSON, e.g. <span class="tt">{"state":"ON","brightness":128}</span>. Decode them with <a class="el" href="class_ha_discovery.html#a384b61ae1ef8578f86a1590e0900e663" title="Decode a light command from the onCommand() handler.">HaDiscovery::parseLightCommand()</a> and report the state with <a class="el" href="class_ha_discovery.html#ab9bccaae99d6bf07132be28050af5c4d" title="Publish a light state as JSON, e.g. {&quot;state&quot;:&quot;ON&quot;,&quot;brightness&quot;:128,&quot;color_mode&quot;:&quot;brightness&quot;}...">HaDiscovery::publishStateLight()</a>.</p>
+<p>With <a class="el" href="group__hadiscovery.html#ggafc8231f78c65464b623641c186f3d4fca7a1920d61156abc05a60135aefe8bc67" title="Home Assistant&#39;s &quot;default&quot; schema: separate topics for state, brightness, color and color temperature...">HaLightSchema::Default</a>, the light has separate topics:</p><ul>
+<li>on/off: <span class="tt">&lt;base&gt;/&lt;node_id&gt;/&lt;object_id&gt;/state</span> and <span class="tt">.../set</span> ("ON"/"OFF")</li>
+<li>brightness: <span class="tt">.../brightness</span> and <span class="tt">.../brightness/set</span> (a number, 0..brightness_scale)</li>
+<li>RGB color: <span class="tt">.../rgb</span> and <span class="tt">.../rgb/set</span> ("r,g,b", e.g. "255,0,127")</li>
+<li>color temperature: <span class="tt">.../color_temp</span> and <span class="tt">.../color_temp/set</span> (kelvin)</li>
+</ul>
+<p>Only the topics the color_mode needs are used. The library turns commands on any of them into the same JSON as the JSON schema before passing them to onCommand(), so parseLightCommand() and publishStateLight() work the same for both schemas. </p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>src/<a class="el" href="_ha_discovery_8h_source.html">HaDiscovery.h</a></li>
 </ul>

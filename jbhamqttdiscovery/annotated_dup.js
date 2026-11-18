@@ -17,6 +17,7 @@ var annotated_dup =
     [ "HaSwitchConfig", "struct_ha_switch_config.html", "struct_ha_switch_config" ],
     [ "HaTextConfig", "struct_ha_text_config.html", "struct_ha_text_config" ],
     [ "JBLogger", "class_j_b_logger.html", "class_j_b_logger" ],
+    [ "MessageAssembler", "class_message_assembler.html", "class_message_assembler" ],
     [ "MqttTransport", "class_mqtt_transport.html", "class_mqtt_transport" ],
     [ "PubSubClientTransport", "class_pub_sub_client_transport.html", "class_pub_sub_client_transport" ],
     [ "ReconnectBackoff", "struct_reconnect_backoff.html", "struct_reconnect_backoff" ]

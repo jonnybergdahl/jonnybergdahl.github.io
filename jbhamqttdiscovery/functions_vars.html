@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.0.0</span>
+   <div id="projectname">JBHaMqttDiscovery<span id="projectnumber">&#160;1.1.0</span>
    </div>
    <div id="projectbrief">Home Assistant MQTT device discovery for ESP8266 and ESP32</div>
   </td>
@@ -98,13 +98,17 @@ $(function(){initNavTree('functions_vars.html','',''); });
 
 <h3 class="doxsection"><a id="index_b" name="index_b"></a>- b -</h3><ul>
 <li>brightness&#160;:&#160;<a class="el" href="struct_ha_light_command.html#a5c03fbe44070fb77bbba1ba8b4f620c6">HaLightCommand</a>, <a class="el" href="struct_ha_light_state.html#a2df366e0aa2533ddb30e54645334286e">HaLightState</a></li>
+<li>brightness_command_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#afb81a9d2b1a88f218aaaee5c85838bb7">HaLightConfig</a></li>
 <li>brightness_scale&#160;:&#160;<a class="el" href="struct_ha_light_config.html#ae947e8ffaf61859c4d39a8b5ff92c137">HaLightConfig</a></li>
+<li>brightness_state_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#aa15a8a3c801bfe0c2ae0c7fe63f3c70d">HaLightConfig</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_c" name="index_c"></a>- c -</h3><ul>
 <li>color_mode&#160;:&#160;<a class="el" href="struct_ha_light_config.html#a50767b6dfe07676318ca708cbb5d143a">HaLightConfig</a></li>
+<li>color_temp_command_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#af29fd3bc7c5764cc27122434a0cf231b">HaLightConfig</a></li>
 <li>color_temp_kelvin&#160;:&#160;<a class="el" href="struct_ha_light_state.html#a5326e1ccf81c1ca3d776c0e9b8fb7262">HaLightState</a></li>
+<li>color_temp_state_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#a84263ed93a0683ea6412121a96791065">HaLightConfig</a></li>
 <li>command_topic_override&#160;:&#160;<a class="el" href="struct_ha_button_config.html#a12f3eb27d68dfa9090b10f3eeaa29b08">HaButtonConfig</a>, <a class="el" href="struct_ha_cover_config.html#af647ec3bd42545f5823b39f08549bb86">HaCoverConfig</a>, <a class="el" href="struct_ha_light_config.html#a0776e060442600bc78977435b2fdca5e">HaLightConfig</a>, <a class="el" href="struct_ha_number_config.html#a2a8f4e64c70a062f31ded9337c24cc9c">HaNumberConfig</a>, <a class="el" href="struct_ha_select_config.html#a051576aeeb575b0bf0a667499825b528">HaSelectConfig</a>, <a class="el" href="struct_ha_switch_config.html#a0c58386dd1c66f30c5bd7ba228861417">HaSwitchConfig</a>, <a class="el" href="struct_ha_text_config.html#a3fabfc79fa9e3ae8ce60e81d62803e4c">HaTextConfig</a></li>
 <li>configuration_url&#160;:&#160;<a class="el" href="struct_ha_device_info.html#a6eb72c5eb97d269718a2a665a53ccc17">HaDeviceInfo</a></li>
 <li>CONNECT_TIMEOUT_MS&#160;:&#160;<a class="el" href="class_async_mqtt_client_transport.html#a845273c32d6a59736630f66d1e9e8094">AsyncMqttClientTransport</a>, <a class="el" href="class_esp_mqtt_client_transport.html#af773f30b441ca68adea5c6e05923bbc7">EspMqttClientTransport&lt; Client &gt;</a></li>
@@ -114,6 +118,7 @@ $(function(){initNavTree('functions_vars.html','',''); });
 
 <h3 class="doxsection"><a id="index_d" name="index_d"></a>- d -</h3><ul>
 <li>DEFAULT_BUFFER_SIZE&#160;:&#160;<a class="el" href="class_pub_sub_client_transport.html#a1ef9b214dc6da9dd851a158944f4558d">PubSubClientTransport</a></li>
+<li>DEFAULT_MAX_SIZE&#160;:&#160;<a class="el" href="class_message_assembler.html#a999df0484a6f3a50c51f0e01b95caa27">MessageAssembler</a></li>
 <li>device_class&#160;:&#160;<a class="el" href="struct_ha_binary_sensor_config.html#aaa4cdfccda53eea2a1fc7606967fbf3b">HaBinarySensorConfig</a>, <a class="el" href="struct_ha_cover_config.html#a2bc387d990c457e957d3edc66e3f8b4c">HaCoverConfig</a>, <a class="el" href="struct_ha_number_config.html#abedb34a617a901127f68e3ecd90b3985">HaNumberConfig</a>, <a class="el" href="struct_ha_sensor_config.html#afa2ae7b78edc6936b4a7fb0f34a87f2a">HaSensorConfig</a></li>
 </ul>
 
@@ -180,16 +185,21 @@ $(function(){initNavTree('functions_vars.html','',''); });
 <li>payload_open&#160;:&#160;<a class="el" href="struct_ha_cover_config.html#a12545a89d97bf6e07ee82e0d63091ab5">HaCoverConfig</a></li>
 <li>payload_press&#160;:&#160;<a class="el" href="struct_ha_button_config.html#a24a1b51ac69169606cb0300d8b851b5a">HaButtonConfig</a></li>
 <li>payload_stop&#160;:&#160;<a class="el" href="struct_ha_cover_config.html#aaef380844961c4750b080c20900605af">HaCoverConfig</a></li>
+<li>PUBLISH_RETRY_MAX_MS&#160;:&#160;<a class="el" href="class_ha_discovery.html#a84358df9010bebc70c4724d738c34137">HaDiscovery</a></li>
+<li>PUBLISH_RETRY_MIN_MS&#160;:&#160;<a class="el" href="class_ha_discovery.html#a8994dd815f894210a88d1a83d9d19f0b">HaDiscovery</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_r" name="index_r"></a>- r -</h3><ul>
 <li>r&#160;:&#160;<a class="el" href="struct_ha_light_state.html#a8ede418aed47090a88babfb1624aef5a">HaLightState</a></li>
 <li>reconnect&#160;:&#160;<a class="el" href="class_mqtt_transport.html#a054452362dec7ace8a2e0eabd86b5ddd">MqttTransport</a></li>
+<li>rgb_command_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#a731aea6003f63b828e6b34a394c2d753">HaLightConfig</a></li>
+<li>rgb_state_topic_override&#160;:&#160;<a class="el" href="struct_ha_light_config.html#a3b6913c0fb445c422cf24bfa45815782">HaLightConfig</a></li>
 </ul>
 
 
 <h3 class="doxsection"><a id="index_s" name="index_s"></a>- s -</h3><ul>
+<li>schema&#160;:&#160;<a class="el" href="struct_ha_light_config.html#afef4125d12bdf6d8e860a60f848f809e">HaLightConfig</a></li>
 <li>STALE_ATTEMPT_MS&#160;:&#160;<a class="el" href="class_async_mqtt_client_transport.html#a4c208edc74470c76aed60c21ba7664a4">AsyncMqttClientTransport</a>, <a class="el" href="class_esp_mqtt_client_transport.html#ada2076e7c2fb983d7c16e62168ecc147">EspMqttClientTransport&lt; Client &gt;</a></li>
 <li>state_class&#160;:&#160;<a class="el" href="struct_ha_sensor_config.html#ae94aad7ec3975a1aedb2226f900b3207">HaSensorConfig</a></li>
 <li>state_topic_override&#160;:&#160;<a class="el" href="struct_ha_entity_common.html#a8d712b172a452a94e3d414072fcd8cf9">HaEntityCommon</a></li>
@@ -204,8 +214,14 @@ $(function(){initNavTree('functions_vars.html','',''); });
 
 
 <h3 class="doxsection"><a id="index_u" name="index_u"></a>- u -</h3><ul>
+<li>unique_id&#160;:&#160;<a class="el" href="struct_ha_entity_common.html#a99a184996e1654b0cd4948dc5a20146d">HaEntityCommon</a></li>
 <li>unit_of_measurement&#160;:&#160;<a class="el" href="struct_ha_number_config.html#a390e9636737c23fc76a875b200ad3d8b">HaNumberConfig</a>, <a class="el" href="struct_ha_sensor_config.html#ad4cbdbf171a73c65a21c1223b9227576">HaSensorConfig</a></li>
 <li>use_device_name&#160;:&#160;<a class="el" href="struct_ha_entity_common.html#ad3b595487ccbaf0f3e070a069664a8ca">HaEntityCommon</a></li>
+</ul>
+
+
+<h3 class="doxsection"><a id="index_v" name="index_v"></a>- v -</h3><ul>
+<li>value_template&#160;:&#160;<a class="el" href="struct_ha_entity_common.html#a6b26da6d20b31c01bd62a4a7587c6edb">HaEntityCommon</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
