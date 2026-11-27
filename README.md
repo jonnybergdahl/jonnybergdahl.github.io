@@ -5,6 +5,7 @@
  - [growcube-client documentation](growcube-client/)
  - [husdata-h66-modbus documentation](husdata-h66-modbus/)
  - [improv-client documentation](improv-client/)
+ - [krogoco-calendar documentation](krogoco-calendar/)
  - [newsbinpro-client documentation](newsbinpro_client/)
  - [yt-live-scraper documentation](yt-live-scraper/)
 
