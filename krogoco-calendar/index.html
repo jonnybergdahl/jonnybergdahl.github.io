@@ -1,0 +1,249 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>krogoco-calendar documentation &mdash; krogoco-calendar 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API reference" href="api.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            krogoco-calendar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">krogoco-calendar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">krogoco-calendar documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="krogoco-calendar-documentation">
+<h1>krogoco-calendar documentation<a class="headerlink" href="#krogoco-calendar-documentation" title="Link to this heading"></a></h1>
+<dl class="field-list simple">
+<dt class="field-odd">Author<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Jonny Bergdahl</p>
+</dd>
+<dt class="field-even">Version<span class="colon">:</span></dt>
+<dd class="field-even"><p>1.0.0</p>
+</dd>
+</dl>
+</section>
+<section id="krogoco-calendar">
+<h1>krogoco-calendar<a class="headerlink" href="#krogoco-calendar" title="Link to this heading"></a></h1>
+<p><a class="reference external" href="https://badge.fury.io/py/krogoco-calendar"><img alt="PyPI version" src="https://badge.fury.io/py/krogoco-calendar.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/krogoco-calendar/"><img alt="PyPI pyversions" src="https://img.shields.io/pypi/pyversions/krogoco-calendar.svg" /></a> <a class="reference external" href="https://pypi.python.org/pypi/krogoco-calendar/"><img alt="PyPI license" src="https://img.shields.io/pypi/l/krogoco-calendar.svg" /></a></p>
+<p>A Python library that scrapes <a class="reference external" href="https://krogoco.se/">Krog&amp;Co</a> calendar
+pages and converts them to iCalendar (ICS) files.</p>
+<p>Full documentation: <a class="reference external" href="https://jonnybergdahl.github.io/krogoco-calendar/">https://jonnybergdahl.github.io/krogoco-calendar/</a></p>
+<section id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip<span class="w"> </span>install<span class="w"> </span>krogoco-calendar
+</pre></div>
+</div>
+<p>Python 3.10 or newer is required.</p>
+<p>For development, clone the repository and install locally:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/jonnybergdahl/Python-krogoco-calendar.git
+<span class="nb">cd</span><span class="w"> </span>Python-krogoco-calendar
+pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
+</pre></div>
+</div>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">krogoco_calendar</span><span class="w"> </span><span class="kn">import</span> <span class="n">KrogocoIcs</span>
+
+<span class="n">scraper</span> <span class="o">=</span> <span class="n">KrogocoIcs</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://krogoco.se/jonkoping/kalender/&quot;</span><span class="p">,</span>
+    <span class="n">months</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Get ICS as a string</span>
+<span class="n">ics_data</span> <span class="o">=</span> <span class="n">scraper</span><span class="o">.</span><span class="n">get_ics</span><span class="p">()</span>
+
+<span class="c1"># Or write directly to a file</span>
+<span class="n">scraper</span><span class="o">.</span><span class="n">write_ics</span><span class="p">(</span><span class="s2">&quot;krogoco.ics&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<section id="blacklist">
+<h3>Blacklist<a class="headerlink" href="#blacklist" title="Link to this heading"></a></h3>
+<p>You can filter out events by providing a blacklist of keywords. Events
+whose title contains any of the keywords (case-insensitive) will be
+excluded:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">scraper</span> <span class="o">=</span> <span class="n">KrogocoIcs</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://krogoco.se/jonkoping/kalender/&quot;</span><span class="p">,</span>
+    <span class="n">months</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">blacklist</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HV71&quot;</span><span class="p">,</span> <span class="s2">&quot;SHL&quot;</span><span class="p">,</span> <span class="s2">&quot;match&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="supported-locations">
+<h3>Supported locations<a class="headerlink" href="#supported-locations" title="Link to this heading"></a></h3>
+<p>The library works with any Krog &amp; Co location that uses the same
+calendar page structure:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">https://krogoco.se/jonkoping/kalender/</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">https://krogoco.se/halmstad/kalender/</span></code></p></li>
+</ul>
+</section>
+</section>
+<section id="time-format-handling">
+<h2>Time format handling<a class="headerlink" href="#time-format-handling" title="Link to this heading"></a></h2>
+<p>Event times are extracted automatically from Swedish title formats:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Format</p></th>
+<th class="head"><p>Example</p></th>
+<th class="head"><p>Parsed as</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Full range</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">12.00-16.00</span></code></p></td>
+<td><p>12:00 - 16:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>Short range</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Kl.12-17</span></code></p></td>
+<td><p>12:00 - 17:00</p></td>
+</tr>
+<tr class="row-even"><td><p>Bare hour range</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Sliver</span> <span class="pre">nattklubb</span> <span class="pre">22-03</span></code></p></td>
+<td><p>22:00 - 03:00 (next
+day)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Single time</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Kl.17.00</span></code> or
+<code class="docutils literal notranslate"><span class="pre">Från</span> <span class="pre">21:00</span></code></p></td>
+<td><p>17:00 / 21:00</p></td>
+</tr>
+<tr class="row-even"><td><p>Time with hint</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Kl.22.00,</span> <span class="pre">23+</span></code></p></td>
+<td><p>22:00 - 23:00</p></td>
+</tr>
+<tr class="row-odd"><td><p>No time</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">Studentfest</span></code></p></td>
+<td><p>All-day event</p></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="running-tests">
+<h2>Running tests<a class="headerlink" href="#running-tests" title="Link to this heading"></a></h2>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pytest
+</pre></div>
+</div>
+</section>
+<section id="publishing">
+<h2>Publishing<a class="headerlink" href="#publishing" title="Link to this heading"></a></h2>
+<p><code class="docutils literal notranslate"><span class="pre">build.sh</span></code> runs the tests, builds the docs and pushes them to
+<a class="reference external" href="https://jonnybergdahl.github.io/krogoco-calendar/">jonnybergdahl.github.io</a>,
+then builds the package and uploads it to PyPI. Bump <code class="docutils literal notranslate"><span class="pre">__version__</span></code> in
+<code class="docutils literal notranslate"><span class="pre">src/krogoco_calendar/__init__.py</span></code> first.</p>
+</section>
+<section id="license">
+<h2>License<a class="headerlink" href="#license" title="Link to this heading"></a></h2>
+<p>MIT</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#krogoco_calendar.KrogocoIcs"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#krogoco_calendar.CalendarEvent"><code class="docutils literal notranslate"><span class="pre">CalendarEvent</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Link to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="api.html" class="btn btn-neutral float-right" title="API reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,228 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>API reference &mdash; krogoco-calendar 1.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=8d563738"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="krogoco-calendar documentation" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            krogoco-calendar
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">API reference</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">API reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#krogoco_calendar.KrogocoIcs"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#krogoco_calendar.KrogocoIcs.BASE_URL"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs.BASE_URL</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#krogoco_calendar.KrogocoIcs.scrape_events"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs.scrape_events()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#krogoco_calendar.KrogocoIcs.get_ics"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs.get_ics()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#krogoco_calendar.KrogocoIcs.write_ics"><code class="docutils literal notranslate"><span class="pre">KrogocoIcs.write_ics()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#krogoco_calendar.CalendarEvent"><code class="docutils literal notranslate"><span class="pre">CalendarEvent</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">krogoco-calendar</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">API reference</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/api.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="api-reference">
+<h1>API reference<a class="headerlink" href="#api-reference" title="Link to this heading"></a></h1>
+<p><a class="reference internal" href="#krogoco_calendar.KrogocoIcs" title="krogoco_calendar.KrogocoIcs"><code class="xref py py-class docutils literal notranslate"><span class="pre">KrogocoIcs</span></code></a> fetches a calendar page and builds the
+ICS data. Each scraped entry is a <a class="reference internal" href="#krogoco_calendar.CalendarEvent" title="krogoco_calendar.CalendarEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">CalendarEvent</span></code></a>,
+which you get from <a class="reference internal" href="#krogoco_calendar.KrogocoIcs.scrape_events" title="krogoco_calendar.KrogocoIcs.scrape_events"><code class="xref py py-meth docutils literal notranslate"><span class="pre">scrape_events()</span></code></a> if you
+want the events without the ICS step.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="krogoco_calendar.KrogocoIcs">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">krogoco_calendar.</span></span><span class="sig-name descname"><span class="pre">KrogocoIcs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">months</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">blacklist</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/krogoco_calendar/krogoco_ics.html#KrogocoIcs"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#krogoco_calendar.KrogocoIcs" title="Link to this definition"></a></dt>
+<dd><p>Screen scrapes Krog &amp; Co’s calendar page and produces ICS output.</p>
+<p>The scraper walks the <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code> elements on the calendar page, which
+follow this structure:</p>
+<ul class="simple">
+<li><p>Month headers (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;februari&quot;</span></code>)</p></li>
+<li><p>Date lines (e.g. <code class="docutils literal notranslate"><span class="pre">&quot;torsdag</span> <span class="pre">05/02&quot;</span></code>)</p></li>
+<li><p>Event links (<code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;...&quot;&gt;Event</span> <span class="pre">Title&lt;/a&gt;</span></code>)</p></li>
+</ul>
+<p>Year rollover is detected automatically when the month number
+decreases (e.g. December → January).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The URL to the Krog &amp; Co calendar page.</p></li>
+<li><p><strong>months</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#int" title="(in Python v3.15)"><em>int</em></a>) – Number of months into the future to include.</p></li>
+<li><p><strong>blacklist</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)"><em>list</em></a><em>[</em><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em>] </em><em>| </em><em>None</em>) – Optional list of strings. Events whose title
+contains any of these strings (case-insensitive) will be
+excluded.</p></li>
+</ul>
+</dd>
+</dl>
+<p>Example usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scraper</span> <span class="o">=</span> <span class="n">KrogocoIcs</span><span class="p">(</span>
+    <span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://krogoco.se/jonkoping/kalender/&quot;</span><span class="p">,</span>
+    <span class="n">months</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+    <span class="n">blacklist</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;HV71&quot;</span><span class="p">,</span> <span class="s2">&quot;SHL&quot;</span><span class="p">],</span>
+<span class="p">)</span>
+<span class="n">scraper</span><span class="o">.</span><span class="n">write_ics</span><span class="p">(</span><span class="s2">&quot;calendar.ics&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="krogoco_calendar.KrogocoIcs.BASE_URL">
+<span class="sig-name descname"><span class="pre">BASE_URL</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'https://krogoco.se'</span></span><a class="headerlink" href="#krogoco_calendar.KrogocoIcs.BASE_URL" title="Link to this definition"></a></dt>
+<dd><p>Base URL used to resolve relative event links.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="krogoco_calendar.KrogocoIcs.scrape_events">
+<span class="sig-name descname"><span class="pre">scrape_events</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/krogoco_calendar/krogoco_ics.html#KrogocoIcs.scrape_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#krogoco_calendar.KrogocoIcs.scrape_events" title="Link to this definition"></a></dt>
+<dd><p>Scrape the calendar page and return a list of events.</p>
+<p>Parses the <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code> element structure of the calendar page,
+extracting dates and event links. Events in the past and events
+beyond the configured <code class="xref py py-attr docutils literal notranslate"><span class="pre">months</span></code> horizon are excluded.
+Events matching the <code class="xref py py-attr docutils literal notranslate"><span class="pre">blacklist</span></code> are also skipped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A list of <a class="reference internal" href="#krogoco_calendar.CalendarEvent" title="krogoco_calendar.CalendarEvent"><code class="xref py py-class docutils literal notranslate"><span class="pre">CalendarEvent</span></code></a> instances in
+chronological order.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#list" title="(in Python v3.15)">list</a>[<a class="reference internal" href="#krogoco_calendar.CalendarEvent" title="krogoco_calendar.krogoco_ics.CalendarEvent"><em>CalendarEvent</em></a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="krogoco_calendar.KrogocoIcs.get_ics">
+<span class="sig-name descname"><span class="pre">get_ics</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/krogoco_calendar/krogoco_ics.html#KrogocoIcs.get_ics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#krogoco_calendar.KrogocoIcs.get_ics" title="Link to this definition"></a></dt>
+<dd><p>Scrape the calendar and return it as an ICS string.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The full calendar in iCalendar (RFC 5545) format.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="krogoco_calendar.KrogocoIcs.write_ics">
+<span class="sig-name descname"><span class="pre">write_ics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/krogoco_calendar/krogoco_ics.html#KrogocoIcs.write_ics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#krogoco_calendar.KrogocoIcs.write_ics" title="Link to this definition"></a></dt>
+<dd><p>Scrape the calendar and write the ICS data to a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.15)"><em>Path</em></a>) – Destination file path. Parent directories must exist.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="krogoco_calendar.CalendarEvent">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">krogoco_calendar.</span></span><span class="sig-name descname"><span class="pre">CalendarEvent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">date</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">title</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">all_day</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/krogoco_calendar/krogoco_ics.html#CalendarEvent"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#krogoco_calendar.CalendarEvent" title="Link to this definition"></a></dt>
+<dd><p>A single scraped calendar event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>date</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.date" title="(in Python v3.15)"><em>date</em></a>) – The date of the event.</p></li>
+<li><p><strong>title</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The display title of the event.</p></li>
+<li><p><strong>url</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a>) – The full URL to the event detail page.</p></li>
+<li><p><strong>all_day</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/functions.html#bool" title="(in Python v3.15)"><em>bool</em></a>) – <code class="docutils literal notranslate"><span class="pre">True</span></code> if the event has no specific start/end time.</p></li>
+<li><p><strong>start_time</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – Start time as <code class="docutils literal notranslate"><span class="pre">&quot;HH:MM&quot;</span></code> string, or <code class="docutils literal notranslate"><span class="pre">None</span></code> for
+all-day events.</p></li>
+<li><p><strong>end_time</strong> (<a class="reference external" href="https://docs.python.org/3/builtins/stdtypes.html#str" title="(in Python v3.15)"><em>str</em></a><em> | </em><em>None</em>) – End time as <code class="docutils literal notranslate"><span class="pre">&quot;HH:MM&quot;</span></code> string, or <code class="docutils literal notranslate"><span class="pre">None</span></code> if unknown.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="krogoco-calendar documentation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2026, Jonny Bergdahl.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

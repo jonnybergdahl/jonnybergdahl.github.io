@@ -1,0 +1,13 @@
+API reference
+=============
+
+:class:`~krogoco_calendar.KrogocoIcs` fetches a calendar page and builds the
+ICS data. Each scraped entry is a :class:`~krogoco_calendar.CalendarEvent`,
+which you get from :meth:`~krogoco_calendar.KrogocoIcs.scrape_events` if you
+want the events without the ICS step.
+
+.. autoclass:: krogoco_calendar.KrogocoIcs
+   :members: scrape_events, get_ics, write_ics, BASE_URL
+
+.. autoclass:: krogoco_calendar.CalendarEvent
+   :members:
